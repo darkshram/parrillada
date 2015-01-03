@@ -36,7 +36,6 @@ Others:
 - can save/load projects
 - can burn CD/DVD images and cue files
 - song, image and video previewer
-- device detection thanks to HAL
 - file change notification (requires kernel > 2.6.13)
 - supports Drag and Drop / Cut'n'Paste from nautilus (and others apps)
 - can use files on a network as long as the protocol is handled by gnome-vfs
@@ -70,7 +69,6 @@ Requirements:
 - gtk+ >= 2.12.0
 - mate 1.6.x
 - gstreamer (>=0.10.0)
-- Hal (>= 0.50)
 - DBus (>=1.x)
 - libxml2
 - cdrtools or cdrkit
