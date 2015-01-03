@@ -1,0 +1,138 @@
+<!-- ##### SECTION Title ##### -->
+ParrilladaSessionCfg
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT ParrilladaSessionCfg ##### -->
+<para>
+
+</para>
+
+@parent_instance: 
+
+<!-- ##### ENUM ParrilladaSessionError ##### -->
+<para>
+
+</para>
+
+@PARRILLADA_SESSION_VALID: 
+@PARRILLADA_SESSION_NO_CD_TEXT: 
+@PARRILLADA_SESSION_NOT_READY: 
+@PARRILLADA_SESSION_EMPTY: 
+@PARRILLADA_SESSION_NO_INPUT_IMAGE: 
+@PARRILLADA_SESSION_UNKNOWN_IMAGE: 
+@PARRILLADA_SESSION_NO_INPUT_MEDIUM: 
+@PARRILLADA_SESSION_NO_OUTPUT: 
+@PARRILLADA_SESSION_INSUFFICIENT_SPACE: 
+@PARRILLADA_SESSION_OVERBURN_NECESSARY: 
+@PARRILLADA_SESSION_NOT_SUPPORTED: 
+@PARRILLADA_SESSION_DISC_PROTECTED: 
+
+<!-- ##### MACRO PARRILLADA_SESSION_IS_VALID ##### -->
+<para>
+
+</para>
+
+@result_MACRO: 
+
+
+<!-- ##### FUNCTION parrillada_session_cfg_new ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION parrillada_session_cfg_get_error ##### -->
+<para>
+
+</para>
+
+@cfg: 
+@Returns: 
+
+
+<!-- ##### FUNCTION parrillada_session_cfg_add_flags ##### -->
+<para>
+
+</para>
+
+@cfg: 
+@flags: 
+
+
+<!-- ##### FUNCTION parrillada_session_cfg_remove_flags ##### -->
+<para>
+
+</para>
+
+@cfg: 
+@flags: 
+
+
+<!-- ##### FUNCTION parrillada_session_cfg_is_supported ##### -->
+<para>
+
+</para>
+
+@cfg: 
+@flag: 
+@Returns: 
+
+
+<!-- ##### FUNCTION parrillada_session_cfg_is_compulsory ##### -->
+<para>
+
+</para>
+
+@cfg: 
+@flag: 
+@Returns: 
+
+
+<!-- ##### FUNCTION parrillada_session_cfg_has_default_output_path ##### -->
+<para>
+
+</para>
+
+@cfg: 
+@Returns: 
+
+
+<!-- ##### FUNCTION parrillada_session_cfg_enable ##### -->
+<para>
+
+</para>
+
+@cfg: 
+
+
+<!-- ##### FUNCTION parrillada_session_cfg_disable ##### -->
+<para>
+
+</para>
+
+@cfg: 
+
+

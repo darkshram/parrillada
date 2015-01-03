@@ -1,0 +1,1053 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY appversion "2.26">
+<!ENTITY manrevision "2.2">
+<!ENTITY date "January 2009">
+<!ENTITY app "<application>Brasero</application>">
+<!ENTITY appname "Brasero">
+<!ENTITY svcd "http://en.wikipedia.org/wiki/SVCD">
+<!ENTITY vcd "http://en.wikipedia.org/wiki/Video_CD">
+]>
+<!-- 
+      (Do not remove this comment block.)
+  Maintained by the GNOME Documentation Project
+  http://developer.gnome.org/projects/gdp
+  Template version: 2.0 beta
+  Template last modified Apr 11, 2002
+-->
+<?db.chunk.max_depth 2?>
+<article id="index" lang="ca">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+  <articleinfo> 
+    <title>Manual del <application>Brasero</application> v2.2</title>       
+	<abstract role="description">
+	      <para>El Brasero és una aplicació per a enregistrar CD i DVD.</para>
+	    </abstract>
+
+    <copyright> 
+      <year>2008</year>
+      <year>2009</year>
+      <holder>Projecte de documentació de l'Ubuntu</holder> 
+    </copyright><copyright><year>2009</year><holder>Joan Duran (jodufi@gmail.com)</holder></copyright> 
+<!-- translators: uncomment this:
+
+  <copyright>
+   <year>2008</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+   -->
+<!-- An address can be added to the publisher information.  If a role is 
+     not specified, the publisher/author is the same for all versions of the 
+     document.  -->
+    <publisher> 
+      <publishername>Projecte de documentació de l'Ubuntu</publishername> 
+    </publisher> 
+
+     <legalnotice id="legalnotice">
+	<para>Teniu permís per a copiar, distribuir i/o modificar aquest document, sota els termes de la Llicència de documentació lliure GNU (GFDL), versió 1.1 o qualsevol versió publicada posteriorment per la Free Software Foundation, sense seccions invariants, sense texts de portada i sense texts de contraportada. Podeu trobar una còpia de la GFDL en aquest <ulink type="help" url="ghelp:fdl">enllaç</ulink> o en el fitxer COPYING-DOCS distribuït amb aquest manual.</para>
+         <para>Aquest manual forma part d'una col·lecció de manuals del GNOME distribuïts sota la GFDL. Si voleu distribuir aquest manual independentment de la col·lecció, podeu fer-ho afegint una còpia de la llicència al manual, tal com es descriu a la secció 6 de la llicència.</para>
+
+	<para>Molts dels noms que les empreses utilitzen per a distingir els seus productes i serveis es consideren marques comercials. Quan aquests noms apareguin en qualsevol documentació del GNOME, si els membres del Projecte de documentació del GNOME han estat avisats pel que fa a les marques, els noms apareixeran en majúscules o amb les inicials en majúscules.</para>
+
+	<para>EL DOCUMENT I LES VERSIONS MODIFICADES DEL DOCUMENT S'OFEREIXEN SOTA ELS TERMES DE LA LLICÈNCIA DE DOCUMENTACIÓ LLIURE DE GNU, TENINT EN COMPTE QUE: <orderedlist>
+		<listitem>
+		  <para>EL DOCUMENT S'OFEREIX «TAL COM ÉS», SENSE CAP TIPUS DE GARANTIA, NI EXPLÍCITA NI IMPLÍCITA; AIXÒ INCLOU, SENSE LIMITAR-S'HI, LES GARANTIES QUE EL DOCUMENT O LA VERSIÓ MODIFICADA DEL DOCUMENT NO TINGUI DEFECTES, SIGUI COMERCIALITZABLE, SIGUI ADEQUAT PER A UN ÚS CONCRET O NO INFRINGEIXI CAP LLEI. TOT EL RISC PEL QUE FA A LA QUALITAT, EXACTITUD I RENDIMENT DEL DOCUMENT O LA VERSIÓ MODIFICADA DEL DOCUMENT ÉS VOSTRE. EN CAS QUE EL DOCUMENT RESULTÉS DEFECTUÓS EN QUALSEVOL ASPECTE, VÓS (NO PAS L'ESCRIPTOR INICIAL, L'AUTOR O CAP ALTRE COL·LABORADOR) ASSUMIU TOT EL COST DE MANTENIMENT, REPARACIÓ O CORRECCIÓ. AQUESTA RENÚNCIA DE GARANTIA CONSTITUEIX UNA PART ESSENCIAL D'AQUESTA LLICÈNCIA. NO S'AUTORITZA L'ÚS DE CAP DOCUMENT O VERSIÓ MODIFICADA DEL DOCUMENT EXCEPTE SOTA AQUESTA RENÚNCIA DE GARANTIA; I</para>
+		</listitem>
+		<listitem>
+		  <para>EN CAP CAS I SOTA CAP INTERPRETACIÓ LEGAL, JA SIGUI PER AGREUJAMENT (INCLOENT-HI LA NEGLIGÈNCIA), CONTRACTE O ALTRE CAS, L'AUTOR, L'ESCRIPTOR ORIGINAL, QUALSEVOL DELS COL·LABORADORS O DISTRIBUÏDORS DEL DOCUMENT O UNA VERSIÓ MODIFICADA DEL DOCUMENT NI CAP PROVEÏDOR D'AQUESTES PARTS NO SERAN RESPONSABLES DAVANT DE NINGÚ PER CAP DANY DIRECTE, INDIRECTE, ESPECIAL, ACCIDENTAL O CONSECUTIU DE QUALSEVOL TIPUS; AIXÒ INCLOU, SENSE LIMITAR-S'HI, ELS DANYS PER PÈRDUA DE CLIENTS, INTERRUPCIONS DE LA FEINA, FALLADA O MALFUNCIONAMENT DE L'ORDINADOR, O QUALSEVOL ALTRA PÈRDUA O DANY RELACIONAT AMB L'ÚS DEL DOCUMENT I LES VERSIONS MODIFICADES DEL DOCUMENT, FINS I TOT SI S'HA INFORMAT AQUESTA PART DE LA POSSIBILITAT D'AQUESTS DANYS.</para>
+		</listitem>
+	  </orderedlist></para>
+  </legalnotice>
+
+
+   <!-- This file  contains link to license for the documentation, and 
+        other legal stuff such as "NO WARRANTY" statement. Please do not change 
+	any of this. -->
+
+    <authorgroup> 
+      <author role="maintainer"> 
+		<firstname>Milo</firstname> 
+		<surname>Casagrande</surname> 
+		<affiliation> 
+	  		<orgname>Projecte de documentació de l'Ubuntu</orgname> 
+	  		<address> <email>milo@ubuntu.com</email> </address> 
+		</affiliation> 
+      </author> 
+      <author> 
+		<firstname>Andrew</firstname> 
+		<surname>Stabeno</surname> 
+		<affiliation> 
+	  		<orgname>Projecte de documentació de l'Ubuntu</orgname> 
+	  		<address> <email>stabeno@gmail.com</email> </address> 
+		</affiliation> 
+      </author> 
+      <author> 
+		<firstname>Phil</firstname> 
+		<surname>Bull</surname> 
+		<affiliation> 
+	  		<orgname>Projecte de documentació de l'Ubuntu</orgname> 
+	  		<address> <email>philbull@gmail.com</email> </address> 
+		</affiliation> 
+      </author> 
+      
+<!-- This is appropriate place for other contributors: translators,
+     maintainers,  etc. Commented out by default.
+     
+      <othercredit role="translator">
+		<firstname>Latin</firstname> 
+		<surname>Translator 1</surname> 
+		<affiliation> 
+	  		<orgname>Latin Translation Team</orgname> 
+	  		<address> <email>translator@gnome.org</email> </address> 
+		</affiliation>
+		<contrib>Latin translation</contrib>
+      </othercredit>
+-->
+    </authorgroup>
+
+    <revhistory>
+      <revision> 
+	<revnumber>Manual del Brasero (versió 2.2)</revnumber> 
+	<date>Gener de 2009</date> 
+	<revdescription> 
+	  <para role="author">Milo Casagrande <email>milo@ubuntu.com</email></para>
+	  <para role="publisher">Projecte de documentació de l'Ubuntu</para>
+	</revdescription> 
+      </revision>
+      <revision> 
+	<revnumber>Manual del Brasero (versió 2.1)</revnumber> 
+	<date>Agost de 2008</date> 
+	<revdescription> 
+	  <para role="author">Milo Casagrande <email>milo@ubuntu.com</email></para>
+	  <para role="publisher">Projecte de documentació de l'Ubuntu</para>
+	</revdescription> 
+      </revision>
+      <revision> 
+	<revnumber>Manual del Brasero (versió 2.0)</revnumber> 
+	<date>Febrer de 2008</date> 
+	<revdescription> 
+	  <para role="author">Milo Casagrande <email>milo@ubuntu.com</email></para>
+	  <para role="author">Andrew Stabeno <email>stabeno@gmail.com</email></para>
+	  <para role="author">Phil Bull <email>philbull@gmail.com</email></para>
+	  <para role="publisher">Projecte de documentació de l'Ubuntu</para>
+	</revdescription> 
+      </revision> 
+    </revhistory> 
+
+    <releaseinfo>Aquest manual descriu la versió 2.26 del Brasero.</releaseinfo> 
+    <legalnotice> 
+      <title>Comentaris</title> 
+      <para>Per a informar d'un error o fer algun suggeriment sobre l'aplicació <application>Brasero</application> o aquest manual, seguiu les indicacions a la <ulink url="ghelp:gnome-feedback" type="help">pàgina de comentaris del GNOME</ulink>.</para>
+<!-- Translators may also add here feedback address for translations -->
+    </legalnotice> 
+  </articleinfo> 
+
+  <indexterm zone="index"> 
+    <primary>Brasero</primary> 
+  </indexterm> 
+  <indexterm zone="index"> 
+    <primary>brasero</primary> 
+    <secondary>enregistra</secondary>
+    <tertiary>enregistrament CD DVD</tertiary>
+  </indexterm>
+
+<!-- ============= Document Body ============================= -->
+
+<!-- ============= Introduction ============================== -->
+  <sect1 id="brasero-introduction" status="review"> 
+    <title>Introducció</title>
+    <para>El <application>Brasero</application> és una aplicació per a enregistrar CD-R/W i DVD-R/W, dissenyat per a ser fàcil d'utilitzar i al mateix temps proporcionar totes les eines necessàries per a l'enregistrament.</para>
+    <para>Amb el <application>Brasero</application> podeu:</para>
+    <itemizedlist>
+      <listitem>
+	<para>Enregistrar dades a CD-R/W i DVD-R/W</para>
+      </listitem>
+      <listitem>
+	<para>Enregistrar CD d'àudio des de fitxers d'àudio digitals (com ara ogg, flac i mp3)</para>
+      </listitem>
+      <listitem>
+	<para>Copiar CD i DVD</para>
+      </listitem>
+      <listitem>
+	<para>Crear DVD de vídeo o SVCD</para>
+      </listitem>
+      <listitem>
+	<para>Crear fitxers imatge i enregistrar-ne d'existents</para>
+      </listitem>
+      <listitem>
+	<para>Esborrar CD-R/W i DVD-R/W</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Check the integrity of discs and disc images
+	</para>
+      </listitem>
+    </itemizedlist>
+  </sect1>
+  
+ <!-- ============= Getting Started ========================= -->
+  <sect1 id="brasero-gettingstarted" status="review"> 
+    <title>Primers passos</title>
+    <sect2 id="brasero-starting">
+      <title>Com iniciar el Brasero</title>
+    <para>Podeu iniciar el <application>Brasero</application> de les maneres següents:</para>
+      <para>
+	<variablelist>
+	  <varlistentry>
+	    <term>Menú <guimenu>Aplicacions</guimenu></term>
+	    <listitem>
+	      <para>Trieu <menuchoice><guisubmenu>So i vídeo</guisubmenu><guimenuitem>Enregistrador de discs Brasero</guimenuitem></menuchoice>.</para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>Línia d'ordres</term>
+	    <listitem>
+	      <para>Escriviu <command>brasero</command> i premeu <keycap>Retorn</keycap>.</para>
+	    </listitem>
+	  </varlistentry>
+	</variablelist>
+      </para>
+      <para>
+	<note>
+	  <para>Si el <application>Brasero</application> és la vostra aplicació predeterminada per a enregistrar discs, s'iniciarà automàticament quan inseriu un CD-R/W o DVD-R/W verge a la unitat.</para>
+	</note>
+      </para>
+    </sect2>
+
+    <sect2 id="brasero-start-window">
+      <title>Quan inicieu el Brasero</title>
+    <para>Quan inicieu el <application>Brasero</application> es mostrarà la finestra següent.</para>
+    
+    <!-- ==== Figure ==== -->
+    <figure id="brasero-FIG-main"> 
+      <title>Finestra principal del Brasero</title> 
+      <screenshot> 
+	<mediaobject> 
+	  <imageobject>
+	    <imagedata fileref="figures/parrillada_main.png" format="PNG"/> 
+	  </imageobject>
+	  <textobject> 
+	    <phrase>La finestra principal del Brasero. Mostra la barra de menú i els cinc tipus de projecte que podeu triar.</phrase> 
+	  </textobject> 
+	</mediaobject> 
+      </screenshot> 
+    </figure>
+    <!-- ==== End of Figure ==== -->
+
+    <para>
+	This window is the starting point for all of your projects.
+	You can click on the project type you wish to start from here.
+	If you have created other projects with <application>Brasero</application>, you will be
+	able to select them from the <guilabel>Recent
+	projects</guilabel> (see <xref linkend="brasero-open-recent-project"/> for more
+	information).
+      </para>
+    </sect2>
+  </sect1>
+
+  <!-- ============= New Project ========================= -->
+  <sect1 id="brasero-new-project" status="review">
+    <title>Creació d'un projecte nou</title>
+    <para>La secció següent explica els cinc tipus de projecte que podeu crear amb el <application>Brasero</application>.</para>
+    
+    <!-- ==== subsection: Audio project ===== -->
+    <sect2 id="brasero-new-project-audio">
+      <title>Projecte d'àudio</title>
+      <para>Aquesta secció explica com crear un CD d'àudio. Aquest projecte agafa els fitxers d'àudio seleccionats, els converteix a un format de so cru i els enregistra a un CD que els reproductors de CD estàndards poden reproduir.</para>
+      <para>Per a enregistrar un CD d'àudio feu el següent: <orderedlist>
+	  <listitem>
+	    <para>Inseriu un CD-R verge a la unitat.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Feu clic a <guibutton>Projecte d'àudio</guibutton> a la finestra principal o trieu <menuchoice><guimenu>Projecte</guimenu><guisubmenu>Projecte nou</guisubmenu><guimenuitem>Projecte d'àudio nou</guimenuitem></menuchoice>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>A la subfinestra a l'esquerra de la finestra, seleccioneu <guilabel>Explora el sistema de fitxers</guilabel> des de la llista desplegable a la part superior i navegueu pels fitxers de música que vulgueu afegir al projecte.</para>
+	    <para>També podeu seleccionar l'opció <guilabel>Cerca fitxers utilitzant paraules clau</guilabel> per a cercar els fitxers de música o l'opció <guilabel>Mostra les llistes de reproducció i els seus continguts</guilabel> per a seleccionar música des de les llistes de reproducció de l'ordinador.</para>
+	    <para>
+	      <tip>
+		<para>Si no veieu la subfinestra a l'esquerra, trieu <menuchoice><guimenu>Visualitza</guimenu><guimenuitem>Mostra el quadre lateral</guimenuitem></menuchoice> o premeu la tecla <keycap>F7</keycap>.</para>
+	      </tip>
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>Seleccioneu els fitxers que vulgueu fent-hi doble clic o seleccionant-los i fent clic al botó <guibutton>Afegeix</guibutton> a la part superior esquerra de la barra d'eines.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Ara també és possible <link linkend="brasero-audio-pause">inserir una pausa</link> després de cada pista o <link linkend="brasero-audio-split">partir</link> les pistes.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Quan s'hagin afegit tots els fitxers, feu clic a <guibutton>Enregistra</guibutton>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Al quadre de text, introduïu el títol que vulgueu donar al disc. Aquest títol es mostrarà com a nom del disc.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Es mostrarà el diàleg <guilabel>Configuració de l'enregistrament del disc</guilabel>; realitzeu qualsevol modificació que desitgeu (vegeu la <xref linkend="brasero-audio-project-options"/>).</para>
+	  </listitem>
+	  <listitem>
+	    <para>Feu clic a <guibutton>Enregistra</guibutton> per a iniciar el procés d'enregistrament.</para>
+	  </listitem>
+	</orderedlist></para>
+      <para>
+	<note>
+	  <para>Quan afegiu fitxers, consulteu la barra d'estat a la part inferior de la finestra per a veure quant d'espai esteu utilitzant al CD/DVD.</para>
+	</note>
+	<tip>
+	  <para>Per a desar el projecte per a utilitzar-lo més tard, trieu <menuchoice><guimenu>Projecte</guimenu><guimenuitem>Desa</guimenuitem></menuchoice>.</para>
+	</tip>
+      </para>
+      
+      <sect3 id="brasero-audio-pause">
+	<title>Inserció d'una pausa</title>
+	<para>Després d'haver afegit una pista, podeu inserir-hi una pausa posterior de dos segons. Per a inserir una pausa, feu el següent: <orderedlist>
+	    <listitem>
+	      <para>Seleccioneu la pista després de la qual voleu afegir la pausa.</para>
+	    </listitem>
+	    <listitem>
+	      <para>Feu clic a <guibutton>Pausa</guibutton> a la barra d'eines o trieu <menuchoice><guimenu>Edita</guimenu><guimenuitem>Insereix una pausa</guimenuitem></menuchoice>.</para>
+	    </listitem>
+	  </orderedlist></para>
+      </sect3>
+
+      <sect3 id="brasero-audio-split">
+	<title>Partició d'una pista</title>
+	<para>És possible dividir una pista en diverses parts. Per a partir una pista feu el següent: <orderedlist>
+	    <listitem>
+	      <para>Seleccioneu la pista que vulgueu dividir i feu clic a <guibutton>Parteix</guibutton> a la barra d'eines o trieu <menuchoice><guimenu>Edita</guimenu><guimenuitem>Parteix la pista...</guimenuitem></menuchoice>. Es mostrarà el diàleg <guilabel>Parteix la pista</guilabel>.</para>
+	    </listitem>
+	    <listitem>
+	      <para>Des de la llista desplegable <guilabel>Mètode</guilabel> seleccioneu el mètode de partició. Els valors possibles són: <variablelist>
+		  <varlistentry>
+		    <term><guilabel>Parteix la pista manualment</guilabel></term>
+		    <listitem>
+		      <para>Seleccioneu aquesta opció per a seleccionar la posició de la pista on vulgueu partir-la. Es mostrarà una barra de desplaçament amb una previsualització de l'àudio.</para>
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><guilabel>Parteix la pista en parts de mida fixa</guilabel></term>
+		    <listitem>
+		      <para>Seleccioneu aquesta opció per a partir la pista en parts de mida fixa amb la durada que especifiqueu.</para>
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term>
+		      <guilabel>Parteix la pista en un nombre de parts prefixat</guilabel>
+		    </term>
+		    <listitem>
+		      <para>Seleccioneu aquesta opció per a decidir el número de parts en què vulgueu partir la pista. Podeu utilitzar el quadre de selecció per a seleccionar el nombre de parts.</para>
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term>
+		      <guilabel>Parteix la pista a cada silenci</guilabel>
+		    </term>
+		    <listitem>
+		      <para>Seleccioneu aquesta opció per a partir la pista on hi hagi silencis.</para>
+		    </listitem>
+		  </varlistentry>
+		</variablelist></para>
+	    </listitem>
+	    <listitem>
+	      <para>Per a partir la pista, feu clic a <guibutton>Partició</guibutton>. Les particions es llistaran a la taula <guilabel>Previsualització de les particions</guilabel>.</para>
+	    </listitem>
+	  </orderedlist></para>
+	<para>Un cop hàgiu partit la pista, és possible suprimir o combinar les parts llistades a la taula <guilabel>Previsualització de les particions</guilabel> utilitzant els botons de la dreta.</para>
+	<para>Un cop hàgiu acabat amb totes les modificacions, feu clic a <guibutton>D'acord</guibutton>.</para>
+      </sect3>
+
+      <sect3 id="brasero-audio-project-options">
+	<title>Opcions del projecte d'àudio</title>
+	<para>Abans d'iniciar el procés d'enregistrament, és possible modificar-ne algunes opcions.</para>
+	<para>
+	  <variablelist>
+	    <varlistentry>
+	      <term>Secció <guilabel>Seleccioneu un disc on escriure</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Feu clic a <guibutton>Propietats</guibutton> per a obrir el diàleg de propietats del dispositiu enregistrador. Per a obtenir més informació vegeu la <xref linkend="brasero-burning-device-properties"/>.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Secció <guilabel>Opcions de disc</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <variablelist>
+		      <varlistentry>
+			<term><guilabel>Deixa el disc obert per a afegir-hi una sessió de dades més endavant</guilabel></term>
+			<listitem>
+			  <para>Seleccioneu aquesta opció per a crear un disc <emphasis>multisessió</emphasis>, de manera que sigui possible afegir-hi fitxers posteriorment (sense esborrar-lo, si aquest es reenregistrable).</para>
+			</listitem>
+		      </varlistentry>
+		    </variablelist>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</para>
+      </sect3>
+
+    </sect2>
+
+    <!-- ===== subsection: Data project ====== -->
+    <sect2 id="brasero-new-project-data">
+      <title>Projecte de dades</title>
+      <para>Per a enregistrar un CD de dades, feu el següent: <orderedlist>
+	  <listitem>
+	    <para>Inseriu un CD-R/W o DVD-R/W verge a la unitat.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Feu clic a <guibutton>Projecte de dades</guibutton> a la finestra principal o trieu <menuchoice><guimenu>Projecte</guimenu><guisubmenu>Projecte nou</guisubmenu><guimenuitem>Projecte de dades nou</guimenuitem></menuchoice>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Utilitzeu la subfinestra a l'esquerra de la finestra per a cercar els fitxers que vulgueu afegir al projecte. Seleccioneu <guilabel>Explora el sistema de fitxers</guilabel> des de la llista desplegable a la part superior per a navegar pels fitxers o <guilabel>Cerca fitxers utilitzant paraules clau</guilabel> per a cercar-los.</para>
+	    <para>
+	      <tip>
+		<para>Si no veieu la subfinestra a l'esquerra, trieu <menuchoice><guimenu>Visualitza</guimenu><guimenuitem>Mostra el quadre lateral</guimenuitem></menuchoice> o premeu la tecla <keycap>F7</keycap>.</para>
+	      </tip>
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>Seleccioneu els fitxers que vulgueu fent-hi doble clic o seleccionant-los i fent clic al botó <guibutton>Afegeix</guibutton> a la part superior esquerra de la barra d'eines.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Al quadre de text, introduïu una etiqueta per a identificar el disc. Aquesta etiqueta es mostrarà com el nom del disc.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Quan tots els fitxers s'hagin afegit, feu clic a <guibutton>Enregistra</guibutton>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Es mostrarà el diàleg <guilabel>Configuració de l'enregistrament del disc</guilabel>; realitzeu qualsevol modificació que desitgeu (vegeu la <xref linkend="brasero-data-project-options"/>).</para>
+	  </listitem>
+	  <listitem>
+	    <para>Feu clic a <guibutton>Enregistra</guibutton> per a iniciar el procés d'enregistrament.</para>
+	  </listitem>
+	</orderedlist></para>
+
+      <para>
+	<note>
+	  <para>Quan afegiu fitxers, consulteu la barra d'estat a la part inferior de la finestra per a veure quant d'espai esteu utilitzant al CD/DVD.</para>
+	</note>
+	<tip>
+	  <para>Per a desar el projecte per a utilitzar-lo més tard, trieu <menuchoice><guimenu>Projecte</guimenu><guimenuitem>Desa</guimenuitem></menuchoice>.</para>
+	</tip>
+      </para>
+
+      <sect3 id="brasero-data-project-options">
+	<title>Opcions del projecte de dades</title>
+	<para>Abans d'iniciar el procés d'enregistrament, és possible modificar-ne algunes opcions.</para>
+	<para>
+	  <variablelist>
+	    <varlistentry>
+	      <term>Secció <guilabel>Seleccioneu un disc on escriure</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Feu clic a <guibutton>Propietats</guibutton> per a obrir el diàleg de propietats del dispositiu enregistrador. Per a obtenir més informació vegeu la <xref linkend="brasero-burning-device-properties"/>.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Secció <guilabel>Opcions de disc</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <variablelist>
+		      <varlistentry>
+			<term>
+			  <guilabel>Incrementa la compatibilitat amb els sistemes Windows</guilabel>
+			</term>
+			<listitem>
+			  <para>Seleccioneu aquesta opció si preteneu utilitzar el disc en ordinadors que executin el Windows. Els fitxers al disc es comprovaran per a assegurar-se que els seus noms de fitxer no contenen caràcters que no són vàlids en el Windows.</para>
+			</listitem>
+		      </varlistentry>
+		    </variablelist>
+		  </listitem>
+		  <listitem>
+		    <variablelist>
+		      <varlistentry>
+			<term><guilabel>Deixa el disc obert per a afegir-hi altres fitxers més endavant</guilabel></term>
+			<listitem>
+			  <para>Seleccioneu aquesta opció per a crear un disc <emphasis>multisessió</emphasis>, de manera que sigui possible afegir-hi fitxers posteriorment (sense esborrar-lo, si aquest es reenregistrable).</para>
+			</listitem>
+		      </varlistentry>
+		    </variablelist>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</para>
+      </sect3>
+    </sect2>
+
+    <!-- ====== subsection: Video project ====== -->
+    <sect2 id="brasero-new-project-video">
+      <title>Projecte de vídeo</title>
+      <para>Aquest projecte us permet agafar fitxers de vídeo (fitxers amb una extensió com ara <filename class="extension">.mpg</filename>, <filename class="extension">.mpeg</filename> o <filename class="extension">.avi</filename>, entre d'altres) i enregistrar-los a un disc per a crear un <acronym>DVD</acronym> de vídeo, <acronym>SVCD</acronym> o <acronym>VCD</acronym> que pugueu reproduir amb reproductors de DVD/CD normals.</para>
+      <para>
+	<note>
+	  <para>Per a aprofitar tot el potencial del projecte de vídeo caldrà que instal·leu tots els connectors del GStreamer, l'<application>ffmpeg</application>, el <application>vcdimager</application> i el <application>dvdauthor</application>. Vegeu la documentació del vostre sistema operatiu per a obtenir més informació sore com instal·lar aquestes aplicacions.</para>
+	</note>
+      </para>
+      <para>Per a crear un projecte de vídeo, feu el següent: <orderedlist>
+	  <listitem>
+	    <para>Inseriu un CD o DVD verge a la unitat.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Feu clic a <guibutton>Projecte de vídeo</guibutton> a la finestra principal o trieu <menuchoice><guimenu>Projecte</guimenu><guisubmenu>Projecte nou</guisubmenu><guimenuitem>Projecte de vídeo nou</guimenuitem></menuchoice>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Des de la subfinestra a l'esquerra de la finestra, examineu el sistema de fitxers per a cercar els fitxers de vídeo.</para>
+	    <para>Seleccioneu els fitxers que vulgueu fent-hi doble clic o seleccionant-los i fent clic al botó <guibutton>Afegeix</guibutton> a la part superior esquerra de la barra d'eines.</para>
+	    <para>
+	      <tip>
+		<para>Si no veieu la subfinestra a l'esquerra, trieu <menuchoice><guimenu>Visualitza</guimenu><guimenuitem>Mostra el quadre lateral</guimenuitem></menuchoice> o premeu la tecla <keycap>F7</keycap>.</para>
+	      </tip>
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>Al quadre de text, introduïu el títol que vulgueu donar al disc. Aquest títol es mostrarà com a nom del disc.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Quan tots els fitxers s'hagin afegit, feu clic a <guibutton>Enregistra</guibutton>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Es mostrarà el diàleg <guilabel>Configuració de l'enregistrament del disc</guilabel>; realitzeu qualsevol modificació que desitgeu (vegeu la <xref linkend="brasero-video-project-options"/>).</para>
+	  </listitem>
+	  <listitem>
+	    <para>Feu clic a <guibutton>Enregistra</guibutton> per a iniciar el procés d'enregistrament.</para>
+	  </listitem>
+	</orderedlist></para>
+
+      <para>
+	<note>
+	  <para>Quan afegiu fitxers, consulteu la barra d'estat a la part inferior de la finestra per a veure quant d'espai esteu utilitzant al CD/DVD.</para>
+	</note>
+	<tip>
+	  <para>Per a desar el projecte per a utilitzar-lo més tard, trieu <menuchoice><guimenu>Projecte</guimenu><guimenuitem>Desa</guimenuitem></menuchoice>.</para>
+	</tip>
+      </para>
+
+      <sect3 id="brasero-video-project-options">
+	<title>Opcions del projecte de vídeo</title>
+	<para>Abans d'iniciar el procés d'enregistrament, és possible modificar-ne algunes opcions.</para>
+	<para>
+	  <variablelist>
+	    <varlistentry>
+	      <term>Secció <guilabel>Seleccioneu un disc on escriure</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Feu clic a <guibutton>Propietats</guibutton> per a obrir el diàleg de propietats del dispositiu enregistrador. Per a obtenir més informació vegeu la <xref linkend="brasero-burning-device-properties"/>.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Secció <guilabel>Opcions de vídeo</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Des del <guilabel>Format del vídeo</guilabel> seleccioneu el format del vídeo que enregistrareu. Podeu triar el següent: <itemizedlist>
+			<listitem>
+			  <para><guilabel>Format nadiu</guilabel>: el format original del fitxer de vídeo.</para>
+			</listitem>
+			<listitem>
+			  <para><guilabel>PAL/SECAM</guilabel>: format utilitzat principalment a les televisions europees.</para>
+			</listitem>
+			<listitem>
+			  <para><guilabel>NTSC</guilabel>: format utilitzat principalment a les televisions americanes, canadenques i japoneses.</para>
+			</listitem>
+		      </itemizedlist></para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Secció <guilabel>Opcions d'àudio</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Trieu <guilabel>Afegeix un flux d'àudio MP2</guilabel> per a afegir un flux d'<emphasis>MPEG-1 Audio Layer 2</emphasis> al disc.</para>
+		  </listitem>
+		  <listitem>
+		    <para>Trieu <guilabel>Afegeix un flux d'àudio AC3</guilabel> per a afegir un flux d'<emphasis>AC-3 Dolby Digital</emphasis> al disc.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Secció <guilabel>Tipus VCD</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Trieu <guilabel>Crea un SVCD</guilabel> per a crear un <emphasis>Super Video CD</emphasis>.</para>
+		  </listitem>
+		  <listitem>
+		    <para>Trieu <guilabel>Crea un VCD</guilabel> per a crear un <emphasis>Video CD</emphasis>.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</para>
+
+	<para>
+	  <note>
+	    <para>Una de les principals diferències entre un <acronym>SVCD</acronym> i un <acronym>VCD</acronym> és que el primer utilitza el còdec de vídeo <acronym>MPEG-2</acronym> mentre que el segon utilitza <acronym>MPEG-1</acronym>. Per a obtenir-ne més informació, vegeu les pàgines de la Wikipedia del <ulink type="http" url="http://en.wikipedia.org/wiki/SVCD">SVCD</ulink> i del <ulink type="http" url="http://en.wikipedia.org/wiki/Video_CD">VCD</ulink>.</para>
+	  </note>
+	</para>
+	  
+      </sect3>
+
+    </sect2>
+
+    <!-- ====== subsection: Copy Disc ======= -->
+    <sect2 id="brasero-new-project-copy">
+      <title>Còpia d'un disc</title>
+      <para>Aquest projecte us permet agafar un disc existent i copiar-lo a un disc en blanc o a un fitxer imatge. Per a copiar un disc, feu el següent: <orderedlist>
+	  <listitem>
+	    <para>Inseriu el CD o DVD que vulgueu copiar a la unitat.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Feu clic a <guibutton>Copia un disc</guibutton> a la finestra principal o trieu <menuchoice><guimenu>Projecte</guimenu><guisubmenu>Projecte nou</guisubmenu><guimenuitem>Copia un disc</guimenuitem></menuchoice>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Es mostrarà el diàleg <guilabel>Opcions de còpia de CD/DVD</guilabel>; realitzeu les modificacions desitjades (per a obtenir més informació vegeu la <xref linkend="brasero-disc-copy-options"/>).</para>
+	  </listitem>
+	  <listitem>
+	    <para>Feu clic a <guibutton>Copia</guibutton> per a iniciar el procés de copiar.</para>
+	  </listitem>
+	</orderedlist></para>
+
+      <sect3 id="brasero-disc-copy-options">
+	<title>Opcions de la còpia d'un disc</title>
+	<para>Abans d'iniciar el procés de copiar, és possible modificar algunes opcions de la còpia i l'enregistrament.</para>
+	<para>
+	  <variablelist>
+	    <varlistentry>
+	      <term>Secció <guilabel>Seleccioneu el disc a copiar</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Des de la llista desplegable, seleccioneu el disc que vulgueu copiar.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Secció <guilabel>Seleccioneu un disc on escriure</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Des de la llista desplegable, seleccioneu el disc on copiar.</para>
+		    <para>Des d'aquesta llista desplegable, seleccioneu <guilabel>Fitxer d'imatge</guilabel> per a crear una imatge de disc, com ara una imatge ISO.</para>
+		  </listitem>
+		  <listitem>
+		    <para>Feu clic a <guibutton>Propietats</guibutton> per a obrir el diàleg de propietats del dispositiu enregistrador. Per a obtenir més informació vegeu la <xref linkend="brasero-burning-device-properties"/>.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</para>
+	<para>
+	  <note>
+	    <para>
+	      If you have more than one drive on your system, you can
+	      use one drive as the source drive and the other as the
+	      destination drive. If you do not, you will be prompted
+	      to remove the CD or DVD you are copying and insert a
+	      blank media.
+	    </para>
+	  </note>
+	</para>
+      </sect3>
+    </sect2>
+
+    <!-- ==== subsection: Burn Image ===== -->
+    <sect2 id="brasero-new-project-image">
+      <title>Enregistrament d'una imatge</title>
+      <para>Aquest projecte utilitza un fitxer d'imatge existent i l'enregistra a un CD-R/W o DVD-R/W. El <application>Brasero</application> admet els tipus següents de fitxer d'imatge: <itemizedlist>
+	  <listitem>
+	    <para>
+	      <filename>.iso</filename>
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      <filename>.raw</filename>
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      <filename>.cue</filename>
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      <filename>.toc</filename>
+	    </para>
+	  </listitem>
+	</itemizedlist></para>
+
+      <para>Per a iniciar aquest projecte, feu el següent: <orderedlist>
+	  <listitem>
+	    <para>Inseriu un CD-R/W o DVD-R/W verge a la unitat.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Feu clic a <guibutton>Enregistra una imatge</guibutton> a la finestra principal o trieu <menuchoice><guimenu>Projecte</guimenu><guisubmenu>Projecte nou</guisubmenu><guimenuitem>Enregistra una imatge</guimenuitem></menuchoice>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Es mostrarà el diàleg <guilabel>Configuració de l'enregistrament de la imatge</guilabel>; realitzeu les modificacions desitjades (vegeu la <xref linkend="brasero-burn-image-options"/>).</para>
+	  </listitem>
+	  <listitem>
+	    <para>Feu clic a <guibutton>Enregistra</guibutton> per a iniciar el procés d'enregistrament.</para>
+	  </listitem>
+	</orderedlist></para>
+
+      <sect3 id="brasero-burn-image-options">
+	<title>Opcions d'enregistrament de la imatge</title>
+	<para>Abans d'iniciar el procés d'enregistrament de la imatge, és possible modificar algunes opcions de l'enregistrament.</para>
+	<para>
+	  <variablelist>
+	    <varlistentry>
+	      <term>Secció <guilabel>Seleccioneu un disc on escriure</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Feu clic a <guibutton>Propietats</guibutton> per a obrir el diàleg de propietats del dispositiu enregistrador. Per a obtenir més informació vegeu la <xref linkend="brasero-burning-device-properties"/>.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Secció <guilabel>Imatge</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Feu clic al botó per a obrir el diàleg <guilabel>Selecciona el fitxer d'imatge</guilabel> i seleccioneu el fitxer d'imatge a enregistrar. Des de la llista desplegable a la part inferior, podeu seleccionar el tipus d'imatge a enregistrar. Si no n'esteu segur, seleccioneu <guilabel>Deixeu que el Brasero triï (recomanat)</guilabel>.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</para>
+      </sect3>
+    </sect2>
+
+    <sect2 id="brasero-burning-device-properties">
+      <title>Propietats de la unitat enregistradora</title>
+      <para>Abans d'iniciar el procés d'enregistrament, és possible canviar algunes de les propietats de la unitat enregistradora que s'utilitzaran.</para>
+      <para>
+	<variablelist>
+	  <varlistentry>
+	    <term>Secció <guilabel>Velocitat d'enregistrament</guilabel>:</term>
+	    <listitem>
+	      <para>Des de la llista desplegable, seleccioneu la velocitat d'enregistrament. Per a obtenir el millor valor, comproveu la capsa del CD/DVD.</para>
+	      <warning>
+		<para>Si enregistreu un disc amb una velocitat superior a l'admesa és possible que es creï disc que no es pugui llegir. Utilitzeu velocitats d'enregistrament baixes per a reduir la possibilitat que això succeeixi.</para>
+	      </warning>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>Secció <guilabel>Opcions</guilabel>:</term>
+	    <listitem>
+	      <itemizedlist>
+		<listitem>
+		  <variablelist>
+		    <varlistentry>
+		      <term>
+			<guilabel>Enregistra la imatge directament sense desar-la al disc</guilabel>
+		      </term>
+		      <listitem>
+			<para>Seleccioneu aquesta opció si voleu enregistrar la imatge directament al suport, sense desar-la al disc dur i sense crear-ne un fitxer d'imatge.</para>
+		      </listitem>
+		    </varlistentry>
+		  </variablelist>
+		</listitem>
+		<listitem>
+		  <variablelist>
+		    <varlistentry>
+		      <term><guilabel>Utilitza la tecnologia «burnproof» (disminueix el risc de fallades)</guilabel></term>
+		      <listitem>
+			<para>Seleccioneu aquesta opció per a evitar l'efecte <emphasis>desbordament inferior de la memòria intermèdia</emphasis>. Això succeeix quan l'ordinador no és prou ràpid per a proporcionar dades a la unitat enregistradora a la velocitat d'enregistrament seleccionada.</para>
+			<warning>
+			  <para>Si es produeix un <emphasis>desbordament inferior de la memòria intermèdia</emphasis>, el disc enregistrat no es podrà llegir.</para>
+			</warning>
+		      </listitem>
+		    </varlistentry>
+		  </variablelist>
+		</listitem>
+		<listitem>
+		  <variablelist>
+		    <varlistentry>
+		      <term><guilabel>Simula abans l'enregistrament</guilabel></term>
+		      <listitem>
+			<para>Seleccioneu aquesta opció per a simular el procés d'enregistrament (no es realitzarà cap enregistrament real). Si aquesta operació es completa correctament, el Brasero enregistrarà el disc després d'esperar-se 10 segons. En aquesta pausa es mostrarà un diàleg en el qual podeu cancel·lar l'enregistrament actual. Això és útil per a la comprovació, en cas que tingueu problemes en l'enregistrament de discs.</para>
+		      </listitem>
+		    </varlistentry>
+		  </variablelist>
+		</listitem>
+		<listitem>
+		  <variablelist>
+		    <varlistentry>
+		      <term><guilabel>Expulsa després d'enregistrar</guilabel></term>
+		      <listitem>
+			<para>Seleccioneu aquesta opció per a expulsar el suport de la unitat d'enregistrament un cop s'hagi completat el procés d'enregistrament.</para>
+		      </listitem>
+		    </varlistentry>
+		  </variablelist>
+		</listitem>
+	      </itemizedlist>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>Secció <guilabel>Fitxers temporals</guilabel>:</term>
+	    <listitem>
+	      <para>Des de la llista desplegable, seleccioneu el directori a utilitzar per a emmagatzemar els fitxers temporals creats per al procés d'enregistrament.</para>
+	      <para>El directori predeterminat és el <filename class="directory">/tmp</filename>.</para>
+	    </listitem>
+	  </varlistentry>
+	</variablelist>
+      </para>
+      <sect3 id="brasero-burn-no-disc">
+	<title>Propietats d'enregistrament sense cap disc</title>
+	<para>Si inicieu el procés d'enregistrament sense un CD o DVD a la unitat d'enregistrament, el <application>Brasero</application> crearà un fitxer d'imatge al disc dur que podreu enregistrar més tard.</para>
+	<para>
+	  <variablelist>
+	    <varlistentry>
+	      <term>Secció <guilabel>Seleccioneu un disc on escriure</guilabel>:</term>
+	      <listitem>
+		<para>Des de la llista desplegable només podeu seleccionar <guilabel>Fitxer d'imatge</guilabel>.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Secció <guilabel>Etiqueta del disc</guilabel>:</term>
+	      <listitem>
+		<para>Introduïu el nom que voleu donar al disc un cop enregistrat.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Secció <guilabel>Opcions de disc</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <variablelist>
+		      <varlistentry>
+			<term>
+			  <guilabel>Incrementa la compatibilitat amb els sistemes Windows</guilabel>
+			</term>
+			<listitem>
+			  <para>Seleccioneu aquesta opció si preteneu utilitzar el disc en ordinadors que executin el Windows. Els fitxers al disc es comprovaran per a assegurar-se que els seus noms de fitxer no contenen caràcters que no són vàlids en el Windows.</para>
+			</listitem>
+		      </varlistentry>
+		    </variablelist>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</para>
+	<para>Feu clic a <guibutton>Propietats</guibutton> per a obrir el diàleg <guilabel>Propietats del fitxer d'imatge</guilabel>. Al quadre de text <guilabel>Nom</guilabel> introduïu el nom del fitxer d'imatge. A la llista desplegable <guilabel>Tipus d'imatge</guilabel> seleccioneu el tipus d'imatge a utilitzar.</para>
+	<para>Un cop fet, feu clic a <guibutton>Aplica</guibutton>.</para>
+      </sect3>
+    </sect2>
+    
+  </sect1>
+
+  <sect1 id="brasero-open-recent-project">
+    <title>Com obrir un projecte desat</title>
+    <para>Si heu desat un projecte recentment, podreu obrir-lo un altre cop d'una de les maneres següents: <itemizedlist>
+	<listitem>
+	  <para>Trieu <menuchoice><guimenu>Projecte</guimenu><guisubmenu>Projectes recents</guisubmenu></menuchoice> i seleccioneu el projecte que vulgueu obrir.</para>
+	</listitem>
+	<listitem>
+	  <para>
+	    From the main window, click on the project you want to open
+	    under <guilabel>Recent
+	    projects</guilabel>.
+	  </para>
+	</listitem>
+      </itemizedlist></para>
+    <para>Per a obrir un projecte que no aparegui a <guilabel>Projectes recents</guilabel>, trieu <menuchoice><guimenu>Projecte</guimenu><guimenuitem>Obre</guimenuitem></menuchoice> i seleccioneu-ne el fitxer de projecte.</para>
+    <para>Un cop obert, podeu afegir o suprimir projectes del projecte, enregistrar-lo a un disc i desar-lo un altre cop per a utilitzar-lo més endavant.</para>
+  </sect1>
+
+  <sect1 id="brasero-erase-media">
+    <title>Com esborrar un CD o DVD</title>
+    <para>Esborrar un CD o DVD significa suprimir totes les dades que el CD o el DVD conté. El <application>Brasero</application> és capaç d'esborrar els següents formats de CD i DVD: <itemizedlist>
+	<listitem>
+	  <para>CD-RW</para>
+	</listitem>
+	<listitem>
+	  <para>DVD-RW (d'una o de doble capa)</para>
+	</listitem>
+	<listitem>
+	  <para>DVD+RW (d'una o de doble capa)</para>
+	</listitem>
+      </itemizedlist></para>
+    <para>En general el <application>Brasero</application> admet tots els formats de suport compatibles amb l'enregistrador de CD/DVD.</para>
+    <warning>
+      <para>Assegureu-vos que el suport que vulgueu esborrar sigui reenregistrable. Per a obtenir-ne més informació comproveu la capsa del suport.</para>
+    </warning>
+    <para>Per a esborrar un CD-RW o un DVD-RW: <orderedlist>
+	<listitem>
+	  <para>Inseriu el CD o DVD reenregistrable a la unitat.</para>
+	</listitem>
+	<listitem>
+	  <para>Des de la barra del menú, trieu <menuchoice><guimenu>Eines</guimenu><guimenuitem>Esborra...</guimenuitem></menuchoice>. Es mostrarà el diàleg <guilabel>Esborrament del disc</guilabel>.</para>
+	</listitem>
+	<listitem>
+	  <para>Des de la llista desplegable <guilabel>Seleccioneu un disc</guilabel>, seleccioneu el disc que vulgueu esborrar.</para>
+	</listitem>
+	<listitem>
+	  <para>Si voleu esborrar ràpidament el disc, seleccioneu l'opció <guilabel>Esborrament ràpid</guilabel> (per a obtenir-ne més informació vegeu la <xref linkend="brasero-fast-blanking"/>).</para>
+	</listitem>
+	<listitem>
+	  <para>Feu clic a <guibutton>Esborra</guibutton> per a iniciar l'esborrament del CD o DVD.</para>
+	</listitem>
+      </orderedlist></para>
+    <warning>
+      <para>El procés d'esborrament destruirà permanentment totes les dades del disc.</para>
+    </warning>
+    
+    <sect2 id="brasero-fast-blanking">
+      <title>Què és l'esborrament ràpid?</title>
+      <para>L'esborrament ràpid és una manera d'esborrar ràpidament un disc. Aquest mètode és molt més ràpid que esborrar completament el disc i és suficient per a permetre escriure al disc un altre cop.</para>
+      <para>El procediment d'esborrar completament és més lent però més segur, ja que suprimeix tots els rastres de les dades anteriors. Les dades suprimides del suport esborrat amb el mètode ràpid es poden recuperar amb eines especials.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="brasero-checking-integrity">
+    <title>Comprovació de la integritat d'un CD o DVD</title>
+    <para>Comprovar la integritat d'un CD o un DVD us assegura que els fitxers escrits al disc estan intactes i no s'han malmès durant el procés d'enregistrament.</para>
+    <para>La comprovació de la integritat es realitza utilitzant l'algorisme <quote>MD5 digest</quote>, que crea una <quote>empremta</quote> de les dades del suport. Cada cop que enregistreu un CD o DVD i el connector <emphasis role="strong">Verificació de la imatge</emphasis> estigui habilitat (per a obtenir-ne més informació vegeu la <xref linkend="brasero-plugins"/>), el <application>Brasero</application> afegirà un fitxer MD5 al disc per a poder realitzar comprovacions d'integritat més endavant.</para>
+    <para>El <application>Brasero</application> realitza una comprovació d'integritat després de cada sessió d'enregistrament, comprovant el fitxer generat automàticament. Normalment aquest procés és més llarg que utilitzar un fitxer MD5 extern.</para>
+    <para>Per a comprovar la integritat d'un disc: <orderedlist>
+	<listitem>
+	  <para>Inseriu el CD o DVD a comprovar a la unitat.</para>
+	</listitem>
+	<listitem>
+	  <para>Des de la barra del menú, trieu <menuchoice><guimenu>Eines</guimenu><guimenuitem>Comprova la integritat</guimenuitem></menuchoice> o premeu la combinació de tecles <keycombo><keycap>Ctrl</keycap><keycap>F</keycap></keycombo>.</para>
+	</listitem>
+	<listitem>
+	  <para>Podeu comprovar la integritat utilitzant un fitxer MD5 o permetent que el <application>Brasero</application> realitzi automàticament una comprovació al suport. <itemizedlist>
+	      <listitem>
+		<para>Seleccioneu l'opció <guilabel>Utilitza un fitxer md5 per a comprovar el disc</guilabel> per a utilitzar un fitxer MD5.</para>
+	      </listitem>
+	      <listitem>
+		<para>Feu clic al botó <guilabel>Cap</guilabel> sota l'opció mencionada anteriorment i seleccioneu un fitxer MD5, el qual normalment acabarà amb l'extensió <filename>.md5</filename>.</para>
+	      </listitem>
+	    </itemizedlist></para>
+	</listitem>
+	<listitem>
+	  <para>Feu clic al botó <guibutton>Comprova</guibutton> per a iniciar la comprovació d'integritat.</para>
+	</listitem>
+      </orderedlist></para>
+    <para>Si la comprovació d'integritat és correcta, el <application>Brasero</application> us ho notificarà amb el diàleg <guilabel>Comprovació d'integritat del fitxer correcta</guilabel>. En cas contrari es mostrarà el diàleg <guilabel>Error en la comprovació d'integritat del fitxer</guilabel>.</para>
+  </sect1>
+
+  <sect1 id="brasero-cover-editor">
+    <title>Editor de cobertes</title>
+    <para>El <application>Brasero</application> té un editor de cobertes per a crear cobertes per als CD o DVD. Per a obrir l'editor de cobertes, trieu <menuchoice><guimenu>Eines</guimenu><guimenuitem>Editor de cobertes</guimenuitem></menuchoice>.</para>
+    <para>L'editor de cobertes us permet seleccionar el tipus de lletra, l'alineació i els colors de tots els textos, i les propietats del fons de la coberta frontal i la contracoberta.</para>
+    <para>Per a establir les propietats de les cobertes, feu clic amb el botó secundari a una de les cobertes i trieu <guimenuitem>Estableix les propietats del fons</guimenuitem> per a obrir el diàleg <guilabel>Propietats del fons</guilabel>.</para>
+    <para>És possible emplenar el fons amb una imatge o amb un color o gradient.</para>
+    <para>Per a establir una imatge com a fons: <itemizedlist>
+	<listitem>
+	  <para>Des de <guilabel>Camí de la imatge</guilabel> seleccioneu la imatge del disc dur.</para>
+	</listitem>
+	<listitem>
+	  <para>Des de la llista desplegable <guilabel>Estil de la imatge</guilabel> seleccioneu com voleu posicionar la imatge.</para>
+	</listitem>
+      </itemizedlist></para>
+    <para>Per a emplenar el fons amb un color o gradient: <itemizedlist>
+	<listitem>
+	  <para>Des de la llista desplegable <guilabel>Color</guilabel> seleccioneu el tipus d'emplenat que voleu utilitzar per al fons.</para>
+	</listitem>
+	<listitem>
+	  <para>Utilitzeu el botó a la dreta per a obrir el diàleg <guilabel>Trieu un color</guilabel> per a seleccionar el color.</para>
+	</listitem>
+      </itemizedlist><note>
+	<para>Si seleccioneu un gradient, hi haurà dos botons per al selector de color. El de l'esquerra és el punt inicial del gradient i el de la dreta és el punt final.</para>
+      </note></para>
+  </sect1>
+
+  <sect1 id="brasero-plugins">
+    <title>Connectors</title>
+    <para>El <application>Brasero</application> pot utilitzar connectors diferents per a realitzar diferents tasques. Hi ha diversos connectors que podeu triar.</para>
+    <para>Per a mostrar els connectors disponibles, trieu <menuchoice><guimenu>Edita</guimenu><guimenuitem>Connectors</guimenuitem></menuchoice>. Els connectors que podeu utilitzar són:</para>
+    <para>
+      <table frame="all" id="brasero-TBL-plugin">
+	<title>Connectors</title>
+	<tgroup cols="2" align="left" colsep="1" rowsep="1">
+	  <thead>
+	    <row>
+	      <entry>Nom del connector</entry>
+	      <entry>Descripció</entry>
+	    </row>
+	  </thead>
+	  <tbody>
+	    <row>
+	      <entry><guilabel>Carpeta del creador de CD/DVD</guilabel></entry>
+	      <entry>Habilita el <application>Brasero</application> per a enregistrar fitxers emmagatzemats a la carpeta <filename class="directory">Creador de CD/DVD</filename> del <application>Nautilus</application>.</entry>
+	    </row>
+	    <row>
+	      <entry><guilabel>Fitxer de suma de verificació</guilabel></entry>
+	      <entry>Activa el <application>Brasero</application> per a comprovar la integritat dels fitxers.</entry>
+	    </row>
+	    <row>
+	      <entry><guilabel>Gestor de baixades</guilabel></entry>
+	      <entry>Habilita el <application>Brasero</application> per a enregistrar fitxers que no estan emmagatzemats localment.</entry>
+	    </row>
+	    <row>
+	      <entry><guilabel>Suma de verificació de la imatge</guilabel></entry>
+	      <entry>Habilita el <application>Brasero</application> per a realitzar comprovacions d'integritat dels discs després d'enregistrar-los. També habilita l'escriptura d'un petit fitxer que conté la suma MD5 de tots els fitxers al disc.</entry>
+	    </row>
+	    <row>
+	      <entry><guilabel>Normalitza</guilabel></entry>
+	      <entry>Habilita el <application>Brasero</application> per a establir nivells de so consistents entre les pistes.</entry>
+	    </row>
+	  </tbody>
+	</tgroup>
+      </table>
+    </para>
+    <para>Per a habilitar o inhabilitar un connector, seleccioneu la casella de verificació al costat del seu nom a la columna <guilabel>Habilitat</guilabel>.</para>
+    <para>Amb els connectors <guilabel>Fitxer de suma de verificació</guilabel> i <guilabel>Suma de verificació de la imatge</guilabel> podeu triar l'algorisme que vulgueu utilitzar: <orderedlist>
+	<listitem>
+	  <para>Seleccioneu un dels dos connectors i feu clic a <guibutton>Configura</guibutton>.</para>
+	</listitem>
+	<listitem>
+	  <para>Des de la llista desplegable <guilabel>Algorisme de resum a utilitzar</guilabel> seleccioneu l'algorisme que vulgueu utilitzar. Els valors possibles són: <itemizedlist>
+	      <listitem>
+		<para>MD5</para>
+	      </listitem>
+	      <listitem>
+		<para>SHA1</para>
+	      </listitem>
+	      <listitem>
+		<para>SHA256</para>
+	      </listitem>
+	    </itemizedlist></para>
+	</listitem>
+      </orderedlist></para>
+
+    <para>
+      <note>
+	<para>Per a poder utilitzar alguns del connectors llistats aquí, pot ser que calgui instal·lar altres aplicacions al sistema. Per a obtenir més informació vegeu la documentació del vostre sistema operatiu.</para>
+      </note>
+    </para>
+  </sect1>
+
+</article>

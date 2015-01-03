@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
+<book xmlns="http://www.devhelp.net/book" title="Libparrillada-media Reference Manual" link="index.html" author="" name="libparrillada-media" version="2" language="c">
+  <chapters>
+    <sub name="API Reference for Libparrillada-media" link="ch01.html">
+      <sub name="parrillada-media" link="libparrillada-media-parrillada-media.html"/>
+      <sub name="parrillada-units" link="libparrillada-media-parrillada-units.html"/>
+      <sub name="ParrilladaMediumMonitor" link="libparrillada-media-ParrilladaMediumMonitor.html"/>
+      <sub name="ParrilladaDrive" link="libparrillada-media-parrillada-drive.html"/>
+      <sub name="ParrilladaMedium" link="libparrillada-media-ParrilladaMedium.html"/>
+      <sub name="ParrilladaVolume" link="libparrillada-media-ParrilladaVolume.html"/>
+      <sub name="ParrilladaMediumSelection" link="libparrillada-media-ParrilladaMediumSelection.html"/>
+      <sub name="ParrilladaDriveSelection" link="libparrillada-media-ParrilladaDriveSelection.html"/>
+    </sub>
+    <sub name="Object Hierarchy" link="object-tree.html"/>
+    <sub name="API Index" link="api-index-full.html"/>
+    <sub name="Annotation Glossary" link="annotation-glossary.html"/>
+  </chapters>
+  <functions>
+    <keyword type="macro" name="LIBPARRILLADA_MEDIA_VERSION_MAJOR" link="libparrillada-media-parrillada-media.html#LIBPARRILLADA-MEDIA-VERSION-MAJOR:CAPS"/>
+    <keyword type="macro" name="LIBPARRILLADA_MEDIA_VERSION_MINOR" link="libparrillada-media-parrillada-media.html#LIBPARRILLADA-MEDIA-VERSION-MINOR:CAPS"/>
+    <keyword type="macro" name="LIBPARRILLADA_MEDIA_VERSION_MICRO" link="libparrillada-media-parrillada-media.html#LIBPARRILLADA-MEDIA-VERSION-MICRO:CAPS"/>
+    <keyword type="macro" name="LIBPARRILLADA_MEDIA_AGE" link="libparrillada-media-parrillada-media.html#LIBPARRILLADA-MEDIA-AGE:CAPS"/>
+    <keyword type="macro" name="LIBPARRILLADA_MEDIA_INSTALL" link="libparrillada-media-parrillada-media.html#LIBPARRILLADA-MEDIA-INSTALL:CAPS"/>
+    <keyword type="function" name="parrillada_media_library_start ()" link="libparrillada-media-parrillada-media.html#parrillada-media-library-start"/>
+    <keyword type="function" name="parrillada_media_library_stop ()" link="libparrillada-media-parrillada-media.html#parrillada-media-library-stop"/>
+    <keyword type="function" name="parrillada_media_get_option_group ()" link="libparrillada-media-parrillada-media.html#parrillada-media-get-option-group"/>
+    <keyword type="function" name="parrillada_media_quark ()" link="libparrillada-media-parrillada-media.html#parrillada-media-quark"/>
+    <keyword type="macro" name="PARRILLADA_MEDIA_ERROR" link="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIA-ERROR:CAPS"/>
+    <keyword type="enum" name="enum ParrilladaMediaError" link="libparrillada-media-parrillada-media.html#ParrilladaMediaError"/>
+    <keyword type="enum" name="enum ParrilladaMedia" link="libparrillada-media-parrillada-media.html#ParrilladaMedia"/>
+    <keyword type="macro" name="PARRILLADA_MEDIUM_CDROM" link="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-CDROM:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_MEDIUM_CDR" link="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-CDR:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_MEDIUM_CDRW" link="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-CDRW:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_MEDIUM_DVD_ROM" link="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-DVD-ROM:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_MEDIUM_DVDR" link="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-DVDR:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_MEDIUM_DVDRW" link="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-DVDRW:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_MEDIUM_DVDRW_RESTRICTED" link="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-DVDRW-RESTRICTED:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_MEDIUM_DVDR_DL" link="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-DVDR-DL:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_MEDIUM_DVDR_JUMP_DL" link="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-DVDR-JUMP-DL:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_MEDIUM_DVDR_PLUS" link="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-DVDR-PLUS:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_MEDIUM_DVDRW_PLUS" link="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-DVDRW-PLUS:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_MEDIUM_DVDR_PLUS_DL" link="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-DVDR-PLUS-DL:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_MEDIUM_DVDRW_PLUS_DL" link="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-DVDRW-PLUS-DL:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_MEDIUM_DVD_RAM" link="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-DVD-RAM:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_MEDIUM_BD_ROM" link="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-BD-ROM:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_MEDIUM_BDR_SRM" link="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-BDR-SRM:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_MEDIUM_BDR_SRM_POW" link="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-BDR-SRM-POW:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_MEDIUM_BDR_RANDOM" link="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-BDR-RANDOM:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_MEDIUM_BDRE" link="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-BDRE:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_MEDIUM_VALID()" link="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-VALID:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_MEDIUM_TYPE()" link="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-TYPE:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_MEDIUM_ATTR()" link="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-ATTR:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_MEDIUM_STATUS()" link="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-STATUS:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_MEDIUM_SUBTYPE()" link="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-SUBTYPE:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_MEDIUM_INFO()" link="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-INFO:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_MEDIUM_IS()" link="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-IS:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_MEDIUM_RANDOM_WRITABLE()" link="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-RANDOM-WRITABLE:CAPS"/>
+    <keyword type="macro" name="CD_RATE" link="libparrillada-media-parrillada-units.html#CD-RATE:CAPS"/>
+    <keyword type="macro" name="DVD_RATE" link="libparrillada-media-parrillada-units.html#DVD-RATE:CAPS"/>
+    <keyword type="macro" name="BD_RATE" link="libparrillada-media-parrillada-units.html#BD-RATE:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_SPEED_TO_RATE_CD()" link="libparrillada-media-parrillada-units.html#PARRILLADA-SPEED-TO-RATE-CD:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_SPEED_TO_RATE_DVD()" link="libparrillada-media-parrillada-units.html#PARRILLADA-SPEED-TO-RATE-DVD:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_SPEED_TO_RATE_BD()" link="libparrillada-media-parrillada-units.html#PARRILLADA-SPEED-TO-RATE-BD:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_RATE_TO_SPEED_CD()" link="libparrillada-media-parrillada-units.html#PARRILLADA-RATE-TO-SPEED-CD:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_RATE_TO_SPEED_DVD()" link="libparrillada-media-parrillada-units.html#PARRILLADA-RATE-TO-SPEED-DVD:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_RATE_TO_SPEED_BD()" link="libparrillada-media-parrillada-units.html#PARRILLADA-RATE-TO-SPEED-BD:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_DURATION_TO_BYTES()" link="libparrillada-media-parrillada-units.html#PARRILLADA-DURATION-TO-BYTES:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_DURATION_TO_SECTORS()" link="libparrillada-media-parrillada-units.html#PARRILLADA-DURATION-TO-SECTORS:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_BYTES_TO_SECTORS()" link="libparrillada-media-parrillada-units.html#PARRILLADA-BYTES-TO-SECTORS:CAPS"/>
+    <keyword type="macro" name="PARRILLADA_BYTES_TO_DURATION()" link="libparrillada-media-parrillada-units.html#PARRILLADA-BYTES-TO-DURATION:CAPS"/>
+    <keyword type="function" name="parrillada_units_get_time_string ()" link="libparrillada-media-parrillada-units.html#parrillada-units-get-time-string"/>
+    <keyword type="function" name="parrillada_units_get_time_string_from_size ()" link="libparrillada-media-parrillada-units.html#parrillada-units-get-time-string-from-size"/>
+    <keyword type="struct" name="ParrilladaMediumMonitor" link="libparrillada-media-ParrilladaMediumMonitor.html#ParrilladaMediumMonitor"/>
+    <keyword type="function" name="parrillada_medium_monitor_get_default ()" link="libparrillada-media-ParrilladaMediumMonitor.html#parrillada-medium-monitor-get-default"/>
+    <keyword type="enum" name="enum ParrilladaMediaType" link="libparrillada-media-ParrilladaMediumMonitor.html#ParrilladaMediaType"/>
+    <keyword type="enum" name="enum ParrilladaDriveType" link="libparrillada-media-ParrilladaMediumMonitor.html#ParrilladaDriveType"/>
+    <keyword type="function" name="parrillada_medium_monitor_get_media ()" link="libparrillada-media-ParrilladaMediumMonitor.html#parrillada-medium-monitor-get-media"/>
+    <keyword type="function" name="parrillada_medium_monitor_get_drives ()" link="libparrillada-media-ParrilladaMediumMonitor.html#parrillada-medium-monitor-get-drives"/>
+    <keyword type="function" name="parrillada_medium_monitor_get_drive ()" link="libparrillada-media-ParrilladaMediumMonitor.html#parrillada-medium-monitor-get-drive"/>
+    <keyword type="function" name="parrillada_medium_monitor_is_probing ()" link="libparrillada-media-ParrilladaMediumMonitor.html#parrillada-medium-monitor-is-probing"/>
+    <keyword type="enum" name="enum ParrilladaDriveCaps" link="libparrillada-media-parrillada-drive.html#ParrilladaDriveCaps"/>
+    <keyword type="struct" name="ParrilladaDrive" link="libparrillada-media-parrillada-drive.html#ParrilladaDrive"/>
+    <keyword type="function" name="parrillada_drive_reprobe ()" link="libparrillada-media-parrillada-drive.html#parrillada-drive-reprobe"/>
+    <keyword type="function" name="parrillada_drive_get_medium ()" link="libparrillada-media-parrillada-drive.html#parrillada-drive-get-medium"/>
+    <keyword type="function" name="parrillada_drive_get_gdrive ()" link="libparrillada-media-parrillada-drive.html#parrillada-drive-get-gdrive"/>
+    <keyword type="function" name="parrillada_drive_get_udi ()" link="libparrillada-media-parrillada-drive.html#parrillada-drive-get-udi"/>
+    <keyword type="function" name="parrillada_drive_is_fake ()" link="libparrillada-media-parrillada-drive.html#parrillada-drive-is-fake"/>
+    <keyword type="function" name="parrillada_drive_get_display_name ()" link="libparrillada-media-parrillada-drive.html#parrillada-drive-get-display-name"/>
+    <keyword type="function" name="parrillada_drive_get_device ()" link="libparrillada-media-parrillada-drive.html#parrillada-drive-get-device"/>
+    <keyword type="function" name="parrillada_drive_get_block_device ()" link="libparrillada-media-parrillada-drive.html#parrillada-drive-get-block-device"/>
+    <keyword type="function" name="parrillada_drive_get_bus_target_lun_string ()" link="libparrillada-media-parrillada-drive.html#parrillada-drive-get-bus-target-lun-string"/>
+    <keyword type="function" name="parrillada_drive_get_caps ()" link="libparrillada-media-parrillada-drive.html#parrillada-drive-get-caps"/>
+    <keyword type="function" name="parrillada_drive_can_write ()" link="libparrillada-media-parrillada-drive.html#parrillada-drive-can-write"/>
+    <keyword type="function" name="parrillada_drive_can_eject ()" link="libparrillada-media-parrillada-drive.html#parrillada-drive-can-eject"/>
+    <keyword type="function" name="parrillada_drive_eject ()" link="libparrillada-media-parrillada-drive.html#parrillada-drive-eject"/>
+    <keyword type="function" name="parrillada_drive_cancel_current_operation ()" link="libparrillada-media-parrillada-drive.html#parrillada-drive-cancel-current-operation"/>
+    <keyword type="function" name="parrillada_drive_is_door_open ()" link="libparrillada-media-parrillada-drive.html#parrillada-drive-is-door-open"/>
+    <keyword type="function" name="parrillada_drive_can_use_exclusively ()" link="libparrillada-media-parrillada-drive.html#parrillada-drive-can-use-exclusively"/>
+    <keyword type="function" name="parrillada_drive_lock ()" link="libparrillada-media-parrillada-drive.html#parrillada-drive-lock"/>
+    <keyword type="function" name="parrillada_drive_unlock ()" link="libparrillada-media-parrillada-drive.html#parrillada-drive-unlock"/>
+    <keyword type="struct" name="ParrilladaMedium" link="libparrillada-media-ParrilladaMedium.html#ParrilladaMedium"/>
+    <keyword type="function" name="parrillada_medium_get_status ()" link="libparrillada-media-ParrilladaMedium.html#parrillada-medium-get-status"/>
+    <keyword type="function" name="parrillada_medium_get_max_write_speed ()" link="libparrillada-media-ParrilladaMedium.html#parrillada-medium-get-max-write-speed"/>
+    <keyword type="function" name="parrillada_medium_get_write_speeds ()" link="libparrillada-media-ParrilladaMedium.html#parrillada-medium-get-write-speeds"/>
+    <keyword type="function" name="parrillada_medium_get_free_space ()" link="libparrillada-media-ParrilladaMedium.html#parrillada-medium-get-free-space"/>
+    <keyword type="function" name="parrillada_medium_get_capacity ()" link="libparrillada-media-ParrilladaMedium.html#parrillada-medium-get-capacity"/>
+    <keyword type="function" name="parrillada_medium_get_data_size ()" link="libparrillada-media-ParrilladaMedium.html#parrillada-medium-get-data-size"/>
+    <keyword type="function" name="parrillada_medium_get_next_writable_address ()" link="libparrillada-media-ParrilladaMedium.html#parrillada-medium-get-next-writable-address"/>
+    <keyword type="function" name="parrillada_medium_can_be_rewritten ()" link="libparrillada-media-ParrilladaMedium.html#parrillada-medium-can-be-rewritten"/>
+    <keyword type="function" name="parrillada_medium_can_be_written ()" link="libparrillada-media-ParrilladaMedium.html#parrillada-medium-can-be-written"/>
+    <keyword type="function" name="parrillada_medium_get_CD_TEXT_title ()" link="libparrillada-media-ParrilladaMedium.html#parrillada-medium-get-CD-TEXT-title"/>
+    <keyword type="function" name="parrillada_medium_get_type_string ()" link="libparrillada-media-ParrilladaMedium.html#parrillada-medium-get-type-string"/>
+    <keyword type="function" name="parrillada_medium_get_tooltip ()" link="libparrillada-media-ParrilladaMedium.html#parrillada-medium-get-tooltip"/>
+    <keyword type="function" name="parrillada_medium_get_drive ()" link="libparrillada-media-ParrilladaMedium.html#parrillada-medium-get-drive"/>
+    <keyword type="function" name="parrillada_medium_get_track_num ()" link="libparrillada-media-ParrilladaMedium.html#parrillada-medium-get-track-num"/>
+    <keyword type="function" name="parrillada_medium_get_last_data_track_space ()" link="libparrillada-media-ParrilladaMedium.html#parrillada-medium-get-last-data-track-space"/>
+    <keyword type="function" name="parrillada_medium_get_last_data_track_address ()" link="libparrillada-media-ParrilladaMedium.html#parrillada-medium-get-last-data-track-address"/>
+    <keyword type="function" name="parrillada_medium_get_track_space ()" link="libparrillada-media-ParrilladaMedium.html#parrillada-medium-get-track-space"/>
+    <keyword type="function" name="parrillada_medium_get_track_address ()" link="libparrillada-media-ParrilladaMedium.html#parrillada-medium-get-track-address"/>
+    <keyword type="function" name="parrillada_medium_can_use_dummy_for_sao ()" link="libparrillada-media-ParrilladaMedium.html#parrillada-medium-can-use-dummy-for-sao"/>
+    <keyword type="function" name="parrillada_medium_can_use_dummy_for_tao ()" link="libparrillada-media-ParrilladaMedium.html#parrillada-medium-can-use-dummy-for-tao"/>
+    <keyword type="function" name="parrillada_medium_can_use_burnfree ()" link="libparrillada-media-ParrilladaMedium.html#parrillada-medium-can-use-burnfree"/>
+    <keyword type="struct" name="ParrilladaVolume" link="libparrillada-media-ParrilladaVolume.html#ParrilladaVolume"/>
+    <keyword type="function" name="parrillada_volume_get_name ()" link="libparrillada-media-ParrilladaVolume.html#parrillada-volume-get-name"/>
+    <keyword type="function" name="parrillada_volume_get_icon ()" link="libparrillada-media-ParrilladaVolume.html#parrillada-volume-get-icon"/>
+    <keyword type="function" name="parrillada_volume_get_gvolume ()" link="libparrillada-media-ParrilladaVolume.html#parrillada-volume-get-gvolume"/>
+    <keyword type="function" name="parrillada_volume_is_mounted ()" link="libparrillada-media-ParrilladaVolume.html#parrillada-volume-is-mounted"/>
+    <keyword type="function" name="parrillada_volume_get_mount_point ()" link="libparrillada-media-ParrilladaVolume.html#parrillada-volume-get-mount-point"/>
+    <keyword type="function" name="parrillada_volume_umount ()" link="libparrillada-media-ParrilladaVolume.html#parrillada-volume-umount"/>
+    <keyword type="function" name="parrillada_volume_mount ()" link="libparrillada-media-ParrilladaVolume.html#parrillada-volume-mount"/>
+    <keyword type="function" name="parrillada_volume_cancel_current_operation ()" link="libparrillada-media-ParrilladaVolume.html#parrillada-volume-cancel-current-operation"/>
+    <keyword type="struct" name="ParrilladaMediumSelection" link="libparrillada-media-ParrilladaMediumSelection.html#ParrilladaMediumSelection"/>
+    <keyword type="function" name="parrillada_medium_selection_new ()" link="libparrillada-media-ParrilladaMediumSelection.html#parrillada-medium-selection-new"/>
+    <keyword type="function" name="parrillada_medium_selection_get_active ()" link="libparrillada-media-ParrilladaMediumSelection.html#parrillada-medium-selection-get-active"/>
+    <keyword type="function" name="parrillada_medium_selection_set_active ()" link="libparrillada-media-ParrilladaMediumSelection.html#parrillada-medium-selection-set-active"/>
+    <keyword type="function" name="parrillada_medium_selection_show_media_type ()" link="libparrillada-media-ParrilladaMediumSelection.html#parrillada-medium-selection-show-media-type"/>
+    <keyword type="struct" name="ParrilladaDriveSelection" link="libparrillada-media-ParrilladaDriveSelection.html#ParrilladaDriveSelection"/>
+    <keyword type="function" name="parrillada_drive_selection_new ()" link="libparrillada-media-ParrilladaDriveSelection.html#parrillada-drive-selection-new"/>
+    <keyword type="function" name="parrillada_drive_selection_get_active ()" link="libparrillada-media-ParrilladaDriveSelection.html#parrillada-drive-selection-get-active"/>
+    <keyword type="function" name="parrillada_drive_selection_set_active ()" link="libparrillada-media-ParrilladaDriveSelection.html#parrillada-drive-selection-set-active"/>
+    <keyword type="function" name="parrillada_drive_selection_show_type ()" link="libparrillada-media-ParrilladaDriveSelection.html#parrillada-drive-selection-show-type"/>
+  </functions>
+</book>

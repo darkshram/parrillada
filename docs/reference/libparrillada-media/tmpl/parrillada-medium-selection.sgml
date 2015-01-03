@@ -1,0 +1,68 @@
+<!-- ##### SECTION Title ##### -->
+ParrilladaMediumSelection
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT ParrilladaMediumSelection ##### -->
+<para>
+
+</para>
+
+@parent_instance: 
+
+<!-- ##### FUNCTION parrillada_medium_selection_new ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION parrillada_medium_selection_get_active ##### -->
+<para>
+
+</para>
+
+@selector: 
+@Returns: 
+
+
+<!-- ##### FUNCTION parrillada_medium_selection_set_active ##### -->
+<para>
+
+</para>
+
+@selector: 
+@medium: 
+@Returns: 
+
+
+<!-- ##### FUNCTION parrillada_medium_selection_show_media_type ##### -->
+<para>
+
+</para>
+
+@selector: 
+@type: 
+
+

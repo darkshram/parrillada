@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
+<book xmlns="http://www.devhelp.net/book" title="Libparrillada-burn Reference Manual" link="index.html" author="" name="libparrillada-burn">
+  <chapters>
+    <sub name="API Reference for Libparrillada-burn" link="ch01.html">
+      <sub name="parrillada-burn-lib" link="libparrillada-burn-parrillada-burn-lib.html"/>
+      <sub name="parrillada-error" link="libparrillada-burn-parrillada-error.html"/>
+      <sub name="parrillada-tags" link="libparrillada-burn-parrillada-tags.html"/>
+      <sub name="parrillada-status" link="libparrillada-burn-parrillada-status.html"/>
+      <sub name="parrillada-enums" link="libparrillada-burn-parrillada-enums.html"/>
+      <sub name="parrillada-track-type" link="libparrillada-burn-parrillada-track-type.html"/>
+      <sub name="ParrilladaTrack" link="libparrillada-burn-ParrilladaTrack.html"/>
+      <sub name="ParrilladaTrackDisc" link="libparrillada-burn-ParrilladaTrackDisc.html"/>
+      <sub name="ParrilladaTrackData" link="libparrillada-burn-parrillada-track-data.html"/>
+      <sub name="ParrilladaTrackDataCfg" link="libparrillada-burn-parrillada-track-data-cfg.html"/>
+      <sub name="ParrilladaTrackStream" link="libparrillada-burn-ParrilladaTrackStream.html"/>
+      <sub name="ParrilladaTrackStreamCfg" link="libparrillada-burn-ParrilladaTrackStreamCfg.html"/>
+      <sub name="ParrilladaTrackImage" link="libparrillada-burn-ParrilladaTrackImage.html"/>
+      <sub name="ParrilladaTrackImageCfg" link="libparrillada-burn-ParrilladaTrackImageCfg.html"/>
+      <sub name="ParrilladaBurnSession" link="libparrillada-burn-ParrilladaBurnSession.html"/>
+      <sub name="ParrilladaSessionSpan" link="libparrillada-burn-ParrilladaSessionSpan.html"/>
+      <sub name="ParrilladaSessionCfg" link="libparrillada-burn-ParrilladaSessionCfg.html"/>
+      <sub name="ParrilladaBurnOptions" link="libparrillada-burn-ParrilladaBurnOptions.html"/>
+      <sub name="ParrilladaBurn" link="libparrillada-burn-ParrilladaBurn.html"/>
+      <sub name="ParrilladaBurnDialog" link="libparrillada-burn-ParrilladaBurnDialog.html"/>
+      <sub name="ParrilladaToolDialog" link="libparrillada-burn-ParrilladaToolDialog.html"/>
+      <sub name="ParrilladaSumDialog" link="libparrillada-burn-ParrilladaSumDialog.html"/>
+      <sub name="ParrilladaBlankDialog" link="libparrillada-burn-ParrilladaBlankDialog.html"/>
+    </sub>
+    <sub name="Object Hierarchy" link="object-tree.html"/>
+    <sub name="API Index" link="api-index-full.html"/>
+    <sub name="Annotation Glossary" link="annotation-glossary.html"/>
+  </chapters>
+  <functions>
+    <function name="LIBPARRILLADA_BURN_VERSION_MAJOR" link="libparrillada-burn-parrillada-burn-lib.html#LIBPARRILLADA-BURN-VERSION-MAJOR:CAPS"/>
+    <function name="LIBPARRILLADA_BURN_VERSION_MINOR" link="libparrillada-burn-parrillada-burn-lib.html#LIBPARRILLADA-BURN-VERSION-MINOR:CAPS"/>
+    <function name="LIBPARRILLADA_BURN_VERSION_MICRO" link="libparrillada-burn-parrillada-burn-lib.html#LIBPARRILLADA-BURN-VERSION-MICRO:CAPS"/>
+    <function name="LIBPARRILLADA_BURN_AGE" link="libparrillada-burn-parrillada-burn-lib.html#LIBPARRILLADA-BURN-AGE:CAPS"/>
+    <function name="parrillada_burn_library_start ()" link="libparrillada-burn-parrillada-burn-lib.html#parrillada-burn-library-start"/>
+    <function name="parrillada_burn_library_stop ()" link="libparrillada-burn-parrillada-burn-lib.html#parrillada-burn-library-stop"/>
+    <function name="parrillada_burn_library_get_option_group ()" link="libparrillada-burn-parrillada-burn-lib.html#parrillada-burn-library-get-option-group"/>
+    <function name="parrillada_burn_library_get_plugins_list ()" link="libparrillada-burn-parrillada-burn-lib.html#parrillada-burn-library-get-plugins-list"/>
+    <function name="parrillada_burn_library_can_checksum ()" link="libparrillada-burn-parrillada-burn-lib.html#parrillada-burn-library-can-checksum"/>
+    <function name="parrillada_burn_library_input_supported ()" link="libparrillada-burn-parrillada-burn-lib.html#parrillada-burn-library-input-supported"/>
+    <function name="parrillada_burn_library_get_media_capabilities ()" link="libparrillada-burn-parrillada-burn-lib.html#parrillada-burn-library-get-media-capabilities"/>
+    <function name="enum ParrilladaBurnError" link="libparrillada-burn-parrillada-error.html#ParrilladaBurnError"/>
+    <function name="parrillada_burn_quark ()" link="libparrillada-burn-parrillada-error.html#parrillada-burn-quark"/>
+    <function name="PARRILLADA_BURN_ERROR" link="libparrillada-burn-parrillada-error.html#PARRILLADA-BURN-ERROR:CAPS"/>
+    <function name="PARRILLADA_TRACK_MEDIUM_ADDRESS_START_TAG" link="libparrillada-burn-parrillada-tags.html#PARRILLADA-TRACK-MEDIUM-ADDRESS-START-TAG:CAPS"/>
+    <function name="PARRILLADA_TRACK_MEDIUM_ADDRESS_END_TAG" link="libparrillada-burn-parrillada-tags.html#PARRILLADA-TRACK-MEDIUM-ADDRESS-END-TAG:CAPS"/>
+    <function name="PARRILLADA_TRACK_MEDIUM_WRONG_CHECKSUM_TAG" link="libparrillada-burn-parrillada-tags.html#PARRILLADA-TRACK-MEDIUM-WRONG-CHECKSUM-TAG:CAPS"/>
+    <function name="PARRILLADA_TRACK_STREAM_TITLE_TAG" link="libparrillada-burn-parrillada-tags.html#PARRILLADA-TRACK-STREAM-TITLE-TAG:CAPS"/>
+    <function name="PARRILLADA_TRACK_STREAM_COMPOSER_TAG" link="libparrillada-burn-parrillada-tags.html#PARRILLADA-TRACK-STREAM-COMPOSER-TAG:CAPS"/>
+    <function name="PARRILLADA_TRACK_STREAM_ARTIST_TAG" link="libparrillada-burn-parrillada-tags.html#PARRILLADA-TRACK-STREAM-ARTIST-TAG:CAPS"/>
+    <function name="PARRILLADA_TRACK_STREAM_THUMBNAIL_TAG" link="libparrillada-burn-parrillada-tags.html#PARRILLADA-TRACK-STREAM-THUMBNAIL-TAG:CAPS"/>
+    <function name="PARRILLADA_TRACK_STREAM_MIME_TAG" link="libparrillada-burn-parrillada-tags.html#PARRILLADA-TRACK-STREAM-MIME-TAG:CAPS"/>
+    <function name="PARRILLADA_TRACK_STREAM_ISRC_TAG" link="libparrillada-burn-parrillada-tags.html#PARRILLADA-TRACK-STREAM-ISRC-TAG:CAPS"/>
+    <function name="PARRILLADA_DATA_TRACK_SIZE_TAG" link="libparrillada-burn-parrillada-tags.html#PARRILLADA-DATA-TRACK-SIZE-TAG:CAPS"/>
+    <function name="PARRILLADA_STREAM_TRACK_SIZE_TAG" link="libparrillada-burn-parrillada-tags.html#PARRILLADA-STREAM-TRACK-SIZE-TAG:CAPS"/>
+    <function name="PARRILLADA_COVER_URI" link="libparrillada-burn-parrillada-tags.html#PARRILLADA-COVER-URI:CAPS"/>
+    <function name="PARRILLADA_DVD_STREAM_FORMAT" link="libparrillada-burn-parrillada-tags.html#PARRILLADA-DVD-STREAM-FORMAT:CAPS"/>
+    <function name="PARRILLADA_VCD_TYPE" link="libparrillada-burn-parrillada-tags.html#PARRILLADA-VCD-TYPE:CAPS"/>
+    <function name="PARRILLADA_VIDEO_OUTPUT_FRAMERATE" link="libparrillada-burn-parrillada-tags.html#PARRILLADA-VIDEO-OUTPUT-FRAMERATE:CAPS"/>
+    <function name="PARRILLADA_VIDEO_OUTPUT_ASPECT" link="libparrillada-burn-parrillada-tags.html#PARRILLADA-VIDEO-OUTPUT-ASPECT:CAPS"/>
+    <function name="ParrilladaStatus" link="libparrillada-burn-parrillada-status.html#ParrilladaStatus"/>
+    <function name="enum ParrilladaStatusType" link="libparrillada-burn-parrillada-status.html#ParrilladaStatusType"/>
+    <function name="parrillada_status_new ()" link="libparrillada-burn-parrillada-status.html#parrillada-status-new"/>
+    <function name="parrillada_status_get_result ()" link="libparrillada-burn-parrillada-status.html#parrillada-status-get-result"/>
+    <function name="parrillada_status_get_progress ()" link="libparrillada-burn-parrillada-status.html#parrillada-status-get-progress"/>
+    <function name="parrillada_status_get_error ()" link="libparrillada-burn-parrillada-status.html#parrillada-status-get-error"/>
+    <function name="parrillada_status_get_current_action ()" link="libparrillada-burn-parrillada-status.html#parrillada-status-get-current-action"/>
+    <function name="parrillada_status_set_completed ()" link="libparrillada-burn-parrillada-status.html#parrillada-status-set-completed"/>
+    <function name="parrillada_status_set_not_ready ()" link="libparrillada-burn-parrillada-status.html#parrillada-status-set-not-ready"/>
+    <function name="parrillada_status_set_error ()" link="libparrillada-burn-parrillada-status.html#parrillada-status-set-error"/>
+    <function name="enum ParrilladaBurnResult" link="libparrillada-burn-parrillada-enums.html#ParrilladaBurnResult"/>
+    <function name="enum ParrilladaBurnFlag" link="libparrillada-burn-parrillada-enums.html#ParrilladaBurnFlag"/>
+    <function name="enum ParrilladaBurnAction" link="libparrillada-burn-parrillada-enums.html#ParrilladaBurnAction"/>
+    <function name="enum ParrilladaImageFS" link="libparrillada-burn-parrillada-enums.html#ParrilladaImageFS"/>
+    <function name="enum ParrilladaStreamFormat" link="libparrillada-burn-parrillada-enums.html#ParrilladaStreamFormat"/>
+    <function name="PARRILLADA_STREAM_FORMAT_AUDIO()" link="libparrillada-burn-parrillada-enums.html#PARRILLADA-STREAM-FORMAT-AUDIO:CAPS"/>
+    <function name="PARRILLADA_STREAM_FORMAT_VIDEO()" link="libparrillada-burn-parrillada-enums.html#PARRILLADA-STREAM-FORMAT-VIDEO:CAPS"/>
+    <function name="PARRILLADA_MIN_STREAM_LENGTH" link="libparrillada-burn-parrillada-enums.html#PARRILLADA-MIN-STREAM-LENGTH:CAPS"/>
+    <function name="PARRILLADA_STREAM_LENGTH()" link="libparrillada-burn-parrillada-enums.html#PARRILLADA-STREAM-LENGTH:CAPS"/>
+    <function name="PARRILLADA_STREAM_FORMAT_HAS_VIDEO()" link="libparrillada-burn-parrillada-enums.html#PARRILLADA-STREAM-FORMAT-HAS-VIDEO:CAPS"/>
+    <function name="enum ParrilladaImageFormat" link="libparrillada-burn-parrillada-enums.html#ParrilladaImageFormat"/>
+    <function name="ParrilladaTrackType" link="libparrillada-burn-parrillada-track-type.html#ParrilladaTrackType"/>
+    <function name="parrillada_track_type_new ()" link="libparrillada-burn-parrillada-track-type.html#parrillada-track-type-new"/>
+    <function name="parrillada_track_type_free ()" link="libparrillada-burn-parrillada-track-type.html#parrillada-track-type-free"/>
+    <function name="parrillada_track_type_is_empty ()" link="libparrillada-burn-parrillada-track-type.html#parrillada-track-type-is-empty"/>
+    <function name="parrillada_track_type_get_has_data ()" link="libparrillada-burn-parrillada-track-type.html#parrillada-track-type-get-has-data"/>
+    <function name="parrillada_track_type_get_has_image ()" link="libparrillada-burn-parrillada-track-type.html#parrillada-track-type-get-has-image"/>
+    <function name="parrillada_track_type_get_has_stream ()" link="libparrillada-burn-parrillada-track-type.html#parrillada-track-type-get-has-stream"/>
+    <function name="parrillada_track_type_get_has_medium ()" link="libparrillada-burn-parrillada-track-type.html#parrillada-track-type-get-has-medium"/>
+    <function name="parrillada_track_type_set_has_data ()" link="libparrillada-burn-parrillada-track-type.html#parrillada-track-type-set-has-data"/>
+    <function name="parrillada_track_type_set_has_image ()" link="libparrillada-burn-parrillada-track-type.html#parrillada-track-type-set-has-image"/>
+    <function name="parrillada_track_type_set_has_stream ()" link="libparrillada-burn-parrillada-track-type.html#parrillada-track-type-set-has-stream"/>
+    <function name="parrillada_track_type_set_has_medium ()" link="libparrillada-burn-parrillada-track-type.html#parrillada-track-type-set-has-medium"/>
+    <function name="parrillada_track_type_get_stream_format ()" link="libparrillada-burn-parrillada-track-type.html#parrillada-track-type-get-stream-format"/>
+    <function name="parrillada_track_type_get_image_format ()" link="libparrillada-burn-parrillada-track-type.html#parrillada-track-type-get-image-format"/>
+    <function name="parrillada_track_type_get_medium_type ()" link="libparrillada-burn-parrillada-track-type.html#parrillada-track-type-get-medium-type"/>
+    <function name="parrillada_track_type_get_data_fs ()" link="libparrillada-burn-parrillada-track-type.html#parrillada-track-type-get-data-fs"/>
+    <function name="parrillada_track_type_set_stream_format ()" link="libparrillada-burn-parrillada-track-type.html#parrillada-track-type-set-stream-format"/>
+    <function name="parrillada_track_type_set_image_format ()" link="libparrillada-burn-parrillada-track-type.html#parrillada-track-type-set-image-format"/>
+    <function name="parrillada_track_type_set_medium_type ()" link="libparrillada-burn-parrillada-track-type.html#parrillada-track-type-set-medium-type"/>
+    <function name="parrillada_track_type_set_data_fs ()" link="libparrillada-burn-parrillada-track-type.html#parrillada-track-type-set-data-fs"/>
+    <function name="parrillada_track_type_equal ()" link="libparrillada-burn-parrillada-track-type.html#parrillada-track-type-equal"/>
+    <function name="ParrilladaTrack" link="libparrillada-burn-ParrilladaTrack.html#ParrilladaTrack"/>
+    <function name="parrillada_track_changed ()" link="libparrillada-burn-ParrilladaTrack.html#parrillada-track-changed"/>
+    <function name="parrillada_track_get_size ()" link="libparrillada-burn-ParrilladaTrack.html#parrillada-track-get-size"/>
+    <function name="parrillada_track_get_track_type ()" link="libparrillada-burn-ParrilladaTrack.html#parrillada-track-get-track-type"/>
+    <function name="parrillada_track_get_status ()" link="libparrillada-burn-ParrilladaTrack.html#parrillada-track-get-status"/>
+    <function name="enum ParrilladaChecksumType" link="libparrillada-burn-ParrilladaTrack.html#ParrilladaChecksumType"/>
+    <function name="parrillada_track_set_checksum ()" link="libparrillada-burn-ParrilladaTrack.html#parrillada-track-set-checksum"/>
+    <function name="parrillada_track_get_checksum ()" link="libparrillada-burn-ParrilladaTrack.html#parrillada-track-get-checksum"/>
+    <function name="parrillada_track_get_checksum_type ()" link="libparrillada-burn-ParrilladaTrack.html#parrillada-track-get-checksum-type"/>
+    <function name="parrillada_track_tag_add ()" link="libparrillada-burn-ParrilladaTrack.html#parrillada-track-tag-add"/>
+    <function name="parrillada_track_tag_lookup ()" link="libparrillada-burn-ParrilladaTrack.html#parrillada-track-tag-lookup"/>
+    <function name="parrillada_track_tag_copy_missing ()" link="libparrillada-burn-ParrilladaTrack.html#parrillada-track-tag-copy-missing"/>
+    <function name="parrillada_track_tag_add_string ()" link="libparrillada-burn-ParrilladaTrack.html#parrillada-track-tag-add-string"/>
+    <function name="parrillada_track_tag_lookup_string ()" link="libparrillada-burn-ParrilladaTrack.html#parrillada-track-tag-lookup-string"/>
+    <function name="parrillada_track_tag_add_int ()" link="libparrillada-burn-ParrilladaTrack.html#parrillada-track-tag-add-int"/>
+    <function name="parrillada_track_tag_lookup_int ()" link="libparrillada-burn-ParrilladaTrack.html#parrillada-track-tag-lookup-int"/>
+    <function name="ParrilladaTrackDisc" link="libparrillada-burn-ParrilladaTrackDisc.html#ParrilladaTrackDisc"/>
+    <function name="parrillada_track_disc_new ()" link="libparrillada-burn-ParrilladaTrackDisc.html#parrillada-track-disc-new"/>
+    <function name="parrillada_track_disc_set_drive ()" link="libparrillada-burn-ParrilladaTrackDisc.html#parrillada-track-disc-set-drive"/>
+    <function name="parrillada_track_disc_get_drive ()" link="libparrillada-burn-ParrilladaTrackDisc.html#parrillada-track-disc-get-drive"/>
+    <function name="parrillada_track_disc_set_track_num ()" link="libparrillada-burn-ParrilladaTrackDisc.html#parrillada-track-disc-set-track-num"/>
+    <function name="parrillada_track_disc_get_track_num ()" link="libparrillada-burn-ParrilladaTrackDisc.html#parrillada-track-disc-get-track-num"/>
+    <function name="parrillada_track_disc_get_medium_type ()" link="libparrillada-burn-ParrilladaTrackDisc.html#parrillada-track-disc-get-medium-type"/>
+    <function name="ParrilladaGraftPt" link="libparrillada-burn-parrillada-track-data.html#ParrilladaGraftPt"/>
+    <function name="parrillada_graft_point_free ()" link="libparrillada-burn-parrillada-track-data.html#parrillada-graft-point-free"/>
+    <function name="parrillada_graft_point_copy ()" link="libparrillada-burn-parrillada-track-data.html#parrillada-graft-point-copy"/>
+    <function name="ParrilladaTrackData" link="libparrillada-burn-parrillada-track-data.html#ParrilladaTrackData"/>
+    <function name="parrillada_track_data_new ()" link="libparrillada-burn-parrillada-track-data.html#parrillada-track-data-new"/>
+    <function name="parrillada_track_data_set_source ()" link="libparrillada-burn-parrillada-track-data.html#parrillada-track-data-set-source"/>
+    <function name="parrillada_track_data_add_fs ()" link="libparrillada-burn-parrillada-track-data.html#parrillada-track-data-add-fs"/>
+    <function name="parrillada_track_data_rm_fs ()" link="libparrillada-burn-parrillada-track-data.html#parrillada-track-data-rm-fs"/>
+    <function name="parrillada_track_data_set_data_blocks ()" link="libparrillada-burn-parrillada-track-data.html#parrillada-track-data-set-data-blocks"/>
+    <function name="parrillada_track_data_set_file_num ()" link="libparrillada-burn-parrillada-track-data.html#parrillada-track-data-set-file-num"/>
+    <function name="parrillada_track_data_get_grafts ()" link="libparrillada-burn-parrillada-track-data.html#parrillada-track-data-get-grafts"/>
+    <function name="parrillada_track_data_get_file_num ()" link="libparrillada-burn-parrillada-track-data.html#parrillada-track-data-get-file-num"/>
+    <function name="parrillada_track_data_get_fs ()" link="libparrillada-burn-parrillada-track-data.html#parrillada-track-data-get-fs"/>
+    <function name="PARRILLADA_DND_TARGET_DATA_TRACK_REFERENCE_LIST" link="libparrillada-burn-parrillada-track-data-cfg.html#PARRILLADA-DND-TARGET-DATA-TRACK-REFERENCE-LIST:CAPS"/>
+    <function name="enum ParrilladaTrackDataCfgColumn" link="libparrillada-burn-parrillada-track-data-cfg.html#ParrilladaTrackDataCfgColumn"/>
+    <function name="ParrilladaTrackDataCfg" link="libparrillada-burn-parrillada-track-data-cfg.html#ParrilladaTrackDataCfg"/>
+    <function name="parrillada_track_data_cfg_new ()" link="libparrillada-burn-parrillada-track-data-cfg.html#parrillada-track-data-cfg-new"/>
+    <function name="parrillada_track_data_cfg_add ()" link="libparrillada-burn-parrillada-track-data-cfg.html#parrillada-track-data-cfg-add"/>
+    <function name="parrillada_track_data_cfg_add_empty_directory ()" link="libparrillada-burn-parrillada-track-data-cfg.html#parrillada-track-data-cfg-add-empty-directory"/>
+    <function name="parrillada_track_data_cfg_remove ()" link="libparrillada-burn-parrillada-track-data-cfg.html#parrillada-track-data-cfg-remove"/>
+    <function name="parrillada_track_data_cfg_rename ()" link="libparrillada-burn-parrillada-track-data-cfg.html#parrillada-track-data-cfg-rename"/>
+    <function name="parrillada_track_data_cfg_reset ()" link="libparrillada-burn-parrillada-track-data-cfg.html#parrillada-track-data-cfg-reset"/>
+    <function name="parrillada_track_data_cfg_load_medium ()" link="libparrillada-burn-parrillada-track-data-cfg.html#parrillada-track-data-cfg-load-medium"/>
+    <function name="parrillada_track_data_cfg_unload_current_medium ()" link="libparrillada-burn-parrillada-track-data-cfg.html#parrillada-track-data-cfg-unload-current-medium"/>
+    <function name="parrillada_track_data_cfg_get_current_medium ()" link="libparrillada-burn-parrillada-track-data-cfg.html#parrillada-track-data-cfg-get-current-medium"/>
+    <function name="parrillada_track_data_cfg_get_available_media ()" link="libparrillada-burn-parrillada-track-data-cfg.html#parrillada-track-data-cfg-get-available-media"/>
+    <function name="parrillada_track_data_cfg_dont_filter_uri ()" link="libparrillada-burn-parrillada-track-data-cfg.html#parrillada-track-data-cfg-dont-filter-uri"/>
+    <function name="parrillada_track_data_cfg_get_restored_list ()" link="libparrillada-burn-parrillada-track-data-cfg.html#parrillada-track-data-cfg-get-restored-list"/>
+    <function name="parrillada_track_data_cfg_restore ()" link="libparrillada-burn-parrillada-track-data-cfg.html#parrillada-track-data-cfg-restore"/>
+    <function name="parrillada_track_data_cfg_get_filtered_model ()" link="libparrillada-burn-parrillada-track-data-cfg.html#parrillada-track-data-cfg-get-filtered-model"/>
+    <function name="parrillada_track_data_cfg_span ()" link="libparrillada-burn-parrillada-track-data-cfg.html#parrillada-track-data-cfg-span"/>
+    <function name="parrillada_track_data_cfg_span_again ()" link="libparrillada-burn-parrillada-track-data-cfg.html#parrillada-track-data-cfg-span-again"/>
+    <function name="parrillada_track_data_cfg_span_possible ()" link="libparrillada-burn-parrillada-track-data-cfg.html#parrillada-track-data-cfg-span-possible"/>
+    <function name="parrillada_track_data_cfg_span_stop ()" link="libparrillada-burn-parrillada-track-data-cfg.html#parrillada-track-data-cfg-span-stop"/>
+    <function name="parrillada_track_data_cfg_get_icon ()" link="libparrillada-burn-parrillada-track-data-cfg.html#parrillada-track-data-cfg-get-icon"/>
+    <function name="parrillada_track_data_cfg_get_icon_path ()" link="libparrillada-burn-parrillada-track-data-cfg.html#parrillada-track-data-cfg-get-icon-path"/>
+    <function name="parrillada_track_data_cfg_set_icon ()" link="libparrillada-burn-parrillada-track-data-cfg.html#parrillada-track-data-cfg-set-icon"/>
+    <function name="ParrilladaTrackStream" link="libparrillada-burn-ParrilladaTrackStream.html#ParrilladaTrackStream"/>
+    <function name="parrillada_track_stream_new ()" link="libparrillada-burn-ParrilladaTrackStream.html#parrillada-track-stream-new"/>
+    <function name="parrillada_track_stream_set_source ()" link="libparrillada-burn-ParrilladaTrackStream.html#parrillada-track-stream-set-source"/>
+    <function name="parrillada_track_stream_set_format ()" link="libparrillada-burn-ParrilladaTrackStream.html#parrillada-track-stream-set-format"/>
+    <function name="parrillada_track_stream_set_boundaries ()" link="libparrillada-burn-ParrilladaTrackStream.html#parrillada-track-stream-set-boundaries"/>
+    <function name="parrillada_track_stream_get_source ()" link="libparrillada-burn-ParrilladaTrackStream.html#parrillada-track-stream-get-source"/>
+    <function name="parrillada_track_stream_get_length ()" link="libparrillada-burn-ParrilladaTrackStream.html#parrillada-track-stream-get-length"/>
+    <function name="parrillada_track_stream_get_start ()" link="libparrillada-burn-ParrilladaTrackStream.html#parrillada-track-stream-get-start"/>
+    <function name="parrillada_track_stream_get_end ()" link="libparrillada-burn-ParrilladaTrackStream.html#parrillada-track-stream-get-end"/>
+    <function name="parrillada_track_stream_get_gap ()" link="libparrillada-burn-ParrilladaTrackStream.html#parrillada-track-stream-get-gap"/>
+    <function name="parrillada_track_stream_get_format ()" link="libparrillada-burn-ParrilladaTrackStream.html#parrillada-track-stream-get-format"/>
+    <function name="ParrilladaTrackStreamCfg" link="libparrillada-burn-ParrilladaTrackStreamCfg.html#ParrilladaTrackStreamCfg"/>
+    <function name="parrillada_track_stream_cfg_new ()" link="libparrillada-burn-ParrilladaTrackStreamCfg.html#parrillada-track-stream-cfg-new"/>
+    <function name="ParrilladaTrackImage" link="libparrillada-burn-ParrilladaTrackImage.html#ParrilladaTrackImage"/>
+    <function name="parrillada_track_image_new ()" link="libparrillada-burn-ParrilladaTrackImage.html#parrillada-track-image-new"/>
+    <function name="parrillada_track_image_set_source ()" link="libparrillada-burn-ParrilladaTrackImage.html#parrillada-track-image-set-source"/>
+    <function name="parrillada_track_image_set_block_num ()" link="libparrillada-burn-ParrilladaTrackImage.html#parrillada-track-image-set-block-num"/>
+    <function name="parrillada_track_image_get_source ()" link="libparrillada-burn-ParrilladaTrackImage.html#parrillada-track-image-get-source"/>
+    <function name="parrillada_track_image_get_toc_source ()" link="libparrillada-burn-ParrilladaTrackImage.html#parrillada-track-image-get-toc-source"/>
+    <function name="parrillada_track_image_get_format ()" link="libparrillada-burn-ParrilladaTrackImage.html#parrillada-track-image-get-format"/>
+    <function name="ParrilladaTrackImageCfg" link="libparrillada-burn-ParrilladaTrackImageCfg.html#ParrilladaTrackImageCfg"/>
+    <function name="parrillada_track_image_cfg_new ()" link="libparrillada-burn-ParrilladaTrackImageCfg.html#parrillada-track-image-cfg-new"/>
+    <function name="parrillada_track_image_cfg_set_source ()" link="libparrillada-burn-ParrilladaTrackImageCfg.html#parrillada-track-image-cfg-set-source"/>
+    <function name="parrillada_track_image_cfg_force_format ()" link="libparrillada-burn-ParrilladaTrackImageCfg.html#parrillada-track-image-cfg-force-format"/>
+    <function name="parrillada_track_image_cfg_get_forced_format ()" link="libparrillada-burn-ParrilladaTrackImageCfg.html#parrillada-track-image-cfg-get-forced-format"/>
+    <function name="ParrilladaBurnSession" link="libparrillada-burn-ParrilladaBurnSession.html#ParrilladaBurnSession"/>
+    <function name="ParrilladaBurnSessionClass" link="libparrillada-burn-ParrilladaBurnSession.html#ParrilladaBurnSessionClass"/>
+    <function name="parrillada_burn_session_new ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-new"/>
+    <function name="parrillada_burn_session_add_track ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-add-track"/>
+    <function name="parrillada_burn_session_move_track ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-move-track"/>
+    <function name="parrillada_burn_session_remove_track ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-remove-track"/>
+    <function name="parrillada_burn_session_get_tracks ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-get-tracks"/>
+    <function name="parrillada_burn_session_get_status ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-get-status"/>
+    <function name="parrillada_burn_session_get_size ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-get-size"/>
+    <function name="parrillada_burn_session_get_input_type ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-get-input-type"/>
+    <function name="parrillada_burn_session_tag_lookup ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-tag-lookup"/>
+    <function name="parrillada_burn_session_tag_add ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-tag-add"/>
+    <function name="parrillada_burn_session_tag_remove ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-tag-remove"/>
+    <function name="parrillada_burn_session_get_burner ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-get-burner"/>
+    <function name="parrillada_burn_session_set_burner ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-set-burner"/>
+    <function name="parrillada_burn_session_set_image_output_full ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-set-image-output-full"/>
+    <function name="parrillada_burn_session_get_output ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-get-output"/>
+    <function name="parrillada_burn_session_get_output_format ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-get-output-format"/>
+    <function name="parrillada_burn_session_set_flags ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-set-flags"/>
+    <function name="parrillada_burn_session_add_flag ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-add-flag"/>
+    <function name="parrillada_burn_session_remove_flag ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-remove-flag"/>
+    <function name="parrillada_burn_session_get_flags ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-get-flags"/>
+    <function name="parrillada_burn_session_set_tmpdir ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-set-tmpdir"/>
+    <function name="parrillada_burn_session_get_tmpdir ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-get-tmpdir"/>
+    <function name="parrillada_burn_session_get_burn_flags ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-get-burn-flags"/>
+    <function name="parrillada_burn_session_get_blank_flags ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-get-blank-flags"/>
+    <function name="parrillada_burn_session_can_blank ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-can-blank"/>
+    <function name="parrillada_burn_session_can_burn ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-can-burn"/>
+    <function name="parrillada_burn_session_input_supported ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-input-supported"/>
+    <function name="parrillada_burn_session_output_supported ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-output-supported"/>
+    <function name="parrillada_burn_session_get_required_media_type ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-get-required-media-type"/>
+    <function name="parrillada_burn_session_get_possible_output_formats ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-get-possible-output-formats"/>
+    <function name="parrillada_burn_session_get_default_output_format ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-get-default-output-format"/>
+    <function name="parrillada_burn_session_get_label ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-get-label"/>
+    <function name="parrillada_burn_session_set_label ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-set-label"/>
+    <function name="parrillada_burn_session_set_rate ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-set-rate"/>
+    <function name="parrillada_burn_session_get_rate ()" link="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-get-rate"/>
+    <function name="ParrilladaSessionSpan" link="libparrillada-burn-ParrilladaSessionSpan.html#ParrilladaSessionSpan"/>
+    <function name="parrillada_session_span_new ()" link="libparrillada-burn-ParrilladaSessionSpan.html#parrillada-session-span-new"/>
+    <function name="parrillada_session_span_again ()" link="libparrillada-burn-ParrilladaSessionSpan.html#parrillada-session-span-again"/>
+    <function name="parrillada_session_span_possible ()" link="libparrillada-burn-ParrilladaSessionSpan.html#parrillada-session-span-possible"/>
+    <function name="parrillada_session_span_start ()" link="libparrillada-burn-ParrilladaSessionSpan.html#parrillada-session-span-start"/>
+    <function name="parrillada_session_span_next ()" link="libparrillada-burn-ParrilladaSessionSpan.html#parrillada-session-span-next"/>
+    <function name="parrillada_session_span_stop ()" link="libparrillada-burn-ParrilladaSessionSpan.html#parrillada-session-span-stop"/>
+    <function name="ParrilladaSessionCfg" link="libparrillada-burn-ParrilladaSessionCfg.html#ParrilladaSessionCfg"/>
+    <function name="enum ParrilladaSessionError" link="libparrillada-burn-ParrilladaSessionCfg.html#ParrilladaSessionError"/>
+    <function name="PARRILLADA_SESSION_IS_VALID()" link="libparrillada-burn-ParrilladaSessionCfg.html#PARRILLADA-SESSION-IS-VALID:CAPS"/>
+    <function name="parrillada_session_cfg_new ()" link="libparrillada-burn-ParrilladaSessionCfg.html#parrillada-session-cfg-new"/>
+    <function name="parrillada_session_cfg_get_error ()" link="libparrillada-burn-ParrilladaSessionCfg.html#parrillada-session-cfg-get-error"/>
+    <function name="parrillada_session_cfg_add_flags ()" link="libparrillada-burn-ParrilladaSessionCfg.html#parrillada-session-cfg-add-flags"/>
+    <function name="parrillada_session_cfg_remove_flags ()" link="libparrillada-burn-ParrilladaSessionCfg.html#parrillada-session-cfg-remove-flags"/>
+    <function name="parrillada_session_cfg_is_supported ()" link="libparrillada-burn-ParrilladaSessionCfg.html#parrillada-session-cfg-is-supported"/>
+    <function name="parrillada_session_cfg_is_compulsory ()" link="libparrillada-burn-ParrilladaSessionCfg.html#parrillada-session-cfg-is-compulsory"/>
+    <function name="parrillada_session_cfg_has_default_output_path ()" link="libparrillada-burn-ParrilladaSessionCfg.html#parrillada-session-cfg-has-default-output-path"/>
+    <function name="parrillada_session_cfg_enable ()" link="libparrillada-burn-ParrilladaSessionCfg.html#parrillada-session-cfg-enable"/>
+    <function name="parrillada_session_cfg_disable ()" link="libparrillada-burn-ParrilladaSessionCfg.html#parrillada-session-cfg-disable"/>
+    <function name="ParrilladaBurnOptions" link="libparrillada-burn-ParrilladaBurnOptions.html#ParrilladaBurnOptions"/>
+    <function name="parrillada_burn_options_new ()" link="libparrillada-burn-ParrilladaBurnOptions.html#parrillada-burn-options-new"/>
+    <function name="parrillada_burn_options_add_options ()" link="libparrillada-burn-ParrilladaBurnOptions.html#parrillada-burn-options-add-options"/>
+    <function name="ParrilladaBurn" link="libparrillada-burn-ParrilladaBurn.html#ParrilladaBurn"/>
+    <function name="parrillada_burn_new ()" link="libparrillada-burn-ParrilladaBurn.html#parrillada-burn-new"/>
+    <function name="parrillada_burn_record ()" link="libparrillada-burn-ParrilladaBurn.html#parrillada-burn-record"/>
+    <function name="parrillada_burn_check ()" link="libparrillada-burn-ParrilladaBurn.html#parrillada-burn-check"/>
+    <function name="parrillada_burn_blank ()" link="libparrillada-burn-ParrilladaBurn.html#parrillada-burn-blank"/>
+    <function name="parrillada_burn_cancel ()" link="libparrillada-burn-ParrilladaBurn.html#parrillada-burn-cancel"/>
+    <function name="parrillada_burn_status ()" link="libparrillada-burn-ParrilladaBurn.html#parrillada-burn-status"/>
+    <function name="parrillada_burn_get_action_string ()" link="libparrillada-burn-ParrilladaBurn.html#parrillada-burn-get-action-string"/>
+    <function name="ParrilladaBurnDialog" link="libparrillada-burn-ParrilladaBurnDialog.html#ParrilladaBurnDialog"/>
+    <function name="parrillada_burn_dialog_new ()" link="libparrillada-burn-ParrilladaBurnDialog.html#parrillada-burn-dialog-new"/>
+    <function name="parrillada_burn_dialog_run ()" link="libparrillada-burn-ParrilladaBurnDialog.html#parrillada-burn-dialog-run"/>
+    <function name="parrillada_burn_dialog_cancel ()" link="libparrillada-burn-ParrilladaBurnDialog.html#parrillada-burn-dialog-cancel"/>
+    <function name="ParrilladaToolDialog" link="libparrillada-burn-ParrilladaToolDialog.html#ParrilladaToolDialog"/>
+    <function name="parrillada_tool_dialog_cancel ()" link="libparrillada-burn-ParrilladaToolDialog.html#parrillada-tool-dialog-cancel"/>
+    <function name="parrillada_tool_dialog_set_medium ()" link="libparrillada-burn-ParrilladaToolDialog.html#parrillada-tool-dialog-set-medium"/>
+    <function name="ParrilladaSumDialog" link="libparrillada-burn-ParrilladaSumDialog.html#ParrilladaSumDialog"/>
+    <function name="parrillada_sum_dialog_new ()" link="libparrillada-burn-ParrilladaSumDialog.html#parrillada-sum-dialog-new"/>
+    <function name="ParrilladaBlankDialog" link="libparrillada-burn-ParrilladaBlankDialog.html#ParrilladaBlankDialog"/>
+    <function name="parrillada_blank_dialog_new ()" link="libparrillada-burn-ParrilladaBlankDialog.html#parrillada-blank-dialog-new"/>
+  </functions>
+</book>

@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>parrillada-burn-lib</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Libparrillada-burn Reference Manual">
+<link rel="up" href="ch01.html" title="API Reference for Libparrillada-burn">
+<link rel="prev" href="ch01.html" title="API Reference for Libparrillada-burn">
+<link rel="next" href="libparrillada-burn-parrillada-error.html" title="parrillada-error">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch01.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Libparrillada-burn Reference Manual</th>
+<td><a accesskey="n" href="libparrillada-burn-parrillada-error.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libparrillada-burn-parrillada-burn-lib.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libparrillada-burn-parrillada-burn-lib.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" title="parrillada-burn-lib">
+<a name="libparrillada-burn-parrillada-burn-lib"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libparrillada-burn-parrillada-burn-lib.top_of_page"></a>parrillada-burn-lib</span></h2>
+<p>parrillada-burn-lib</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="libparrillada-burn-parrillada-burn-lib.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#define             <a class="link" href="libparrillada-burn-parrillada-burn-lib.html#LIBPARRILLADA-BURN-VERSION-MAJOR:CAPS" title="LIBPARRILLADA_BURN_VERSION_MAJOR">LIBPARRILLADA_BURN_VERSION_MAJOR</a>
+#define             <a class="link" href="libparrillada-burn-parrillada-burn-lib.html#LIBPARRILLADA-BURN-VERSION-MINOR:CAPS" title="LIBPARRILLADA_BURN_VERSION_MINOR">LIBPARRILLADA_BURN_VERSION_MINOR</a>
+#define             <a class="link" href="libparrillada-burn-parrillada-burn-lib.html#LIBPARRILLADA-BURN-VERSION-MICRO:CAPS" title="LIBPARRILLADA_BURN_VERSION_MICRO">LIBPARRILLADA_BURN_VERSION_MICRO</a>
+#define             <a class="link" href="libparrillada-burn-parrillada-burn-lib.html#LIBPARRILLADA-BURN-AGE:CAPS" title="LIBPARRILLADA_BURN_AGE">LIBPARRILLADA_BURN_AGE</a>
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libparrillada-burn-parrillada-burn-lib.html#parrillada-burn-library-start" title="parrillada_burn_library_start ()">parrillada_burn_library_start</a>          (<em class="parameter"><code><span class="type">int</span> *argc</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> **argv[]</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libparrillada-burn-parrillada-burn-lib.html#parrillada-burn-library-stop" title="parrillada_burn_library_stop ()">parrillada_burn_library_stop</a>           (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Commandline-option-parser.html#GOptionGroup"><span class="returnvalue">GOptionGroup</span></a> *      <a class="link" href="libparrillada-burn-parrillada-burn-lib.html#parrillada-burn-library-get-option-group" title="parrillada_burn_library_get_option_group ()">parrillada_burn_library_get_option_group</a>
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            <a class="link" href="libparrillada-burn-parrillada-burn-lib.html#parrillada-burn-library-get-plugins-list" title="parrillada_burn_library_get_plugins_list ()">parrillada_burn_library_get_plugins_list</a>
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libparrillada-burn-parrillada-burn-lib.html#parrillada-burn-library-can-checksum" title="parrillada_burn_library_can_checksum ()">parrillada_burn_library_can_checksum</a>   (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="libparrillada-burn-parrillada-enums.html#ParrilladaBurnResult" title="enum ParrilladaBurnResult"><span class="returnvalue">ParrilladaBurnResult</span></a>   <a class="link" href="libparrillada-burn-parrillada-burn-lib.html#parrillada-burn-library-input-supported" title="parrillada_burn_library_input_supported ()">parrillada_burn_library_input_supported</a>
+                                                        (<em class="parameter"><code><a class="link" href="libparrillada-burn-parrillada-track-type.html#ParrilladaTrackType" title="ParrilladaTrackType"><span class="type">ParrilladaTrackType</span></a> *type</code></em>);
+<a href="/usr/share/gtk-doc/html/libparrillada-media/libparrillada-media-parrillada-media.html#ParrilladaMedia"><span class="returnvalue">ParrilladaMedia</span></a>        <a class="link" href="libparrillada-burn-parrillada-burn-lib.html#parrillada-burn-library-get-media-capabilities" title="parrillada_burn_library_get_media_capabilities ()">parrillada_burn_library_get_media_capabilities</a>
+                                                        (<em class="parameter"><code><a href="/usr/share/gtk-doc/html/libparrillada-media/libparrillada-media-parrillada-media.html#ParrilladaMedia"><span class="type">ParrilladaMedia</span></a> media</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="libparrillada-burn-parrillada-burn-lib.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="libparrillada-burn-parrillada-burn-lib.details"></a><h2>Details</h2>
+<div class="refsect2" title="LIBPARRILLADA_BURN_VERSION_MAJOR">
+<a name="LIBPARRILLADA-BURN-VERSION-MAJOR:CAPS"></a><h3>LIBPARRILLADA_BURN_VERSION_MAJOR</h3>
+<pre class="programlisting">#define             LIBPARRILLADA_BURN_VERSION_MAJOR</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="LIBPARRILLADA_BURN_VERSION_MINOR">
+<a name="LIBPARRILLADA-BURN-VERSION-MINOR:CAPS"></a><h3>LIBPARRILLADA_BURN_VERSION_MINOR</h3>
+<pre class="programlisting">#define             LIBPARRILLADA_BURN_VERSION_MINOR</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="LIBPARRILLADA_BURN_VERSION_MICRO">
+<a name="LIBPARRILLADA-BURN-VERSION-MICRO:CAPS"></a><h3>LIBPARRILLADA_BURN_VERSION_MICRO</h3>
+<pre class="programlisting">#define             LIBPARRILLADA_BURN_VERSION_MICRO</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="LIBPARRILLADA_BURN_AGE">
+<a name="LIBPARRILLADA-BURN-AGE:CAPS"></a><h3>LIBPARRILLADA_BURN_AGE</h3>
+<pre class="programlisting">#define             LIBPARRILLADA_BURN_AGE</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="parrillada_burn_library_start ()">
+<a name="parrillada-burn-library-start"></a><h3>parrillada_burn_library_start ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            parrillada_burn_library_start          (<em class="parameter"><code><span class="type">int</span> *argc</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> **argv[]</code></em>);</pre>
+<p>
+Starts the library. This function must be called
+before using any of the functions.
+</p>
+<p>
+Rename to: init
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>argc</code></em> :</span></p></td>
+<td>an <span class="type">int</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>argv</code></em> :</span></p></td>
+<td>a <span class="type">char</span> **.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="parrillada_burn_library_stop ()">
+<a name="parrillada-burn-library-stop"></a><h3>parrillada_burn_library_stop ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                parrillada_burn_library_stop           (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Stop the library. Don't use any of the functions or
+objects afterwards
+</p>
+<p>
+Rename to: deinit
+</p>
+</div>
+<hr>
+<div class="refsect2" title="parrillada_burn_library_get_option_group ()">
+<a name="parrillada-burn-library-get-option-group"></a><h3>parrillada_burn_library_get_option_group ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Commandline-option-parser.html#GOptionGroup"><span class="returnvalue">GOptionGroup</span></a> *      parrillada_burn_library_get_option_group
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Returns a GOptionGroup for the commandline arguments recognized by libparrillada-burn.
+You should add this to your GOptionContext if your are using <a href="http://library.gnome.org/devel/glib/unstable/glib-Commandline-option-parser.html#g-option-context-parse"><code class="function">g_option_context_parse()</code></a>
+to parse your commandline arguments.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a <a href="http://library.gnome.org/devel/glib/unstable/glib-Commandline-option-parser.html#GOptionGroup"><span class="type">GOptionGroup</span></a> *
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="parrillada_burn_library_get_plugins_list ()">
+<a name="parrillada-burn-library-get-plugins-list"></a><h3>parrillada_burn_library_get_plugins_list ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            parrillada_burn_library_get_plugins_list
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+This function returns the list of plugins that 
+are available to libparrillada-burn.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> that must be destroyed when not needed and each object unreffed. <span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GObject.Object][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym> GObject.Object]</span>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="parrillada_burn_library_can_checksum ()">
+<a name="parrillada-burn-library-can-checksum"></a><h3>parrillada_burn_library_can_checksum ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            parrillada_burn_library_can_checksum   (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Checks whether the library can do any kind of
+checksum at all.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="parrillada_burn_library_input_supported ()">
+<a name="parrillada-burn-library-input-supported"></a><h3>parrillada_burn_library_input_supported ()</h3>
+<pre class="programlisting"><a class="link" href="libparrillada-burn-parrillada-enums.html#ParrilladaBurnResult" title="enum ParrilladaBurnResult"><span class="returnvalue">ParrilladaBurnResult</span></a>   parrillada_burn_library_input_supported
+                                                        (<em class="parameter"><code><a class="link" href="libparrillada-burn-parrillada-track-type.html#ParrilladaTrackType" title="ParrilladaTrackType"><span class="type">ParrilladaTrackType</span></a> *type</code></em>);</pre>
+<p>
+Checks whether <em class="parameter"><code>type</code></em> can be used as input.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>a <a class="link" href="libparrillada-burn-parrillada-track-type.html#ParrilladaTrackType" title="ParrilladaTrackType"><span class="type">ParrilladaTrackType</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a <a class="link" href="libparrillada-burn-parrillada-enums.html#ParrilladaBurnResult" title="enum ParrilladaBurnResult"><span class="type">ParrilladaBurnResult</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="parrillada_burn_library_get_media_capabilities ()">
+<a name="parrillada-burn-library-get-media-capabilities"></a><h3>parrillada_burn_library_get_media_capabilities ()</h3>
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/libparrillada-media/libparrillada-media-parrillada-media.html#ParrilladaMedia"><span class="returnvalue">ParrilladaMedia</span></a>        parrillada_burn_library_get_media_capabilities
+                                                        (<em class="parameter"><code><a href="/usr/share/gtk-doc/html/libparrillada-media/libparrillada-media-parrillada-media.html#ParrilladaMedia"><span class="type">ParrilladaMedia</span></a> media</code></em>);</pre>
+<p>
+Used to test what the library can do based on the medium type.
+Returns PARRILLADA_MEDIUM_WRITABLE if the disc can be written
+and / or PARRILLADA_MEDIUM_REWRITABLE if the disc can be erased.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>media</code></em> :</span></p></td>
+<td>a <a href="/usr/share/gtk-doc/html/libparrillada-media/libparrillada-media-parrillada-media.html#ParrilladaMedia"><span class="type">ParrilladaMedia</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a <a href="/usr/share/gtk-doc/html/libparrillada-media/libparrillada-media-parrillada-media.html#ParrilladaMedia"><span class="type">ParrilladaMedia</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

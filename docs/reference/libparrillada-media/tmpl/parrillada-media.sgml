@@ -1,0 +1,339 @@
+<!-- ##### SECTION Title ##### -->
+parrillada-media
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### MACRO LIBPARRILLADA_MEDIA_VERSION_MAJOR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO LIBPARRILLADA_MEDIA_VERSION_MINOR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO LIBPARRILLADA_MEDIA_VERSION_MICRO ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO LIBPARRILLADA_MEDIA_AGE ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO LIBPARRILLADA_MEDIA_INSTALL ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### FUNCTION parrillada_media_library_start ##### -->
+<para>
+
+</para>
+
+@void: 
+
+
+<!-- ##### FUNCTION parrillada_media_library_stop ##### -->
+<para>
+
+</para>
+
+@void: 
+
+
+<!-- ##### FUNCTION parrillada_media_get_option_group ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION parrillada_media_quark ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### MACRO PARRILLADA_MEDIA_ERROR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### ENUM ParrilladaMediaError ##### -->
+<para>
+
+</para>
+
+@PARRILLADA_MEDIA_ERROR_NONE: 
+@PARRILLADA_MEDIA_ERROR_GENERAL: 
+@PARRILLADA_MEDIA_ERROR_IMAGE_INVALID: 
+
+<!-- ##### ENUM ParrilladaMedia ##### -->
+<para>
+
+</para>
+
+@PARRILLADA_MEDIUM_UNSUPPORTED: 
+@PARRILLADA_MEDIUM_BUSY: 
+@PARRILLADA_MEDIUM_NONE: 
+@PARRILLADA_MEDIUM_FILE: 
+@PARRILLADA_MEDIUM_CD: 
+@PARRILLADA_MEDIUM_DVD: 
+@PARRILLADA_MEDIUM_BD: 
+@PARRILLADA_MEDIUM_DUAL_L: 
+@PARRILLADA_MEDIUM_RAM: 
+@PARRILLADA_MEDIUM_PLUS: 
+@PARRILLADA_MEDIUM_SEQUENTIAL: 
+@PARRILLADA_MEDIUM_RESTRICTED: 
+@PARRILLADA_MEDIUM_JUMP: 
+@PARRILLADA_MEDIUM_RANDOM: 
+@PARRILLADA_MEDIUM_SRM: 
+@PARRILLADA_MEDIUM_POW: 
+@PARRILLADA_MEDIUM_REWRITABLE: 
+@PARRILLADA_MEDIUM_WRITABLE: 
+@PARRILLADA_MEDIUM_ROM: 
+@PARRILLADA_MEDIUM_BLANK: 
+@PARRILLADA_MEDIUM_CLOSED: 
+@PARRILLADA_MEDIUM_APPENDABLE: 
+@PARRILLADA_MEDIUM_UNFORMATTED: 
+@PARRILLADA_MEDIUM_PROTECTED: 
+@PARRILLADA_MEDIUM_HAS_DATA: 
+@PARRILLADA_MEDIUM_HAS_AUDIO: 
+
+<!-- ##### MACRO PARRILLADA_MEDIUM_CDROM ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO PARRILLADA_MEDIUM_CDR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO PARRILLADA_MEDIUM_CDRW ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO PARRILLADA_MEDIUM_DVD_ROM ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO PARRILLADA_MEDIUM_DVDR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO PARRILLADA_MEDIUM_DVDRW ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO PARRILLADA_MEDIUM_DVDRW_RESTRICTED ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO PARRILLADA_MEDIUM_DVDR_DL ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO PARRILLADA_MEDIUM_DVDR_JUMP_DL ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO PARRILLADA_MEDIUM_DVDR_PLUS ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO PARRILLADA_MEDIUM_DVDRW_PLUS ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO PARRILLADA_MEDIUM_DVDR_PLUS_DL ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO PARRILLADA_MEDIUM_DVDRW_PLUS_DL ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO PARRILLADA_MEDIUM_DVD_RAM ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO PARRILLADA_MEDIUM_BD_ROM ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO PARRILLADA_MEDIUM_BDR_SRM ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO PARRILLADA_MEDIUM_BDR_SRM_POW ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO PARRILLADA_MEDIUM_BDR_RANDOM ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO PARRILLADA_MEDIUM_BDRE ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO PARRILLADA_MEDIUM_VALID ##### -->
+<para>
+
+</para>
+
+@media: 
+
+
+<!-- ##### MACRO PARRILLADA_MEDIUM_TYPE ##### -->
+<para>
+
+</para>
+
+@media: 
+
+
+<!-- ##### MACRO PARRILLADA_MEDIUM_ATTR ##### -->
+<para>
+
+</para>
+
+@media: 
+
+
+<!-- ##### MACRO PARRILLADA_MEDIUM_STATUS ##### -->
+<para>
+
+</para>
+
+@media: 
+
+
+<!-- ##### MACRO PARRILLADA_MEDIUM_SUBTYPE ##### -->
+<para>
+
+</para>
+
+@media: 
+
+
+<!-- ##### MACRO PARRILLADA_MEDIUM_INFO ##### -->
+<para>
+
+</para>
+
+@media: 
+
+
+<!-- ##### MACRO PARRILLADA_MEDIUM_IS ##### -->
+<para>
+
+</para>
+
+@media: 
+@type: 
+
+
+<!-- ##### MACRO PARRILLADA_MEDIUM_RANDOM_WRITABLE ##### -->
+<para>
+
+</para>
+
+@media: 
+
+

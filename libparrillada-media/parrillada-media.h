@@ -1,0 +1,240 @@
+/* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 8; tab-width: 8 -*- */
+/*
+ * Libparrillada-media
+ * Copyright (C) Philippe Rouquier 2005-2009 <bonfire-app@wanadoo.fr>
+ *
+ * Libparrillada-media is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * The Libparrillada-media authors hereby grant permission for non-GPL compatible
+ * GStreamer plugins to be used and distributed together with GStreamer
+ * and Libparrillada-media. This permission is above and beyond the permissions granted
+ * by the GPL license by which Libparrillada-media is covered. If you modify this code
+ * you may extend this exception to your version of the code, but you are not
+ * obligated to do so. If you do not wish to do so, delete this exception
+ * statement from your version.
+ * 
+ * Libparrillada-media is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Library General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to:
+ * 	The Free Software Foundation, Inc.,
+ * 	51 Franklin Street, Fifth Floor
+ * 	Boston, MA  02110-1301, USA.
+ */
+ 
+#ifndef _BURN_MEDIA_H
+#define _BURN_MEDIA_H
+
+#include <glib.h>
+
+G_BEGIN_DECLS
+
+/**
+ * Some needed information about the library
+ */
+
+#define LIBPARRILLADA_MEDIA_VERSION_MAJOR						\
+	2
+#define LIBPARRILLADA_MEDIA_VERSION_MINOR						\
+	32
+#define LIBPARRILLADA_MEDIA_VERSION_MICRO						\
+	1
+#define LIBPARRILLADA_MEDIA_AGE							\
+	302
+#define LIBPARRILLADA_MEDIA_INSTALL							\
+	"/usr/local"
+
+/**
+ * To start and stop the library
+ */
+
+void
+parrillada_media_library_start (void);
+
+void
+parrillada_media_library_stop (void);
+
+GOptionGroup *
+parrillada_media_get_option_group (void);
+
+/**
+ * Errors
+ */
+
+GQuark parrillada_media_quark (void);
+
+/**
+ * PARRILLADA_MEDIA_ERROR:
+ *
+ * The GQuark used for ParrilladaMediaError
+ */
+#define PARRILLADA_MEDIA_ERROR parrillada_media_quark()
+
+/**
+ * ParrilladaMediaError:
+ *
+ * Error codes returned by libparrillada-media
+ *
+ */
+typedef enum {
+	PARRILLADA_MEDIA_ERROR_NONE,
+	PARRILLADA_MEDIA_ERROR_GENERAL,
+	PARRILLADA_MEDIA_ERROR_IMAGE_INVALID,
+} ParrilladaMediaError;
+
+/**
+ * ParrilladaMedia:
+ *
+ * This enum allows to define all characteristics for a media (closed, writable, ...)
+ * and identify all types of optical media.
+ *
+ */
+typedef enum {
+	PARRILLADA_MEDIUM_UNSUPPORTED		= -2,
+	PARRILLADA_MEDIUM_BUSY			= -1,
+	PARRILLADA_MEDIUM_NONE			= 0,
+
+	/* types */
+	PARRILLADA_MEDIUM_FILE			= 1,
+
+	PARRILLADA_MEDIUM_CD			= 1 << 1,
+
+	PARRILLADA_MEDIUM_DVD			= 1 << 2,
+
+	PARRILLADA_MEDIUM_BD			= 1 << 3,
+
+	/* subtype for DVD and BD types */
+	PARRILLADA_MEDIUM_DUAL_L			= 1 << 4,
+
+	/* DVD and DVD DL subtypes */
+	PARRILLADA_MEDIUM_RAM			= 1 << 5,
+	PARRILLADA_MEDIUM_PLUS			= 1 << 6,
+	PARRILLADA_MEDIUM_SEQUENTIAL		= 1 << 7,
+	PARRILLADA_MEDIUM_RESTRICTED		= 1 << 8,	/* DVD-RW only */
+
+	/* DVD-R dual layer only subtype */
+	PARRILLADA_MEDIUM_JUMP			= 1 << 9,
+
+	/* BD subtypes */
+	PARRILLADA_MEDIUM_RANDOM			= 1 << 10,
+	PARRILLADA_MEDIUM_SRM			= 1 << 11,
+	PARRILLADA_MEDIUM_POW			= 1 << 12,	/* This is Pseudo OverWrite */
+
+	/* discs attributes */
+	PARRILLADA_MEDIUM_REWRITABLE		= 1 << 14,
+	PARRILLADA_MEDIUM_WRITABLE			= 1 << 15,
+	PARRILLADA_MEDIUM_ROM			= 1 << 16,
+
+	/* status of the disc */
+	PARRILLADA_MEDIUM_BLANK			= 1 << 17,
+	PARRILLADA_MEDIUM_CLOSED			= 1 << 18,
+	PARRILLADA_MEDIUM_APPENDABLE		= 1 << 19,
+
+	/* Only used for DVD+RW, DVD-RW restricted */
+	PARRILLADA_MEDIUM_UNFORMATTED		= 1 << 20,
+
+	PARRILLADA_MEDIUM_PROTECTED		= 1 << 21,
+	PARRILLADA_MEDIUM_HAS_DATA			= 1 << 22,
+	PARRILLADA_MEDIUM_HAS_AUDIO		= 1 << 23,
+} ParrilladaMedia;
+
+#define PARRILLADA_MEDIUM_CDROM		(PARRILLADA_MEDIUM_CD|		\
+					 PARRILLADA_MEDIUM_ROM)
+#define PARRILLADA_MEDIUM_CDR		(PARRILLADA_MEDIUM_CD|		\
+					 PARRILLADA_MEDIUM_WRITABLE)
+#define PARRILLADA_MEDIUM_CDRW		(PARRILLADA_MEDIUM_CD|		\
+					 PARRILLADA_MEDIUM_REWRITABLE)
+#define PARRILLADA_MEDIUM_DVD_ROM		(PARRILLADA_MEDIUM_DVD|		\
+					 PARRILLADA_MEDIUM_ROM)
+#define PARRILLADA_MEDIUM_DVDR		(PARRILLADA_MEDIUM_DVD|		\
+					 PARRILLADA_MEDIUM_SEQUENTIAL|	\
+					 PARRILLADA_MEDIUM_WRITABLE)
+#define PARRILLADA_MEDIUM_DVDRW		(PARRILLADA_MEDIUM_DVD|		\
+					 PARRILLADA_MEDIUM_SEQUENTIAL|	\
+					 PARRILLADA_MEDIUM_REWRITABLE)
+#define PARRILLADA_MEDIUM_DVDRW_RESTRICTED	(PARRILLADA_MEDIUM_DVD|		\
+					 PARRILLADA_MEDIUM_REWRITABLE|	\
+					 PARRILLADA_MEDIUM_RESTRICTED)
+#define PARRILLADA_MEDIUM_DVDR_DL		(PARRILLADA_MEDIUM_DVD|		\
+					 PARRILLADA_MEDIUM_DUAL_L|		\
+					 PARRILLADA_MEDIUM_WRITABLE|	\
+					 PARRILLADA_MEDIUM_SEQUENTIAL)
+#define PARRILLADA_MEDIUM_DVDR_JUMP_DL	(PARRILLADA_MEDIUM_DVD|		\
+					 PARRILLADA_MEDIUM_DUAL_L|		\
+					 PARRILLADA_MEDIUM_WRITABLE|	\
+					 PARRILLADA_MEDIUM_JUMP)
+#define PARRILLADA_MEDIUM_DVDR_PLUS	(PARRILLADA_MEDIUM_DVD|		\
+					 PARRILLADA_MEDIUM_WRITABLE|	\
+					 PARRILLADA_MEDIUM_PLUS)
+#define PARRILLADA_MEDIUM_DVDRW_PLUS	(PARRILLADA_MEDIUM_DVD|		\
+					 PARRILLADA_MEDIUM_REWRITABLE|	\
+					 PARRILLADA_MEDIUM_PLUS)
+#define PARRILLADA_MEDIUM_DVDR_PLUS_DL	(PARRILLADA_MEDIUM_DVD|		\
+					 PARRILLADA_MEDIUM_DUAL_L|		\
+					 PARRILLADA_MEDIUM_WRITABLE|	\
+					 PARRILLADA_MEDIUM_PLUS)
+#define PARRILLADA_MEDIUM_DVDRW_PLUS_DL	(PARRILLADA_MEDIUM_DVD|		\
+					 PARRILLADA_MEDIUM_DUAL_L|		\
+					 PARRILLADA_MEDIUM_REWRITABLE|	\
+					 PARRILLADA_MEDIUM_PLUS)
+
+#define PARRILLADA_MEDIUM_DVD_RAM		(PARRILLADA_MEDIUM_DVD|		\
+					 PARRILLADA_MEDIUM_RAM)
+
+/* BD types all exist in BD-R(E) DL as well */
+#define PARRILLADA_MEDIUM_BD_ROM		(PARRILLADA_MEDIUM_BD|		\
+					 PARRILLADA_MEDIUM_ROM)
+#define PARRILLADA_MEDIUM_BDR_SRM		(PARRILLADA_MEDIUM_BD|		\
+					 PARRILLADA_MEDIUM_SRM|		\
+					 PARRILLADA_MEDIUM_WRITABLE)
+#define PARRILLADA_MEDIUM_BDR_SRM_POW	(PARRILLADA_MEDIUM_BD|		\
+					 PARRILLADA_MEDIUM_POW|		\
+					 PARRILLADA_MEDIUM_SRM|		\
+					 PARRILLADA_MEDIUM_WRITABLE)
+
+/* This seems to be a really rare mode for BD-R */
+#define PARRILLADA_MEDIUM_BDR_RANDOM	(PARRILLADA_MEDIUM_BD|		\
+					 PARRILLADA_MEDIUM_WRITABLE|	\
+					 PARRILLADA_MEDIUM_RANDOM)
+/* This is always RANDOM write */
+#define PARRILLADA_MEDIUM_BDRE		(PARRILLADA_MEDIUM_BD|			\
+					 PARRILLADA_MEDIUM_REWRITABLE)
+
+
+
+#define PARRILLADA_MEDIUM_VALID(media)	((media) != PARRILLADA_MEDIUM_NONE	&&	\
+					 (media) != PARRILLADA_MEDIUM_BUSY	&&	\
+					 (media) != PARRILLADA_MEDIUM_UNSUPPORTED)
+
+
+#define PARRILLADA_MEDIUM_TYPE(media)	((media) & 0x003F)
+#define PARRILLADA_MEDIUM_ATTR(media)	((media) & 0x1C000)
+#define PARRILLADA_MEDIUM_STATUS(media)	((media) & 0xE0000)
+#define PARRILLADA_MEDIUM_SUBTYPE(media)	((media) & 0x1FC0)
+#define PARRILLADA_MEDIUM_INFO(media)	((media) & 0xFE0000)
+
+#define PARRILLADA_MEDIUM_IS(media, type)	(((media)&(type))==(type))
+
+/* These behave like random writable:
+ * they can be appendable or closed, rewritable or writable */
+#define PARRILLADA_MEDIUM_RANDOM_WRITABLE(media)					\
+	(PARRILLADA_MEDIUM_IS (media, PARRILLADA_MEDIUM_DVDRW_PLUS) ||		\
+	 PARRILLADA_MEDIUM_IS (media, PARRILLADA_MEDIUM_DVDRW_RESTRICTED) ||		\
+	 PARRILLADA_MEDIUM_IS (media, PARRILLADA_MEDIUM_DVD_RAM) || 			\
+	 PARRILLADA_MEDIUM_IS (media, PARRILLADA_MEDIUM_BDR_RANDOM) ||		\
+	 PARRILLADA_MEDIUM_IS (media, PARRILLADA_MEDIUM_BDR_SRM_POW) ||		\
+	 PARRILLADA_MEDIUM_IS (media, PARRILLADA_MEDIUM_BDRE))
+
+
+G_END_DECLS
+
+#endif /* _BURN_MEDIA_H */
+
+ 
+

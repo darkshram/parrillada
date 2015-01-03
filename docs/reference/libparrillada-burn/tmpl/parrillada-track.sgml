@@ -1,0 +1,186 @@
+<!-- ##### SECTION Title ##### -->
+ParrilladaTrack
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT ParrilladaTrack ##### -->
+<para>
+
+</para>
+
+@parent_instance: 
+
+<!-- ##### FUNCTION parrillada_track_changed ##### -->
+<para>
+
+</para>
+
+@track: 
+
+
+<!-- ##### FUNCTION parrillada_track_get_size ##### -->
+<para>
+
+</para>
+
+@track: 
+@blocks: 
+@bytes: 
+@Returns: 
+
+
+<!-- ##### FUNCTION parrillada_track_get_track_type ##### -->
+<para>
+
+</para>
+
+@track: 
+@type: 
+@Returns: 
+
+
+<!-- ##### FUNCTION parrillada_track_get_status ##### -->
+<para>
+
+</para>
+
+@track: 
+@status: 
+@Returns: 
+
+
+<!-- ##### ENUM ParrilladaChecksumType ##### -->
+<para>
+
+</para>
+
+@PARRILLADA_CHECKSUM_NONE: 
+@PARRILLADA_CHECKSUM_DETECT: 
+@PARRILLADA_CHECKSUM_MD5: 
+@PARRILLADA_CHECKSUM_MD5_FILE: 
+@PARRILLADA_CHECKSUM_SHA1: 
+@PARRILLADA_CHECKSUM_SHA1_FILE: 
+@PARRILLADA_CHECKSUM_SHA256: 
+@PARRILLADA_CHECKSUM_SHA256_FILE: 
+
+<!-- ##### FUNCTION parrillada_track_set_checksum ##### -->
+<para>
+
+</para>
+
+@track: 
+@type: 
+@checksum: 
+@Returns: 
+
+
+<!-- ##### FUNCTION parrillada_track_get_checksum ##### -->
+<para>
+
+</para>
+
+@track: 
+@Returns: 
+
+
+<!-- ##### FUNCTION parrillada_track_get_checksum_type ##### -->
+<para>
+
+</para>
+
+@track: 
+@Returns: 
+
+
+<!-- ##### FUNCTION parrillada_track_tag_add ##### -->
+<para>
+
+</para>
+
+@track: 
+@tag: 
+@value: 
+@Returns: 
+
+
+<!-- ##### FUNCTION parrillada_track_tag_lookup ##### -->
+<para>
+
+</para>
+
+@track: 
+@tag: 
+@value: 
+@Returns: 
+
+
+<!-- ##### FUNCTION parrillada_track_tag_copy_missing ##### -->
+<para>
+
+</para>
+
+@dest: 
+@src: 
+
+
+<!-- ##### FUNCTION parrillada_track_tag_add_string ##### -->
+<para>
+
+</para>
+
+@track: 
+@tag: 
+@string: 
+@Returns: 
+
+
+<!-- ##### FUNCTION parrillada_track_tag_lookup_string ##### -->
+<para>
+
+</para>
+
+@track: 
+@tag: 
+@Returns: 
+
+
+<!-- ##### FUNCTION parrillada_track_tag_add_int ##### -->
+<para>
+
+</para>
+
+@track: 
+@tag: 
+@value: 
+@Returns: 
+
+
+<!-- ##### FUNCTION parrillada_track_tag_lookup_int ##### -->
+<para>
+
+</para>
+
+@track: 
+@tag: 
+@Returns: 
+
+

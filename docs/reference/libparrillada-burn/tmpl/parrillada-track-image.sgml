@@ -1,0 +1,91 @@
+<!-- ##### SECTION Title ##### -->
+ParrilladaTrackImage
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT ParrilladaTrackImage ##### -->
+<para>
+
+</para>
+
+@parent_instance: 
+
+<!-- ##### FUNCTION parrillada_track_image_new ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION parrillada_track_image_set_source ##### -->
+<para>
+
+</para>
+
+@track: 
+@image: 
+@toc: 
+@format: 
+@Returns: 
+
+
+<!-- ##### FUNCTION parrillada_track_image_set_block_num ##### -->
+<para>
+
+</para>
+
+@track: 
+@blocks: 
+@Returns: 
+
+
+<!-- ##### FUNCTION parrillada_track_image_get_source ##### -->
+<para>
+
+</para>
+
+@track: 
+@uri: 
+@Returns: 
+
+
+<!-- ##### FUNCTION parrillada_track_image_get_toc_source ##### -->
+<para>
+
+</para>
+
+@track: 
+@uri: 
+@Returns: 
+
+
+<!-- ##### FUNCTION parrillada_track_image_get_format ##### -->
+<para>
+
+</para>
+
+@track: 
+@Returns: 
+
+

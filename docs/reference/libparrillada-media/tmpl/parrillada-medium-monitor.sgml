@@ -1,0 +1,107 @@
+<!-- ##### SECTION Title ##### -->
+ParrilladaMediumMonitor
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT ParrilladaMediumMonitor ##### -->
+<para>
+
+</para>
+
+@parent_instance: 
+
+<!-- ##### FUNCTION parrillada_medium_monitor_get_default ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### ENUM ParrilladaMediaType ##### -->
+<para>
+
+</para>
+
+@PARRILLADA_MEDIA_TYPE_NONE: 
+@PARRILLADA_MEDIA_TYPE_FILE: 
+@PARRILLADA_MEDIA_TYPE_DATA: 
+@PARRILLADA_MEDIA_TYPE_AUDIO: 
+@PARRILLADA_MEDIA_TYPE_WRITABLE: 
+@PARRILLADA_MEDIA_TYPE_REWRITABLE: 
+@PARRILLADA_MEDIA_TYPE_ANY_IN_BURNER: 
+@PARRILLADA_MEDIA_TYPE_CD: 
+@PARRILLADA_MEDIA_TYPE_ALL_BUT_FILE: 
+@PARRILLADA_MEDIA_TYPE_ALL: 
+
+<!-- ##### ENUM ParrilladaDriveType ##### -->
+<para>
+
+</para>
+
+@PARRILLADA_DRIVE_TYPE_NONE: 
+@PARRILLADA_DRIVE_TYPE_FILE: 
+@PARRILLADA_DRIVE_TYPE_WRITER: 
+@PARRILLADA_DRIVE_TYPE_READER: 
+@PARRILLADA_DRIVE_TYPE_ALL_BUT_FILE: 
+@PARRILLADA_DRIVE_TYPE_ALL: 
+
+<!-- ##### FUNCTION parrillada_medium_monitor_get_media ##### -->
+<para>
+
+</para>
+
+@monitor: 
+@type: 
+@Returns: 
+
+
+<!-- ##### FUNCTION parrillada_medium_monitor_get_drives ##### -->
+<para>
+
+</para>
+
+@monitor: 
+@type: 
+@Returns: 
+
+
+<!-- ##### FUNCTION parrillada_medium_monitor_get_drive ##### -->
+<para>
+
+</para>
+
+@monitor: 
+@device: 
+@Returns: 
+
+
+<!-- ##### FUNCTION parrillada_medium_monitor_is_probing ##### -->
+<para>
+
+</para>
+
+@monitor: 
+@Returns: 
+
+

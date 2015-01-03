@@ -1,0 +1,1034 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY appversion "2.26">
+<!ENTITY manrevision "2.2">
+<!ENTITY date "January 2009">
+<!ENTITY app "<application>Brasero</application>">
+<!ENTITY appname "Brasero">
+<!ENTITY svcd "http://en.wikipedia.org/wiki/SVCD">
+<!ENTITY vcd "http://en.wikipedia.org/wiki/Video_CD">
+]>
+<!-- 
+      (Do not remove this comment block.)
+  Maintained by the GNOME Documentation Project
+  http://developer.gnome.org/projects/gdp
+  Template version: 2.0 beta
+  Template last modified Apr 11, 2002
+-->
+<?db.chunk.max_depth 2?>
+<article id="index" lang="es">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+  <articleinfo> 
+    <title>Manual de <application>Brasero</application> V2.2</title>       
+	<abstract role="description">
+	      <para>Brasero es una aplicación para grabar CD y DVD.</para>
+	    </abstract>
+
+    <copyright> 
+      <year>2008</year>
+      <year>2009</year>
+      <holder>Proyecto de documentación de Ubuntu</holder> 
+    </copyright><copyright><year>2008-2010</year><holder>Jorge González (jorgegonz@svn.gnome.org)</holder></copyright> 
+<!-- translators: uncomment this:
+
+  <copyright>
+   <year>2008</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+   -->
+<!-- An address can be added to the publisher information.  If a role is 
+     not specified, the publisher/author is the same for all versions of the 
+     document.  -->
+    <publisher> 
+      <publishername>Proyecto de documentación de Ubuntu</publishername> 
+    </publisher> 
+
+     <legalnotice id="legalnotice">
+	<para>Se concede permiso para copiar, distribuir o modificar este documento según las condiciones de la GNU Free Documentation License (GFDL), versión 1.1 o cualquier versión posterior publicada por la Free Software Foundation, sin Secciones invariantes, Textos de portada y Textos de contraportada. Encontrará una copia de la GFDL en este <ulink url="ghelp:fdl" type="help">enlace</ulink> o en el archivo COPYING-DOCS distribuido con este manual.</para>
+         <para>Este manual forma parte de una colección de documentos de GNOME distribuidos según la GFDL. Si desea distribuir este manual de forma independiente de la colección, puede hacerlo agregando una copia de la licencia al documento, según se describe en la sección 6 de la misma.</para>
+
+	<para>Muchos de los nombres utilizados por las empresas para distinguir sus productos y servicios se consideran marcas comerciales. Cuando estos nombres aparezcan en la documentación de GNOME, y siempre que se haya informado a los miembros del Proyecto de documentación de GNOME de dichas marcas comerciales, los nombres aparecerán en mayúsculas o con las iniciales en mayúsculas.</para>
+
+	<para>ESTE DOCUMENTO Y LAS VERSIONES MODIFICADAS DEL MISMO SE PROPORCIONAN SEGÚN LAS CONDICIONES ESTABLECIDAS EN LA LICENCIA DE DOCUMENTACIÓN LIBRE DE GNU (GFDL) Y TENIENDO EN CUENTA QUE: <orderedlist>
+		<listitem>
+		  <para>EL DOCUMENTO SE PROPORCIONA "TAL CUAL", SIN GARANTÍA DE NINGÚN TIPO, NI EXPLÍCITA NI IMPLÍCITA INCLUYENDO, SIN LIMITACIÓN, GARANTÍA DE QUE EL DOCUMENTO O VERSIÓN MODIFICADA DE ÉSTE CAREZCA DE DEFECTOS COMERCIALES, SEA ADECUADO A UN FIN CONCRETO O INCUMPLA ALGUNA NORMATIVA. TODO EL RIESGO RELATIVO A LA CALIDAD, PRECISIÓN Y UTILIDAD DEL DOCUMENTO O SU VERSIÓN MODIFICADA RECAE EN USTED. SI CUALQUIER DOCUMENTO O VERSIÓN MODIFICADA DE AQUÉL RESULTARA DEFECTUOSO EN CUALQUIER ASPECTO, USTED (Y NO EL REDACTOR INICIAL, AUTOR O CONTRIBUYENTE) ASUMIRÁ LOS COSTES DE TODA REPARACIÓN, MANTENIMIENTO O CORRECCIÓN NECESARIOS. ESTA RENUNCIA DE GARANTÍA ES UNA PARTE ESENCIAL DE ESTA LICENCIA. NO SE AUTORIZA EL USO DE NINGÚN DOCUMENTO NI VERSIÓN MODIFICADA DE ÉSTE POR EL PRESENTE, SALVO DENTRO DEL CUMPLIMIENTO DE LA RENUNCIA;Y</para>
+		</listitem>
+		<listitem>
+		  <para>EN NINGUNA CIRCUNSTANCIA NI BAJO NINGUNA TEORÍA LEGAL, SEA POR ERROR (INCLUYENDO NEGLIGENCIA) CONTRATO O DOCUMENTO DE OTRO TIPO, EL AUTOR, EL ESCRITOR INICIAL, EL AUTOR DE APORTACIONES NI NINGÚN DISTRIBUIDOR DEL DOCUMENTO O VERSIÓN MODIFICADA DEL DOCUMENTO, NI NINGÚN PROVEEDOR DE NINGUNA DE ESAS PARTES, SERÁ RESPONSABLE ANTE NINGUNA PERSONA POR NINGÚN DAÑO DIRECTO, INDIRECTO, ESPECIAL, INCIDENTAL O DERIVADO DE NINGÚN TIPO, INCLUYENDO, SIN LIMITACIÓN DAÑOS POR PÉRDIDA DE FONDO DE COMERCIO, PARO TÉCNICO, FALLO INFORMÁTICO O AVERÍA O CUALQUIER OTRO POSIBLE DAÑO O AVERÍA DERIVADO O RELACIONADO CON EL USO DEL DOCUMENTO O SUS VERSIONES MODIFICADAS, AUNQUE DICHA PARTE HAYA SIDO INFORMADA DE LA POSIBILIDAD DE QUE SE PRODUJESEN ESOS DAÑOS.</para>
+		</listitem>
+	  </orderedlist></para>
+  </legalnotice>
+
+
+   <!-- This file  contains link to license for the documentation, and 
+        other legal stuff such as "NO WARRANTY" statement. Please do not change 
+	any of this. -->
+
+    <authorgroup> 
+      <author role="maintainer"> 
+		<firstname>Milo</firstname> 
+		<surname>Casagrande</surname> 
+		<affiliation> 
+	  		<orgname>Proyecto de documentación de Ubuntu</orgname> 
+	  		<address> <email>milo@ubuntu.com</email> </address> 
+		</affiliation> 
+      </author> 
+      <author> 
+		<firstname>Andrew</firstname> 
+		<surname>Stabeno</surname> 
+		<affiliation> 
+	  		<orgname>Proyecto de documentación de Ubuntu</orgname> 
+	  		<address> <email>stabeno@gmail.com</email> </address> 
+		</affiliation> 
+      </author> 
+      <author> 
+		<firstname>Phil</firstname> 
+		<surname>Bull</surname> 
+		<affiliation> 
+	  		<orgname>Proyecto de documentación de Ubuntu</orgname> 
+	  		<address> <email>philbull@gmail.com</email> </address> 
+		</affiliation> 
+      </author> 
+      
+<!-- This is appropriate place for other contributors: translators,
+     maintainers,  etc. Commented out by default.
+     
+      <othercredit role="translator">
+		<firstname>Latin</firstname> 
+		<surname>Translator 1</surname> 
+		<affiliation> 
+	  		<orgname>Latin Translation Team</orgname> 
+	  		<address> <email>translator@gnome.org</email> </address> 
+		</affiliation>
+		<contrib>Latin translation</contrib>
+      </othercredit>
+-->
+    </authorgroup>
+
+    <revhistory>
+      <revision> 
+	<revnumber>Manual de Brasero V2.2</revnumber> 
+	<date>Enero de 2009</date> 
+	<revdescription> 
+	  <para role="author">Milo Casagrande <email>milo@ubuntu.com</email></para>
+	  <para role="publisher">Proyecto de documentación de Ubuntu</para>
+	</revdescription> 
+      </revision>
+      <revision> 
+	<revnumber>Manual de Brasero V2.1</revnumber> 
+	<date>Agosto de 2008</date> 
+	<revdescription> 
+	  <para role="author">Milo Casagrande <email>milo@ubuntu.com</email></para>
+	  <para role="publisher">Proyecto de documentación de Ubuntu</para>
+	</revdescription> 
+      </revision>
+      <revision> 
+	<revnumber>Manual de Brasero V2.0</revnumber> 
+	<date>Febrero de 2008</date> 
+	<revdescription> 
+	  <para role="author">Milo Casagrande <email>milo@ubuntu.com</email></para>
+	  <para role="author">Andrew Stabeno <email>stabeno@gmail.com</email></para>
+	  <para role="author">Phil Bull <email>philbull@gmail.com</email></para>
+	  <para role="publisher">Proyecto de documentación de Ubuntu</para>
+	</revdescription> 
+      </revision> 
+    </revhistory> 
+
+    <releaseinfo>Este manual describe la versión 2.26 de Brasero.</releaseinfo> 
+    <legalnotice> 
+      <title>Comentarios</title> 
+      <para>Para informar de un fallo, o hacer alguna sugerencia concerniente a la aplicación <application>Brasero</application> o este manual, siga las indicaciones en la <ulink url="ghelp:gnome-feedback" type="help">Página de comentarios de GNOME</ulink>.</para>
+<!-- Translators may also add here feedback address for translations -->
+    </legalnotice> 
+  </articleinfo> 
+
+  <indexterm zone="index"> 
+    <primary>Brasero</primary> 
+  </indexterm> 
+  <indexterm zone="index"> 
+    <primary>brasero</primary> 
+    <secondary>grabar</secondary>
+    <tertiary>grabar CD DVD</tertiary>
+  </indexterm>
+
+<!-- ============= Document Body ============================= -->
+
+<!-- ============= Introduction ============================== -->
+  <sect1 id="brasero-introduction" status="review"> 
+    <title>Introducción</title>
+    <para><application>Brasero</application> es una aplicación para grabar CD-R/W y DVD-R/W, diseñada para ser fácil de usar, a la vez que proporciona las herramientas necesarias para la grabación.</para>
+    <para>Con <application>Brasero</application> puede:</para>
+    <itemizedlist>
+      <listitem>
+	<para>Grabar datos a CD-R/W y DVD-R/W</para>
+      </listitem>
+      <listitem>
+	<para>Grabar CD de sonido desde archivos de sonido digital (tales como ogg, flac y mp3)</para>
+      </listitem>
+      <listitem>
+	<para>Copiar CD y DVD</para>
+      </listitem>
+      <listitem>
+	<para>Crear DVD de vídeo o SVCD</para>
+      </listitem>
+      <listitem>
+	<para>Crear archivos de imagen y grabar desde archivos de imagen existentes</para>
+      </listitem>
+      <listitem>
+	<para>Borrar CD-R/W y DVD-R/W</para>
+      </listitem>
+      <listitem>
+	<para>Comprobar la integridad de discos e imágenes de discos</para>
+      </listitem>
+    </itemizedlist>
+  </sect1>
+  
+ <!-- ============= Getting Started ========================= -->
+  <sect1 id="brasero-gettingstarted" status="review"> 
+    <title>Inicio</title>
+    <sect2 id="brasero-starting">
+      <title>Iniciar Brasero</title>
+    <para>Puede iniciar <application>Brasero</application> de las siguientes formas:</para>
+      <para>
+	<variablelist>
+	  <varlistentry>
+	    <term>Menú <guimenu>Aplicaciones</guimenu></term>
+	    <listitem>
+	      <para>Elija <menuchoice><guisubmenu>Sonido y vídeo</guisubmenu><guimenuitem>Grabador de discos Brasero</guimenuitem></menuchoice>-</para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>Línea de comandos</term>
+	    <listitem>
+	      <para>Escriba <command>brasero</command> y después pulse <keycap>Intro</keycap>.</para>
+	    </listitem>
+	  </varlistentry>
+	</variablelist>
+      </para>
+      <para>
+	<note>
+	  <para>Si <application>Brasero</application> es su aplicación predeterminada para grabar discos, entonces se iniciará automáticamente cuando introduzca un CD-R/W o DVD-R/W virgen en su unidad.</para>
+	</note>
+      </para>
+    </sect2>
+
+    <sect2 id="brasero-start-window">
+      <title>Al iniciar Brasero</title>
+    <para>Se mostrará la siguiente ventana cuando inicie <application>Brasero</application>.</para>
+    
+    <!-- ==== Figure ==== -->
+    <figure id="brasero-FIG-main"> 
+      <title>Ventana principal de Brasero</title> 
+      <screenshot> 
+	<mediaobject> 
+	  <imageobject>
+	    <imagedata fileref="figures/parrillada_main.png" format="PNG"/> 
+	  </imageobject>
+	  <textobject> 
+	    <phrase>La ventana principal de Brasero. Muestra la barra de menú y los cuatro tipos de proyectos que puede elegir.</phrase> 
+	  </textobject> 
+	</mediaobject> 
+      </screenshot> 
+    </figure>
+    <!-- ==== End of Figure ==== -->
+
+    <para>Esta ventana es el punto de inicio para todos sus proyectos. Desde aquí puede pulsar sobre el tipo de proyecto que quiere iniciar. Si ya ha creado otros proyectos con <application>Brasero</application>, podrá seleccionarlos desde <guilabel>Proyectos recientes</guilabel> (para obtener más información consulte <xref linkend="brasero-open-recent-project"/>).</para>
+    </sect2>
+  </sect1>
+
+  <!-- ============= New Project ========================= -->
+  <sect1 id="brasero-new-project" status="review">
+    <title>Crear un proyecto nuevo</title>
+    <para>La siguiente sección explica los cuatro tipos de proyecto que puede crear con <application>Brasero</application>.</para>
+    
+    <!-- ==== subsection: Audio project ===== -->
+    <sect2 id="brasero-new-project-audio">
+      <title>Proyecto de audio</title>
+      <para>Esta sección explica cómo crear un CD de sonido. Este proyecto toma los archivos de sonido seleccionados, los convierte a un formato de sonido crudo y los graba en un CD que los reproductores estándar de CD pueden reproducir.</para>
+      <para>Para grabar un CD de sonido, proceda como sigue: <orderedlist>
+	  <listitem>
+	    <para>Introduzca un CD-R virgen en su unidad.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Pulse en <guibutton>Proyecto de audio</guibutton> en la ventana principal o elija <menuchoice><guimenu>Proyecto</guimenu><guisubmenu>Proyecto nuevo</guisubmenu><guimenuitem>Proyecto de audio nuevo</guimenuitem></menuchoice>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>En el panel a la izquierda de la ventana, seleccione <guilabel>Examinar el sistema de archivos</guilabel> de la lista desplegable en la parte superior y examine los archivos de música que quiere añadir a su proyecto.</para>
+	    <para>También puede seleccionar la opción <guilabel>Buscar archivos usando palabras clave</guilabel> para buscar archivos de música o la opción <guilabel>Mostrar listas de reproducción y su contenido</guilabel> para seleccionar música desde listas de reproducción en su equipo.</para>
+	    <para>
+	      <tip>
+		<para>Si no ve el panel de la izquierda elija <menuchoice><guimenu>Ver</guimenu><guimenuitem>Mostrar panel lateral</guimenuitem></menuchoice> o pulse <keycap>F7</keycap>.</para>
+	      </tip>
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>Seleccione los archivos que quiera pulsando dos veces sobre ellos o seleccionándolos y pulsando el botón <guibutton>Añadir</guibutton> en la parte superior izquierda de la barra de herramientas.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Ahora es posible <link linkend="brasero-audio-pause">insertar una pausa</link> después de cada una de las pistas o <link linkend="brasero-audio-split">partir</link> las pistas.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Cuando todos los archivos se hayan añadido, pulse <guibutton>Grabar</guibutton>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>En la caja de texto introduzca el título que quiere darle al disco. Este título se mostrará como el nombre del disco.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Se mostrará el diálogo <guilabel>Opciones de grabado</guilabel>, haga cualquier modificación que desee (consulte <xref linkend="brasero-audio-project-options"/>).</para>
+	  </listitem>
+	  <listitem>
+	    <para>Pulse <guibutton>Grabar</guibutton> para iniciar la grabación.</para>
+	  </listitem>
+	</orderedlist></para>
+      <para>
+	<note>
+	  <para>Al añadir archivos, consulte la barra de estado en la parte inferior de la ventana para ver cuánto espacio está usando en su CD/DVD.</para>
+	</note>
+	<tip>
+	  <para>Para guardar el proyecto para su posterior uso, elija <menuchoice><guimenu>Proyecto</guimenu><guimenuitem>Guardar</guimenuitem></menuchoice>.</para>
+	</tip>
+      </para>
+      
+      <sect3 id="brasero-audio-pause">
+	<title>Insertar una pausa</title>
+	<para>Después de que haya añadido una pista puede insertar una pausa de 2 segundos después de ella. Para insertar una pausa proceda como sigue: <orderedlist>
+	    <listitem>
+	      <para>Seleccione la pista después de la cual quiere introducir la pausa.</para>
+	    </listitem>
+	    <listitem>
+	      <para>Pulse <guibutton>Pausa</guibutton> en la barra de herramientas o elija <menuchoice><guimenu>Editar</guimenu><guimenuitem>Insertar una pausa</guimenuitem></menuchoice>.</para>
+	    </listitem>
+	  </orderedlist></para>
+      </sect3>
+
+      <sect3 id="brasero-audio-split">
+	<title>Partir una pista</title>
+	<para>Es posible dividir una pista en varias partes. Para partir una pista proceda como sigue: <orderedlist>
+	    <listitem>
+	      <para>Seleccione la pista que quiere dividir y pulse <guibutton>Partir</guibutton> en la barra de herramientas o pulse <menuchoice><guimenu>Editar</guimenu><guimenuitem>Partir pista...</guimenuitem></menuchoice>. Se mostrará el diálogo <guilabel>Partir pista</guilabel>.</para>
+	    </listitem>
+	    <listitem>
+	      <para>Desde la lista desplegable <guilabel>Método</guilabel> seleccione el método de partición. Los valores posibles son: <variablelist>
+		  <varlistentry>
+		    <term><guilabel>Partir la pista manualmente</guilabel></term>
+		    <listitem>
+		      <para>Seleccione esto para seleccionar el tiempo en la pista que quiere partir. Se proporciona una barra de desplazamiento junto con un previsualizador de sonido.</para>
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><guilabel>Partir pista en partes con una longitud fija</guilabel></term>
+		    <listitem>
+		      <para>Seleccione esto para partir las pistas en partes de longitud fija con una duración que especifique.</para>
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term>
+		      <guilabel>Partir la pista en un número fijo de partes</guilabel>
+		    </term>
+		    <listitem>
+		      <para>Seleccione esto para decidir el número de partes en las que desea partir la pista. Puede usar la caja incrementable proporcionada para seleccionar el número de partes.</para>
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term>
+		      <guilabel>Partir la pista para cada silencio</guilabel>
+		    </term>
+		    <listitem>
+		      <para>Seleccione esto para partir la pista donde haya silencios.</para>
+		    </listitem>
+		  </varlistentry>
+		</variablelist></para>
+	    </listitem>
+	    <listitem>
+	      <para>Para partir la pista, pulse en <guibutton>Partir</guibutton>. Las partes se listarán en la tabla <guilabel>Previsualización de partes</guilabel>.</para>
+	    </listitem>
+	  </orderedlist></para>
+	<para>Una vez que haya partido la pista, es posible quitar o mezclar las partes listadas en la tabla <guilabel>Previsualización de partes</guilabel> usando los botones a la derecha.</para>
+	<para>Una vez que haya terminado con todas las modificaciones, pulse <guibutton>Aceptar</guibutton>.</para>
+      </sect3>
+
+      <sect3 id="brasero-audio-project-options">
+	<title>Opciones de los proyectos de sonido</title>
+	<para>Antes de iniciar el proceso de grabado, es posible modificar algunas de las opciones de grabación.</para>
+	<para>
+	  <variablelist>
+	    <varlistentry>
+	      <term>Sección <guilabel>Seleccione un disco en el que grabar</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Pulse <guibutton>Propiedades</guibutton> para abrir el diálogo de propiedades para el dispositivo grabador. Consulte la <xref linkend="brasero-burning-device-properties"/> para obtener más información.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Sección <guilabel>Opciones del disco</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <variablelist>
+		      <varlistentry>
+			<term><guilabel>Deje el disco abierto para añadir una sesión de datos posterior</guilabel></term>
+			<listitem>
+			  <para>Seleccione esta opción para crear un disco <emphasis>multisesión</emphasis> de tal forma que se puedan añadir archivos al disco en una fecha posterior (sin borrarlo, si es regrabable).</para>
+			</listitem>
+		      </varlistentry>
+		    </variablelist>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</para>
+      </sect3>
+
+    </sect2>
+
+    <!-- ===== subsection: Data project ====== -->
+    <sect2 id="brasero-new-project-data">
+      <title>Proyecto de datos</title>
+      <para>Para grabar un CD de datos proceda como sigue: <orderedlist>
+	  <listitem>
+	    <para>Introduzca un CD-R/W o DVD-R/W virgen en su unidad.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Pulse en <guibutton>Proyecto de datos</guibutton> en la ventana principal o elija <menuchoice><guimenu>Proyecto</guimenu><guisubmenu>Proyecto nuevo</guisubmenu><guimenuitem>Proyecto de datos nuevo</guimenuitem></menuchoice>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Use el panel de la izquierda de la ventana para buscar los archivos que quiere añadir al proyecto. Seleccione <guilabel>Examinar el sistema de archivos</guilabel> de la lista desplegable en la parte superior para examinar archivos o <guilabel>Buscar archivos usando palabras clave</guilabel> para buscarlos.</para>
+	    <para>
+	      <tip>
+		<para>Si no ve el panel de la izquierda elija <menuchoice><guimenu>Ver</guimenu><guimenuitem>Mostrar panel lateral</guimenuitem></menuchoice> o pulse <keycap>F7</keycap>.</para>
+	      </tip>
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>Seleccione los archivos que quiera pulsando dos veces sobre ellos o seleccionándolos y pulsando el botón <guibutton>Añadir</guibutton> en la parte superior izquierda de la barra de herramientas.</para>
+	  </listitem>
+	  <listitem>
+	    <para>En la caja de texto introduzca una etiqueta para identificar el disco. Esta etiqueta se mostrará como el nombre del disco.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Cuando haya añadido todos los archivos pulse <guibutton>Grabar</guibutton>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Se mostrará el diálogo <guilabel>Opciones de grabado</guilabel>; haga cualquier modificación que quiera (consulte <xref linkend="brasero-data-project-options"/>).</para>
+	  </listitem>
+	  <listitem>
+	    <para>Pulse <guibutton>Grabar</guibutton> para iniciar la grabación.</para>
+	  </listitem>
+	</orderedlist></para>
+
+      <para>
+	<note>
+	  <para>Al añadir archivos, consulte la barra de estado en la parte inferior de la ventana para ver cuánto espacio está usando en su CD/DVD.</para>
+	</note>
+	<tip>
+	  <para>Para guardar el proyecto para su posterior uso, elija <menuchoice><guimenu>Proyecto</guimenu><guimenuitem>Guardar</guimenuitem></menuchoice>.</para>
+	</tip>
+      </para>
+
+      <sect3 id="brasero-data-project-options">
+	<title>Opciones de un proyecto de datos</title>
+	<para>Antes de iniciar el proceso de grabado, es posible modificar algunas de las opciones de grabación.</para>
+	<para>
+	  <variablelist>
+	    <varlistentry>
+	      <term>Sección <guilabel>Seleccione un disco en el que grabar</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Pulse <guibutton>Propiedades</guibutton> para abrir el diálogo de propiedades para el dispositivo grabador. Consulte la <xref linkend="brasero-burning-device-properties"/> para obtener más información.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Sección <guilabel>Opciones del disco</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <variablelist>
+		      <varlistentry>
+			<term>
+			  <guilabel>Aumentar la compatibilidad con sistemas Windows</guilabel>
+			</term>
+			<listitem>
+			  <para>Seleccione esta opción si pretende usar el disco en equipos que corran Windows. Se comprobarán los archivos del disco para asegurar que sus nombres de archivo no contienen caracteres no válidos para Windows.</para>
+			</listitem>
+		      </varlistentry>
+		    </variablelist>
+		  </listitem>
+		  <listitem>
+		    <variablelist>
+		      <varlistentry>
+			<term><guilabel>Dejar el disco abierto para añadir otros archivos después</guilabel></term>
+			<listitem>
+			  <para>Seleccione esta opción para crear un disco <emphasis>multisesión</emphasis> de tal forma que se puedan añadir archivos al disco en una fecha posterior (sin borrarlo, si es regrabable).</para>
+			</listitem>
+		      </varlistentry>
+		    </variablelist>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</para>
+      </sect3>
+    </sect2>
+
+    <!-- ====== subsection: Video project ====== -->
+    <sect2 id="brasero-new-project-video">
+      <title>Proyecto de vídeo</title>
+      <para>Este proyecto le permite tomar archivos de vídeo (archivos con extensiones <filename class="extension">.mpg</filename>, <filename class="extension">.mpeg</filename> o <filename class="extension">.avi</filename> por nombrar algunas) y grabarlos en un disco para crear <acronym>DVD</acronym> de vídeo, <acronym>SVCD</acronym> o <acronym>VCD</acronym> que pueda reproducir con sus reproductores de DVD/CD normales.</para>
+      <para>
+	<note>
+	  <para>Para poder usar todo el potencial del proyecto de vídeo deberá instalar todos los complementos de GStreamer, <application>ffmpeg</application>, <application>vcdimager</application> y <application>dvdauthor</application>. Consulte la documentación de su sistema operativo para obtener más información acerca de cómo instalar todas estas aplicaciones.</para>
+	</note>
+      </para>
+      <para>Para crear un proyecto de vídeo proceda como sigue: <orderedlist>
+	  <listitem>
+	    <para>Introduzca un CD o DVD virgen en su unidad.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Pulse en <guibutton>Proyecto de vídeo</guibutton> en la ventana principal o elija <menuchoice><guimenu>Proyecto</guimenu><guisubmenu>Proyecto nuevo</guisubmenu><guimenuitem>Proyecto de vídeo nuevo</guimenuitem></menuchoice>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Desde el panel a la izquierda de la ventana examine el sistema de archivos buscando archivos de vídeo.</para>
+	    <para>Seleccione los archivos que quiera pulsando dos veces sobre ellos o seleccionándolos y pulsando el botón <guibutton>Añadir</guibutton> en la parte superior izquierda de la barra de herramientas.</para>
+	    <para>
+	      <tip>
+		<para>Si no ve el panel de la izquierda elija <menuchoice><guimenu>Ver</guimenu><guimenuitem>Mostrar panel lateral</guimenuitem></menuchoice> o pulse <keycap>F7</keycap>.</para>
+	      </tip>
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>En la caja de texto introduzca el título que quiere darle al disco. Este título se mostrará como el nombre del disco.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Cuando haya añadido todos los archivos pulse <guibutton>Grabar</guibutton>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Se mostrará el diálogo <guilabel>Opciones de grabado</guilabel>, haga cualquier modificación que desee (consulte la <xref linkend="brasero-video-project-options"/>).</para>
+	  </listitem>
+	  <listitem>
+	    <para>Pulse <guibutton>Grabar</guibutton> para iniciar la grabación.</para>
+	  </listitem>
+	</orderedlist></para>
+
+      <para>
+	<note>
+	  <para>Al añadir archivos, consulte la barra de estado en la parte inferior de la ventana para ver cuánto espacio está usando en su CD/DVD.</para>
+	</note>
+	<tip>
+	  <para>Para guardar el proyecto para su posterior uso, elija <menuchoice><guimenu>Proyecto</guimenu><guimenuitem>Guardar</guimenuitem></menuchoice>.</para>
+	</tip>
+      </para>
+
+      <sect3 id="brasero-video-project-options">
+	<title>Opciones de los proyectos de vídeo</title>
+	<para>Antes de iniciar el proceso de grabado, es posible modificar algunas de las opciones de grabación.</para>
+	<para>
+	  <variablelist>
+	    <varlistentry>
+	      <term>Sección <guilabel>Seleccione un disco en el que grabar</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Pulse <guibutton>Propiedades</guibutton> para abrir el diálogo de propiedades para el dispositivo grabador. Consulte la <xref linkend="brasero-burning-device-properties"/> para obtener más información.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Sección <guilabel>Opciones de vídeo</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>En <guilabel>Formato de vídeo</guilabel> seleccione el formato del vídeo que se grabará. Puede elegir entre: <itemizedlist>
+			<listitem>
+			  <para><guilabel>Formato nativo</guilabel>: el formato original del archivo de vídeo.</para>
+			</listitem>
+			<listitem>
+			  <para><guilabel>PAL/SECAM</guilabel>: formato usado sobre todo por las televisiones europeas.</para>
+			</listitem>
+			<listitem>
+			  <para><guilabel>NTSC</guilabel>: formato usado sobre todo por las televisiones estadounidenses, canadienses y japonesas.</para>
+			</listitem>
+		      </itemizedlist></para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Sección <guilabel>Opciones de sonido</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Elija <guilabel>Añadir un flujo de sonido MP2</guilabel> para añadir un flujo <emphasis>MPEG-1 Audio Layer 2</emphasis> al disco.</para>
+		  </listitem>
+		  <listitem>
+		    <para>Elija <guilabel>Añadir un flujo de sonido AC3</guilabel> para añadir un flujo <emphasis>AC-3 Dolby Digital</emphasis> al disco.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Sección <guilabel>Tipo VCD</guilabel>.</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Elija <guilabel>Crear un SVCD</guilabel> para crear un <emphasis>Super Vídeo CD</emphasis>.</para>
+		  </listitem>
+		  <listitem>
+		    <para>Elija <guilabel>Crear un VCD</guilabel> para crear un <emphasis>Vídeo CD</emphasis>.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</para>
+
+	<para>
+	  <note>
+	    <para>Una de las principales diferencias entre un <acronym>SVCD</acronym> y un <acronym>VCD</acronym> es que el primero usa el códec de vídeo <acronym>MPEG-2</acronym> mientras que el segundo usa <acronym>MPEG-1</acronym>. Para obtener más información consulte las páginas de la wikipedia para <ulink type="http" url="http://es.wikipedia.org/wiki/Super_Video_CD">SVCD</ulink> y <ulink type="http" url="http://es.wikipedia.org/wiki/Video_CD">VCD</ulink>.</para>
+	  </note>
+	</para>
+	  
+      </sect3>
+
+    </sect2>
+
+    <!-- ====== subsection: Copy Disc ======= -->
+    <sect2 id="brasero-new-project-copy">
+      <title>Copia de disco</title>
+      <para>Este proyecto le permite tomar un disco existente y copiarlo a un disco virgen o un archivo imagen. Para copiar un disco proceda como sigue: <orderedlist>
+	  <listitem>
+	    <para>Introduzca el CD o DVD que quiere copiar en su unidad.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Pulse en <guibutton>Copia de disco</guibutton> en la ventana principal o elija <menuchoice><guimenu>Proyecto</guimenu><guisubmenu>Proyecto nuevo</guisubmenu><guimenuitem>Copia de disco</guimenuitem></menuchoice>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Se mostrará el diálogo <guilabel>Opciones de copia de CD/DVD</guilabel>; haga las modificaciones que quiera (consulte la <xref linkend="brasero-disc-copy-options"/> para obtener más información).</para>
+	  </listitem>
+	  <listitem>
+	    <para>Pulse <guibutton>Copiar</guibutton> para iniciar el proceso de copiado.</para>
+	  </listitem>
+	</orderedlist></para>
+
+      <sect3 id="brasero-disc-copy-options">
+	<title>Opciones de la copia de discos</title>
+	<para>Antes de comenzar el proceso de copiado es posible modificar algunas de las opciones de copia y grabado.</para>
+	<para>
+	  <variablelist>
+	    <varlistentry>
+	      <term>Sección <guilabel>Seleccione el disco para copiar</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Desde la lista desplegable seleccione el disco en el que copiar.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Sección <guilabel>Seleccione un disco en el que grabar</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Desde la lista desplegable seleccione el disco en el que grabar.</para>
+		    <para>Desde la lista desplegable seleccione <guilabel>Archivo imagen</guilabel> para crear un disco imagen, tal como una imagen ISO.</para>
+		  </listitem>
+		  <listitem>
+		    <para>Pulse <guibutton>Propiedades</guibutton> para abrir el diálogo de propiedades para el dispositivo grabador. Consulte la <xref linkend="brasero-burning-device-properties"/> para obtener más información.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</para>
+	<para>
+	  <note>
+	    <para>Si tiene más de una unidad en su sistema puede usar una unidad como la unidad de origen y la otra como la unidad de destino. De lo contrario se le preguntará para que quite el CD o DVD que está copiando e inserte un soporte virgen.</para>
+	  </note>
+	</para>
+      </sect3>
+    </sect2>
+
+    <!-- ==== subsection: Burn Image ===== -->
+    <sect2 id="brasero-new-project-image">
+      <title>Grabar una imagen</title>
+      <para>Este proyecto toma un archivo imagen existente y lo graba a un CD-R/W o DVD-R/W. <application>Brasero</application> soporta los siguientes tipos imágenes de archivo: <itemizedlist>
+	  <listitem>
+	    <para>
+	      <filename>.iso</filename>
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      <filename>.raw</filename>
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      <filename>.cue</filename>
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      <filename>.toc</filename>
+	    </para>
+	  </listitem>
+	</itemizedlist></para>
+
+      <para>Para iniciar este proyecto proceda como sigue: <orderedlist>
+	  <listitem>
+	    <para>Introduzca un CD-R/W o DVD-R/W virgen en su unidad.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Pulse <guibutton>Grabar imagen</guibutton> en la ventana principal o elija <menuchoice><guimenu>Proyecto</guimenu><guisubmenu>Proyecto nuevo</guisubmenu><guimenuitem>Grabar una imagen</guimenuitem></menuchoice>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Se mostrará el diálogo <guilabel>Opciones de grabado de imagen</guilabel>; haga las modificaciones que quiera (consulte la <xref linkend="brasero-burn-image-options"/>).</para>
+	  </listitem>
+	  <listitem>
+	    <para>Pulse <guibutton>Grabar</guibutton> para iniciar la grabación.</para>
+	  </listitem>
+	</orderedlist></para>
+
+      <sect3 id="brasero-burn-image-options">
+	<title>Opciones de grabado de imágenes</title>
+	<para>Antes de iniciar el proceso de grabación es posible modificar algunas de las opciones de grabación.</para>
+	<para>
+	  <variablelist>
+	    <varlistentry>
+	      <term>Sección <guilabel>Seleccione un disco en el que grabar</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Pulse <guibutton>Propiedades</guibutton> para abrir el diálogo de propiedades para el dispositivo grabador. Consulte la <xref linkend="brasero-burning-device-properties"/> para obtener más información.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Sección <guilabel>Imagen</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Pulse el botón para abrir el diálogo <guilabel>Seleccionar el archivo de imagen</guilabel> y seleccionar el archivo de imagen que grabar. De la lista desplegable seleccione el tipo de imagen que grabar. Si no está seguro seleccione <guilabel>Permitir que brasero elija (modo seguro)</guilabel>.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</para>
+      </sect3>
+    </sect2>
+
+    <sect2 id="brasero-burning-device-properties">
+      <title>Propiedades del dispositivo grabador</title>
+      <para>Antes de comenzar el proceso de grabación es posible cambiar algunas de las propiedades del dispositivo grabador que se usará.</para>
+      <para>
+	<variablelist>
+	  <varlistentry>
+	    <term>Sección <guilabel>Velocidad de grabación</guilabel>:</term>
+	    <listitem>
+	      <para>De la lista desplegable seleccione la velocidad de grabación. Para el mejor valor seleccione la opción CD/DVD.</para>
+	      <warning>
+		<para>Grabar un disco a una velocidad mayor de la soportada puede crear un disco no legible. Use velocidades de grabación menores para reducir la posibilidad de que esto ocurra.</para>
+	      </warning>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>Sección <guilabel>Opciones</guilabel>:</term>
+	    <listitem>
+	      <itemizedlist>
+		<listitem>
+		  <variablelist>
+		    <varlistentry>
+		      <term>
+			<guilabel>Grabar la imagen directamente sin guardarla en el disco</guilabel>
+		      </term>
+		      <listitem>
+			<para>Seleccione esta opción si quiere grabar la imagen directamente en el soporte sin guardarla en el disco duro y sin crear un archivo imagen.</para>
+		      </listitem>
+		    </varlistentry>
+		  </variablelist>
+		</listitem>
+		<listitem>
+		  <variablelist>
+		    <varlistentry>
+		      <term><guilabel>Usar burn_proof (reduce el riesgo de fallos)</guilabel></term>
+		      <listitem>
+			<para>Seleccione esta opción para prevenir el efecto <emphasis>búfer underrun</emphasis> (o <emphasis>falta de datos en el búfer</emphasis>). Esto es cuando el equipo no es suficientemente rápido proporcionando datos al dispositivo grabador a la velocidad seleccionada.</para>
+			<warning>
+			  <para>Si ocurre un <emphasis>búfer underrun</emphasis> el disco grabado puede no ser legible.</para>
+			</warning>
+		      </listitem>
+		    </varlistentry>
+		  </variablelist>
+		</listitem>
+		<listitem>
+		  <variablelist>
+		    <varlistentry>
+		      <term><guilabel>Simular la grabación</guilabel></term>
+		      <listitem>
+			<para>Seleccione esta opción para simular el proceso de grabación; no se realiza ninguna grabación. Si esta operación resulta correcta, Brasero grabará el disco después de una pausa de 10 segundos. Durante esta pausa se mostrará un diálogo en el que podrá cancelar la grabación. Esto es útil para comprobaciones si está teniendo problemas grabando discos.</para>
+		      </listitem>
+		    </varlistentry>
+		  </variablelist>
+		</listitem>
+		<listitem>
+		  <variablelist>
+		    <varlistentry>
+		      <term><guilabel>Expulsar después de grabar</guilabel></term>
+		      <listitem>
+			<para>Seleccione esta opción para expulsar el soporte en el dispositivo grabador una vez que haya terminado el proceso de grabación.</para>
+		      </listitem>
+		    </varlistentry>
+		  </variablelist>
+		</listitem>
+	      </itemizedlist>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>Sección <guilabel>Archivos temporales</guilabel>:</term>
+	    <listitem>
+	      <para>De la lista desplegable seleccione el directorio que usar para almacenar los archivos temporales creados por el proceso de grabación.</para>
+	      <para>El directorio predeterminado es <filename class="directory">/tmp</filename>.</para>
+	    </listitem>
+	  </varlistentry>
+	</variablelist>
+      </para>
+      <sect3 id="brasero-burn-no-disc">
+	<title>Propiedades de grabado sin disco</title>
+	<para>Si inicia el proceso de grabado sin un CD o DVD en la unidad grabadora <application>Brasero</application> creará un archivo imagen en el disco duro que luego puede grabar.</para>
+	<para>
+	  <variablelist>
+	    <varlistentry>
+	      <term>Sección <guilabel>Seleccione un disco en el que grabar</guilabel>:</term>
+	      <listitem>
+		<para>De la lista desplegable sólo puede seleccionar <guilabel>Archivo imagen</guilabel>.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Sección <guilabel>Etiqueta del disco</guilabel>:</term>
+	      <listitem>
+		<para>Escriba el nombre que quiera dar al disco una vez grabado.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Sección <guilabel>Opciones del disco</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <variablelist>
+		      <varlistentry>
+			<term>
+			  <guilabel>Aumentar la compatibilidad con sistemas Windows</guilabel>
+			</term>
+			<listitem>
+			  <para>Seleccione esta opción si pretende usar el disco en equipos que corran Windows. Se comprobarán los archivos del disco para asegurar que sus nombres de archivo no contienen caracteres no válidos para Windows.</para>
+			</listitem>
+		      </varlistentry>
+		    </variablelist>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</para>
+	<para>Pulse <guibutton>Propiedades</guibutton> para abrir el diálogo <guilabel>Propiedades de la imagen del disco</guilabel>. En la caja de entrada <guilabel>Nombre</guilabel> escriba el nombre del archivo imagen, de la lista desplegable <guilabel>Tipo de imagen</guilabel> seleccione el tipo de imagen que usar.</para>
+	<para>Una vez hecho pulse <guibutton>Aplicar</guibutton>.</para>
+      </sect3>
+    </sect2>
+    
+  </sect1>
+
+  <sect1 id="brasero-open-recent-project">
+    <title>Abrir un proyecto guardado</title>
+    <para>Si recientemente ha guardado un proyecto puede abrirlo de nuevo de una de las siguientes formas: <itemizedlist>
+	<listitem>
+	  <para>Elija <menuchoice><guimenu>Proyecto</guimenu><guisubmenu>Proyectos recientes</guisubmenu></menuchoice> y seleccione el proyecto que quiere abrir.</para>
+	</listitem>
+	<listitem>
+	  <para>Desde la ventana principal pulse el proyecto que quiere abrir bajo <guilabel>Proyectos recientes</guilabel>.</para>
+	</listitem>
+      </itemizedlist></para>
+    <para>Para abrir un proyecto que no aparece en <guilabel>Proyectos recientes</guilabel> elija <menuchoice><guimenu>Proyecto</guimenu><guimenuitem>Abrir</guimenuitem></menuchoice> y seleccione el archivo del proyecto.</para>
+    <para>Una vez abierto puede añadir o quitar archivos del proyecto, grabarlo a un disco y después grabarlo de nuevo para un uso posterior.</para>
+  </sect1>
+
+  <sect1 id="brasero-erase-media">
+    <title>Borrar un CD o DVD</title>
+    <para>Borrar un CD o DVD significa borrar todos los datos que el CD o DVD contiene. <application>Brasero</application> es capaz de borrar los siguientes formatos de CD y DVD: <itemizedlist>
+	<listitem>
+	  <para>CD-RW</para>
+	</listitem>
+	<listitem>
+	  <para>DVD-RW (una o doble capa)</para>
+	</listitem>
+	<listitem>
+	  <para>DVD+RW (una o doble capa)</para>
+	</listitem>
+      </itemizedlist></para>
+    <para>En general <application>Brasero</application> puede soportar todos los tipos de formatos de soporte soportados por su propio grabador de CD/DVD.</para>
+    <warning>
+      <para>Asegúrese de que el soporte que quiere borrar es regrabable. Compruebe la caja del soporte para obtener más información.</para>
+    </warning>
+    <para>Borrar un CD-RW o DVD-RW: <orderedlist>
+	<listitem>
+	  <para>Introduzca el CD o DVD regrabable en la unidad.</para>
+	</listitem>
+	<listitem>
+	  <para>De la barra de menú elija <menuchoice><guimenu>Herramientas</guimenu><guimenuitem>Borrar...</guimenuitem></menuchoice>. Se mostrará el diálogo <guilabel>Borrado de disco</guilabel>.</para>
+	</listitem>
+	<listitem>
+	  <para>De la lista desplegable <guilabel>Seleccionar un disco</guilabel> seleccione el disco que quiere borrar.</para>
+	</listitem>
+	<listitem>
+	  <para>Si quiere borrar rápidamente un disco seleccione la opción <guilabel>borrado rápido</guilabel> (para obtener más información consulte la <xref linkend="brasero-fast-blanking"/>).</para>
+	</listitem>
+	<listitem>
+	  <para>Pulse <guibutton>Borrar</guibutton> para comenzar a borrar el CD o DVD.</para>
+	</listitem>
+      </orderedlist></para>
+    <warning>
+      <para>El proceso de borrado destruirá permanentemente todos los datos en el disco.</para>
+    </warning>
+    
+    <sect2 id="brasero-fast-blanking">
+      <title>¿Qué es el borrado rápido?</title>
+      <para>El borrado rápido es una forma rápida de borrar un disco. Este método es mucho más rápido que borrar completamente el disco y es suficiente para permitir que el disco se vuelva a escribir.</para>
+      <para>El procedimiento de borrado completo es más lento pero más seguro ya que borra todas las trazas de datos previos. Los datos eliminados rápidamente de un soporte aún se pueden recuperar con herramientas especiales.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="brasero-checking-integrity">
+    <title>Verificar la integridad de un CD o DVD</title>
+    <para>Verificar la integridad de un CD o DVD le asegura que los archivos escritos en el disco están intactos y no se han corrompido durante el proceso de grabación.</para>
+    <para>La verificación de integridad se usa usando el algoritmo <quote>MD5 digest</quote> que crea una <quote>huella</quote> de los datos en el soporte. Cada vez que graba un CD o DVD y el complemento <emphasis role="strong">Suma de verificación</emphasis> está activado (consulte la <xref linkend="brasero-plugins"/> para obtener más información), <application>Brasero</application> añade un archivo MD5 al disco para realizar comoprobaciones de seguridad posteriores.</para>
+    <para><application>Brasero</application> realiza una comprobación de integridad después de cada sesión de grabado, comprobando automáticamente el archivo generado. Generalmente este proceso es más largo que usar un archivo MD5 externo.</para>
+    <para>Para comprobar la integridad de un disco: <orderedlist>
+	<listitem>
+	  <para>Introduzca en la unidad el CD o DVD que quiera comprobar</para>
+	</listitem>
+	<listitem>
+	  <para>Desde la barra de menú, elija <menuchoice><guimenu>Herramientas</guimenu><guimenuitem>Comprobar integridad</guimenuitem></menuchoice> o pulse <keycombo><keycap>Ctrl</keycap><keycap>F</keycap></keycombo>.</para>
+	</listitem>
+	<listitem>
+	  <para>Puede comprobar la integridad usando un archivo MD5 o permitiendo que <application>Brasero</application> realice una comprobación automática sobre el soporte. <itemizedlist>
+	      <listitem>
+		<para>Seleccione la opción <guilabel>Use un archivo md5 para verificar el disco</guilabel> para usar un archivo MD5.</para>
+	      </listitem>
+	      <listitem>
+		<para>Pulse el botón <guilabel>Ninguno</guilabel> bajo la opción anteriormente mencionada y seleccione un archivo MD5, generalmente terminan con la extensión <filename>.md5</filename>.</para>
+	      </listitem>
+	    </itemizedlist></para>
+	</listitem>
+	<listitem>
+	  <para>Pulse el botón <guibutton>Comprobar</guibutton> para iniciar la comprobación de integridad.</para>
+	</listitem>
+      </orderedlist></para>
+    <para>Si la comprobación de integridad es satisfactoria <application>Brasero</application> se lo notificará con el diálogo <guilabel>Verificación de integridad de archivos correcta</guilabel>, de otra forma se mostrará el diálogo <guilabel>Error en la verificación de integridad de datos</guilabel>.</para>
+  </sect1>
+
+  <sect1 id="brasero-cover-editor">
+    <title>Editor de carátulas</title>
+    <para><application>Brasero</application> tiene un editor de portadas para crear portadas para sus CD o DVD. Para abrir el editor de portadas elija <menuchoice><guimenu>Herramientas</guimenu><guimenuitem>Editor de carátulas</guimenuitem></menuchoice>.</para>
+    <para>El editor de carátulas le permite seleccionar la tipografía, el alineamiento y los colores para todos los textos y las propiedades del fondo de las carátulas frontal y trasera.</para>
+    <para>Para establecer las propiedades de las carátulas, pulse con el botón derecho sobre una de las carátulas y elija <guimenuitem>Establecer las propiedades del fondo</guimenuitem> para abrir el diálogo <guilabel>Propiedades del fondo</guilabel>.</para>
+    <para>Es posible rellenar el fondo con una imagen, un color o un gradiente.</para>
+    <para>Para establecer una imagen como el fondo: <itemizedlist>
+	<listitem>
+	  <para>Desde <guilabel>Ruta de la imagen</guilabel> seleccione la imagen de su disco duro.</para>
+	</listitem>
+	<listitem>
+	  <para>De la lista desplegable <guilabel>Estilo de imagen</guilabel> seleccione cómo quiere posicionar la imagen.</para>
+	</listitem>
+      </itemizedlist></para>
+    <para>Para rellenar el fondo con un color o gradiente: <itemizedlist>
+	<listitem>
+	  <para>Desde la lista desplegable <guilabel>Color</guilabel> seleccione el tipo de rellenado que quiere usar para el fondo.</para>
+	</listitem>
+	<listitem>
+	  <para>Use el botón a la derecha para abrir el diálogo <guilabel>Elija un color</guilabel> para seleccionar el color.</para>
+	</listitem>
+      </itemizedlist><note>
+	<para>Si seleccionó gradiente habrá dos botones para el selector de color. El color a la izquierda es el punto inicial del gradiente, el color a la derecha es el punto final.</para>
+      </note></para>
+  </sect1>
+
+  <sect1 id="brasero-plugins">
+    <title>Complementos</title>
+    <para><application>Brasero</application> puede usar diferentes complementos para realizar diferentes tareas. Existen varios complementos que puede seleccionar.</para>
+    <para>Para ver los complementos disponibles elija <menuchoice><guimenu>Editar</guimenu><guimenuitem>Complementos</guimenuitem></menuchoice>. Los complementos que puede usar son:</para>
+    <para>
+      <table frame="all" id="brasero-TBL-plugin">
+	<title>Complementos</title>
+	<tgroup cols="2" align="left" colsep="1" rowsep="1">
+	  <thead>
+	    <row>
+	      <entry>Nombre del complemento</entry>
+	      <entry>Descripción</entry>
+	    </row>
+	  </thead>
+	  <tbody>
+	    <row>
+	      <entry><guilabel>Carpeta del creador de CD/DVD</guilabel></entry>
+	      <entry>Activa <application>Brasero</application> para grabar archivos almacenados en la <filename class="directory">Creador de CD/DVD</filename> carpeta de <application>Nautilus</application>.</entry>
+	    </row>
+	    <row>
+	      <entry><guilabel>Suma de verificación del archivo</guilabel></entry>
+	      <entry>Activa <application>Brasero</application> para comprobar la integridad de los archivos.</entry>
+	    </row>
+	    <row>
+	      <entry><guilabel>Gestor de descargas</guilabel></entry>
+	      <entry>Activa <application>Brasero</application> para grabar archivos no almacenados localmente.</entry>
+	    </row>
+	    <row>
+	      <entry><guilabel>Suma de verificación de imagen</guilabel></entry>
+	      <entry>Activa <application>Brasero</application> para realizar una comprobación de integridad en los discos después de haberlos grabado. También activa la escritura de un pequeño archivo que mantiene la suma MD5 de todos los archivos en el disco.</entry>
+	    </row>
+	    <row>
+	      <entry><guilabel>Normalizar</guilabel></entry>
+	      <entry>Activa <application>Brasero</application> para ajustar niveles de sonido consistentes entre pistas.</entry>
+	    </row>
+	  </tbody>
+	</tgroup>
+      </table>
+    </para>
+    <para>Para activar o desactivar un complemento seleccione la casilla de selección junto a su nombre en la columna <guilabel>Activado</guilabel>.</para>
+    <para>Con los complementos <guilabel>Suma de comprobación de archivo</guilabel> y <guilabel>Suma de comprobación de imagen</guilabel> puede elegir qué algoritmo usar: <orderedlist>
+	<listitem>
+	  <para>Seleccione uno de los dos complementos y pulse <guibutton>Configurar</guibutton>.</para>
+	</listitem>
+	<listitem>
+	  <para>Desde la lista desplegable <guilabel>Algoritmo de «hash» que usar</guilabel> seleccione el algoritmo que quiera usar. Los valores posibles son: <itemizedlist>
+	      <listitem>
+		<para>MD5</para>
+	      </listitem>
+	      <listitem>
+		<para>SHA1</para>
+	      </listitem>
+	      <listitem>
+		<para>SHA256</para>
+	      </listitem>
+	    </itemizedlist></para>
+	</listitem>
+      </orderedlist></para>
+
+    <para>
+      <note>
+	<para>Para poder usar algunos de los complementos aquí listados es posible que deba instalar aplicaciones adicionales en su sistema. Consulte la documentación de su sistema operativo para obtener más información.</para>
+      </note>
+    </para>
+  </sect1>
+
+</article>

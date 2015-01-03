@@ -1,0 +1,1123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY appversion "2.26">
+<!ENTITY manrevision "2.2">
+<!ENTITY date "January 2009">
+<!ENTITY app "<application>Brasero</application>">
+<!ENTITY appname "Brasero">
+<!ENTITY svcd "http://en.wikipedia.org/wiki/SVCD">
+<!ENTITY vcd "http://en.wikipedia.org/wiki/Video_CD">
+]>
+<!-- 
+      (Do not remove this comment block.)
+  Maintained by the GNOME Documentation Project
+  http://developer.gnome.org/projects/gdp
+  Template version: 2.0 beta
+  Template last modified Apr 11, 2002
+-->
+<?db.chunk.max_depth 2?>
+<article id="index" lang="ru">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+  <articleinfo> 
+    <title><application>Brasero</application> Manual V2.2</title>       
+	<abstract role="description">
+	      <para>Brasero — это приложение для записи CD и DVD.</para>
+	    </abstract>
+
+    <copyright> 
+      <year>2008</year>
+      <year>2009</year>
+      <holder>Проект документирования Ubuntu</holder> 
+    </copyright><copyright><year>2008</year><holder>Yuri Myasoedov (omerta13@yandex.ru)</holder></copyright> 
+<!-- translators: uncomment this:
+
+  <copyright>
+   <year>2008</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+   -->
+<!-- An address can be added to the publisher information.  If a role is 
+     not specified, the publisher/author is the same for all versions of the 
+     document.  -->
+    <publisher> 
+      <publishername>Проект документирования Ubuntu</publishername> 
+    </publisher> 
+
+     <legalnotice id="legalnotice">
+	<para>Разрешается копировать, распространять и/или изменять этот документ на условиях лицензии GNU Free Documentation License (GFDL), версии 1.1 или любой более поздней версии, опубликованной Фондом свободного программного обеспечения (Free Software Foundation), без неизменяемых частей и без текстов на обложках. Вы можете найти копию лицензии GFDL по  <ulink type="help" url="ghelp:fdl">этой ссылке</ulink> или в файле COPYING-DOCS, распространяемом с этим документом.</para>
+         <para>Это руководство — часть документации GNOME, которая распространяется на условиях лицензии GNU FDL. Если вы хотите распространять это руководство отдельно от остальной документации, вам следует приложить к руководству копию лицензии, как описано в разделе 6 лицензии.</para>
+
+	<para>Некоторые имена и марки используются компаниями для обозначения их продуктов и услуг и являются торговыми марками. Там, где эти имена присутствуют в документации и где участники проекта документирования GNOME знают об этом, имена выделяются заглавными буквами или начальной заглавной буквой.</para>
+
+	<para>ДОКУМЕНТ И ИЗМЕНЁННЫЕ ВЕРСИИ ДОКУМЕНТА ПРЕДОСТАВЛЯЮТСЯ ПОЛЬЗОВАТЕЛЮ НА УСЛОВИЯХ ЛИЦЕНЗИИ GNU FREE DOCUMENTATION LICENSE С УВЕДОМЛЕНИЕМ О ТОМ, ЧТО: <orderedlist>
+		<listitem>
+		  <para>ДОКУМЕНТ РАСПРОСТРАНЯЕТСЯ «КАК ЕСТЬ», БЕЗ ВСЯКИХ ГАРАНТИЙ, ЯВНЫХ ИЛИ НЕЯВНЫХ, ВКЛЮЧАЯ, БЕЗ ОГРАНИЧЕНИЙ, ГАРАНТИИ ТОГО, ЧТО ДОКУМЕНТ ИЛИ ИЗМЕНЁННАЯ ВЕРСИЯ ДОКУМЕНТА СВОБОДНА ОТ ДЕФЕКТОВ, ПРИГОДНА К ПРОДАЖЕ, ПРИГОДНА К ИСПОЛЬЗОВАНИЮ В ОПРЕДЕЛЁННЫХ ЦЕЛЯХ ИЛИ НЕ НАРУШАЕТ ЗАКОНЫ. ВЕСЬ РИСК, КАСАЮЩИЙСЯ КАЧЕСТВА, ТОЧНОСТИ ИЛИ ПРАВИЛЬНОСТИ ДОКУМЕНТА ИЛИ ИЗМЕНЁННЫХ ВЕРСИЙ ДОКУМЕНТА, ЛЕЖИТ НА ВАС. ЕСЛИ ДОКУМЕНТ ИЛИ ИЗМЕНЁННАЯ ВЕРСИЯ ДОКУМЕНТА ИМЕЕТ НЕДОСТАТКИ, ВЫ (А НЕ АВТОР ДОКУМЕНТА ИЛИ ЕГО ПОМОЩНИК) БЕРЁТЕ НА СЕБЯ СТОИМОСТЬ ЛЮБОЙ НЕОБХОДИМОЙ ДОРАБОТКИ, КОРРЕКЦИИ ИЛИ ВОССТАНОВЛЕНИЯ. ЭТОТ ОТКАЗ ОТ ГАРАНТИЙ СОСТАВЛЯЕТ ВАЖНУЮ ЧАСТЬ ЛИЦЕНЗИИ. НИКАКОЕ ИСПОЛЬЗОВАНИЕ ДОКУМЕНТА ИЛИ ИЗМЕНЁННОЙ ВЕРСИИ ДОКУМЕНТА НЕ ДОПУСКАЕТСЯ БЕЗ ДАННОГО ПРЕДУПРЕЖДЕНИЯ И</para>
+		</listitem>
+		<listitem>
+		  <para>НИ ПРИ КАКИХ ОБСТОЯТЕЛЬСТВАХ И НИ ПРИ КАКОМ ЗАКОННОМ СПОСОБЕ, НИ ПО КАКОМУ СОГЛАШЕНИЮ ИЛИ ДРУГОЙ ПРИЧИНЕ, АВТОР, СОЗДАТЕЛЬ, ПОМОЩНИКИ ИЛИ РАСПРОСТРАНИТЕЛИ ДОКУМЕНТА НЕ НЕСУТ ОТВЕТСТВЕННОСТЬ ЗА ПРЯМОЙ, КОСВЕННЫЙ, СПЕЦИАЛЬНЫЙ, СЛУЧАЙНЫЙ ИЛИ ПРЕДНАМЕРЕННЫЙ УЩЕРБ ЛЮБОГО СВОЙСТВА, ВКЛЮЧАЯ, БЕЗ ОГРАНИЧЕНИЯ, ПОТЕРЮ РЕПУТАЦИИ, РАБОТОСПОСОБНОСТИ, КОМПЬЮТЕРНЫЕ СБОИ ИЛИ ПОЛОМКИ, ИЛИ ЛЮБОЙ ДРУГОЙ УЩЕРБ ИЛИ ПОТЕРИ, ВОЗНИКАЮЩИЕ ВСЛЕДСТВИЕ ИЛИ СВЯЗАННЫЕ С ИСПОЛЬЗОВАНИЕМ ДОКУМЕНТА ИЛИ ИЗМЕНЁННЫХ ВЕРСИЙ ДОКУМЕНТА, ДАЖЕ ЕСЛИ СТОРОНА БЫЛА УВЕДОМЛЕНА О ВОЗМОЖНОСТИ ТАКОГО УЩЕРБА.</para>
+		</listitem>
+	  </orderedlist></para>
+  </legalnotice>
+
+
+   <!-- This file  contains link to license for the documentation, and 
+        other legal stuff such as "NO WARRANTY" statement. Please do not change 
+	any of this. -->
+
+    <authorgroup> 
+      <author role="maintainer"> 
+		<firstname>Milo</firstname> 
+		<surname>Casagrande</surname> 
+		<affiliation> 
+	  		<orgname>Проект документирования Ubuntu</orgname> 
+	  		<address> <email>milo@ubuntu.com</email> </address> 
+		</affiliation> 
+      </author> 
+      <author> 
+		<firstname>Andrew</firstname> 
+		<surname>Stabeno</surname> 
+		<affiliation> 
+	  		<orgname>Проект документирования Ubuntu</orgname> 
+	  		<address> <email>stabeno@gmail.com</email> </address> 
+		</affiliation> 
+      </author> 
+      <author> 
+		<firstname>Phil</firstname> 
+		<surname>Bull</surname> 
+		<affiliation> 
+	  		<orgname>Проект документирования Ubuntu</orgname> 
+	  		<address> <email>philbull@gmail.com</email> </address> 
+		</affiliation> 
+      </author> 
+      
+<!-- This is appropriate place for other contributors: translators,
+     maintainers,  etc. Commented out by default.
+     
+      <othercredit role="translator">
+		<firstname>Latin</firstname> 
+		<surname>Translator 1</surname> 
+		<affiliation> 
+	  		<orgname>Latin Translation Team</orgname> 
+	  		<address> <email>translator@gnome.org</email> </address> 
+		</affiliation>
+		<contrib>Latin translation</contrib>
+      </othercredit>
+-->
+    </authorgroup>
+
+    <revhistory>
+      <revision> 
+	<revnumber>Brasero Manual V2.2</revnumber> 
+	<date>January 2009</date> 
+	<revdescription> 
+	  <para role="author">Milo Casagrande <email>milo@ubuntu.com</email></para>
+	  <para role="publisher">Проект документирования Ubuntu</para>
+	</revdescription> 
+      </revision>
+      <revision> 
+	<revnumber>Руководство версии 2.1 по Brasero</revnumber> 
+	<date>Август, 2008</date> 
+	<revdescription> 
+	  <para role="author">Milo Casagrande <email>milo@ubuntu.com</email></para>
+	  <para role="publisher">Проект документирования Ubuntu</para>
+	</revdescription> 
+      </revision>
+      <revision> 
+	<revnumber>Руководство версии 2.0 по Brasero </revnumber> 
+	<date>Февраль, 2008</date> 
+	<revdescription> 
+	  <para role="author">Milo Casagrande <email>milo@ubuntu.com</email></para>
+	  <para role="author">Andrew Stabeno <email>stabeno@gmail.com</email></para>
+	  <para role="author">Phil Bull <email>philbull@gmail.com</email></para>
+	  <para role="publisher">Проект документирования Ubuntu</para>
+	</revdescription> 
+      </revision> 
+    </revhistory> 
+
+    <releaseinfo>
+      This manual describes version 2.26 of Brasero.
+    </releaseinfo> 
+    <legalnotice> 
+      <title>Обратная связь</title> 
+      <para>Чтобы сообщить об ошибке или сделать предложение по приложению <application>Brasero</application> или этому руководству, следуйте указаниям в документе <ulink url="ghelp:gnome-feedback" type="help">Обратная связь с GNOME</ulink>.</para>
+<!-- Translators may also add here feedback address for translations -->
+    </legalnotice> 
+  </articleinfo> 
+
+  <indexterm zone="index"> 
+    <primary>Brasero</primary> 
+  </indexterm> 
+  <indexterm zone="index"> 
+    <primary>brasero</primary> 
+    <secondary>записать</secondary>
+    <tertiary>запись CD DVD</tertiary>
+  </indexterm>
+
+<!-- ============= Document Body ============================= -->
+
+<!-- ============= Introduction ============================== -->
+  <sect1 id="brasero-introduction" status="review"> 
+    <title>Введение</title>
+    <para><application>Brasero</application> — приложение для записи CD-R/W и DVD-R/W. Приложением <application>Brasero</application> легко пользоваться, и оно предоставляет все необходимые инструменты для записи.</para>
+    <para>С помощью <application>Brasero</application> можно:</para>
+    <itemizedlist>
+      <listitem>
+	<para>записать данные на CD-R/W и DVD-R/W;</para>
+      </listitem>
+      <listitem>
+	<para>записать, используя цифровые звуковые файлы (такие как ogg, flac и mp3), звуковой компакт-диск;</para>
+      </listitem>
+      <listitem>
+	<para>сделать копии CD или DVD;</para>
+      </listitem>
+      <listitem>
+	<para>создать видео DVD или SVCD;</para>
+      </listitem>
+      <listitem>
+	<para>Создать файл образа или записать диск из существующего файла образа диска</para>
+      </listitem>
+      <listitem>
+	<para>очистить CD-R/W и DVD-R/W;</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Check the integrity of discs and disc images
+	</para>
+      </listitem>
+    </itemizedlist>
+  </sect1>
+  
+ <!-- ============= Getting Started ========================= -->
+  <sect1 id="brasero-gettingstarted" status="review"> 
+    <title>Начало работы</title>
+    <sect2 id="brasero-starting">
+      <title>Запуск Brasero</title>
+    <para><application>Brasero</application> можно запустить следующими способами:</para>
+      <para>
+	<variablelist>
+	  <varlistentry>
+	    <term>Меню <guimenu>Приложения</guimenu></term>
+	    <listitem>
+	      <para>Выбрать <menuchoice><guisubmenu>Аудио и видео</guisubmenu><guimenuitem>Приложение для записи дисков Brasero</guimenuitem></menuchoice>.</para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>Командная строка</term>
+	    <listitem>
+	      <para>Набрать <command>brasero</command> и нажать <keycap>Return</keycap>.</para>
+	    </listitem>
+	  </varlistentry>
+	</variablelist>
+      </para>
+      <para>
+	<note>
+	  <para>Если в качестве программы, используемой по умолчанию для записи дисков, используется <application>Brasero</application>, при вставке чистого CD-R/W или DVD-R/W в привод <application>Brasero</application> будет запускаться автоматически. </para>
+	</note>
+      </para>
+    </sect2>
+
+    <sect2 id="brasero-start-window">
+      <title>Brasero после запуска</title>
+    <para>После запуска <application>Brasero</application> появится следующее окно.</para>
+    
+    <!-- ==== Figure ==== -->
+    <figure id="brasero-FIG-main"> 
+      <title>Главное окно Brasero</title> 
+      <screenshot> 
+	<mediaobject> 
+	  <imageobject>
+	    <imagedata fileref="figures/parrillada_main.png" format="PNG"/> 
+	  </imageobject>
+	  <textobject> 
+	    <phrase>Главное окно Brasero. Панель меню и пять различных типов проекта.</phrase> 
+	  </textobject> 
+	</mediaobject> 
+      </screenshot> 
+    </figure>
+    <!-- ==== End of Figure ==== -->
+
+    <para>
+	This window is the starting point for all of your projects.
+	You can click on the project type you wish to start from here.
+	If you have created other projects with <application>Brasero</application>, you will be
+	able to select them from the <guilabel>Recent
+	projects</guilabel> (see <xref linkend="brasero-open-recent-project"/> for more
+	information).
+      </para>
+    </sect2>
+  </sect1>
+
+  <!-- ============= New Project ========================= -->
+  <sect1 id="brasero-new-project" status="review">
+    <title>Создание нового проекта</title>
+    <para>В этом разделе рассказывается о пяти типах проектов, которые можно создавать в <application>Brasero</application>.</para>
+    
+    <!-- ==== subsection: Audio project ===== -->
+    <sect2 id="brasero-new-project-audio">
+      <title>Звуковой компакт-диск</title>
+      <para>В этом разделе рассказывается о том, как создать звуковой компакт-диск. В этом проекте выбранные звуковые файлы преобразовываются в звуковой формат raw и записываются на компакт-диск, который может быть воспроизведён любым проигрывателем CD.</para>
+      <para>Чтобы записать звуковой компакт-диск, выполните следующее: <orderedlist>
+	  <listitem>
+	    <para>Вставьте в привод пустой CD-R;</para>
+	  </listitem>
+	  <listitem>
+	    <para>Выберите в главном окне <guibutton>Звуковой компакт-диск</guibutton> или выберите <menuchoice><guimenu>Проект</guimenu><guisubmenu>Создать проект</guisubmenu><guimenuitem>Звуковой компакт-диск</guimenuitem></menuchoice>;</para>
+	  </listitem>
+	  <listitem>
+	    <para>Выберите в панели в левом верхнем углу <guilabel>Обзор файловой системы</guilabel> из ниспадающего списка и найдите звуковые файлы, которые нужно добавить в проект.</para>
+	    <para>Можно найти звуковые файлы, если выбрать параметр <guilabel>Поиск файлов по ключевым словам</guilabel>, или выбрать звуковые файлы из списков воспроизведений, если выбрать параметр <guilabel>Списки воспроизведения и их содержимое</guilabel>;</para>
+	    <para>
+	      <tip>
+		<para>Усли панель слева отсутствует, выберите <menuchoice><guimenu>Вид</guimenu><guimenuitem>Показывать боковую панель</guimenuitem></menuchoice> или нажмите <keycap>F7</keycap>;</para>
+	      </tip>
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>Выберите файлы двойным нажатием левой кнопки мыши, или выделите файлы и нажмите кнопку <guibutton>Добавить</guibutton>, находящуюся в левом верхнем углу на панели инструментов;</para>
+	  </listitem>
+	  <listitem>
+	    <para>Теперь после каждой звуковой дорожки можно <link linkend="brasero-audio-pause">вставить паузу</link> или <link linkend="brasero-audio-split">разбить</link> дорожки на части;</para>
+	  </listitem>
+	  <listitem>
+	    <para>После добавления файлов нажмите кнопку <guibutton>Записать...</guibutton>;</para>
+	  </listitem>
+	  <listitem>
+	    <para>Введите название диска в текстовое окно. Это название будет отображаться как имя диска.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Появится диалоговое окно <guilabel>Настройка записи диска</guilabel>; выполните любые необходимые изменения (смотрите <xref linkend="brasero-audio-project-options"/>);</para>
+	  </listitem>
+	  <listitem>
+	    <para>Нажмите кнопку <guibutton>Записать</guibutton>, чтобы начать процесс записи.</para>
+	  </listitem>
+	</orderedlist></para>
+      <para>
+	<note>
+	  <para>
+	    When adding files, refer to the status bar at the bottom
+	    of the window to see how much space you are using on your
+	    CD/DVD.
+	  </para>
+	</note>
+	<tip>
+	  <para>Чтобы сохранить проект для дальнейшего использования, выберите <menuchoice><guimenu>Проект</guimenu><guimenuitem>Сохранить</guimenuitem></menuchoice>.</para>
+	</tip>
+      </para>
+      
+      <sect3 id="brasero-audio-pause">
+	<title>Вставка паузы</title>
+	<para>После добавленной дорожки можно вставить 2-х секундную паузу. Чтобы вставить паузу, выполните следующее: <orderedlist>
+	    <listitem>
+	      <para>Выберите дорожку, после которой нужно вставить паузу;</para>
+	    </listitem>
+	    <listitem>
+	      <para>Нажмите кнопку <guibutton>Пауза</guibutton> на панели инструментов, или выберите <menuchoice><guimenu>Правка</guimenu><guimenuitem>Вставить паузу</guimenuitem></menuchoice>.</para>
+	    </listitem>
+	  </orderedlist></para>
+      </sect3>
+
+      <sect3 id="brasero-audio-split">
+	<title>Разбивка дорожки</title>
+	<para>
+	  It is possible to divide a track in multiple parts. To split
+	  a track proceed as follows:
+	  <orderedlist>
+	    <listitem>
+	      <para>Выберите дорожку, которую нужно разбить на части, и нажмите кнопку <guibutton>Разбивка</guibutton> на панели инструментов, или выберите <menuchoice><guimenu>Правка</guimenu><guimenuitem>Разбить дорожку...</guimenuitem></menuchoice>; появится диалоговое окно <guilabel>Разбивка дорожки</guilabel>;</para>
+	    </listitem>
+	    <listitem>
+	      <para>Выберите метод разбивки из выспадающего списка <guilabel>Метод</guilabel>. Возможные значения: <variablelist>
+		  <varlistentry>
+		    <term><guilabel>Разбивка дорожки вручную</guilabel></term>
+		    <listitem>
+		      <para>Выбрать самостоятельно на дорожке момент времени, где произвести разбиение. Пользователю доступна линейка прокрутки и предварительное прослушивание дорожки.</para>
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><guilabel>Разбивка дорожки на части фиксированной длины</guilabel></term>
+		    <listitem>
+		      <para>Разбить дорожку на несколько частей фиксированной длительности, определяемой пользователем.</para>
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term>
+		      <guilabel>Разбивка дорожки на фиксированное количество частей</guilabel>
+		    </term>
+		    <listitem>
+		      <para>
+			Select this to decide the number of parts that
+			you want your track to be split into. You can use the
+			provided spin box to select the number of parts.
+		      </para>
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term>
+		      <guilabel>Разбивка дорожки по тихим участкам</guilabel>
+		    </term>
+		    <listitem>
+		      <para>
+			Select this to split the track where a silence
+			is present.
+		      </para>
+		    </listitem>
+		  </varlistentry>
+		</variablelist></para>
+	    </listitem>
+	    <listitem>
+	      <para>Чтобы разбить дорожку, нажмите кнопку <guibutton>Разбить</guibutton>. Части дорожки будут показаны в таблице <guilabel>Просмотр частей</guilabel>.</para>
+	    </listitem>
+	  </orderedlist>
+	</para>
+	<para>
+	  Once you have splitted the track, it is possible to remove
+	  or merge the slices listed in the <guilabel>Slices
+	  Preview</guilabel> table using the buttons on the right.
+	</para>
+	<para>После завершения всех изменений нажмите <guibutton>OK</guibutton>.</para>
+      </sect3>
+
+      <sect3 id="brasero-audio-project-options">
+	<title>Параметры проекта звукового компакт-диска</title>
+	<para>Перед началом процесса записи можно изменить некоторые параметры записи.</para>
+	<para>
+	  <variablelist>
+	    <varlistentry>
+	      <term>Раздел <guilabel>Выберите диск для записи</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Чтобы открыть диалоговое окно свойств устройства записи, нажмите кнопку <guibutton>Свойства</guibutton>. Подробнее смотрите <xref linkend="brasero-burning-device-properties"/>.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Раздел <guilabel>Параметры диска</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <variablelist>
+		      <varlistentry>
+			<term><guilabel>Оставить диск открытым для дальнейшего добавления сессий</guilabel></term>
+			<listitem>
+			  <para>Выберите этот параметр, чтобы создать <emphasis>многосеансовый</emphasis> диск, на который в дальнейшем можно будет добавлять файлы (не очищая диск, если он является перезаписываемым).</para>
+			</listitem>
+		      </varlistentry>
+		    </variablelist>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</para>
+      </sect3>
+
+    </sect2>
+
+    <!-- ===== subsection: Data project ====== -->
+    <sect2 id="brasero-new-project-data">
+      <title>Диск с данными</title>
+      <para>Чтобы записать компакт-диск с данными, выполните следующее: <orderedlist>
+	  <listitem>
+	    <para>Вставьте в привод пустой CD-R/W или DVD-R/W.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Выберите в главном окне <guibutton>Диск с данными</guibutton>, или выберите <menuchoice><guimenu>Проект</guimenu><guisubmenu>Создать проект</guisubmenu><guimenuitem>Диск с данными</guimenuitem></menuchoice>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Используя панель слева, найдите файлы, которые нужно добавить в проект. Выберите вверху из ниспадающего списка <guilabel>Обзор файловой системы</guilabel>, чтобы просмотреть файлы, или выберите <guilabel>Поиск файлов по ключевым словам</guilabel>.</para>
+	    <para>
+	      <tip>
+		<para>Усли панель слева отсутствует, выберите <menuchoice><guimenu>Вид</guimenu><guimenuitem>Показывать боковую панель</guimenuitem></menuchoice> или нажмите <keycap>F7</keycap>;</para>
+	      </tip>
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>Выберите файлы двойным нажатием левой кнопки мыши, или выделите файлы и нажмите кнопку <guibutton>Добавить</guibutton>, находящуюся в левом верхнем углу на панели инструментов;</para>
+	  </listitem>
+	  <listitem>
+	    <para>Введите метку диска в текстовое поле. Эта метка будет отображаться как имя диска.</para>
+	  </listitem>
+	  <listitem>
+	    <para>После добавления всех файлов нажмите кнопку <guibutton>Записать...</guibutton>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Появится диалоговое окно <guilabel>Настройка записи диска</guilabel>. Выполните любые необходимые изменения (смотрите <xref linkend="brasero-data-project-options"/>).</para>
+	  </listitem>
+	  <listitem>
+	    <para>Нажмите кнопку <guibutton>Записать</guibutton>, чтобы начать процесс записи.</para>
+	  </listitem>
+	</orderedlist></para>
+
+      <para>
+	<note>
+	  <para>
+	    When adding files, refer to the status bar at the bottom
+	    of the window to see how much space you are using on your
+	    CD/DVD.
+	  </para>
+	</note>
+	<tip>
+	  <para>Чтобы сохранить проект для дальнейшего использования, выберите <menuchoice><guimenu>Проект</guimenu><guimenuitem>Сохранить</guimenuitem></menuchoice>.</para>
+	</tip>
+      </para>
+
+      <sect3 id="brasero-data-project-options">
+	<title>Параметры проекта диска с данными</title>
+	<para>Перед началом процесса записи можно изменить некоторые параметры записи.</para>
+	<para>
+	  <variablelist>
+	    <varlistentry>
+	      <term>Раздел <guilabel>Выберите диск для записи</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Чтобы открыть диалоговое окно свойств устройства записи, нажмите кнопку <guibutton>Свойства</guibutton>. Подробнее смотрите <xref linkend="brasero-burning-device-properties"/>.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Раздел <guilabel>Параметры диска</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <variablelist>
+		      <varlistentry>
+			<term>
+			  <guilabel>Улучшить совместимость с системой Windows</guilabel>
+			</term>
+			<listitem>
+			  <para>Выберите этот параметр, если диск планируется использовать на компьютерах, работающих под управлением Windows. Файлы на диске будут проверяться с целью корректного отображения их имён в Windows.</para>
+			</listitem>
+		      </varlistentry>
+		    </variablelist>
+		  </listitem>
+		  <listitem>
+		    <variablelist>
+		      <varlistentry>
+			<term><guilabel>Оставить диск открытым для дальнейшего добавления файлов</guilabel></term>
+			<listitem>
+			  <para>Выберите этот параметр, чтобы создать <emphasis>многосеансовый</emphasis> диск, на который в дальнейшем можно будет добавлять файлы (не очищая диск, если он является перезаписываемым).</para>
+			</listitem>
+		      </varlistentry>
+		    </variablelist>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</para>
+      </sect3>
+    </sect2>
+
+    <!-- ====== subsection: Video project ====== -->
+    <sect2 id="brasero-new-project-video">
+      <title>Видеодиск</title>
+      <para>Этот проект позволяет записывать видеофайлы (файлы с расширением <filename class="extension">.mpg</filename>, <filename class="extension">.mpeg</filename>, <filename class="extension">.avi</filename> и другие) на диск, чтобы создать видео <acronym>DVD</acronym>, <acronym>SVCD</acronym> или <acronym>VCD</acronym>, которые можно воспроизводить на любом обычном проигрывателе DVD.</para>
+      <para>
+	<note>
+	  <para>Для того, чтобы воспользоваться всеми потенциальными возможностями проекта по созданию видеодиска, необходимо установить все модули расширения GStreamer, <application>ffmpeg</application>, <application>vcdimager</application> и <application>dvdauthor</application>. О том, как установить все эти приложения, смотрите в документации по операционной системе.</para>
+	</note>
+      </para>
+      <para>Чтобы создать проект видеодиска, выполните следующее: <orderedlist>
+	  <listitem>
+	    <para>Вставьте в привод чистый CD или DVD.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Выберите в главном окне <guibutton>Видеодиск</guibutton>, или выберите <menuchoice><guimenu>Проект</guimenu><guisubmenu>Создать проект</guisubmenu><guimenuitem>Видеодиск</guimenuitem></menuchoice>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>В панели слева найдите видеофайлы.</para>
+	    <para>Выберите файлы двойным нажатием левой кнопки мыши, или выделите файлы и нажмите кнопку <guibutton>Добавить</guibutton>, находящуюся в левом верхнем углу на панели инструментов;</para>
+	    <para>
+	      <tip>
+		<para>Усли панель слева отсутствует, выберите <menuchoice><guimenu>Вид</guimenu><guimenuitem>Показывать боковую панель</guimenuitem></menuchoice> или нажмите <keycap>F7</keycap>;</para>
+	      </tip>
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>Введите название диска в текстовое окно. Это название будет отображаться как имя диска.</para>
+	  </listitem>
+	  <listitem>
+	    <para>После добавления всех файлов нажмите кнопку <guibutton>Записать...</guibutton>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Появится диалоговое окно <guilabel>Настройка записи диска</guilabel>. Выполните необходимые изменения (смотрите <xref linkend="brasero-video-project-options"/>).</para>
+	  </listitem>
+	  <listitem>
+	    <para>Нажмите кнопку <guibutton>Записать</guibutton>, чтобы начать процесс записи.</para>
+	  </listitem>
+	</orderedlist></para>
+
+      <para>
+	<note>
+	  <para>
+	    When adding files, refer to the status bar at the bottom
+	    of the window to see how much space you are using on your
+	    CD/DVD.
+	  </para>
+	</note>
+	<tip>
+	  <para>Чтобы сохранить проект для дальнейшего использования, выберите <menuchoice><guimenu>Проект</guimenu><guimenuitem>Сохранить</guimenuitem></menuchoice>.</para>
+	</tip>
+      </para>
+
+      <sect3 id="brasero-video-project-options">
+	<title>Параметры проекта по созданию видеодиска</title>
+	<para>Перед началом процесса записи можно изменить некоторые параметры записи.</para>
+	<para>
+	  <variablelist>
+	    <varlistentry>
+	      <term>Раздел <guilabel>Выберите диск для записи</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Чтобы открыть диалоговое окно свойств устройства записи, нажмите кнопку <guibutton>Свойства</guibutton>. Подробнее смотрите <xref linkend="brasero-burning-device-properties"/>.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Раздел <guilabel>Параметры видео</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>В <guilabel>Форматы видео</guilabel> выберите формат, который будет записан. Можно выбрать из: <itemizedlist>
+			<listitem>
+			  <para><guilabel>Исходный формат</guilabel>: исходный формат видеофайла.</para>
+			</listitem>
+			<listitem>
+			  <para><guilabel>PAL/SECAM</guilabel>: в основном используется в Европе.</para>
+			</listitem>
+			<listitem>
+			  <para><guilabel>NTSC</guilabel>: в основном используется в Америке, Канаде и Японии.</para>
+			</listitem>
+		      </itemizedlist></para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Раздел <guilabel>Параметры звука</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Чтобы добавить на диск поток <emphasis>MPEG-1 Audio Layer 2</emphasis>, выберите <guilabel>Добавить звуковой поток MP2</guilabel>.</para>
+		  </listitem>
+		  <listitem>
+		    <para>Чтобы добавить на диск поток <emphasis>AC-3 Dolby Digital</emphasis>, выберите <guilabel>Добавить звуковой поток AC3</guilabel>.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Раздел <guilabel>Тип VCD</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Чтобы создать <emphasis>Super Video CD</emphasis>, выберите <guilabel>Создать SVCD</guilabel>.</para>
+		  </listitem>
+		  <listitem>
+		    <para>Чтобы создать <emphasis>Video CD</emphasis>, выберите <guilabel>Создать VCD</guilabel>.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</para>
+
+	<para>
+	  <note>
+	    <para>Одним из основных отличий между <acronym>SVCD</acronym> и <acronym>VCD</acronym> является то, что <acronym>SVCD</acronym> использует видеокодек <acronym>MPEG-2</acronym>, а <acronym>VCD</acronym> — <acronym>MPEG-1</acronym>. Подробнее смотрите на страницах Википедии <ulink type="http" url="http://ru.wikipedia.org/wiki/SVCD">SVCD</ulink> и <ulink type="http" url="http://ru.wikipedia.org/wiki/Video_CD">VCD</ulink>.</para>
+	  </note>
+	</para>
+	  
+      </sect3>
+
+    </sect2>
+
+    <!-- ====== subsection: Copy Disc ======= -->
+    <sect2 id="brasero-new-project-copy">
+      <title>Копирование диска</title>
+      <para>Этот проект позволяет сделать копию содержимого существующего диска на пустой диск или в файл образа. Чтобы скопировать диск, выполните следующее: <orderedlist>
+	  <listitem>
+	    <para>Вставьте в привод CD или DVD, предназначенный для копирования.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Выберите в главном окне <guibutton>Копировать диск</guibutton>, или выберите <menuchoice><guimenu>Проект</guimenu><guisubmenu>Создать проект</guisubmenu><guimenuitem>Копировать диск</guimenuitem></menuchoice>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Появится диалоговое окно <guilabel>Параметры копирования CD/DVD</guilabel>. Выполните необходимые изменения (подробнее смотрите <xref linkend="brasero-disc-copy-options"/>).</para>
+	  </listitem>
+	  <listitem>
+	    <para>Нажмите кнопку <guibutton>Копировать</guibutton>, чтобы запустить процесс копирования.</para>
+	  </listitem>
+	</orderedlist></para>
+
+      <sect3 id="brasero-disc-copy-options">
+	<title>Параметры копирования диска</title>
+	<para>Перед запуском процесса копирования можно изменить некоторые параметры копирования и записи.</para>
+	<para>
+	  <variablelist>
+	    <varlistentry>
+	      <term>Раздел <guilabel>Выберите диск для копирования</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>
+		      From the drop-down list, select the disc that
+		      you want to copy.
+		    </para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Раздел <guilabel>Выберите диск для записи</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Из ниспадающего списка выберите диск, на который будет производиться запись.</para>
+		    <para>Выберите из ниспадающего списка <guilabel>Файл образа</guilabel> для создания образа диска.</para>
+		  </listitem>
+		  <listitem>
+		    <para>Чтобы открыть диалоговое окно свойств устройства записи, нажмите кнопку <guibutton>Свойства</guibutton>. Подробнее смотрите <xref linkend="brasero-burning-device-properties"/>.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</para>
+	<para>
+	  <note>
+	    <para>
+	      If you have more than one drive on your system, you can
+	      use one drive as the source drive and the other as the
+	      destination drive. If you do not, you will be prompted
+	      to remove the CD or DVD you are copying and insert a
+	      blank media.
+	    </para>
+	  </note>
+	</para>
+      </sect3>
+    </sect2>
+
+    <!-- ==== subsection: Burn Image ===== -->
+    <sect2 id="brasero-new-project-image">
+      <title>Запись образа</title>
+      <para>Этот проект позволяет записывать CD-R/W или DVD-R/W из существующего файла образа. В <application>Brasero</application> включена поддержка файлов образов следующих типов: <itemizedlist>
+	  <listitem>
+	    <para>
+	      <filename>.iso</filename>
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      <filename>.raw</filename>
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      <filename>.cue</filename>
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      <filename>.toc</filename>
+	    </para>
+	  </listitem>
+	</itemizedlist></para>
+
+      <para>Чтобы начать работу с этим проектом, выполните следующее: <orderedlist>
+	  <listitem>
+	    <para>Вставьте в привод пустой CD-R/W или DVD-R/W.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Выберите в главном окне <guibutton>Записать образ</guibutton>, или выберите <menuchoice><guimenu>Проект</guimenu><guisubmenu>Создать проект</guisubmenu><guimenuitem>Записать образ</guimenuitem></menuchoice>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Появится диалоговое окно <guilabel>Настройка записи образа</guilabel>. Выполните необходимые изменения (смотрите <xref linkend="brasero-burn-image-options"/>).</para>
+	  </listitem>
+	  <listitem>
+	    <para>Нажмите кнопку <guibutton>Записать</guibutton>, чтобы начать процесс записи.</para>
+	  </listitem>
+	</orderedlist></para>
+
+      <sect3 id="brasero-burn-image-options">
+	<title>Параметры записи образа</title>
+	<para>Перед запуском процесса записи образа можно изменить некоторые параметры записи.</para>
+	<para>
+	  <variablelist>
+	    <varlistentry>
+	      <term>Раздел <guilabel>Выберите диск для записи</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Чтобы открыть диалоговое окно свойств устройства записи, нажмите кнопку <guibutton>Свойства</guibutton>. Подробнее смотрите <xref linkend="brasero-burning-device-properties"/>.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Раздел <guilabel>Образ</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>
+		      Click on the button to open
+		      the <guilabel>Select Image File</guilabel>
+		      dialog and select the image file to
+		      burn. From the drop-down list at the bottom, you
+		      can select the type of the image to burn. If
+		      unsure, select <guilabel>Let brasero choose
+		      (safest)</guilabel>.
+		    </para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</para>
+      </sect3>
+    </sect2>
+
+    <sect2 id="brasero-burning-device-properties">
+      <title>Свойства записывающего устройства</title>
+      <para>Перед запуском процесса записи можно изменить некоторые свойства записывающего устройства.</para>
+      <para>
+	<variablelist>
+	  <varlistentry>
+	    <term>Раздел <guilabel>Скорость записи</guilabel>:</term>
+	    <listitem>
+	      <para>Выберите скорость записи из ниспадающего списка. Лучше всего свериться с информацией на коробке CD или DVD.</para>
+	      <warning>
+		<para>Запись диска на скоростях, превышающих поддерживаемые, может привести к тому, что диск не будет читаться. Чтобы уменьшить риск, записывайте диски на более низких скоростях.</para>
+	      </warning>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>Раздел <guilabel>Параметры</guilabel>:</term>
+	    <listitem>
+	      <itemizedlist>
+		<listitem>
+		  <variablelist>
+		    <varlistentry>
+		      <term>
+			<guilabel>Записать образ прямо на диск без сохранения</guilabel>
+		      </term>
+		      <listitem>
+			<para>Выберите этот параметр, если хотите записать образ непосредственно на носитель без сохранения этого образа на жёстком диске и без создания файла образа.</para>
+		      </listitem>
+		    </varlistentry>
+		  </variablelist>
+		</listitem>
+		<listitem>
+		  <variablelist>
+		    <varlistentry>
+		      <term><guilabel>Использовать burnproof (уменьшает риск повреждения диска)</guilabel></term>
+		      <listitem>
+			<para>Выберите этот параметр, чтобы предотвратить эффект <emphasis>недогрузки буфера</emphasis> (или <emphasis>опустошения буфера</emphasis>). Это происходит, когда компьютер недостаточно быстро доставляет данные записывающему устройству на выбранной скорости записи.</para>
+			<warning>
+			  <para>Если происходит <emphasis>недогрузка буфера</emphasis>, записанный диск может не читаться.</para>
+			</warning>
+		      </listitem>
+		    </varlistentry>
+		  </variablelist>
+		</listitem>
+		<listitem>
+		  <variablelist>
+		    <varlistentry>
+		      <term><guilabel>Симулировать запись</guilabel></term>
+		      <listitem>
+			<para>
+			  Select this option to simulate the burning
+			  process; no real burn is performed. If this operation
+			  is successful, brasero will actually burn the disc
+			  after pausing for 10 seconds. During this pause it
+			  will show a dialog in which you can cancel the actual
+			  burning. This is useful for testing, if you are having
+			  problems burning discs.
+			</para>
+		      </listitem>
+		    </varlistentry>
+		  </variablelist>
+		</listitem>
+		<listitem>
+		  <variablelist>
+		    <varlistentry>
+		      <term><guilabel>Извлечь после записи</guilabel></term>
+		      <listitem>
+			<para>Выберите этот параметр, чтобы извлечь носитель сразу после окончания записи.</para>
+		      </listitem>
+		    </varlistentry>
+		  </variablelist>
+		</listitem>
+	      </itemizedlist>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>Раздел <guilabel>Временные файлы</guilabel>:</term>
+	    <listitem>
+	      <para>Выберите из ниспадающего списка каталог, который будет использоваться для хранения временных файлов, создаваемых для записи.</para>
+	      <para>Каталогом по умолчанию является каталог <filename class="directory">/tmp</filename>.</para>
+	    </listitem>
+	  </varlistentry>
+	</variablelist>
+      </para>
+      <sect3 id="brasero-burn-no-disc">
+	<title>Свойства записи при отсутствии диска</title>
+	<para>Если начать процесс записи без наличия CD или DVD в устройстве записи, <application>Brasero</application> создаст файл образа на жёстком диске, который в дальнейшем может быть записан на диск.</para>
+	<para>
+	  <variablelist>
+	    <varlistentry>
+	      <term>Раздел <guilabel>Выберите диск для записи</guilabel>:</term>
+	      <listitem>
+		<para>Из ниспадающего меню можно выбрать только <guilabel>Файл образа</guilabel>.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Раздел <guilabel>Метка диска</guilabel>:</term>
+	      <listitem>
+		<para>Введите имя, которое получит диск после записи.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Раздел <guilabel>Параметры диска</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <variablelist>
+		      <varlistentry>
+			<term>
+			  <guilabel>Улучшить совместимость с системой Windows</guilabel>
+			</term>
+			<listitem>
+			  <para>Выберите этот параметр, если диск планируется использовать на компьютерах, работающих под управлением Windows. Файлы на диске будут проверяться с целью корректного отображения их имён в Windows.</para>
+			</listitem>
+		      </varlistentry>
+		    </variablelist>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</para>
+	<para>Нажмите кнопку <guibutton>Свойства</guibutton>, чтобы открыть диалоговое окно <guilabel>Свойства файла образа диска</guilabel>. В текстовом поле <guilabel>Имя</guilabel> введите имя файла образа, из ниспадающего списка <guilabel>Тип образа</guilabel> выберите тип образа для использования.</para>
+	<para>По окончании нажмите <guibutton>Применить</guibutton>.</para>
+      </sect3>
+    </sect2>
+    
+  </sect1>
+
+  <sect1 id="brasero-open-recent-project">
+    <title>Открытие сохранённого проекта</title>
+    <para>Любой сохранённый проект можно открыть вновь. Для этого выполните следующее: <itemizedlist>
+	<listitem>
+	  <para>Выберите <menuchoice><guimenu>Проект</guimenu><guisubmenu>Недавние проекты</guisubmenu></menuchoice>, и выберите проект, который нужно открыть.</para>
+	</listitem>
+	<listitem>
+	  <para>
+	    From the main window, click on the project you want to open
+	    under <guilabel>Recent
+	    projects</guilabel>.
+	  </para>
+	</listitem>
+      </itemizedlist></para>
+    <para>Чтобы открыть проект, который отсутствует под надписью <guilabel>Недавние проекты</guilabel>, выберите <menuchoice><guimenu>Проект</guimenu><guimenuitem>Открыть</guimenuitem></menuchoice> и выберите файл проекта.</para>
+    <para>После того, как проект открыт, в него можно добавлять файлы, удалять из него файлы, записывать файлы на диск и сохранять проект для дальнейшего использования.</para>
+  </sect1>
+
+  <sect1 id="brasero-erase-media">
+    <title>Очистка CD и DVD</title>
+    <para>Стирание или очистка CD или DVD удаляет все данные, содержащиеся на CD или DVD. <application>Brasero</application> может стирать следующие форматы CD и DVD: <itemizedlist>
+	<listitem>
+	  <para>CD-RW</para>
+	</listitem>
+	<listitem>
+	  <para>DVD-RW (одинарный или двойной слой)</para>
+	</listitem>
+	<listitem>
+	  <para>DVD+RW (одинарный или двойной слой)</para>
+	</listitem>
+      </itemizedlist></para>
+    <para>В основном, <application>Brasero</application> может поддерживать все форматы носителей, который поддерживаются вашим приводом CD/DVD.</para>
+    <warning>
+      <para>Убедитесь, что носитель является перезаписываемым. Подробнее о носителе можно узнать из информации, представленной на его упаковке (коробке).</para>
+    </warning>
+    <para>Чтобы очистить CD-RW или DVD-RW: <orderedlist>
+	<listitem>
+	  <para>Вставьте перезаписываемый CD или DVD в привод.</para>
+	</listitem>
+	<listitem>
+	  <para>Выберите в панели меню <menuchoice><guimenu>Инструменты</guimenu><guimenuitem>Очистить...</guimenuitem></menuchoice>. Появится диалоговое окно <guilabel>Очистка диска</guilabel>.</para>
+	</listitem>
+	<listitem>
+	  <para>Из ниспадающего списка <guilabel>Выберите диск</guilabel>, выберите диск, который нужно очистить.</para>
+	</listitem>
+	<listitem>
+	  <para>Если диск нужно очистить быстро, выберите параметр <guilabel>быстрая очистка</guilabel> (подробнее смотрите <xref linkend="brasero-fast-blanking"/>).</para>
+	</listitem>
+	<listitem>
+	  <para>Нажмите кнопку <guibutton>Очистить</guibutton>, чтобы запустить процесс очистки CD или DVD.</para>
+	</listitem>
+      </orderedlist></para>
+    <warning>
+      <para>Процесс очистки окончательно уничтожит все данные, хранящиеся на диске.</para>
+    </warning>
+    
+    <sect2 id="brasero-fast-blanking">
+      <title>Что такое быстрая очистка?</title>
+      <para>Быстрая очистка — это метод, позволяющий очистить диск гораздо быстрее, чем при методе полной очистки. Быстрая очистка оказывается достаточной для того, чтобы на стираемый диск можно было произвести запись вновь.</para>
+      <para>Процедура полной очистки длится дольше, но более безопасна, так как она удаляет все следы предыдущих данных. Данные, удалённые с носителя быстрой очисткой, всё ещё можно восстановить с помощью специальных инструментов.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="brasero-checking-integrity">
+    <title>Проверка целостности CD или DVD</title>
+    <para>Проверка целостности CD или DVD позволяет убедиться в том, что файлы, записанные на диск, не были повреждены при записи.</para>
+    <para>Проверку целостности можно выполнить с помощью алгоритма хеширования <quote>MD5</quote>, который создаёт <quote>отпечаток</quote> данных на носителе. Каждый раз, когда вы записываете CD или DVD, <application>Brasero</application> добавляет файл MD5 на диск, чтобы выполнить проверку целостности данных на диске. Модуль <emphasis role="strong">Контрольная сумма</emphasis> должен быть включён (подробнее смотрите <xref linkend="brasero-plugins"/>).</para>
+    <para><application>Brasero</application> выполняет проверку целостности после каждой сессии записи, проверяя автоматически созданный файл. Обычно этот процесс длится дольше, чем при использовании внешнего файла MD5.</para>
+    <para>Чтобы проверить целостность данных на диске: <orderedlist>
+	<listitem>
+	  <para>Вставьте в привод CD или DVD для проверки. </para>
+	</listitem>
+	<listitem>
+	  <para>Выберите <menuchoice><guimenu>Инструменты</guimenu><guimenuitem>Проверить целостность</guimenuitem></menuchoice> из панели меню, или нажмите <keycombo><keycap>Ctrl</keycap><keycap>F</keycap></keycombo>.</para>
+	</listitem>
+	<listitem>
+	  <para>Проверку целостности можно осуществить с помощью файла MD5 или можно позволить <application>Brasero</application> автоматически выполнить проверку на носителе. <itemizedlist>
+	      <listitem>
+		<para>Выберите параметр <guilabel>Использовать файл контрольной суммы MD5 для проверки</guilabel>.</para>
+	      </listitem>
+	      <listitem>
+		<para>Нажмите кнопку <guilabel>(Нет)</guilabel>, находящуюся под параметром, обсуждавшимся ранее, и выберите файл MD5. Обычно такие файлы имеют расширение <filename>.md5</filename>.</para>
+	      </listitem>
+	    </itemizedlist></para>
+	</listitem>
+	<listitem>
+	  <para>Чтобы начать проверку целостности, нажмите кнопку <guibutton>Проверить</guibutton>.</para>
+	</listitem>
+      </orderedlist></para>
+    <para>Если проверка целостности данных на диске заканчивается успешно, <application>Brasero</application> уведомит об этом окном <guilabel>Проверка целостности завершена успешно</guilabel>. Иначе, будет выдано сообщение <guilabel>Проверка целостности закончилась с ошибкой</guilabel>.</para>
+  </sect1>
+
+  <sect1 id="brasero-cover-editor">
+    <title>Редактор обложек</title>
+    <para>В <application>Brasero</application> имеется возможность создавать обложки для CD и DVD. Чтобы открыть редактор обложек, выберите <menuchoice><guimenu>Инструменты</guimenu><guimenuitem>Редактор обложек</guimenuitem></menuchoice>.</para>
+    <para>В редакторе можно выбрать шрифт, выполнить выравнивание текста и выбрать цвет текста и фона для передней и задней обложки.</para>
+    <para>Чтобы установить свойства обложек, нажмите правую кнопку мыши на обложке и выберите <guimenuitem>Установить свойства фона</guimenuitem>, чтобы открыть диалоговое окно <guilabel>Свойства фона</guilabel>.</para>
+    <para>
+      It is possible to fill the background with an image or with a
+      color or gradient.
+    </para>
+    <para>Чтобы установить изображение в качестве фона: <itemizedlist>
+	<listitem>
+	  <para>Из <guilabel>Путь к изображению</guilabel> выберите изображение с вашего жёсткого диска.</para>
+	</listitem>
+	<listitem>
+	  <para>
+	    From the <guilabel>Image style</guilabel> drop-down list
+	    select how you want the image to be positioned.
+	  </para>
+	</listitem>
+      </itemizedlist></para>
+    <para>Чтобы залить фон каким-либо цветом или градиентом: <itemizedlist>
+	<listitem>
+	  <para>Из ниспадающего списка <guilabel>Цвет</guilabel> выберите цвет, который заполнит фон.</para>
+	</listitem>
+	<listitem>
+	  <para>Используйте кнопку справа, чтобы открыть диалоговое окно <guilabel>Выбрать цвет</guilabel>.</para>
+	</listitem>
+      </itemizedlist><note>
+	<para>Если выбрать градиент, появится две кнопки для выбора цвета. Кнопка слева задаёт начальную точку градиента, кнопка справа — конечную.</para>
+      </note></para>
+  </sect1>
+
+  <sect1 id="brasero-plugins">
+    <title>Модули расширений</title>
+    <para>В <application>Brasero</application> можно использовать различные дополнительные модули для выполнения разных задач. Есть несколько модулей, доступных для выбора.</para>
+    <para>Чтобы просмотреть доступные модули, выберите <menuchoice><guimenu>Правка</guimenu><guimenuitem>Модули</guimenuitem></menuchoice>. Модули, которые можно использовать:</para>
+    <para>
+      <table frame="all" id="brasero-TBL-plugin">
+	<title>Модули расширений</title>
+	<tgroup cols="2" align="left" colsep="1" rowsep="1">
+	  <thead>
+	    <row>
+	      <entry>Название модуля</entry>
+	      <entry>Описание</entry>
+	    </row>
+	  </thead>
+	  <tbody>
+	    <row>
+	      <entry><guilabel>CD/DVD Creator Folder</guilabel></entry>
+	      <entry>
+		Enalbes <application>Brasero</application> to burn files stored in the
+		<filename class="directory">CD/DVD Creator</filename> folder of <application>Nautilus</application>.
+	      </entry>
+	    </row>
+	    <row>
+	      <entry><guilabel>File Checksum</guilabel></entry>
+	      <entry>Позволяет <application>Brasero</application> проверять целостность файлов на диске.</entry>
+	    </row>
+	    <row>
+	      <entry><guilabel>File Downloader</guilabel></entry>
+	      <entry>Позволяет <application>Brasero</application> записывать файлы, не хранящиеся локально.</entry>
+	    </row>
+	    <row>
+	      <entry><guilabel>Image Checksum</guilabel></entry>
+	      <entry>Позволяет <application>Brasero</application> проверить целостность данных на диске после записи. Также позволяет запись небольшого файла, который содержит сумму MD5 всех файлов диска.</entry>
+	    </row>
+	    <row>
+	      <entry><guilabel>Normalize</guilabel></entry>
+	      <entry>Нормализация позволяет <application>Brasero</application> задать одинаковый уровень громкости для всех дорожек.</entry>
+	    </row>
+	  </tbody>
+	</tgroup>
+      </table>
+    </para>
+    <para>
+      To enable or disable a plugin, select the check box next to its
+      name in the <guilabel>Enabled</guilabel> column.
+    </para>
+    <para>
+      With the <guilabel>File Checksum</guilabel> and <guilabel>Image
+      Checksum</guilabel> plugins you can choose which algorithm to
+      use:
+      <orderedlist>
+	<listitem>
+	  <para>Выберите один из двух модулей и нажмите кнопку <guibutton>Настроить</guibutton>.</para>
+	</listitem>
+	<listitem>
+	  <para>
+	    From the <guilabel>Hashing algorithm to be used</guilabel>
+	    drop-down list select the algorithm you want to use. The
+	    possible values are:
+	    <itemizedlist>
+	      <listitem>
+		<para>MD5</para>
+	      </listitem>
+	      <listitem>
+		<para>SHA1</para>
+	      </listitem>
+	      <listitem>
+		<para>SHA256</para>
+	      </listitem>
+	    </itemizedlist>
+	  </para>
+	</listitem>
+      </orderedlist>
+    </para>
+
+    <para>
+      <note>
+	<para>Для того, чтобы использовать некоторые модули из списка, может понадобится установка дополнительных приложений. Подробнее смотрите в документации по операционной системе.</para>
+      </note>
+    </para>
+  </sect1>
+
+</article>

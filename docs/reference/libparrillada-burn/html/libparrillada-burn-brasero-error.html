@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>parrillada-error</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Libparrillada-burn Reference Manual">
+<link rel="up" href="ch01.html" title="API Reference for Libparrillada-burn">
+<link rel="prev" href="libparrillada-burn-parrillada-burn-lib.html" title="parrillada-burn-lib">
+<link rel="next" href="libparrillada-burn-parrillada-tags.html" title="parrillada-tags">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libparrillada-burn-parrillada-burn-lib.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Libparrillada-burn Reference Manual</th>
+<td><a accesskey="n" href="libparrillada-burn-parrillada-tags.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libparrillada-burn-parrillada-error.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libparrillada-burn-parrillada-error.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" title="parrillada-error">
+<a name="libparrillada-burn-parrillada-error"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libparrillada-burn-parrillada-error.top_of_page"></a>parrillada-error</span></h2>
+<p>parrillada-error</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="libparrillada-burn-parrillada-error.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">enum                <a class="link" href="libparrillada-burn-parrillada-error.html#ParrilladaBurnError" title="enum ParrilladaBurnError">ParrilladaBurnError</a>;
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              <a class="link" href="libparrillada-burn-parrillada-error.html#parrillada-burn-quark" title="parrillada_burn_quark ()">parrillada_burn_quark</a>                  (<em class="parameter"><code><span class="type">void</span></code></em>);
+#define             <a class="link" href="libparrillada-burn-parrillada-error.html#PARRILLADA-BURN-ERROR:CAPS" title="PARRILLADA_BURN_ERROR">PARRILLADA_BURN_ERROR</a>
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="libparrillada-burn-parrillada-error.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="libparrillada-burn-parrillada-error.details"></a><h2>Details</h2>
+<div class="refsect2" title="enum ParrilladaBurnError">
+<a name="ParrilladaBurnError"></a><h3>enum ParrilladaBurnError</h3>
+<pre class="programlisting">typedef enum {
+	PARRILLADA_BURN_ERROR_NONE,
+	PARRILLADA_BURN_ERROR_GENERAL,
+
+	PARRILLADA_BURN_ERROR_PLUGIN_MISBEHAVIOR,
+
+	PARRILLADA_BURN_ERROR_SLOW_DMA,
+	PARRILLADA_BURN_ERROR_PERMISSION,
+	PARRILLADA_BURN_ERROR_DRIVE_BUSY,
+	PARRILLADA_BURN_ERROR_DISK_SPACE,
+
+	PARRILLADA_BURN_ERROR_EMPTY,
+	PARRILLADA_BURN_ERROR_INPUT_INVALID,
+
+	PARRILLADA_BURN_ERROR_OUTPUT_NONE,
+
+	PARRILLADA_BURN_ERROR_FILE_INVALID,
+	PARRILLADA_BURN_ERROR_FILE_FOLDER,
+	PARRILLADA_BURN_ERROR_FILE_PLAYLIST,
+	PARRILLADA_BURN_ERROR_FILE_NOT_FOUND,
+	PARRILLADA_BURN_ERROR_FILE_NOT_LOCAL,
+
+	PARRILLADA_BURN_ERROR_WRITE_MEDIUM,
+	PARRILLADA_BURN_ERROR_WRITE_IMAGE,
+
+	PARRILLADA_BURN_ERROR_IMAGE_INVALID,
+	PARRILLADA_BURN_ERROR_IMAGE_JOLIET,
+	PARRILLADA_BURN_ERROR_IMAGE_LAST_SESSION,
+
+	PARRILLADA_BURN_ERROR_MEDIUM_NONE,
+	PARRILLADA_BURN_ERROR_MEDIUM_INVALID,
+	PARRILLADA_BURN_ERROR_MEDIUM_SPACE,
+	PARRILLADA_BURN_ERROR_MEDIUM_NO_DATA,
+	PARRILLADA_BURN_ERROR_MEDIUM_NOT_WRITABLE,
+	PARRILLADA_BURN_ERROR_MEDIUM_NOT_REWRITABLE,
+	PARRILLADA_BURN_ERROR_MEDIUM_NEED_RELOADING,
+
+	PARRILLADA_BURN_ERROR_BAD_CHECKSUM,
+
+	PARRILLADA_BURN_ERROR_MISSING_APP_AND_PLUGIN,
+
+	/* these are not necessarily error */
+	PARRILLADA_BURN_WARNING_CHECKSUM,
+	PARRILLADA_BURN_WARNING_INSERT_AFTER_COPY,
+
+	PARRILLADA_BURN_ERROR_TMP_DIRECTORY
+} ParrilladaBurnError;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="parrillada_burn_quark ()">
+<a name="parrillada-burn-quark"></a><h3>parrillada_burn_quark ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              parrillada_burn_quark                  (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="PARRILLADA_BURN_ERROR">
+<a name="PARRILLADA-BURN-ERROR:CAPS"></a><h3>PARRILLADA_BURN_ERROR</h3>
+<pre class="programlisting">#define             PARRILLADA_BURN_ERROR</pre>
+<p>
+</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

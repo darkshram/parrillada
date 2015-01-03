@@ -1,0 +1,1034 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY appversion "2.26">
+<!ENTITY manrevision "2.2">
+<!ENTITY date "January 2009">
+<!ENTITY app "<application>Brasero</application>">
+<!ENTITY appname "Brasero">
+<!ENTITY svcd "http://en.wikipedia.org/wiki/SVCD">
+<!ENTITY vcd "http://en.wikipedia.org/wiki/Video_CD">
+]>
+<!-- 
+      (Do not remove this comment block.)
+  Maintained by the GNOME Documentation Project
+  http://developer.gnome.org/projects/gdp
+  Template version: 2.0 beta
+  Template last modified Apr 11, 2002
+-->
+<?db.chunk.max_depth 2?>
+<article id="index" lang="de">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+  <articleinfo> 
+    <title><application>Brasero</application>-Handbuch V2.2</title>       
+	<abstract role="description">
+	      <para>Brasero ist eine Anwendung zum Brennen von CDs und DVDs.</para>
+	    </abstract>
+
+    <copyright> 
+      <year>2008</year>
+      <year>2009</year>
+      <holder>Ubuntu-Dokumentationsprojekt</holder> 
+    </copyright><copyright><year>2008, 2009, 2010</year><holder>Mario Blättermann (mariobl@gnome.org)</holder></copyright> 
+<!-- translators: uncomment this:
+
+  <copyright>
+   <year>2008</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+   -->
+<!-- An address can be added to the publisher information.  If a role is 
+     not specified, the publisher/author is the same for all versions of the 
+     document.  -->
+    <publisher> 
+      <publishername>Ubuntu-Dokumentationsprojekt</publishername> 
+    </publisher> 
+
+     <legalnotice id="legalnotice">
+	<para>Das vorliegende Dokument kann gemäß den Bedingungen der GNU Free Documentation License (GFDL), Version 1.1 oder jeder späteren, von der Free Software Foundation veröffentlichten Version ohne unveränderbare Abschnitte sowie ohne Texte auf dem vorderen und hinteren Buchdeckel kopiert, verteilt und/oder modifiziert werden. Eine Kopie der GFDL finden Sie unter diesem <ulink type="help" url="ghelp:fdl">Link</ulink> oder in der mit diesem Handbuch gelieferten Datei COPYING-DOCS.</para>
+         <para>Dieses Handbuch ist Teil einer Sammlung von GNOME-Handbüchern, die unter der GFDL veröffentlicht werden. Wenn Sie dieses Handbuch getrennt von der Sammlung weiterverbreiten möchten, können Sie das tun, indem Sie eine Kopie der Lizenz zum Handbuch hinzufügen, wie es in Abschnitt 6 der Lizenz beschrieben ist.</para>
+
+	<para>Viele der Namen, die von Unternehmen verwendet werden, um ihre Produkte und Dienstleistungen von anderen zu unterscheiden, sind eingetragene Warenzeichen. An den Stellen, an denen diese Namen in einer GNOME-Dokumentation erscheinen, werden die Namen in Großbuchstaben oder mit einem großen Anfangsbuchstaben geschrieben, wenn das GNOME-Dokumentationsprojekt auf diese Warenzeichen hingewiesen wird.</para>
+
+	<para>DAS DOKUMENT UND VERÄNDERTE FASSUNGEN DES DOKUMENTS WERDEN UNTER DEN BEDINGUNGEN DER GNU FREE DOCUMENTATION LICENSE ZUR VERFÜGUNG GESTELLT MIT DEM WEITERGEHENDEN VERSTÄNDNIS, DASS: <orderedlist>
+		<listitem>
+		  <para>DIESES DOKUMENT WIRD »WIE VORLIEGEND« GELIEFERT, OHNE GARANTIEN IRGENDEINER ART, SOWOHL AUSDRÜCKLICH GENANNTE ALS AUCH ANGEDEUTETE. DIES BEZIEHT SICH AUCH OHNE EINSCHRÄNKUNG AUF GARANTIEN, DASS DIESES DOKUMENT ODER VERÄNDERTE FASSUNGEN DIESES DOKUMENTS FREI VON HANDELSDEFEKTEN, FÜR EINEN BESTIMMTEN ZWECK GEEIGNET IST ODER DASS ES KEINE RECHTE DRITTER VERLETZT. DAS VOLLE RISIKO WAS QUALITÄT, GENAUIGKEIT UND LEISTUNG DES DOKUMENTS ODER VERÄNDERTE FASSUNGEN DES DOKUMENTS LIEGT BEI IHNEN. SOLLTE EIN DOKUMENT ODER EINE VERÄNDERTE FASSUNG DAVON FEHLER IRGENDEINER ART BEINHALTEN, TRAGEN SIE (NICHT DER URSPRUNGSAUTOR, DER AUTOR ODER EIN MITWIRKENDER) DIE KOSTEN FÜR NOTWENDIGE DIENSTLEISTUNGEN, REPARATUREN ODER FEHLERKORREKTUREN. DIESER HAFTUNGSAUSSCHLUSS IST EIN ESSENZIELLER TEIL DIESER LIZENZ. DIE VERWENDUNG EINES DOKUMENTS ODER EINER VERÄNDERTEN VERSION DES DOKUMENTS IST NICHT GESTATTET AUßER UNTER BEACHTUNG DIESES HAFTUNGSAUSSCHLUSSES UND</para>
+		</listitem>
+		<listitem>
+		  <para>UNTER KEINEN UMSTÄNDEN UND AUF BASIS KEINER RECHTSGRUNDLAGE, EGAL OB DURCH UNERLAUBTEN HANDLUNGEN (EINSCHLIEßLICH FAHRLÄSSIGKEIT), VERTRAG ODER ANDERWEITIG KANN DER AUTOR, URSPRUNGSAUTOR, EIN MITWIRKENDER ODER EIN VERTRIEBSPARTNER DIESES DOKUMENTS ODER EINER VERÄNDERTEN FASSUNG DES DOKUMENTS ODER EIN ZULIEFERER EINER DIESER PARTEIEN, HAFTBAR GEMACHT WERDEN FÜR DIREKTE, INDIREKTE, SPEZIELLE, VERSEHENTLICHE ODER FOLGESCHÄDEN JEGLICHER ART, EINSCHLIEßLICH UND OHNE EINSCHRÄNKUNGEN SCHÄDEN DURCH VERLUST VON KULANZ, ARBEITSAUSFALL, COMPUTERVERSAGEN ODER COMPUTERFEHLFUNKTIONEN ODER ALLE ANDEREN SCHÄDEN ODER VERLUSTE, DIE SICH AUS ODER IN VERBINDUNG MIT DER VERWENDUNG DES DOKUMENTS UND VERÄNDERTER FASSUNGEN DES DOKUMENTS ERGEBEN, AUCH WENN DIE OBEN GENANNTEN PARTEIEN ÜBER DIE MÖGLICHKEIT SOLCHER SCHÄDEN INFORMIERT WAREN.</para>
+		</listitem>
+	  </orderedlist></para>
+  </legalnotice>
+
+
+   <!-- This file  contains link to license for the documentation, and 
+        other legal stuff such as "NO WARRANTY" statement. Please do not change 
+	any of this. -->
+
+    <authorgroup> 
+      <author role="maintainer"> 
+		<firstname>Milo</firstname> 
+		<surname>Casagrande</surname> 
+		<affiliation> 
+	  		<orgname>Ubuntu-Dokumentationsprojekt</orgname> 
+	  		<address> <email>milo@ubuntu.com</email> </address> 
+		</affiliation> 
+      </author> 
+      <author> 
+		<firstname>Andrew</firstname> 
+		<surname>Stabeno</surname> 
+		<affiliation> 
+	  		<orgname>Ubuntu-Dokumentationsprojekt</orgname> 
+	  		<address> <email>stabeno@gmail.com</email> </address> 
+		</affiliation> 
+      </author> 
+      <author> 
+		<firstname>Phil</firstname> 
+		<surname>Bull</surname> 
+		<affiliation> 
+	  		<orgname>Ubuntu-Dokumentationsprojekt</orgname> 
+	  		<address> <email>philbull@gmail.com</email> </address> 
+		</affiliation> 
+      </author> 
+      
+<!-- This is appropriate place for other contributors: translators,
+     maintainers,  etc. Commented out by default.
+     
+      <othercredit role="translator">
+		<firstname>Latin</firstname> 
+		<surname>Translator 1</surname> 
+		<affiliation> 
+	  		<orgname>Latin Translation Team</orgname> 
+	  		<address> <email>translator@gnome.org</email> </address> 
+		</affiliation>
+		<contrib>Latin translation</contrib>
+      </othercredit>
+-->
+    </authorgroup>
+
+    <revhistory>
+      <revision> 
+	<revnumber>Brasero-Handbuch V2.2</revnumber> 
+	<date>Januar 2008</date> 
+	<revdescription> 
+	  <para role="author">Milo Casagrande <email>milo@ubuntu.com</email></para>
+	  <para role="publisher">Ubuntu-Dokumentationsprojekt</para>
+	</revdescription> 
+      </revision>
+      <revision> 
+	<revnumber>Brasero-Handbuch V2.1</revnumber> 
+	<date>August 2008</date> 
+	<revdescription> 
+	  <para role="author">Milo Casagrande <email>milo@ubuntu.com</email></para>
+	  <para role="publisher">Ubuntu-Dokumentationsprojekt</para>
+	</revdescription> 
+      </revision>
+      <revision> 
+	<revnumber>Brasero-Handbuch V2.0</revnumber> 
+	<date>Februar 2008</date> 
+	<revdescription> 
+	  <para role="author">Milo Casagrande <email>milo@ubuntu.com</email></para>
+	  <para role="author">Andrew Stabeno <email>stabeno@gmail.com</email></para>
+	  <para role="author">Phil Bull <email>philbull@gmail.com</email></para>
+	  <para role="publisher">Ubuntu-Dokumentationsprojekt</para>
+	</revdescription> 
+      </revision> 
+    </revhistory> 
+
+    <releaseinfo>Dieses Handbuch beschreibt Version 2.26 von Brasero.</releaseinfo> 
+    <legalnotice> 
+      <title>Rückmeldungen</title> 
+      <para>Um Fehler zu melden oder einen Vorschlag zur Anwendung <application>Brasero</application> oder zu diesem Handbuch zu machen, folgen Sie den Anweisungen auf der <ulink url="ghelp:gnome-feedback" type="help">GNOME-Seite für Rückmeldungen</ulink>.</para>
+<!-- Translators may also add here feedback address for translations -->
+    </legalnotice> 
+  </articleinfo> 
+
+  <indexterm zone="index"> 
+    <primary>Brasero</primary> 
+  </indexterm> 
+  <indexterm zone="index"> 
+    <primary>brasero</primary> 
+    <secondary>Brennen</secondary>
+    <tertiary>CD/DVD brennen</tertiary>
+  </indexterm>
+
+<!-- ============= Document Body ============================= -->
+
+<!-- ============= Introduction ============================== -->
+  <sect1 id="brasero-introduction" status="review"> 
+    <title>Einführung</title>
+    <para><application>Brasero</application> ist eine Anwendung zum Brennen von CD-R/Ws und DVD-R/Ws, optimiert auf einfache Anwendbarkeit, jedoch ausgestattet mit allen für das Brennen erforderlichen Werkzeugen.</para>
+    <para>Mit <application>Brasero</application> können Sie:</para>
+    <itemizedlist>
+      <listitem>
+	<para>Daten auf CD-R/Ws und DVD-R/Ws brennen</para>
+      </listitem>
+      <listitem>
+	<para>Audio-CDs aus digitalen Audio-Dateien erstellen (wie ogg, flac oder mp3)</para>
+      </listitem>
+      <listitem>
+	<para>CDs und DVDs kopieren</para>
+      </listitem>
+      <listitem>
+	<para>Erstellen von DVDs oder SVCDs</para>
+      </listitem>
+      <listitem>
+	<para>Abbilddateien erstellen und bestehende Abbilddateien brennen</para>
+      </listitem>
+      <listitem>
+	<para>CD-R/Ws und DVD-R/Ws löschen</para>
+      </listitem>
+      <listitem>
+	<para>Die Unversehrtheit von CDs/DVDs oder Abbildern überprüfen</para>
+      </listitem>
+    </itemizedlist>
+  </sect1>
+  
+ <!-- ============= Getting Started ========================= -->
+  <sect1 id="brasero-gettingstarted" status="review"> 
+    <title>Erste Schritte</title>
+    <sect2 id="brasero-starting">
+      <title>Brasero starten</title>
+    <para>Sie können <application>Brasero</application> auf folgende Arten starten:</para>
+      <para>
+	<variablelist>
+	  <varlistentry>
+	    <term>Menü <guimenu>Anwendungen</guimenu></term>
+	    <listitem>
+	      <para>Wählen Sie <menuchoice><guisubmenu>Unterhaltungsmedien</guisubmenu><guimenuitem>Brasero CD/DVD-Brennprogramm</guimenuitem></menuchoice>.</para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>Befehlszeile</term>
+	    <listitem>
+	      <para>Geben Sie <command>brasero</command>ein, und drücken Sie dann auf <keycap>Enter</keycap>.</para>
+	    </listitem>
+	  </varlistentry>
+	</variablelist>
+      </para>
+      <para>
+	<note>
+	  <para>Falls <application>Brasero</application> als Standardanwendung zum Brennen von CDs und DVDs eingestellt ist, dann startet es beim Einlegen einer leeren CD-R/W oder DVD-R/W in Ihr Laufwerk automatisch.</para>
+	</note>
+      </para>
+    </sect2>
+
+    <sect2 id="brasero-start-window">
+      <title>Beim Start von <application>Brasero</application></title>
+    <para>Wenn Sie <application>Brasero</application> starten, wird das folgende Fenster angezeigt.</para>
+    
+    <!-- ==== Figure ==== -->
+    <figure id="brasero-FIG-main"> 
+      <title>Brasero-Hauptfenster</title> 
+      <screenshot> 
+	<mediaobject> 
+	  <imageobject>
+	    <imagedata fileref="figures/parrillada_main.png" format="PNG"/> 
+	  </imageobject>
+	  <textobject> 
+	    <phrase>Das Hauptfenster von Brasero. Zeigt die Menüleiste und die fünf Projekttypen, aus denen Sie wählen können.</phrase> 
+	  </textobject> 
+	</mediaobject> 
+      </screenshot> 
+    </figure>
+    <!-- ==== End of Figure ==== -->
+
+    <para>Dieses Fenster ist der Ausgangspunkt für alle Ihre Projekte. Sie können von hier aus das Projekt anklicken, das Sie starten wollen. Falls Sie mit <application>Brasero</application> bereits andere Projekte erstellt haben, können Sie diese in den <guilabel>Zuletzt geöffneten Projekten</guilabel> auswählen. Weitere Informationen hierzu finden Sie in <xref linkend="brasero-open-recent-project"/>.</para>
+    </sect2>
+  </sect1>
+
+  <!-- ============= New Project ========================= -->
+  <sect1 id="brasero-new-project" status="review">
+    <title>Erstellen eines neuen Projekts</title>
+    <para>Der folgende Abschnitt erläutert die fünf Projekttypen, die Sie mit <application>Brasero</application> erstellen können.</para>
+    
+    <!-- ==== subsection: Audio project ===== -->
+    <sect2 id="brasero-new-project-audio">
+      <title>Audio-Projekt</title>
+      <para>Dieser Abschnitt erläutert die Erstellung einer Audio-CD. Dieses Projekt nimmt die ausgewählten Audio-Dateien, wandelt sie in ein unkomprimiertes Audio-Datenformat um und schreibt die Dateien auf eine CD, welche auf gewöhnlichen CD-Spielern wiedergegeben werden kann.</para>
+      <para>Zum Brennen einer Audio-CD gehen Sie wie folgt vor: <orderedlist>
+	  <listitem>
+	    <para>Legen Sie eine leere CD-R in Ihr Laufwerk ein.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Klicken Sie im Hauptfenster auf <guibutton>Audio-Projekt</guibutton> oder wählen Sie <menuchoice><guimenu>Projekt</guimenu><guisubmenu>Neues Projekt</guisubmenu><guimenuitem>Neues Audio-Projekt</guimenuitem></menuchoice>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Wählen Sie in der Auswahlliste am oberen Rand des linken Teilfensters <guilabel>Dateisystem durchsuchen</guilabel>, um nach den Musikdateien zu suchen, die Sie zu Ihrem Projekt hinzufügen wollen.</para>
+	    <para>Sie können die Option <guilabel>Dateien anhand Stichwörter suchen</guilabel> verwenden, um auf Ihrem System nach Musikdateien zu suchen. Für die Auswahl von Musik aus den auf Ihrem Rechner vorhandenen Wiedergabelisten steht die Option <guilabel>Wiedergabelisten und deren Inhalte anzeigen</guilabel> zur Verfügung.</para>
+	    <para>
+	      <tip>
+		<para>Wenn die links angeordnete Seitenleiste nicht sichtbar sein sollte, wählen Sie <menuchoice><guimenu>Ansicht</guimenu><guimenuitem>Seitenleiste anzeigen</guimenuitem></menuchoice> oder drücken Sie <keycap>F7</keycap>.</para>
+	      </tip>
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>Wählen Sie die gewünschten Dateien aus, indem Sie darauf doppelklicken, oder wählen Sie die Dateien aus und klicken auf den Knopf <guibutton>Hinzufügen</guibutton> links oben in der Werkzeugleiste.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Es ist möglich, nach jedem Titel <link linkend="brasero-audio-pause">eine Pause einzufügen</link> oder die Titel zu <link linkend="brasero-audio-split">teilen</link>. </para>
+	  </listitem>
+	  <listitem>
+	    <para>Wenn Sie alle Dateien hinzugefügt haben, klicken Sie auf <guibutton>Brennen</guibutton>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Tragen Sie in das Textfeld den Titel ein, den Sie der CD oder DVD geben wollen. Dieser Titel wird als Name der CD oder DVD angezeigt.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Der Dialog <guilabel>CD/DVD-Einstellungen zum Brennen</guilabel> wird angezeigt, hier können Sie eventuell gewünschte Änderungen vornehmen. Siehe auch <xref linkend="brasero-audio-project-options"/>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Klicken Sie auf <guibutton>Brennen</guibutton>, um den Brennvorgang zu starten.</para>
+	  </listitem>
+	</orderedlist></para>
+      <para>
+	<note>
+	  <para>Schauen Sie beim Hinzufügen von Dateien nach der Statusleiste am unteren Rand des Fensters, um zu sehen, wieviel Platz Sie auf Ihrer CD/DVD verwenden.</para>
+	</note>
+	<tip>
+	  <para>Um ein Projekt für die spätere Verwendung zu speichern, wählen Sie <menuchoice><guimenu>Projekt</guimenu><guimenuitem>Speichern</guimenuitem></menuchoice>.</para>
+	</tip>
+      </para>
+      
+      <sect3 id="brasero-audio-pause">
+	<title>Einfügen einer Pause</title>
+	<para>Nach dem Hinzufügen eines Titels können Sie danach eine Pause von 2 Sekunden einfügen. Um eine Pause einzufügen, gehen Sie wie folgt vor: <orderedlist>
+	    <listitem>
+	      <para>Wählen Sie den Titel aus, nach welchem Sie die Pause hinzufügen wollen.</para>
+	    </listitem>
+	    <listitem>
+	      <para>Klicken Sie auf den Knopf <guibutton>Pause</guibutton> in der Werkzeugleiste, oder wählen Sie <menuchoice><guimenu>Bearbeiten</guimenu><guimenuitem>Pause einfügen</guimenuitem></menuchoice>.</para>
+	    </listitem>
+	  </orderedlist></para>
+      </sect3>
+
+      <sect3 id="brasero-audio-split">
+	<title>Teilen eines Titels</title>
+	<para>Es ist möglich, einen Titel in mehrere Abschnitte zu unterteilen. Um einen Titel zu teilen, gehen Sie wie folgt vor: <orderedlist>
+	    <listitem>
+	      <para>Wählen Sie den Titel aus, den Sie teilen wollen, und klicken Sie dann auf <guibutton>Teilen</guibutton> in der Werkzeugleiste oder wählen Sie <menuchoice><guimenu>Bearbeiten</guimenu><guimenuitem>Titel teilen...</guimenuitem></menuchoice>. Der Dialog <guilabel>Titel teilen</guilabel> wird angezeigt.</para>
+	    </listitem>
+	    <listitem>
+	      <para>In der Auswahlliste <guilabel>Methode</guilabel> können Sie die Methode der Teilung bestimmen. Mögliche Methoden sind: <variablelist>
+		  <varlistentry>
+		    <term><guilabel>Titel manuell teilen</guilabel></term>
+		    <listitem>
+		      <para>Wählen Sie dies aus, um die Teilung anhand einer Zeitangabe durchzuführen. Ein Schieberegler wird angezeigt, sowie eine Vorschau der Audiodatei.</para>
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><guilabel>Titel in Teile mit fester Länge teilen</guilabel></term>
+		    <listitem>
+		      <para>Wählen Sie dies, um den Titel in einzelne Abschnitte festgelegter Länge zu teilen, wobei Sie die Länge der Abschnitte angeben.</para>
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term>
+		      <guilabel>Titel in feste Anzahl von Teilen teilen</guilabel>
+		    </term>
+		    <listitem>
+		      <para>Wählen Sie dies, um die Anzahl der Abschnitte zu bestimmen, in die der Titel geteilt werden soll. Sie können das angezeigte Einstellfeld verwenden, um die Anzahl der Abschnitte anzugeben.</para>
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term>
+		      <guilabel>Titel bei jeder Geräuschlosigkeit teilen</guilabel>
+		    </term>
+		    <listitem>
+		      <para>Wählen Sie dies aus, um den Titel an einer geräuschlosen Stelle zu teilen.</para>
+		    </listitem>
+		  </varlistentry>
+		</variablelist></para>
+	    </listitem>
+	    <listitem>
+	      <para>Um den Titel zu teilen, klicken Sie auf <guibutton>Abschnitt</guibutton>. Die Abschnitte werden in der Tabelle <guilabel>Abschnittvorschau</guilabel> aufgelistet.</para>
+	    </listitem>
+	  </orderedlist></para>
+	<para>Sobald Sie den Titel geteilt haben, ist es möglich, mit den Knöpfen in der Tabelle <guilabel>Abschnittvorschau</guilabel> auf der rechten Seite die einzelnen Abschnitte zu entfernen oder zusammenzufügen.</para>
+	<para>Sobald Sie alle Änderungen vorgenommen haben, klicken Sie auf <guibutton>OK</guibutton>.</para>
+      </sect3>
+
+      <sect3 id="brasero-audio-project-options">
+	<title>Optionen für Audio-Projekte</title>
+	<para>Vor dem Start des Brennvorgangs ist es möglich, einige der Brenneinstellungen zu ändern.</para>
+	<para>
+	  <variablelist>
+	    <varlistentry>
+	      <term>Abschnitt <guilabel>Wählen Sie die zu beschreibende CD/DVD ein Laufwerk zum Beschreiben</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Klicken Sie auf den Knopf <guibutton>Eigenschaften</guibutton>, um den Eigenschaftsdialog für das Brennerlaufwerk zu öffnen. Weitere Informationen finden Sie in <xref linkend="brasero-burning-device-properties"/>.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Abschnitt <guilabel>Laufwerkseinstellungen</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <variablelist>
+		      <varlistentry>
+			<term><guilabel>Die CD/DVD für das spätere Anhängen neuer Daten-Sessions offenhalten</guilabel></term>
+			<listitem>
+			  <para>Wählen Sie diese Option, um eine <emphasis>Multisession</emphasis>-CD/DVD zu erstellen, so dass es möglich ist, später Dateien zu der CD/DVD hinzuzufügen (ohne die CD/DVD zu löschen, falls sie wiederbeschreibbar ist).</para>
+			</listitem>
+		      </varlistentry>
+		    </variablelist>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</para>
+      </sect3>
+
+    </sect2>
+
+    <!-- ===== subsection: Data project ====== -->
+    <sect2 id="brasero-new-project-data">
+      <title>Daten-Projekt</title>
+      <para>Zum Brennen einer Audio-CD gehen Sie wie folgt vor: <orderedlist>
+	  <listitem>
+	    <para>Legen Sie eine leere CD-R/W oder DVD-R/W in Ihr Laufwerk ein.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Klicken Sie auf <guibutton>Daten-Projekt</guibutton> im Hauptfenster oder wählen Sie <menuchoice><guimenu>Projekt</guimenu><guisubmenu>Neues Projekt</guisubmenu><guimenuitem>Neues Daten-Projekt</guimenuitem></menuchoice>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Verwenden Sie das linke Seitenfenster, um nach Dateien zu suchen, die Sie zum Projekt hinzufügen wollen. Wählen Sie in der oben befindlichen Auswahlliste <guilabel>Dateisystem durchsuchen</guilabel>, um nach Dateien zu suchen, oder verwenden Sie <guilabel>Dateien anhand Stichwörter suchen</guilabel>.</para>
+	    <para>
+	      <tip>
+		<para>Wenn die links angeordnete Seitenleiste nicht sichtbar sein sollte, wählen Sie <menuchoice><guimenu>Ansicht</guimenu><guimenuitem>Seitenleiste anzeigen</guimenuitem></menuchoice> oder drücken Sie <keycap>F7</keycap>.</para>
+	      </tip>
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>Wählen Sie die gewünschten Dateien aus, indem Sie darauf doppelklicken, oder wählen Sie die Dateien aus und klicken auf den Knopf <guibutton>Hinzufügen</guibutton> links oben in der Werkzeugleiste.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Geben Sie im Textfeld eine Bezeichnung zur Identifizierung der CD/DVD ein. Diese Bezeichnung wird als Name der CD/DVD angezeigt.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Wenn alle Dateien hinzugefügt wurden, klicken Sie auf <guibutton>Brennen</guibutton>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Der Dialog <guilabel>CD/DVD-Einstellungen zum Brennen</guilabel> wird angezeigt, nehmen Sie hier eventuell gewünschte anpassungen vor. Weitere Informationen finden Sie in <xref linkend="brasero-data-project-options"/>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Klicken Sie auf <guibutton>Brennen</guibutton>, um den Brennvorgang zu starten.</para>
+	  </listitem>
+	</orderedlist></para>
+
+      <para>
+	<note>
+	  <para>Schauen Sie beim Hinzufügen von Dateien nach der Statusleiste am unteren Rand des Fensters, um zu sehen, wieviel Platz Sie auf Ihrer CD/DVD verwenden.</para>
+	</note>
+	<tip>
+	  <para>Um ein Projekt für die spätere Verwendung zu speichern, wählen Sie <menuchoice><guimenu>Projekt</guimenu><guimenuitem>Speichern</guimenuitem></menuchoice>.</para>
+	</tip>
+      </para>
+
+      <sect3 id="brasero-data-project-options">
+	<title>Optionen für ein Daten-Projekt</title>
+	<para>Vor dem Start des Brennvorgangs ist es möglich, einige der Brenneinstellungen zu ändern.</para>
+	<para>
+	  <variablelist>
+	    <varlistentry>
+	      <term>Abschnitt <guilabel>Wählen Sie die zu beschreibende CD/DVD ein Laufwerk zum Beschreiben</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Klicken Sie auf den Knopf <guibutton>Eigenschaften</guibutton>, um den Eigenschaftsdialog für das Brennerlaufwerk zu öffnen. Weitere Informationen finden Sie in <xref linkend="brasero-burning-device-properties"/>.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Abschnitt <guilabel>Laufwerkseinstellungen</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <variablelist>
+		      <varlistentry>
+			<term>
+			  <guilabel>Kompatibilität mit Windows-Systemen erhöhen</guilabel>
+			</term>
+			<listitem>
+			  <para>Wählen Sie diese Option, wenn Sie beabsichtigen, die CD/DVD auf Windows-Rechnern benutzbar zu machen. Die Dateien auf der CD/DVD werden überprüft, um sicherzustellen, dass die Dateinamen keine unter Windows ungültigen Zeichen enthalten.</para>
+			</listitem>
+		      </varlistentry>
+		    </variablelist>
+		  </listitem>
+		  <listitem>
+		    <variablelist>
+		      <varlistentry>
+			<term><guilabel>Die CD/DVD für das spätere Anhängen neuer Dateien offenhalten</guilabel></term>
+			<listitem>
+			  <para>Wählen Sie diese Option, um eine <emphasis>Multisession</emphasis>-CD/DVD zu erstellen, so dass es möglich ist, später Dateien zu der CD/DVD hinzuzufügen (ohne die CD/DVD zu löschen, falls sie wiederbeschreibbar ist).</para>
+			</listitem>
+		      </varlistentry>
+		    </variablelist>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</para>
+      </sect3>
+    </sect2>
+
+    <!-- ====== subsection: Video project ====== -->
+    <sect2 id="brasero-new-project-video">
+      <title>Video-Projekt</title>
+      <para>Dieses Projekt nimmt die ausgewählten Video-Dateien (Dateien mit Dateinamenerweiterungen wie <filename class="extension">.mpg</filename>, <filename class="extension">.mpeg</filename> oder <filename class="extension">.avi</filename>, um nur einige zu nennen),  und schreibt die Dateien auf <acronym>DVD</acronym>s, <acronym>SVCD</acronym>s oder <acronym>VCD</acronym>s, welche auf gewöhnlichen DVD-oder VCD-Spielern wiedergegeben werden können.</para>
+      <para>
+	<note>
+	  <para>Um das gesamten Möglichkeiten eines Video-Projekts auszuschöpfen, ist es notwendig, folgende zusätzliche Software zu installieren: alle GStreamer-Plugins, <application>ffmpeg</application>, <application>vcdimager</application> und <application>dvdauthor</application>. Weitere Informationen über die Installation dieser Anwendungen finden Sie in der dokumentation Ihres Betriebssystems.</para>
+	</note>
+      </para>
+      <para>Zum Erstellen eines Video-Projekts gehen Sie wie folgt vor: <orderedlist>
+	  <listitem>
+	    <para>Legen Sie eine leere CD oder DVD in Ihr Laufwerk ein.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Klicken Sie im Hauptfenster auf <guibutton>Video-Projekt</guibutton> oder wählen Sie <menuchoice><guimenu>Projekt</guimenu><guisubmenu>Neues Projekt</guisubmenu><guimenuitem>Neues Video-Projekt</guimenuitem></menuchoice>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Im links befindlichen Seitenfenster können sie das Dateisystem nach Videodateien durchsuchen.</para>
+	    <para>Wählen Sie die gewünschten Dateien aus, indem Sie darauf doppelklicken, oder wählen Sie die Dateien aus und klicken auf den Knopf <guibutton>Hinzufügen</guibutton> links oben in der Werkzeugleiste.</para>
+	    <para>
+	      <tip>
+		<para>Wenn die links angeordnete Seitenleiste nicht sichtbar sein sollte, wählen Sie <menuchoice><guimenu>Ansicht</guimenu><guimenuitem>Seitenleiste anzeigen</guimenuitem></menuchoice> oder drücken Sie <keycap>F7</keycap>.</para>
+	      </tip>
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>Tragen Sie in das Textfeld den Titel ein, den Sie der CD oder DVD geben wollen. Dieser Titel wird als Name der CD oder DVD angezeigt.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Wenn alle Dateien hinzugefügt wurden, klicken Sie auf <guibutton>Brennen</guibutton>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Der Dialog <guilabel>CD/DVD-Einstellungen zum Brennen</guilabel> wird angezeigt, hier können Sie eventuell gewünschte Änderungen vornehmen. Siehe auch <xref linkend="brasero-video-project-options"/>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Klicken Sie auf <guibutton>Brennen</guibutton>, um den Brennvorgang zu starten.</para>
+	  </listitem>
+	</orderedlist></para>
+
+      <para>
+	<note>
+	  <para>Schauen Sie beim Hinzufügen von Dateien nach der Statusleiste am unteren Rand des Fensters, um zu sehen, wieviel Platz Sie auf Ihrer CD/DVD verwenden.</para>
+	</note>
+	<tip>
+	  <para>Um ein Projekt für die spätere Verwendung zu speichern, wählen Sie <menuchoice><guimenu>Projekt</guimenu><guimenuitem>Speichern</guimenuitem></menuchoice>.</para>
+	</tip>
+      </para>
+
+      <sect3 id="brasero-video-project-options">
+	<title>Video-Projekt-Optionen</title>
+	<para>Vor dem Start des Brennvorgangs ist es möglich, einige der Brenneinstellungen zu ändern.</para>
+	<para>
+	  <variablelist>
+	    <varlistentry>
+	      <term>Abschnitt <guilabel>Wählen Sie die zu beschreibende CD/DVD ein Laufwerk zum Beschreiben</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Klicken Sie auf den Knopf <guibutton>Eigenschaften</guibutton>, um den Eigenschaftsdialog für das Brennerlaufwerk zu öffnen. Weitere Informationen finden Sie in <xref linkend="brasero-burning-device-properties"/>.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Abschnitt <guilabel>Video-Einstellungen</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Wählen Sie in <guilabel>Videoformat</guilabel> das Format des Videos aus, das Sie brennen wollen. Sie können aus folgenden Möglcihkeiten wählen: <itemizedlist>
+			<listitem>
+			  <para><guilabel>Ursprüngliches Format</guilabel>: Das ursprüngliche Format der Videodatei.</para>
+			</listitem>
+			<listitem>
+			  <para><guilabel>PAL/SECAM</guilabel>: Hauptsächlich von europäischen Fernsehsendern verwendetes Format.</para>
+			</listitem>
+			<listitem>
+			  <para><guilabel>NTSC</guilabel>: Hauptsächlich von US-amerikanischen, kanadischen und japanischen Fernsehsendern verwendetes Format.</para>
+			</listitem>
+		      </itemizedlist></para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Abschnitt <guilabel>Audio-Einstellungen</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Wählen Sie <guilabel>MP2-Audio-Stream hinzufügen</guilabel>, um einen <emphasis>MPEG-1 Audio Layer 2</emphasis>-Datenstream zur CD/DVD hinzuzufügen.</para>
+		  </listitem>
+		  <listitem>
+		    <para>Wählen Sie <guilabel>AC3-Audio-Stream hinzufügen</guilabel>, um einen <emphasis>AC-3 Dolby Digital</emphasis>-Datenstream zur CD/DVD hinzuzufügen.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Abschnitt <guilabel>VCD-Typ</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Wählen Sie <guilabel>SVCD erstellen</guilabel>, um eine <emphasis>Super-Video-CD</emphasis> zu erstellen.</para>
+		  </listitem>
+		  <listitem>
+		    <para>Wählen Sie <guilabel>VCD erstellen</guilabel>, um eine <emphasis>Video-CD</emphasis> zu erstellen.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</para>
+
+	<para>
+	  <note>
+	    <para>Einer der wichtigsten Unterschiede zwischen einer <acronym>SVCD</acronym> und einer <acronym>VCD</acronym> besteht darin, dass für erstere der <acronym>MPEG-2</acronym>-Videocodec verwendet wird, währen auf letzterer der <acronym>MPEG-1</acronym>-Videocodec zur Anwendung kommt. Weitere Informationen finden Sie auf den Wikipedia-Seiten <ulink type="http" url="http://en.wikipedia.org/wiki/SVCD">SVCD</ulink> und <ulink type="http" url="http://en.wikipedia.org/wiki/Video_CD">VCD</ulink>.  </para>
+	  </note>
+	</para>
+	  
+      </sect3>
+
+    </sect2>
+
+    <!-- ====== subsection: Copy Disc ======= -->
+    <sect2 id="brasero-new-project-copy">
+      <title>Eine CD/DVD kopieren</title>
+      <para>Dieser Projekttyp ermöglicht Ihnen, aus einer existierenden CD/DVD eine Kopie auf einer leeren Disk oder in einer Abbilddatei zu erstellen. Um eine CD/DVD zu kopieren, gehen Sie wie folgt vor: <orderedlist>
+	  <listitem>
+	    <para>Legen Sie die CD oder DVD, welche Sie kopieren wollen, in Ihr Laufwerk ein.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Klicken Sie auf <guibutton>CD/DVD kopieren</guibutton> im Hauptfenster oder wählen Sie <menuchoice><guimenu>Projekt</guimenu><guisubmenu>Neues Projekt</guisubmenu><guimenuitem>CD/DVD kopieren</guimenuitem></menuchoice>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Der Dialog <guilabel>CD/DVD-Kopiereinstellungen</guilabel> wird angezeigt, nehmen Sie hier die gewünschten Anpassungen vor. Weitere Informationen finden Sie in <xref linkend="brasero-disc-copy-options"/>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Klicken Sie auf <guibutton>Kopieren</guibutton>, um den Kopiervorgang zu starten. </para>
+	  </listitem>
+	</orderedlist></para>
+
+      <sect3 id="brasero-disc-copy-options">
+	<title>Optionen zum Kopieren von Medien</title>
+	<para>Vor dem Start des Kopiervorgangs können Sie einige der Optionen für den Kopier- und Brennvorgang anpassen.</para>
+	<para>
+	  <variablelist>
+	    <varlistentry>
+	      <term>Abschnitt <guilabel>Wählen Sie die zu kopierende CD/DVD</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Wählen Sie in der Auswahlliste die CD/DVD aus, die Sie kopieren wollen.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Abschnitt <guilabel>Wählen Sie die zu beschreibende CD/DVD ein Laufwerk zum Beschreiben</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Wählen Sie das für das Brennen der CD/DVD zu benutzende Laufwerk aus.</para>
+		    <para>Wählen Sie in der Auswahlliste <guilabel>Dateiabbild</guilabel> aus, um ein Abbild der CD/DVD zu erstellen, wie beispielsweise ein ISO-Abbild.</para>
+		  </listitem>
+		  <listitem>
+		    <para>Klicken Sie auf den Knopf <guibutton>Eigenschaften</guibutton>, um den Eigenschaftsdialog für das Brennerlaufwerk zu öffnen. Weitere Informationen finden Sie in <xref linkend="brasero-burning-device-properties"/>.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</para>
+	<para>
+	  <note>
+	    <para>Falls Sie mehrere Laufwerke auf Ihrem System haben, können Sie eines als Quelllaufwerk und das andere als Ziellaufwerk verwenden. Falls Sie das nicht tun, werden Sie dazu aufgefordert, die zu kopierende CD oder DVD aus dem Laufwerk zu entfernen und eine leere CD oder DVD einzulegen.</para>
+	  </note>
+	</para>
+      </sect3>
+    </sect2>
+
+    <!-- ==== subsection: Burn Image ===== -->
+    <sect2 id="brasero-new-project-image">
+      <title>Brenne ein Abbild</title>
+      <para>Dieser Projekttyp brennt eine existierende Abbilddatei auf eine CD-R/W oder DVD-R/W. <application>Brasero</application> unterstützt Abbilddateien folgender Arten: <itemizedlist>
+	  <listitem>
+	    <para>
+	      <filename>.iso</filename>
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      <filename>.raw</filename>
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      <filename>.cue</filename>
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      <filename>.toc</filename>
+	    </para>
+	  </listitem>
+	</itemizedlist></para>
+
+      <para>Zum Erstellen eines Video-Projekts gehen Sie wie folgt vor: <orderedlist>
+	  <listitem>
+	    <para>Legen Sie eine leere CD-R/W oder DVD-R/W in Ihr Laufwerk ein.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Klicken Sie auf <guibutton>Abbild brennen</guibutton> im Hauptfenster, oder wählen Sie <menuchoice><guimenu>Projekt</guimenu><guisubmenu>Neues Projekt</guisubmenu><guimenuitem>Abbild brennen</guimenuitem></menuchoice>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Der Dialog <guilabel>Brenneinstellungen für Abbilder</guilabel> wird angezeigt, nehmen Sie hier die gewünschten Anpassungen vor. Weitere Informationen finden Sie in <xref linkend="brasero-burn-image-options"/>.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Klicken Sie auf <guibutton>Brennen</guibutton>, um den Brennvorgang zu starten.</para>
+	  </listitem>
+	</orderedlist></para>
+
+      <sect3 id="brasero-burn-image-options">
+	<title>Optionen für das Brennen eines Abbildes</title>
+	<para>Vor dem Start des Abbild-Brennvorgangs können Sie einige der Brenneinstellungen anpassen.</para>
+	<para>
+	  <variablelist>
+	    <varlistentry>
+	      <term>Abschnitt <guilabel>Wählen Sie die zu beschreibende CD/DVD ein Laufwerk zum Beschreiben</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Klicken Sie auf den Knopf <guibutton>Eigenschaften</guibutton>, um den Eigenschaftsdialog für das Brennerlaufwerk zu öffnen. Weitere Informationen finden Sie in <xref linkend="brasero-burning-device-properties"/>.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Abschnitt <guilabel>Abbild</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <para>Klicken Sie auf den Knopf, um den Dialog <guilabel>Abbilddatei auswählen</guilabel> zu öffnen, und wählen Sie das zu brennende Abbild aus. In der Auswahlliste am unteren Rand können Sie den Typ das zu brennenden Abbilds angeben. Falls Sie unsicher sind, wählen Sie <guilabel>Lassen Sie Brasero wählen (am sichersten)</guilabel>.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</para>
+      </sect3>
+    </sect2>
+
+    <sect2 id="brasero-burning-device-properties">
+      <title>Eigenschaften des Brenner-Laufwerks</title>
+      <para>Vor dem Starten des Brennvorgangs ist es möglich, einige der Eigenschaften des zu verwendenden Brenner-Laufwerks anzupassen.</para>
+      <para>
+	<variablelist>
+	  <varlistentry>
+	    <term>Abschnitt <guilabel>Brenngeschwindigkeit</guilabel>:</term>
+	    <listitem>
+	      <para>Wählen Sie in der Auswahlliste die Schreibgeschwindigkeit aus. Schauen Sie auf der Hülle der CD/DVD nach, um den besten Wert zu ermitteln.</para>
+	      <warning>
+		<para>Das Brennen eines Mediums mit einer höheren als der unterstützten Maximalgeschwindigkeit kann zu einer unlesbaren CD/DVD führen. Wählen Sie niedrigere Schreibgeschwindigkeiten, um dies zu verhindern.</para>
+	      </warning>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>Abschnitt <guilabel>Einstellungen</guilabel>:</term>
+	    <listitem>
+	      <itemizedlist>
+		<listitem>
+		  <variablelist>
+		    <varlistentry>
+		      <term>
+			<guilabel>Abbild direkt brennen, ohne es vorher auf der Festplatte zu speichern</guilabel>
+		      </term>
+		      <listitem>
+			<para>Wählen Sie diese Option, wenn Sie das Abbild direkt auf eine CD/DVD brennen wollen, ohne es auf der Festplatte zu speichern, und ohne ein Abbild zu erstellen.</para>
+		      </listitem>
+		    </varlistentry>
+		  </variablelist>
+		</listitem>
+		<listitem>
+		  <variablelist>
+		    <varlistentry>
+		      <term><guilabel>Burnproof benutzen (geringeres Fehlerrisiko)</guilabel></term>
+		      <listitem>
+			<para>Wählen Sie diese Option, um den <emphasis>Buffer Underrun</emphasis>-Effekt (oder <emphasis>Buffer Underflow</emphasis>-Effekt) zu verhindern. Dies tritt auf, wenn der Computer bei der gewählten Schreibgeschwindigkeit nicht schnell genug Daten zum Brennerlaufwerk liefern kann.</para>
+			<warning>
+			  <para>Falls ein <emphasis>Buffer Underrun</emphasis> vorkommt, könnte die gebrannte CD/DVD unlesbar sein.</para>
+			</warning>
+		      </listitem>
+		    </varlistentry>
+		  </variablelist>
+		</listitem>
+		<listitem>
+		  <variablelist>
+		    <varlistentry>
+		      <term><guilabel>Brennen simulieren</guilabel></term>
+		      <listitem>
+			<para>Wählen Sie diese Option, um den Brennvorgang zu simulieren, dabei wird kein wirkliches Brennen durchgeführt. Falls der Vorgang erfolgreich verläuft, startet Brasero den wirklichen Brennvorgang nach einer Pause von 10 Sekunden. Während dieser Pause wird ein Dialog angezeigt, der Ihnen den Abbruch des aktuellen Brennvorgangs ermöglicht. Dies ist nützlich für Testzwecke, falls das Brennen von CDs/DVDs Probleme bereiten sollte.</para>
+		      </listitem>
+		    </varlistentry>
+		  </variablelist>
+		</listitem>
+		<listitem>
+		  <variablelist>
+		    <varlistentry>
+		      <term><guilabel>Nach dem Brennen auswerfen</guilabel></term>
+		      <listitem>
+			<para>Wählen Sie diese Option, wenn Sie die CD/DVD  nach dem Beenden des Brennvorgangs aus dem Laufwerk auswerfen wollen.</para>
+		      </listitem>
+		    </varlistentry>
+		  </variablelist>
+		</listitem>
+	      </itemizedlist>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>Abschnitt <guilabel>Temporäre Dateien</guilabel>:</term>
+	    <listitem>
+	      <para>Wählen Sie in der Auswahlliste den Ordner aus, der für die Zwischenspeicherung der beim Brennvorgang angelegten Dateien verwendet werden soll.</para>
+	      <para>Der vorgegebene Ordner ist <filename class="directory">/tmp</filename>.</para>
+	    </listitem>
+	  </varlistentry>
+	</variablelist>
+      </para>
+      <sect3 id="brasero-burn-no-disc">
+	<title>Brenner-Eigenschaften ohne eingelegte CD/DVD</title>
+	<para>Wenn Sie den Schreibvorgang starten, ohne dass sich eine CD oder DVD im Laufwerk befindet, erstellt <application>Brasero</application> eine Abbilddatei auf der Festplatte, die Sie später auf eine CD/DVD schreiben können.</para>
+	<para>
+	  <variablelist>
+	    <varlistentry>
+	      <term>Abschnitt <guilabel>Wählen Sie die zu beschreibende CD/DVD ein Laufwerk zum Beschreiben</guilabel>:</term>
+	      <listitem>
+		<para>In dieser Auswahlliste können Sie nur <guilabel>Dateiabbild</guilabel> auswählen.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Abschnitt <guilabel>Name der CD/DVD</guilabel>:</term>
+	      <listitem>
+		<para>Geben Sie den für die gebrannte CD/DVD zu verwendenden Namen ein.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Abschnitt <guilabel>Laufwerkseinstellungen</guilabel>:</term>
+	      <listitem>
+		<itemizedlist>
+		  <listitem>
+		    <variablelist>
+		      <varlistentry>
+			<term>
+			  <guilabel>Kompatibilität mit Windows-Systemen erhöhen</guilabel>
+			</term>
+			<listitem>
+			  <para>Wählen Sie diese Option, wenn Sie beabsichtigen, die CD/DVD auf Windows-Rechnern benutzbar zu machen. Die Dateien auf der CD/DVD werden überprüft, um sicherzustellen, dass die Dateinamen keine unter Windows ungültigen Zeichen enthalten.</para>
+			</listitem>
+		      </varlistentry>
+		    </variablelist>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</para>
+	<para>Klicken Sie auf <guibutton>Eigenschaften</guibutton>, um den Dialog <guilabel>CD/DVD-Abbild-Eigenschaften</guilabel> zu öffnen. Im Textfeld <guilabel>Name</guilabel> geben Sie den Namen der Abbilddatei ein, in der Auswahlliste <guilabel>Abbildtyp</guilabel> wählen Sie den Typ des zu verwendenden Abbildes.</para>
+	<para>Wenn dies getan ist, klicken Sie auf <guibutton>Anwenden</guibutton>.</para>
+      </sect3>
+    </sect2>
+    
+  </sect1>
+
+  <sect1 id="brasero-open-recent-project">
+    <title>Öffnen eines gespeicherten Projekts</title>
+    <para>Falls Sie bereits ein Projekt gespeichert haben, können Sie dieses folgendermaßen wieder öffnen: <itemizedlist>
+	<listitem>
+	  <para>Wählen Sie <menuchoice><guimenu>Projekt</guimenu><guisubmenu>Letzte Projekte</guisubmenu></menuchoice> und wählen Sie ein Projekt, welches Sie öffnen wollen.</para>
+	</listitem>
+	<listitem>
+	  <para>Klicken Sie im Bereich <guilabel>Zuletzt geöffnete Projekte</guilabel> des Hauptfensters auf ein Projekt, das Sie öffnen wollen.</para>
+	</listitem>
+      </itemizedlist></para>
+    <para>Um ein Projekt zu öffnen, welches nicht in <guilabel>Letzte Projekte</guilabel> erscheint, wählen Sie <menuchoice><guimenu>Projekt</guimenu><guimenuitem>Öffnen</guimenuitem></menuchoice> und wählen die Projektdatei aus.</para>
+    <para>Sobald Sie ein Projekt geöffnet haben, können Sie Dateien hinzufügen oder daraus entfernen, es auf eine CD oder DVD brennen, und es dann wieder für die spätere Verwendung speichern.</para>
+  </sect1>
+
+  <sect1 id="brasero-erase-media">
+    <title>Löschen einer CD oder DVD</title>
+    <para>Löschen oder Leeren einer Cd oder DVD bedeutet, alle auf der CD oder DVD enthaltenen Daten zu entfernen. <application>Brasero</application> ist in der Lage, die folgenden CD- und DVD-Formate zu löschen: <itemizedlist>
+	<listitem>
+	  <para>CD-RW</para>
+	</listitem>
+	<listitem>
+	  <para>DVD-RW (einschichtig oder zweischichtig)</para>
+	</listitem>
+	<listitem>
+	  <para>DVD+RW (einschichtig oder zweischichtig)</para>
+	</listitem>
+      </itemizedlist></para>
+    <para>Im Allgemeinen unterstützt <application>Brasero</application> alle Medienformate, die auch von Ihrem CD/DVD-Brenner unterstützt werden.</para>
+    <warning>
+      <para>Stellen Sie sicher, dass das zu löschende Medium auch löschbar ist. Ziehen Sie gegebenenfalls die Verpackung des Mediums zu Rate.</para>
+    </warning>
+    <para>So löschen Sie eine CD-RW oder DVD-RW: <orderedlist>
+	<listitem>
+	  <para>Legen Sie die zu löschende CD oder DVD in Ihr Laufwerk ein.</para>
+	</listitem>
+	<listitem>
+	  <para>Wählen Sie <menuchoice><guimenu>Werkzeuge</guimenu><guimenuitem>Löschen …</guimenuitem></menuchoice> in der Menüleiste. Der Dialog <guilabel>CD/DVD löschen</guilabel> wird angezeigt.</para>
+	</listitem>
+	<listitem>
+	  <para>Wählen Sie in der Auswahlliste <guilabel>CD/DVD auswählen</guilabel> die CD oder DVD aus, die Sie löschen wollen.</para>
+	</listitem>
+	<listitem>
+	  <para>Falls Sie die CD/DVD schnell löschen wollen, wählen Sie die Option <guilabel>Schnelles Löschen</guilabel>. Weitere Informationen finden Sie in <xref linkend="brasero-fast-blanking"/>.</para>
+	</listitem>
+	<listitem>
+	  <para>Klicken Sie auf <guibutton>Löschen</guibutton>, um den Löschvorgang der CD/DVD zu starten.</para>
+	</listitem>
+      </orderedlist></para>
+    <warning>
+      <para>Der Löschprozess wird alle Daten auf dem Medium unwiderruflich zerstören.</para>
+    </warning>
+    
+    <sect2 id="brasero-fast-blanking">
+      <title>Was ist »Schnelles Löschen«?</title>
+      <para>Schnelles Löschen stellt eine Möglichkeit dar, eine CD/DVD schnell zu löschen. Diese Methode ist wesentlich schneller als das vollständige Löschen. Schnelles Löschen ist ausreichend, um eine CD/DVD wiederbeschreiben zu können.</para>
+      <para>Der vollständige Löschvorgang ist langsamer, aber sicherer, weil dabei alle Spuren vorhergehender Daten entfernt werden. Daten, die durch schnelles Löschen von CDs/DVDs entfernt wurden, lassen sich mit speziellen Werkzeugen wiederherstellen.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="brasero-checking-integrity">
+    <title>Überprüfen der Unversehrtheit einer CD oder DVD</title>
+    <para>Die Überprüfung der Unversehrtheit einer CD oder DVD stellt sicher, dass die auf die CD oder DVD geschriebenen Dateien intakt sind und nicht während des Brennvorgangs beschädigt wurden.</para>
+    <para>Die Überprüfung der Unversehrtheit wird mit dem »MD5-Prüfsummen«-Algorithmus vorgenommen, der einen »Fingerabdruck« der Daten auf der CD/DVD erstellt. Jedes Mal, wenn Sie eine CD oder DVD mit aktiviertem <emphasis role="strong">Image checksum</emphasis>-Plugin brennen (Informationen hierzu finden Sie in <xref linkend="brasero-plugins"/>), fügt <application>Brasero</application> eine MD5-Prüfsummendatei zur CD/DVD hinzu, um die Überprüfung der Unversehrtheit zu einem späteren Zeitpunkt durchführen zu können.</para>
+    <para><application>Brasero</application> führt nach jedem Brennvorgang eine Überprüfung auf Unversehrtheit durch, wobei eine automatisch erzeugte Datei genutzt wird. Üblicherweise dauert dieser Vorgang länger als bei der Verwendung einer externen MD5-Prüfsummendatei.</para>
+    <para>So Überprüfen Sie die Unversehrtheit einer CD/DVD: <orderedlist>
+	<listitem>
+	  <para>Legen Sie die zu überprüfende CD oder DVD in das Laufwerk ein.</para>
+	</listitem>
+	<listitem>
+	  <para>Wählen Sie <menuchoice><guimenu>Werkzeuge</guimenu><guimenuitem>Auf Unversehrheit prüfen</guimenuitem></menuchoice> in der Menüleiste, oder drücken Sie <keycombo><keycap>Strg</keycap><keycap>F</keycap></keycombo>.</para>
+	</listitem>
+	<listitem>
+	  <para>Sie können die Überprüfung der Unversehrtheit mit Hilfe einer MD5-Prüfsummendatei durchführen, oder Sie lassen <application>Brasero</application> eine automatische Überprüfung auf der CD oder DVD vornehmen. <itemizedlist>
+	      <listitem>
+		<para>Wählen Sie die Option <guilabel>Zur Überprüfung der CD/DVD eine MD5-Datei verwenden</guilabel>, um eine MD5-Prüfsummendatei zu verwenden.</para>
+	      </listitem>
+	      <listitem>
+		<para>Klicken Sie auf den Knopf <guilabel>Nichts</guilabel> unter der vorher erwähnten Option, und wählen Sie eine MD5-Prüfsummendatei, deren Dateinamenerweiterung üblicherweise <filename>.md5</filename> lautet.</para>
+	      </listitem>
+	    </itemizedlist></para>
+	</listitem>
+	<listitem>
+	  <para>Klicken Sie auf den Knopf <guibutton>Überprüfen</guibutton>, um die Überprüfung zu starten.</para>
+	</listitem>
+      </orderedlist></para>
+    <para>Wenn die Überprüfung auf Unversehrtheit erfolgreich war, dann informiert Sie <application>Brasero</application> darüber mit dem Dialog <guilabel>Die Dateiüberprüfung war erfolgreich</guilabel>, anderenfalls wird der Dialog <guilabel>Fehler bei der Dateiüberprüfung</guilabel> angezeigt.</para>
+  </sect1>
+
+  <sect1 id="brasero-cover-editor">
+    <title>Cover-Editor</title>
+    <para><application>Brasero</application> verfügt über einen Cover-Editor zum Erstellen von Covern für Ihre CDs oder DVDs. Um den Cover-Editor zu öffnen, wählen Sie <menuchoice><guimenu>Werkzeuge</guimenu><guimenuitem>Cover-Editor</guimenuitem></menuchoice>. </para>
+    <para>Mit dem Cover-Editor können Sie die Schriftart, die Anordnung und die Farbe aller Texte sowie die Hintergrundeigenschaften des Vorderseiten- und Rückseiten-Covers festlegen.</para>
+    <para>Um die Eigenschaften der Cover anzupassen, klicken Sie mit der rechten Maustaste auf eines der Cover und wählen Sie <guimenuitem>Hintergrundeigenschaften</guimenuitem>, um den Dialog <guilabel>Hintergrundeigenschaften</guilabel> zu öffnen.</para>
+    <para>Es ist möglich, den Hintergrund entweder mit einem Bild, einer einfachen Farbe, oder einem Farbverlauf zu füllen. </para>
+    <para>So legen Sie ein Bild für den Hintergrund fest: <itemizedlist>
+	<listitem>
+	  <para>Wählen Sie in <guilabel>Bildpfad</guilabel> das Bild auf Ihrer Festplatte aus.</para>
+	</listitem>
+	<listitem>
+	  <para>In der Auswahlliste <guilabel>Darstellungsstil</guilabel> bestimmen Sie, wie das Bild angeordnet werden soll.</para>
+	</listitem>
+      </itemizedlist></para>
+    <para>So füllen Sie den Hintergrund mit einer Farbe oder einem Farbverlauf: <itemizedlist>
+	<listitem>
+	  <para>In der Auswahlliste <guilabel>Farbe</guilabel> bestimmen Sie die für den Hintergrund zu verwendende Art der Füllung.</para>
+	</listitem>
+	<listitem>
+	  <para>Verwenden Sie den rechten Knopf, um den Dialog <guilabel>Wählen Sie eine Farbe</guilabel> zu öffnen, in welchem Sie die Farbe auswählen können.</para>
+	</listitem>
+      </itemizedlist><note>
+	<para>Falls Sie einen Farbverlauf ausgewählt haben, zeigt der Farbwähler zwei Knöpfe an. Der linke Knopf bezieht sich auf die Ausgangsfarbe des Farbverlaufs, der rechte auf die Farbe, in die der Verlauf übergeht.</para>
+      </note></para>
+  </sect1>
+
+  <sect1 id="brasero-plugins">
+    <title>Plugins</title>
+    <para><application>Brasero</application> kann verschiedene Plugins zur Ausführung bestimmter Aufgaben verwenden. Es gibt mehrere Plugins, aus denen Sie wählen können.</para>
+    <para>Um die verfügbaren Plugins anzuzeigen, wählen Sie <menuchoice><guimenu>Bearbeiten</guimenu><guimenuitem>Plugins</guimenuitem></menuchoice>. Dies sind die Plugins, die Sie nutzen können:</para>
+    <para>
+      <table frame="all" id="brasero-TBL-plugin">
+	<title>Plugins</title>
+	<tgroup cols="2" align="left" colsep="1" rowsep="1">
+	  <thead>
+	    <row>
+	      <entry>Plugin-Name</entry>
+	      <entry>Beschreibung</entry>
+	    </row>
+	  </thead>
+	  <tbody>
+	    <row>
+	      <entry><guilabel>Ordner des CD/DVD-Erstellers</guilabel></entry>
+	      <entry>Ermöglicht <application>Brasero</application> das Brennen von Dateien im Ordner <filename class="directory">CD/DVD-Ersteller</filename> von <application>Nautilus</application>.</entry>
+	    </row>
+	    <row>
+	      <entry><guilabel>Datei-Prüfsumme</guilabel></entry>
+	      <entry>Ermöglicht <application>Brasero</application>, die Dateien auf Unversehrtheit zu prüfen.</entry>
+	    </row>
+	    <row>
+	      <entry><guilabel>Datei-Downloader</guilabel></entry>
+	      <entry>Ermöglicht <application>Brasero</application>, nicht lokal gespeicherte Dateien zu brennen.</entry>
+	    </row>
+	    <row>
+	      <entry><guilabel>Abbild-Prüfsumme</guilabel></entry>
+	      <entry>Ermöglicht <application>Brasero</application>, Überprüfungen auf Unversehrtheit auszuführen, nachdem eine CD/DVD gebrannt worden ist. Aktiviert auch die Speicherung einer kleinen Datei, welche die MD5-Prüfsumme aller auf der CD/DVD befindlichen Dateien beinhaltet.</entry>
+	    </row>
+	    <row>
+	      <entry><guilabel>Normalisieren</guilabel></entry>
+	      <entry>Ermöglicht <application>Brasero</application>, zwischen Titeln ein einheitliches Klangniveau festzulegen.</entry>
+	    </row>
+	  </tbody>
+	</tgroup>
+      </table>
+    </para>
+    <para>Um ein Plugin zu aktivieren oder zu deaktivieren, wählen Sie dies in der Spalte <guilabel>Aktiviert</guilabel> im neben dem Namen des Plugins befindlichen Ankreuzfeld aus.</para>
+    <para>Bei Verwendung der Plugins <guilabel>Datei-Prüfsumme</guilabel> und <guilabel>Abbild-Prüfsumme</guilabel> können Sie die zu verwendenden Algorithmen auswählen: <orderedlist>
+	<listitem>
+	  <para>Wählen Sie eines der zwei Plugins aus und klicken Sie auf <guibutton>Konfigurieren</guibutton>.</para>
+	</listitem>
+	<listitem>
+	  <para>In der Auswahlliste <guilabel>Zu verwendende Hash-Algorithmen</guilabel> können Sie die Algorithmen auswählen, die Sie verwenden wollen. Mögliche Werte sind: <itemizedlist>
+	      <listitem>
+		<para>MD5</para>
+	      </listitem>
+	      <listitem>
+		<para>SHA1</para>
+	      </listitem>
+	      <listitem>
+		<para>SHA256</para>
+	      </listitem>
+	    </itemizedlist></para>
+	</listitem>
+      </orderedlist></para>
+
+    <para>
+      <note>
+	<para>Für die Nutzung einiger der hier aufgelisteten Plugins könnte es notwendig sein, weitere Anwendungen auf Ihrem System zu installieren. Weitere Informationen finden Sie in der Dokumentation zu Ihrem Betriebssystem.</para>
+      </note>
+    </para>
+  </sect1>
+
+</article>

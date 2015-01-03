@@ -1,0 +1,113 @@
+<!-- ##### SECTION Title ##### -->
+parrillada-status
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT ParrilladaStatus ##### -->
+<para>
+
+</para>
+
+@parent_instance: 
+
+<!-- ##### ENUM ParrilladaStatusType ##### -->
+<para>
+
+</para>
+
+@PARRILLADA_STATUS_OK: 
+@PARRILLADA_STATUS_ERROR: 
+@PARRILLADA_STATUS_QUESTION: 
+@PARRILLADA_STATUS_INFORMATION: 
+
+<!-- ##### FUNCTION parrillada_status_new ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION parrillada_status_get_result ##### -->
+<para>
+
+</para>
+
+@status: 
+@Returns: 
+
+
+<!-- ##### FUNCTION parrillada_status_get_progress ##### -->
+<para>
+
+</para>
+
+@status: 
+@Returns: 
+
+
+<!-- ##### FUNCTION parrillada_status_get_error ##### -->
+<para>
+
+</para>
+
+@status: 
+@Returns: 
+
+
+<!-- ##### FUNCTION parrillada_status_get_current_action ##### -->
+<para>
+
+</para>
+
+@status: 
+@Returns: 
+
+
+<!-- ##### FUNCTION parrillada_status_set_completed ##### -->
+<para>
+
+</para>
+
+@status: 
+
+
+<!-- ##### FUNCTION parrillada_status_set_not_ready ##### -->
+<para>
+
+</para>
+
+@status: 
+@progress: 
+@current_action: 
+
+
+<!-- ##### FUNCTION parrillada_status_set_error ##### -->
+<para>
+
+</para>
+
+@status: 
+@error: 
+
+
