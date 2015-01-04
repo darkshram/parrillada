@@ -10,3 +10,4 @@ StartupNotify=true
 Terminal=false
 Type=Application
 OnlyShowIn=MATE;
+NoDisplay=true;
