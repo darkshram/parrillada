@@ -48,6 +48,7 @@ typedef struct _ParrilladaEjectDialogPrivate ParrilladaEjectDialogPrivate;
 struct _ParrilladaEjectDialogPrivate {
 	GtkWidget *selector;
 	GtkWidget *eject_button;
+	gboolean cancelled;
 };
 
 #define PARRILLADA_EJECT_DIALOG_PRIVATE(o)  (G_TYPE_INSTANCE_GET_PRIVATE ((o), PARRILLADA_TYPE_EJECT_DIALOG, ParrilladaEjectDialogPrivate))
@@ -91,19 +92,20 @@ parrillada_eject_dialog_activate (GtkDialog *dialog,
 		gchar *string;
 		gchar *display_name;
 
-		display_name = parrillada_drive_get_display_name (drive);
-		string = g_strdup_printf (_("The disc in \"%s\" cannot be ejected"), display_name);
-		g_free (display_name);
+		if (!priv->cancelled || error) {
+			display_name = parrillada_drive_get_display_name (drive);
+			string = g_strdup_printf (_("The disc in \"%s\" cannot be ejected"), display_name);
+			g_free (display_name);
 
-		parrillada_app_alert (parrillada_app_get_default (),
-		                   string,
-		                   error?error->message:_("An unknown error occurred"),
-		                   GTK_MESSAGE_ERROR);
+			parrillada_app_alert (parrillada_app_get_default (),
+			                   string,
+			                   error?error->message:_("An unknown error occurred"),
+			                   GTK_MESSAGE_ERROR);
 
-		if (error)
-			g_error_free (error);
+			g_free (string);
+		}
 
-		g_free (string);
+		g_clear_error (&error);
 	}
 
 	g_object_unref (drive);
@@ -119,6 +121,7 @@ parrillada_eject_dialog_cancel (ParrilladaEjectDialog *dialog)
 	drive = parrillada_drive_selection_get_active (PARRILLADA_DRIVE_SELECTION (priv->selector));
 
 	if (drive) {
+		priv->cancelled = TRUE;
 		parrillada_drive_cancel_current_operation (drive);
 		g_object_unref (drive);
 	}
@@ -154,6 +157,7 @@ parrillada_eject_dialog_init (ParrilladaEjectDialog *obj)
 	ParrilladaEjectDialogPrivate *priv;
 
 	priv = PARRILLADA_EJECT_DIALOG_PRIVATE (obj);
+	priv->cancelled = FALSE;
 
 	box = gtk_dialog_get_content_area (GTK_DIALOG (obj));
 
