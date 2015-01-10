@@ -315,7 +315,7 @@ parrillada_project_type_chooser_build_recent (ParrilladaProjectTypeChooser *self
 		GtkRecentInfo *info;
 		GList *child_iter;
 		const gchar *name;
-		GdkPixbuf *pixbuf;
+		GIcon *icon;
 		GtkWidget *image;
 		const gchar *uri;
 		GtkWidget *child;
@@ -327,9 +327,9 @@ parrillada_project_type_chooser_build_recent (ParrilladaProjectTypeChooser *self
 
 		tooltip = gtk_recent_info_get_uri_display (info);
 
-		pixbuf = gtk_recent_info_get_icon (info, GTK_ICON_SIZE_BUTTON);
-		image = gtk_image_new_from_pixbuf (pixbuf);
-		g_object_unref (pixbuf);
+		icon = gtk_recent_info_get_gicon (info);
+		image = gtk_image_new_from_gicon (icon, GTK_ICON_SIZE_BUTTON);
+		g_object_unref (icon);
 		gtk_size_group_add_widget (image_group, image);
 
 		gtk_widget_show (image);
