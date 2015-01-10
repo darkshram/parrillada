@@ -1204,7 +1204,7 @@ on_about_cb (GtkAction *action, ParrilladaApp *app)
 			       "program-name", "Parrillada",
 			       "comments", comments,
 			       "version", VERSION,
-			       "copyright", "Copyright © 2005-2010 Philippe Rouquier\nCopyright © 2014 Joel Barrios",
+			       "copyright", "Copyright © 2005-2010 Philippe Rouquier\nCopyright © 2014-2015 Joel Barrios",
 			       "authors", authors,
 			       "documenters", documenters,
 			       "website", "http://www.alcancelibre.org/staticpages/parrillada",
