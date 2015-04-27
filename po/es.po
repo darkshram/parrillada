@@ -86,7 +86,7 @@ msgstr "LISTA DE REPRODUCCIÓN"
 
 #: ../src/parrillada-cli.c:82
 msgid "Set the drive to be used for burning"
-msgstr "Establecer unidad a usar para grabar"
+msgstr "Establecer la unidad de grabación"
 
 #: ../src/parrillada-cli.c:83
 msgid "DEVICE PATH"
