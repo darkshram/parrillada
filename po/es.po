@@ -70,7 +70,7 @@ msgstr "Número de resultados mostrados"
 
 #: ../src/parrillada-cli.c:70
 msgid "Open the specified project"
-msgstr "Abrir el proyecto especificado"
+msgstr "Abrir proyecto especificado"
 
 #: ../src/parrillada-cli.c:71
 msgid "PROJECT"
@@ -78,7 +78,7 @@ msgstr "PROYECTO"
 
 #: ../src/parrillada-cli.c:76
 msgid "Open the specified playlist as an audio project"
-msgstr "Abrir la lista de reproducción especificada como un proyecto de sonido"
+msgstr "Abrir lista de reproducción especificada como un proyecto de sonido"
 
 #: ../src/parrillada-cli.c:77
 msgid "PLAYLIST"
@@ -86,7 +86,7 @@ msgstr "LISTA DE REPRODUCCIÓN"
 
 #: ../src/parrillada-cli.c:82
 msgid "Set the drive to be used for burning"
-msgstr "Establecer la unidad de grabación"
+msgstr "Establecer unidad de grabación"
 
 #: ../src/parrillada-cli.c:83
 msgid "DEVICE PATH"
@@ -94,17 +94,17 @@ msgstr "RUTA DEL DISPOSITIVO"
 
 #: ../src/parrillada-cli.c:86
 msgid "Create an image file instead of burning"
-msgstr "Crear un archivo imagen en vez de grabar"
+msgstr "Crear archivo imagen en vez de grabar"
 
 #: ../src/parrillada-cli.c:90
 msgid "Open an audio project adding the URIs given on the command line"
 msgstr ""
-"Abre un proyecto de sonido añadiendo los URI dados en la línea de comandos"
+"Abre proyecto de sonido añadiendo los URI dados en la línea de comandos"
 
 #: ../src/parrillada-cli.c:94
 msgid "Open a data project adding the URIs given on the command line"
 msgstr ""
-"Abre un proyecto de datos añadiendo los URI dados en la línea de comandos"
+"Abre proyecto de datos añadiendo los URI dados en la línea de comandos"
 
 #: ../src/parrillada-cli.c:98
 msgid "Copy a disc"
@@ -116,7 +116,7 @@ msgstr "RUTA AL DISPOSITIVO"
 
 #: ../src/parrillada-cli.c:102
 msgid "Cover to use"
-msgstr "Carátula a usar"
+msgstr "Establecer Carátula"
 
 #: ../src/parrillada-cli.c:103
 msgid "PATH TO COVER"
@@ -145,15 +145,15 @@ msgstr "Abrir el diálogo de borrar disco"
 
 #: ../src/parrillada-cli.c:122
 msgid "Open the check disc dialog"
-msgstr "Abrir el diálogo de comprobar disco"
+msgstr "Abrir diálogo para comprobar disco"
 
 #: ../src/parrillada-cli.c:126
 msgid "Burn the contents of the burn:// URI"
-msgstr "Grabar el contenido del URI burn://"
+msgstr "Grabar contenido del URI burn://"
 
 #: ../src/parrillada-cli.c:130
 msgid "Start burning immediately."
-msgstr "Comenzar a grabar inmediatamente."
+msgstr "Comenzar grabación inmediatamente."
 
 #: ../src/parrillada-cli.c:134
 msgid "Don't connect to an already-running instance"
@@ -423,7 +423,7 @@ msgstr "Analizando archivos"
 #: ../libparrillada-burn/parrillada-track-stream.c:405
 #, c-format
 msgid "There are no files to write to disc"
-msgstr "No hay archivos para grabar en el disco"
+msgstr "Sin archivos para grabar en el disco"
 
 #: ../libparrillada-burn/parrillada-track-data-cfg.c:2567
 #, c-format
@@ -683,12 +683,12 @@ msgstr "Reemplace el disco por otro que contenga datos."
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:520
 msgid "Please insert a rewritable disc holding data."
-msgstr "Introduzca un disco regrabable que contenga datos."
+msgstr "Introduzca disco regrabable que contenga datos."
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:522
 #: ../libparrillada-burn/parrillada-burn-options.c:496
 msgid "Please insert a disc holding data."
-msgstr "Introduzca un disco que contenga datos."
+msgstr "Introduzca disco que contenga datos."
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:537
 #, c-format
@@ -696,20 +696,20 @@ msgid ""
 "Please replace the disc with a writable CD with at least %i MiB of free "
 "space."
 msgstr ""
-"Reemplace el disco por un CD grabable con al menos %i MiB de espacio libre."
+"Reemplace el disco por CD grabable con al menos %i MiB de espacio libre."
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:540
 msgid "Please replace the disc with a writable CD."
-msgstr "Reemplace el disco por un CD grabable."
+msgstr "Reemplace disco por CD grabable."
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:544
 #, c-format
 msgid "Please insert a writable CD with at least %i MiB of free space."
-msgstr "Introduzca un CD grabable con al menos %i MiB de espacio libre."
+msgstr "Introduzca CD grabable con al menos %i MiB de espacio libre."
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:547
 msgid "Please insert a writable CD."
-msgstr "Introduzca un CD grabable."
+msgstr "Introduzca CD grabable."
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:553
 #, c-format
@@ -721,16 +721,16 @@ msgstr ""
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:556
 msgid "Please replace the disc with a writable DVD."
-msgstr "Reemplace el disco por un DVD grabable."
+msgstr "Reemplace el disco por DVD grabable."
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:560
 #, c-format
 msgid "Please insert a writable DVD with at least %i MiB of free space."
-msgstr "Introduzca un DVD grabable con al menos %i MiB de espacio libre."
+msgstr "Introduzca DVD grabable con al menos %i MiB de espacio libre."
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:563
 msgid "Please insert a writable DVD."
-msgstr "Introduzca un DVD grabable."
+msgstr "Introduzca DVD grabable."
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:568
 #, c-format
@@ -738,24 +738,24 @@ msgid ""
 "Please replace the disc with a writable CD or DVD with at least %i MiB of "
 "free space."
 msgstr ""
-"Reemplace el disco por un CD o DVD grabable con al menos %i MiB de espacio "
+"Reemplace disco por CD o DVD grabable con al menos %i MiB de espacio "
 "libre."
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:571
 msgid "Please replace the disc with a writable CD or DVD."
-msgstr "Reemplace el disco por un CD o DVD grabable."
+msgstr "Reemplace disco por CD o DVD grabable."
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:575
 #, c-format
 msgid "Please insert a writable CD or DVD with at least %i MiB of free space."
-msgstr "Introduzca un CD o DVD grabable con al menos %i MiB de espacio libre."
+msgstr "Introduzca CD o DVD grabable con al menos %i MiB de espacio libre."
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:578
 #: ../libparrillada-burn/parrillada-burn-dialog.c:2157
 #: ../libparrillada-burn/parrillada-burn-dialog.c:2171
 #: ../libparrillada-burn/parrillada-burn-options.c:450 ../src/parrillada-project.c:987
 msgid "Please insert a writable CD or DVD."
-msgstr "Introduzca un CD o DVD grabable."
+msgstr "Introduzca CD o DVD grabable."
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:605
 msgid ""
@@ -763,17 +763,17 @@ msgid ""
 "Burning will begin as soon as a writable disc is inserted."
 msgstr ""
 "Se ha creado una imagen del disco en su disco duro.\n"
-"La grabación comenzará tan pronto como introduzca un disco grabable."
+"La grabación comenzará tan pronto como introduzca disco grabable."
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:610
 msgid "A data integrity test will begin as soon as the disc is inserted."
 msgstr ""
-"Se realizará una comprobación de integridad de los datos tan pronto como se "
-"introduzca el disco."
+"Se realizará comprobación de integridad de los datos tan pronto como se "
+"introduzca disco."
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:611
 msgid "Please re-insert the disc in the CD/DVD burner."
-msgstr "Reintroduzca el disco en el grabador de CD/DVD."
+msgstr "Reintroduzca disco en grabador de CD/DVD."
 
 #. Translators: %s is the name of a drive
 #: ../libparrillada-burn/parrillada-burn-dialog.c:615
@@ -790,7 +790,7 @@ msgstr "Asegúrese que otra aplicación no lo esté usando"
 #: ../libparrillada-burn/parrillada-burn-dialog.c:619
 #, c-format
 msgid "There is no disc in \"%s\"."
-msgstr "No hay disco en «%s»:"
+msgstr "Sin disco en «%s»:"
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:623
 #, c-format
@@ -815,28 +815,28 @@ msgstr "El disco en «%s» no es grabable:"
 #: ../libparrillada-burn/parrillada-burn-dialog.c:639
 #, c-format
 msgid "Not enough space available on the disc in \"%s\"."
-msgstr "No hay suficiente espacio disponible en el disco en «%s»."
+msgstr "Sin suficiente espacio disponible en disco en «%s»."
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:647
 #, c-format
 msgid "The disc in \"%s\" needs to be reloaded."
-msgstr "El disco en «%s» necesita ser recargado:"
+msgstr "Disco en «%s» necesita ser recargado:"
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:648
 msgid "Please eject the disc and reload it."
-msgstr "Expulse el disco y recárguelo."
+msgstr "Expulse disco y recárguelo."
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:693
 #: ../libparrillada-burn/parrillada-sum-dialog.c:333
 msgid ""
 "A file could not be created at the location specified for temporary files"
 msgstr ""
-"Imposible crear un archivo en la ubicación especificada para los archivos "
+"Imposible crear archivo en la ubicación especificada para los archivos "
 "temporales"
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:694
 msgid "The image could not be created at the specified location"
-msgstr "Imposible crear la imagen en la ubicación especificada"
+msgstr "Imposible crear imagen en la ubicación especificada"
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:695
 msgid ""
@@ -848,7 +848,7 @@ msgstr ""
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:707
 msgid "You may want to free some space on the disc and retry"
-msgstr "Quizá quiera liberar algo de espacio en el disco e intentarlo de nuevo"
+msgstr "Quizá quiera liberar algo de espacio en disco e intentarlo de nuevo"
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:714
 #: ../libparrillada-burn/parrillada-drive-properties.c:247
@@ -867,12 +867,12 @@ msgstr "_Cambiar la ubicación"
 #: ../libparrillada-burn/parrillada-burn-dialog.c:738
 #: ../libparrillada-burn/parrillada-image-properties.c:476
 msgid "Location for Image File"
-msgstr "Ubicación para el archivo imagen"
+msgstr "Ubicación para archivo imagen"
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:746
 #: ../libparrillada-burn/parrillada-drive-properties.c:369
 msgid "Location for Temporary Files"
-msgstr "Ubicación para los archivos temporales"
+msgstr "Ubicación para archivos temporales"
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:854
 #: ../libparrillada-burn/parrillada-burn-dialog.c:1103
@@ -881,11 +881,11 @@ msgstr "_Reemplazar disco"
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:895
 msgid "Do you really want to blank the current disc?"
-msgstr "¿Está seguro de que quiere borrar el disco actual?"
+msgstr "¿Está seguro de que quiere borrar disco actual?"
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:896
 msgid "The disc in the drive holds data."
-msgstr "El disco en la unidad contiene datos."
+msgstr "Disco en la unidad contiene datos."
 
 #. Translators: Blank is a verb here
 #: ../libparrillada-burn/parrillada-burn-dialog.c:898
@@ -907,7 +907,7 @@ msgstr "Si no lo hace serán invisibles (aunque seguirá pudiendo leerlos)."
 #: ../libparrillada-burn/parrillada-burn-dialog.c:916
 msgid ""
 "There are files already burned on this disc. Would you like to import them?"
-msgstr "Existen archivos ya grabados en el disco. ¿Quiere importarlos?"
+msgstr "Existen archivos ya grabados en disco. ¿Quiere importarlos?"
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:918
 msgid "_Import"
@@ -943,7 +943,7 @@ msgstr "_Continuar"
 #: ../libparrillada-burn/parrillada-burn-dialog.c:954
 msgid "CD-RW audio discs may not play correctly in older CD players."
 msgstr ""
-"Puede que los discos CD-RW de sonido se reproduzcan incorrectamente en "
+"Es posible que discos CD-RW de sonido se reproduzcan incorrectamente en "
 "reproductores de CD."
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:958
@@ -954,27 +954,27 @@ msgstr "No se recomienda grabar pistas de sonido en discos regrabables."
 #: ../libparrillada-burn/parrillada-burn-dialog.c:1005
 #, c-format
 msgid "Please eject the disc from \"%s\" manually."
-msgstr "Expulse el disco de «%s» manualmente."
+msgstr "Expulse disco de «%s» manualmente."
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:1014
 msgid ""
 "The disc could not be ejected though it needs to be removed for the current "
 "operation to continue."
 msgstr ""
-"Imposible expulsar el disco debido a que debe quitarse de la operación "
+"Imposible expulsar disco debido a que debe quitarse de la operación "
 "actual para poder continuar."
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:1101
 msgid "Do you want to replace the disc and continue?"
-msgstr "¿Quiere reemplazar el disco y continuar?"
+msgstr "¿Quiere reemplazar disco y continuar?"
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:1102
 msgid "The currently inserted disc could not be blanked."
-msgstr "Imposible borrar el disco que se encuentra insertado en este momento."
+msgstr "Imposible borrar disco que se encuentra insertado en este momento."
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:1111
 msgid "Do you want to continue with full Windows compatibility disabled?"
-msgstr "¿Desea continuar con la compatibilidad para Windows desactivada?"
+msgstr "¿Desea continuar con compatibilidad para Windows desactivada?"
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:1112
 #: ../src/parrillada-data-disc.c:746
@@ -982,7 +982,7 @@ msgstr "¿Desea continuar con la compatibilidad para Windows desactivada?"
 msgid ""
 "Some files don't have a suitable name for a fully Windows-compatible CD."
 msgstr ""
-"Algunos archivos no tienen un nombre apropiado para un CD compatible con "
+"Algunos archivos carecen de un nombre apropiado para un CD compatible con "
 "Windows."
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:1113
@@ -1004,15 +1004,15 @@ msgstr "Grabar _ahora"
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:1649
 msgid "Save Current Session"
-msgstr "Guardar la sesión actual"
+msgstr "Guardar sesión actual"
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:1724
 msgid "An unknown error occurred."
-msgstr "Ocurrió un error desconocido."
+msgstr "Ocurrió error desconocido."
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:1732 ../src/parrillada-app.c:617
 msgid "Error while burning."
-msgstr "Error durante la grabación."
+msgstr "Error durante grabación."
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:1740
 msgid "_Save Log"
