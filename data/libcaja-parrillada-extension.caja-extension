@@ -1,0 +1,8 @@
+[Caja Extension]
+Icon=system-file-manager
+_Name=CD/DVD Creator
+_Description=Create CDs and DVDs
+Author=Philippe Rouquier <bonfire-app@wanadoo.fr>;Joel Barrios <darkshram@gmail.com>
+Copyright=Copyright (C) 2001–2015 Free Software Foundation, Inc.
+Version=1.6.2
+Website=http://www.alcancelibre.org
