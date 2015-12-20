@@ -17,7 +17,7 @@
   Template last modified Apr 11, 2002
 -->
 <?db.chunk.max_depth 2?>
-<article id="index" lang="zh_TW">
+<article id="index" lang="zh_HK">
 <!-- please do not change the id; for translations, change lang to -->
 <!-- appropriate code -->
   <articleinfo> 
@@ -47,14 +47,14 @@
     </publisher> 
 
      <legalnotice id="legalnotice">
-	<para>根據自由軟體基金會 (Free Software Foundation) 所發佈 的 GNU 自由文件授權 (GNU Free Documentation License, GFDL) 1.1 (含) 以後版本， 使用者可以複製、散佈，或修改本文件，但不得增刪章節，不得加上封面文字， 亦不得加上封底文字。 如要取得 GFDL 的副本，請參閱此<ulink type="help" url="ghelp:fdl">連結</ulink>，或是參閱與本手冊一同隨附的 COPYING-DOCS 檔案。</para>
-         <para>本手冊是屬於依 GFDL 授權所發佈之 GNOME 手冊集中的一部份。 如果您只要單獨散佈本手冊，依據授權聲明第六節之敘述， 您必須另外將授權聲明加入本手冊中。</para>
+	<para>根據自由軟件基金會 (Free Software Foundation) 所發佈 的 GNU 自由文件授權 (GNU Free Documentation License, GFDL) 1.1 (含) 以後版本， 使用者可以複製、散佈，或修改本文件，但不得增刪章節，不得加上封面文字， 亦不得加上封底文字。 如要取得 GFDL 的副本，請參閱此<ulink type="help" url="help:fdl">連結</ulink>，或是參閱與本手冊一同隨附的 COPYING-DOCS 檔案。</para>
+         <para>本手冊是屬於根據 GFDL 授權所發佈之 GNOME 手冊集中的一部份。 如果你只要單獨散佈本手冊，根據據授權聲明第六節之敘述， 你必須另外將授權聲明加入本手冊中。</para>
 
 	<para>許多公司為了突顯其產品與服務，會使用特別名稱，並亦已聲明這些 名稱為其商標。當這些名稱出現在 GNOME 文件中，同時 GNOME 文件 專案小組成員亦明白這些名稱為商標時， 這些名稱會以大寫字母或是首字母大寫表示。</para>
 
 	<para>文件以及此文件的修改版本必須遵循 GNU 自由文件許可證，進一步資訊請見： <orderedlist>
 		<listitem>
-		  <para>文件提供是以其「原樣」呈現，不管明示或暗示，皆不具任何保證，包括 (但不限於) 文件或修正版毫無錯誤、可販售、 具特殊用途，或不侵權。關於本文件與修正版文件之品質、正確性及功用， 其風險您必須自行承擔。 若本文件或修正版有任何缺陷，任何必須之保養，修理及更正， 應由您自行承擔，原始作者、作者或任何散佈者無須負責。 本免責聲明是本授權聲明極重要與必要的一部份，因此任何文件或 修正版的授權，皆須在同意本免責聲明的情況下進行；同時</para>
+		  <para>文件提供是以其「原樣」呈現，不管明示或暗示，皆不具任何保證，包括 (但不限於) 文件或修正版毫無錯誤、可販售、 具特殊用途，或不侵權。關於本文件與修正版文件之品質、正確性及功用， 其風險你必須自行承擔。 若本文件或修正版有任何缺陷，任何必須之保養，修理及更正， 應由你自行承擔，原始作者、作者或任何散佈者無須負責。 本免責聲明是本授權聲明極重要與必要的一部份，因此任何文件或 修正版的授權，皆須在同意本免責聲明的情況下進行；同時</para>
 		</listitem>
 		<listitem>
 		  <para>在任何情況或法律理論下，亦即不管是在侵權 (包括疏忽)、契約或其他情形，或是已預先告知會有下列損害之可能時，本文件 或修正版的任何作者、原始作者、投稿人以及散佈者，或是任何提供單位，對於因使用本文件及修正版，或與本文件及修正版使用相關所造成的任何直接、間接、特殊、偶然或必然之損害，包括 (但不限於) 信譽受損、工作停止、電腦當 機或不正常運作，或任何所有其他損害，上述人等皆不需負 任何責任。</para>
@@ -140,7 +140,7 @@
     <releaseinfo>這個手冊描述的是 Brasero 2.26 版。</releaseinfo> 
     <legalnotice> 
       <title>回饋</title> 
-      <para>要回報 <application>Brasero</application> 應用程式或這本手冊的錯誤或給予建議，請依照 <ulink url="ghelp:gnome-feedback" type="help">GNOME 回饋頁面</ulink> 中的指示。</para>
+      <para>要回報 <application>Brasero</application> 應用程式或這本手冊的錯誤或給予建議，請根據 <ulink url="help:gnome-feedback" type="help">GNOME 回饋頁面</ulink> 中的指示。</para>
 <!-- Translators may also add here feedback address for translations -->
     </legalnotice> 
   </articleinfo> 
@@ -160,13 +160,13 @@
   <sect1 id="brasero-introduction" status="review"> 
     <title>引言</title>
     <para><application>Brasero</application> 是用來燒錄 CD-R/W 和 DVD-R/W 的應用程式，它被設計成易於使用，並且提供所有燒錄所需的工具。</para>
-    <para>在 <application>Brasero</application> 中您可以：</para>
+    <para>在 <application>Brasero</application> 中你可以：</para>
     <itemizedlist>
       <listitem>
 	<para>將資料燒錄至 CD-R/W 和 DVD-R/W</para>
       </listitem>
       <listitem>
-	<para>將數位音樂檔案（例如 ogg、flac 和 mp3）燒錄為音樂 CD</para>
+	<para>將數碼音樂檔案（例如 ogg、flac 和 mp3）燒錄為音樂 CD</para>
       </listitem>
       <listitem>
 	<para>複製 CD 和 DVD</para>
@@ -191,7 +191,7 @@
     <title>開始使用</title>
     <sect2 id="brasero-starting">
       <title>啟動 Brasero</title>
-    <para>您可以用下列方式啟動 <application>Brasero</application>：</para>
+    <para>你可以用下列方式啟動 <application>Brasero</application>：</para>
       <para>
 	<variablelist>
 	  <varlistentry>
@@ -210,14 +210,14 @@
       </para>
       <para>
 	<note>
-	  <para>如果 <application>Brasero</application> 設定為您預設的光碟燒錄程式，它會在您插入空白 CD-R/W 或 DVD-R/W 到光碟機時自動啟動。</para>
+	  <para>如果 <application>Brasero</application> 設定為你預設的光碟燒錄程式，它會在你插入空白 CD-R/W 或 DVD-R/W 到光碟機時自動啟動。</para>
 	</note>
       </para>
     </sect2>
 
     <sect2 id="brasero-start-window">
-      <title>當您啟動 Brasero</title>
-    <para>當您啟動 <application>Brasero</application> 時會出現下列視窗。</para>
+      <title>當你啟動 Brasero</title>
+    <para>當你啟動 <application>Brasero</application> 時會出現下列視窗。</para>
     
     <!-- ==== Figure ==== -->
     <figure id="brasero-FIG-main"> 
@@ -235,14 +235,14 @@
     </figure>
     <!-- ==== End of Figure ==== -->
 
-    <para>這個視窗是您所有專案的開始點。您可以在這裡點選想要使用的專案類型。如果您已經使用 <application>Brasero</application> 建立過其他專案，也可以從 <guilabel>選擇最近開啟的專案</guilabel> 選擇它們（請查閱 <xref linkend="brasero-open-recent-project"/> 以獲得更多資訊）。</para>
+    <para>這個視窗是你所有專案的開始點。你可以在這裏點選想要使用的專案類型。如果你已經使用 <application>Brasero</application> 建立過其他專案，也可以從 <guilabel>選擇最近開啟的專案</guilabel> 選擇它們（請查閱 <xref linkend="brasero-open-recent-project"/> 以獲得更多資訊）。</para>
     </sect2>
   </sect1>
 
   <!-- ============= New Project ========================= -->
   <sect1 id="brasero-new-project" status="review">
     <title>建立新的專案</title>
-    <para>下一節會說明您可以使用 <application>Brasero</application> 建立的五種專案類型。</para>
+    <para>下一節會說明你可以使用 <application>Brasero</application> 建立的五種專案類型。</para>
     
     <!-- ==== subsection: Audio project ===== -->
     <sect2 id="brasero-new-project-audio">
@@ -250,14 +250,14 @@
       <para>這一節說明如何建立音樂 CD。這個專案會把已選取的音樂檔案轉換為原生音樂格式並燒錄為 CD，成為標準 CD 播放機能播放的 CD。</para>
       <para>要燒錄音樂 CD 的步驟如下： <orderedlist>
 	  <listitem>
-	    <para>將一張空白 CD-R 放到光碟機裡。</para>
+	    <para>將一張空白 CD-R 放到光碟機裏。</para>
 	  </listitem>
 	  <listitem>
 	    <para>在主視窗中按 <guibutton>音樂專案</guibutton> 或選擇 <menuchoice><guimenu>專案</guimenu><guisubmenu>新專案</guisubmenu><guimenuitem>新音樂專案</guimenuitem></menuchoice>。</para>
 	  </listitem>
 	  <listitem>
-	    <para>在視窗左邊的窗格，從頂端的下拉式選單選擇 <guilabel>瀏覽檔案系統</guilabel>，並瀏覽您想要加入專案的音樂檔案。</para>
-	    <para>您也可以選擇 <guilabel>使用關鍵字搜尋檔案</guilabel> 選項來搜尋音樂檔案，或是 <guilabel>顯示播放清單和它們的內容 </guilabel>選項以從電腦中的播放清單選擇音樂。</para>
+	    <para>在視窗左邊的窗格，從頂端的下拉式選單選擇 <guilabel>瀏覽檔案系統</guilabel>，並瀏覽你想要加入專案的音樂檔案。</para>
+	    <para>你也可以選擇 <guilabel>使用關鍵字搜尋檔案</guilabel> 選項來搜尋音樂檔案，或是 <guilabel>顯示播放清單和它們的內容 </guilabel>選項以從電腦中的播放清單選擇音樂。</para>
 	    <para>
 	      <tip>
 		<para>如果沒有在左邊看到窗格，請選擇 <menuchoice><guimenu>檢視</guimenu><guimenuitem>顯示側邊窗格</guimenuitem></menuchoice> 或按 <keycap>F7</keycap>。</para>
@@ -265,7 +265,7 @@
 	    </para>
 	  </listitem>
 	  <listitem>
-	    <para>雙擊想要選擇的檔案就可以選取它們，或是選擇它們後按下工具列左上的 <guibutton>加入</guibutton> 按鈕。</para>
+	    <para>連按兩下想要選擇的檔案就可以選取它們，或是選擇它們後按下工具列左上的 <guibutton>加入</guibutton> 按鈕。</para>
 	  </listitem>
 	  <listitem>
 	    <para>現在也能在每個音軌之間<link linkend="brasero-audio-pause">插入暫停</link>，或是<link linkend="brasero-audio-split">分割</link>音軌。</para>
@@ -274,7 +274,7 @@
 	    <para>當所有的檔案都加入完成，按下<guibutton>燒錄</guibutton>。</para>
 	  </listitem>
 	  <listitem>
-	    <para>在文字方塊中，輸入您想要的光碟標題。這個標題會顯示為此光碟的名稱。</para>
+	    <para>在文字方塊中，輸入你想要的光碟標題。這個標題會顯示為此光碟的名稱。</para>
 	  </listitem>
 	  <listitem>
 	    <para><guilabel>光碟燒錄設定</guilabel> 對話盒會出現，可以進行任何想要的修改。（請查閱 <xref linkend="brasero-audio-project-options"/>）。</para>
@@ -294,9 +294,9 @@
       
       <sect3 id="brasero-audio-pause">
 	<title>插入暫停</title>
-	<para>在您加入音軌後，可以在它後面插入 2 秒的暫停。要插入暫停，步驟如下：<orderedlist>
+	<para>在你加入音軌後，可以在它後面插入 2 秒的暫停。要插入暫停，步驟如下：<orderedlist>
 	    <listitem>
-	      <para>選擇您想要加入暫停的音軌。</para>
+	      <para>選擇你想要加入暫停的音軌。</para>
 	    </listitem>
 	    <listitem>
 	      <para>按下工具列上的 <guibutton>暫停</guibutton> 或選擇 <menuchoice><guimenu>編輯</guimenu><guimenuitem>插入暫停</guimenuitem></menuchoice>。</para>
@@ -308,20 +308,20 @@
 	<title>分割音軌</title>
 	<para>我們可以把歌曲分離成多個部分。分割音軌的步驟如下：<orderedlist>
 	    <listitem>
-	      <para>選擇您想要分離的音軌並按下工具列中的 <guibutton>分割</guibutton> 或選擇 <menuchoice><guimenu>編輯</guimenu><guimenuitem>分割音軌...</guimenuitem></menuchoice>。<guilabel>分割音軌</guilabel> 對話盒就會出現。</para>
+	      <para>選擇你想要分離的音軌並按下工具列中的 <guibutton>分割</guibutton> 或選擇 <menuchoice><guimenu>編輯</guimenu><guimenuitem>分割音軌...</guimenuitem></menuchoice>。<guilabel>分割音軌</guilabel> 對話盒就會出現。</para>
 	    </listitem>
 	    <listitem>
 	      <para>從 <guilabel>方法</guilabel> 下拉式清單選擇分割的方法。可能的數值有： <variablelist>
 		  <varlistentry>
 		    <term><guilabel>手動分割音軌</guilabel></term>
 		    <listitem>
-		      <para>選擇此項可讓您選擺想分割音軌的時刻。另外有滑動鈕可用於音效預覽。</para>
+		      <para>選擇此項可讓你選擺想分割音軌的時刻。另外有滑動鈕可用於音效預覽。</para>
 		    </listitem>
 		  </varlistentry>
 		  <varlistentry>
 		    <term><guilabel>將音軌分割為固定長度的等分</guilabel></term>
 		    <listitem>
-		      <para>選擇此項可以把音軌分割為您所指定固定長度的部分。</para>
+		      <para>選擇此項可以把音軌分割為你所指定固定長度的部分。</para>
 		    </listitem>
 		  </varlistentry>
 		  <varlistentry>
@@ -329,7 +329,7 @@
 		      <guilabel>將音軌分割為固定數量的等分</guilabel>
 		    </term>
 		    <listitem>
-		      <para>選擇此項會決定音軌要分割為幾個部分。您可以使用提供的微調方塊選擇幾個部分。</para>
+		      <para>選擇此項會決定音軌要分割為幾個部分。你可以使用提供的微調方塊選擇幾個部分。</para>
 		    </listitem>
 		  </varlistentry>
 		  <varlistentry>
@@ -346,8 +346,8 @@
 	      <para>要分割音軌，請按 <guibutton>分割</guibutton>。分割的部分會列於 <guilabel>分割預覽</guilabel> 表格中。</para>
 	    </listitem>
 	  </orderedlist></para>
-	<para>當您把音軌分割後，可以在 <guilabel>分割預覽</guilabel> 表格中使用右邊的按鈕來移除或合併音軌。</para>
-	<para>當您把所有的修改完成後，按下 <guibutton>確定</guibutton>。</para>
+	<para>當你把音軌分割後，可以在 <guilabel>分割預覽</guilabel> 表格中使用右邊的按鈕來移除或合併音軌。</para>
+	<para>當你把所有的修改完成後，按下 <guibutton>確定</guibutton>。</para>
       </sect3>
 
       <sect3 id="brasero-audio-project-options">
@@ -407,7 +407,7 @@
 	    </para>
 	  </listitem>
 	  <listitem>
-	    <para>雙擊想要選擇的檔案就可以選取它們，或是選擇它們後按下工具列左上的 <guibutton>加入</guibutton> 按鈕。</para>
+	    <para>連按兩下想要選擇的檔案就可以選取它們，或是選擇它們後按下工具列左上的 <guibutton>加入</guibutton> 按鈕。</para>
 	  </listitem>
 	  <listitem>
 	    <para>在文字方塊中，輸入標籤以辨別此光碟。這個標籤會顯示為光碟的名稱。</para>
@@ -455,10 +455,10 @@
 		    <variablelist>
 		      <varlistentry>
 			<term>
-			  <guilabel>增加與 Windows 系統的相容性</guilabel>
+			  <guilabel>增加與 Windows 系統的兼容性</guilabel>
 			</term>
 			<listitem>
-			  <para>如果您想要讓此光碟能在執行 Windows 的電腦上使用請選擇這個選項。在光碟上的檔案都會被檢查以確保它們的檔案名稱沒有包含 Windows 無效的字元。</para>
+			  <para>如果你想要讓此光碟能在執行 Windows 的電腦上使用請選擇這個選項。在光碟上的檔案都會被檢查以確保它們的檔案名稱沒有包含 Windows 無效的字符。</para>
 			</listitem>
 		      </varlistentry>
 		    </variablelist>
@@ -484,22 +484,22 @@
     <!-- ====== subsection: Video project ====== -->
     <sect2 id="brasero-new-project-video">
       <title>影片專案</title>
-      <para>這個專案讓您可以選取影片檔案（延伸檔名像 <filename class="extension">.mpg</filename>、 <filename class="extension">.mpeg</filename> 或 <filename class="extension">.avi</filename> ）並且將它們燒錄為光碟來製作影片 <acronym>DVD</acronym>、<acronym>SVCD</acronym> 或 <acronym>VCD</acronym>，以便能在一般 DVD/CD 播放器上觀覺賞。</para>
+      <para>這個專案讓你可以選取影片檔案（延伸檔名像 <filename class="extension">.mpg</filename>、 <filename class="extension">.mpeg</filename> 或 <filename class="extension">.avi</filename> ）並且將它們燒錄為光碟來製作影片 <acronym>DVD</acronym>、<acronym>SVCD</acronym> 或 <acronym>VCD</acronym>，以便能在一般 DVD/CD 播放器上觀覺賞。</para>
       <para>
 	<note>
-	  <para>為了能使用影片專案的所有功能，您需要安裝所有的 GStreamer 外掛程式， <application>ffmpeg</application>、<application>vcdimager</application> 和 <application>dvdauthor</application>。請查閱您的作業系統文件以了解要如何安裝所有的應用程式。</para>
+	  <para>為了能使用影片專案的所有功能，你需要安裝所有的 GStreamer 外掛程式， <application>ffmpeg</application>、<application>vcdimager</application> 和 <application>dvdauthor</application>。請查閱你的作業系統文件以了解要如何安裝所有的應用程式。</para>
 	</note>
       </para>
       <para>要建立影片專案，步驟如下： <orderedlist>
 	  <listitem>
-	    <para>將一張空白 CD   或 DVD 放到光碟機裡。</para>
+	    <para>將一張空白 CD   或 DVD 放到光碟機裏。</para>
 	  </listitem>
 	  <listitem>
 	    <para>在主視窗中按 <guibutton>影片專案</guibutton> 或選擇 <menuchoice><guimenu>專案</guimenu><guisubmenu>新專案</guisubmenu><guimenuitem>新影片專案</guimenuitem></menuchoice>。</para>
 	  </listitem>
 	  <listitem>
 	    <para>從視窗左邊的窗格，瀏覽檔案系統以搜尋影片檔案。</para>
-	    <para>雙擊想要選擇的檔案就可以選取它們，或是選擇它們後按下工具列左上的 <guibutton>加入</guibutton> 按鈕。</para>
+	    <para>連按兩下想要選擇的檔案就可以選取它們，或是選擇它們後按下工具列左上的 <guibutton>加入</guibutton> 按鈕。</para>
 	    <para>
 	      <tip>
 		<para>如果沒有在左邊看到窗格，請選擇 <menuchoice><guimenu>檢視</guimenu><guimenuitem>顯示側邊窗格</guimenuitem></menuchoice> 或按 <keycap>F7</keycap>。</para>
@@ -507,7 +507,7 @@
 	    </para>
 	  </listitem>
 	  <listitem>
-	    <para>在文字方塊中，輸入您想要的光碟標題。這個標題會顯示為此光碟的名稱。</para>
+	    <para>在文字方塊中，輸入你想要的光碟標題。這個標題會顯示為此光碟的名稱。</para>
 	  </listitem>
 	  <listitem>
 	    <para>當所有的檔案都加入後，請按 <guibutton>燒錄</guibutton>。</para>
@@ -549,7 +549,7 @@
 	      <listitem>
 		<itemizedlist>
 		  <listitem>
-		    <para>從 <guilabel>影片格式</guilabel> 選擇要燒錄的影片格式。您可以選擇：<itemizedlist>
+		    <para>從 <guilabel>影片格式</guilabel> 選擇要燒錄的影片格式。你可以選擇：<itemizedlist>
 			<listitem>
 			  <para><guilabel>原生格式</guilabel>：影片檔案的原始格式。</para>
 			</listitem>
@@ -595,7 +595,7 @@
 
 	<para>
 	  <note>
-	    <para><acronym>SVCD</acronym> 和 <acronym>VCD</acronym> 的主要不同處之一，就是前者使用 <acronym>MPEG-2</acronym> 視訊 codec 而後者是 <acronym>MPEG-1</acronym>。需要更多資訊，請檢查 Wikipedia 網頁的 <ulink type="http" url="http://en.wikipedia.org/wiki/SVCD">SVCD</ulink> 和 <ulink type="http" url="http://en.wikipedia.org/wiki/Video_CD">VCD</ulink>。</para>
+	    <para><acronym>SVCD</acronym> 和 <acronym>VCD</acronym> 的主要不同處之一，就是前者使用 <acronym>MPEG-2</acronym> 視像 codec 而後者是 <acronym>MPEG-1</acronym>。需要更多資訊，請檢查 Wikipedia 網頁的 <ulink type="http" url="http://en.wikipedia.org/wiki/SVCD">SVCD</ulink> 和 <ulink type="http" url="http://en.wikipedia.org/wiki/Video_CD">VCD</ulink>。</para>
 	  </note>
 	</para>
 	  
@@ -606,9 +606,9 @@
     <!-- ====== subsection: Copy Disc ======= -->
     <sect2 id="brasero-new-project-copy">
       <title>複製光碟</title>
-      <para>這個專案讓您可以把現有的光碟複製到空白光碟或映像檔中。要複製光碟，步驟如下： <orderedlist>
+      <para>這個專案讓你可以把現有的光碟複製到空白光碟或映像檔中。要複製光碟，步驟如下： <orderedlist>
 	  <listitem>
-	    <para>將想要複製的 CD 或 DVD 放到光碟機裡。</para>
+	    <para>將想要複製的 CD 或 DVD 放到光碟機裏。</para>
 	  </listitem>
 	  <listitem>
 	    <para>在主視窗中按 <guibutton>光碟複製</guibutton> 或選擇 <menuchoice><guimenu>專案</guimenu><guisubmenu>新專案</guisubmenu><guimenuitem>光碟複製</guimenuitem></menuchoice>。</para>
@@ -654,7 +654,7 @@
 	</para>
 	<para>
 	  <note>
-	    <para>如果您的系統中有一個以上的光碟機，可以使用其中一個作為來源光碟機，另一個作為目的光碟機。如果沒有，就會提示您把要複製的 CD 或 DVD 拿出來並插入空白的光碟片。</para>
+	    <para>如果你的系統中有一個以上的光碟機，可以使用其中一個作為來源光碟機，另一個作為目的光碟機。如果沒有，就會提示你把要複製的 CD 或 DVD 拿出來並插入空白的光碟片。</para>
 	  </note>
 	</para>
       </sect3>
@@ -756,7 +756,7 @@
 			<guilabel>直接燒錄映像檔而不儲存到光碟</guilabel>
 		      </term>
 		      <listitem>
-			<para>如果您想要直接將映像檔燒錄至媒體中，而不將它儲存到硬碟，也不想建立映像檔，就選擇這個選項。</para>
+			<para>如果你想要直接將映像檔燒錄至媒體中，而不將它儲存到硬碟，也不想建立映像檔，就選擇這個選項。</para>
 		      </listitem>
 		    </varlistentry>
 		  </variablelist>
@@ -789,7 +789,7 @@
 		    <varlistentry>
 		      <term><guilabel>模擬燒錄</guilabel></term>
 		      <listitem>
-			<para>選擇這個選項會模擬燒錄程序；並不會進行真實的燒錄。如果這項操作成功，brasero 會在暫停 10 秒後進行真正的燒錄動作。在暫停期間會顯示一個對話盒讓您可以取消燒錄。這在測試時很有幫助，特別是在燒錄光碟有問題的時候。</para>
+			<para>選擇這個選項會模擬燒錄程序；並不會進行真實的燒錄。如果這項操作成功，brasero 會在暫停 10 秒後進行真正的燒錄動作。在暫停期間會顯示一個對話盒讓你可以取消燒錄。這在測試時很有幫助，特別是在燒錄光碟有問題的時候。</para>
 		      </listitem>
 		    </varlistentry>
 		  </variablelist>
@@ -818,19 +818,19 @@
       </para>
       <sect3 id="brasero-burn-no-disc">
 	<title>無光碟的燒錄屬性</title>
-	<para>如果您燒錄裝置中沒有 CD 或 DVD 就開始燒錄程序，<application>Brasero</application> 會在硬碟中建立映像檔以供往後燒錄使用。</para>
+	<para>如果你燒錄裝置中沒有 CD 或 DVD 就開始燒錄程序，<application>Brasero</application> 會在硬碟中建立映像檔以供往後燒錄使用。</para>
 	<para>
 	  <variablelist>
 	    <varlistentry>
 	      <term><guilabel>選擇要寫入的光碟</guilabel>：</term>
 	      <listitem>
-		<para>在這個下拉式選單您只能選擇 <guilabel>映像檔</guilabel>。</para>
+		<para>在這個下拉式選單你只能選擇 <guilabel>映像檔</guilabel>。</para>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
 	      <term><guilabel>光碟標籤</guilabel>：</term>
 	      <listitem>
-		<para>輸入您要給這張光碟燒錄後的名稱。</para>
+		<para>輸入你要給這張光碟燒錄後的名稱。</para>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
@@ -841,10 +841,10 @@
 		    <variablelist>
 		      <varlistentry>
 			<term>
-			  <guilabel>增加與 Windows 系統的相容性</guilabel>
+			  <guilabel>增加與 Windows 系統的兼容性</guilabel>
 			</term>
 			<listitem>
-			  <para>如果您想要讓此光碟能在執行 Windows 的電腦上使用請選擇這個選項。在光碟上的檔案都會被檢查以確保它們的檔案名稱沒有包含 Windows 無效的字元。</para>
+			  <para>如果你想要讓此光碟能在執行 Windows 的電腦上使用請選擇這個選項。在光碟上的檔案都會被檢查以確保它們的檔案名稱沒有包含 Windows 無效的字符。</para>
 			</listitem>
 		      </varlistentry>
 		    </variablelist>
@@ -863,7 +863,7 @@
 
   <sect1 id="brasero-open-recent-project">
     <title>開啟已儲存的專案</title>
-    <para>如果您剛剛儲存了專案，可以用下列的方法再開啟它： <itemizedlist>
+    <para>如果你剛剛儲存了專案，可以用下列的方法再開啟它： <itemizedlist>
 	<listitem>
 	  <para>選擇 <menuchoice><guimenu>專案</guimenu><guisubmenu>最近使用的專案</guisubmenu></menuchoice> 並選擇要開啟的專案。</para>
 	</listitem>
@@ -872,7 +872,7 @@
 	</listitem>
       </itemizedlist></para>
     <para>要開啟沒有出現在 <guilabel>最近使用的專案</guilabel>中的專案，選擇 <menuchoice><guimenu>專案</guimenu><guimenuitem>開啟</guimenuitem></menuchoice> 然後選擇該專案檔案。</para>
-    <para>在開啟專案之後，您可以將檔案加入或從專案中移除、燒錄光碟或將它儲存以便往後使用。</para>
+    <para>在開啟專案之後，你可以將檔案加入或從專案中移除、燒錄光碟或將它儲存以便往後使用。</para>
   </sect1>
 
   <sect1 id="brasero-erase-media">
@@ -888,22 +888,22 @@
 	  <para>DVD+RW (單層或雙層)</para>
 	</listitem>
       </itemizedlist></para>
-    <para>一般而言，<application>Brasero</application> 可以支援您所擁有的 CD/DVD 燒錄器支援的所有媒體格式。</para>
+    <para>一般而言，<application>Brasero</application> 可以支援你所擁有的 CD/DVD 燒錄器支援的所有媒體格式。</para>
     <warning>
-      <para>請確定您想要抹除的媒體是可抹除的。請檢查媒體的包裝以獲取更多資訊。</para>
+      <para>請確定你想要抹除的媒體是可抹除的。請檢查媒體的包裝以獲取更多資訊。</para>
     </warning>
     <para>要抹除 CD-RW 或 DVD-RW： <orderedlist>
 	<listitem>
-	  <para>將一張可抹除 CD   或 DVD 放到光碟機裡。</para>
+	  <para>將一張可抹除 CD   或 DVD 放到光碟機裏。</para>
 	</listitem>
 	<listitem>
 	  <para>從選單列選擇 <menuchoice><guimenu>工具</guimenu><guimenuitem>抹除...</guimenuitem></menuchoice>。<guilabel>光碟抹除</guilabel> 對話盒就會出現。</para>
 	</listitem>
 	<listitem>
-	  <para>從下拉式選單 <guilabel>選擇光碟</guilabel>，選擇您想要抹除的光碟。</para>
+	  <para>從下拉式選單 <guilabel>選擇光碟</guilabel>，選擇你想要抹除的光碟。</para>
 	</listitem>
 	<listitem>
-	  <para>如果您想要快速抹除光碟，請選擇 <guilabel>快速抹除</guilabel> 選項（更多資訊請查閱 <xref linkend="brasero-fast-blanking"/>）。</para>
+	  <para>如果你想要快速抹除光碟，請選擇 <guilabel>快速抹除</guilabel> 選項（更多資訊請查閱 <xref linkend="brasero-fast-blanking"/>）。</para>
 	</listitem>
 	<listitem>
 	  <para>按下 <guibutton>抹除</guibutton> 開始抹除此 CD 或 DVD。</para>
@@ -923,17 +923,17 @@
   <sect1 id="brasero-checking-integrity">
     <title>檢查 CD 或 DVD 的完整性</title>
     <para>檢查 CD 或 DVD 的完整性可確保所有寫入光碟的檔案都是完整的，沒有在燒錄程序中損壞。</para>
-    <para>完整性檢查是使用 <quote>MD5 digest</quote> 演算法完成的，它會建立該媒體上檔案的 <quote>數位指紋</quote>。每一次燒錄 CD 或 DVD，同時啟用 <emphasis role="strong">映像檔總和檢查碼</emphasis> 外掛程式（請查閱 <xref linkend="brasero-plugins"/> 以獲取更多資訊），<application>Brasero</application> 會將 MD5 檔案加入光碟，以便往後能進行完整性檢查。</para>
+    <para>完整性檢查是使用 <quote>MD5 digest</quote> 演算法完成的，它會建立該媒體上檔案的 <quote>數碼指紋</quote>。每一次燒錄 CD 或 DVD，同時啟用 <emphasis role="strong">映像檔總和檢查碼</emphasis> 外掛程式（請查閱 <xref linkend="brasero-plugins"/> 以獲取更多資訊），<application>Brasero</application> 會將 MD5 檔案加入光碟，以便往後能進行完整性檢查。</para>
     <para><application>Brasero</application> 在每次燒錄作業後進行完整性檢查，它會檢查自動產生的檔案發時間戳記憶體認出租人意外。通常這個過程會比使用外部的 MD5 檔案花更多時間。</para>
     <para>要檢查光碟的完整性： <orderedlist>
 	<listitem>
-	  <para>將想要檢查的 CD 或 DVD 放到光碟機裡。</para>
+	  <para>將想要檢查的 CD 或 DVD 放到光碟機裏。</para>
 	</listitem>
 	<listitem>
 	  <para>從選單列選擇 <menuchoice><guimenu>工具</guimenu><guimenuitem>檢查完整性</guimenuitem></menuchoice>興奮戰不懈，或按 <keycombo><keycap>Ctrl</keycap><keycap>F</keycap></keycombo>。</para>
 	</listitem>
 	<listitem>
-	  <para>您可以使用 MD5 檔案檢查完整性，或是讓 <application>Brasero</application> 自動進行媒體的檢查。 <itemizedlist>
+	  <para>你可以使用 MD5 檔案檢查完整性，或是讓 <application>Brasero</application> 自動進行媒體的檢查。 <itemizedlist>
 	      <listitem>
 		<para>選擇 <guilabel>使用 md5 檔案檢查光碟</guilabel> 選項以使用 MD5 檔案。</para>
 	      </listitem>
@@ -946,15 +946,15 @@
 	  <para>按下 <guibutton>檢查</guibutton> 按鈕開始完整性檢查。</para>
 	</listitem>
       </orderedlist></para>
-    <para>如果完整性檢查成功，<application>Brasero</application> 會以 <guilabel>檔案完整性檢查成功</guilabel> 對話盒通知您；否則，會顯示 <guilabel>檔案完整性檢查錯誤</guilabel> 對話盒。</para>
+    <para>如果完整性檢查成功，<application>Brasero</application> 會以 <guilabel>檔案完整性檢查成功</guilabel> 對話盒通知你；否則，會顯示 <guilabel>檔案完整性檢查錯誤</guilabel> 對話盒。</para>
   </sect1>
 
   <sect1 id="brasero-cover-editor">
     <title>封套編輯器</title>
     <para><application>Brasero</application> 有封套編輯器可供製作 CD 或 DVD 的封套。要開啟封套編輯器，選擇 <menuchoice><guimenu>工具</guimenu><guimenuitem>封套編輯器</guimenuitem></menuchoice>。</para>
-    <para>封套編輯器讓您可以選擇封面和封底所有文字的字型、排列方式、顏色以及背景的屬性。</para>
+    <para>封套編輯器讓你可以選擇封面和封底所有文字的字型、排列方式、顏色以及背景的屬性。</para>
     <para>要設定封套的屬性，請在封套上按右鍵並選擇 <guimenuitem>設定背景屬性</guimenuitem> 以開啟 <guilabel>背景屬性</guilabel> 對話盒。</para>
-    <para>背景可以使用圖片或顏色、漸層色填滿。</para>
+    <para>背景可以使用圖片或顏色、漸變色色填滿。</para>
     <para>將圖片設為背景： <itemizedlist>
 	<listitem>
 	  <para>利用 <guilabel>圖片路徑</guilabel> 從硬碟中選擇圖片。</para>
@@ -963,7 +963,7 @@
 	  <para>從 <guilabel>圖片樣式</guilabel> 下拉式選單選擇要如何放置圖片。</para>
 	</listitem>
       </itemizedlist></para>
-    <para>要使用顏色或漸層填滿背景：<itemizedlist>
+    <para>要使用顏色或漸變色填滿背景：<itemizedlist>
 	<listitem>
 	  <para>從 <guilabel>顏色</guilabel> 下拉式選單選擇背景要以何種效果填滿。</para>
 	</listitem>
@@ -971,14 +971,14 @@
 	  <para>使用右邊的按鈕開啟 <guilabel>挑選顏色</guilabel> 對話盒以選擇顏色。</para>
 	</listitem>
       </itemizedlist><note>
-	<para>如果您選擇漸層，在顏色選擇程式上會有兩個按鈕。在左邊的是漸層的開始點，右邊的是結束點。</para>
+	<para>如果你選擇漸變色，在顏色選擇程式上會有兩個按鈕。在左邊的是漸變色的開始點，右邊的是結束點。</para>
       </note></para>
   </sect1>
 
   <sect1 id="brasero-plugins">
     <title>外掛程式</title>
-    <para><application>Brasero</application> 可以使用不同的外掛程式進行各種工作。您可以選擇許多外掛程式。</para>
-    <para>要檢視可用的外掛程式，請選擇 <menuchoice><guimenu>編輯</guimenu><guimenuitem>外掛程式</guimenuitem></menuchoice>。您可以使用的外掛程式有：</para>
+    <para><application>Brasero</application> 可以使用不同的外掛程式進行各種工作。你可以選擇許多外掛程式。</para>
+    <para>要檢視可用的外掛程式，請選擇 <menuchoice><guimenu>編輯</guimenu><guimenuitem>外掛程式</guimenuitem></menuchoice>。你可以使用的外掛程式有：</para>
     <para>
       <table frame="all" id="brasero-TBL-plugin">
 	<title>外掛程式</title>
@@ -1015,7 +1015,7 @@
       </table>
     </para>
     <para>要啟用或停用外掛程式，請選擇在它的名稱旁的 <guilabel>已啟用</guilabel> 欄位的核取方塊。</para>
-    <para>在 <guilabel>檔案總和檢查碼</guilabel> 和 <guilabel>映像檔總和檢查碼</guilabel> 外掛程式中您可以選擇要使用的演算法： <orderedlist>
+    <para>在 <guilabel>檔案總和檢查碼</guilabel> 和 <guilabel>映像檔總和檢查碼</guilabel> 外掛程式中你可以選擇要使用的演算法： <orderedlist>
 	<listitem>
 	  <para>選擇兩個外掛程式之一並按下 <guibutton>設定</guibutton>。</para>
 	</listitem>
@@ -1036,7 +1036,7 @@
 
     <para>
       <note>
-	<para>為了能使用在這裡列出的某些外掛程式，可能需要在您的系統中安裝更多應用程式。請查閱您的作業系統文件以獲取更多資訊。</para>
+	<para>為了能使用在這裏列出的某些外掛程式，可能需要在你的系統中安裝更多應用程式。請查閱你的作業系統文件以獲取更多資訊。</para>
       </note>
     </para>
   </sect1>

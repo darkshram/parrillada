@@ -1,4 +1,12 @@
 Author: Joel Barrios<darkshram@gmail.com>
+Date:   Sun Dec 20 13:57:16 2015 -0600
+
+    Fixed libdvdcss detection.
+    Migrate to yelp-tools.
+    Bump to 1.8.0
+    Support caja 1.12
+
+Author: Joel Barrios<darkshram@gmail.com>
 Date:   Sat Jan 03 14:21:00 2015 -0600
 
     Fixed (again) gstettings schemas.

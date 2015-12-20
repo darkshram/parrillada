@@ -53,7 +53,7 @@
 	  License (GFDL), Version 1.1 or any later version published
 	  by the Free Software Foundation with no Invariant Sections,
 	  no Front-Cover Texts, and no Back-Cover Texts.  You can find
-	  a copy of the GFDL at this <ulink type="help" url="ghelp:fdl">link</ulink> or in the file COPYING-DOCS
+	  a copy of the GFDL at this <ulink type="help" url="help:fdl">link</ulink> or in the file COPYING-DOCS
 	  distributed with this manual.
          </para>
          <para> This manual is part of a collection of GNOME manuals
@@ -199,7 +199,7 @@
     <releaseinfo>Este manual describe a versión 2.26 do Brasero.</releaseinfo> 
     <legalnotice> 
       <title>Comentarios e suxestións</title> 
-      <para>Para informar dun erro ou facer unha suxestión sobre o aplicativo <application>Brasero</application> ou este manual, siga os consellos da <ulink url="ghelp:gnome-feedback" type="help">Páxina de Feedback de GNOME</ulink>.</para>
+      <para>Para informar dun erro ou facer unha suxestión sobre o aplicativo <application>Brasero</application> ou este manual, siga os consellos da <ulink url="help:gnome-feedback" type="help">Páxina de Feedback de GNOME</ulink>.</para>
 <!-- Translators may also add here feedback address for translations -->
     </legalnotice> 
   </articleinfo> 

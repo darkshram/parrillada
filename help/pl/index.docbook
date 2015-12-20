@@ -47,7 +47,7 @@
     </publisher> 
 
      <legalnotice id="legalnotice">
-	<para>Udziela się zezwolenia do kopiowania rozpowszechniania i/lub modyfikację tego dokumentu zgodnie z zasadami Licencji GNU Wolnej Dokumentacji w wersji 1.1 lub dowolnej późniejszej opublikowanej przez Free Software Foundation; wraz z zawartymi Sekcjami Niezmiennymi, wraz z Tekstem na Przedniej Okładce i z Tekstem na Tylnej Okładce. Kopia licencji dostępna jest pod adresem <ulink type="help" url="ghelp:fdl">link</ulink> oraz w pliku COPYING-DOCS dystrybuowanym z niniejszym podręcznikiem.</para>
+	<para>Udziela się zezwolenia do kopiowania rozpowszechniania i/lub modyfikację tego dokumentu zgodnie z zasadami Licencji GNU Wolnej Dokumentacji w wersji 1.1 lub dowolnej późniejszej opublikowanej przez Free Software Foundation; wraz z zawartymi Sekcjami Niezmiennymi, wraz z Tekstem na Przedniej Okładce i z Tekstem na Tylnej Okładce. Kopia licencji dostępna jest pod adresem <ulink type="help" url="help:fdl">link</ulink> oraz w pliku COPYING-DOCS dystrybuowanym z niniejszym podręcznikiem.</para>
          <para>Ten podręcznik jest częścią kolekcji podręczników użytkownika GNOME dystrybuowanych na zasadach GFDL. Aby rozpowszechniać ten podręcznik w odłączeniu od kolekcji, należy dołączyć kopię kopię licencji do podręcznika, jak wyjaśniono to w sekcji 6. licencji.</para>
 
 	<para>Nazwy używane przez firmy by wyróżniać swoje produkty i usługi są zazwyczaj zarejestrowanymi znakami towarowymi. Jeśli występują one w dokumentacji GNOME, w przypadku gdy są znane przez członków Projektu Dokumentacji GNOME, są one napisane wielkimi literami lub zaczynają się od wielkiej litery.</para>
@@ -140,7 +140,7 @@
     <releaseinfo>Niniejszy podręcznik opisuje wersję 2.26 programu Brasero</releaseinfo> 
     <legalnotice> 
       <title>Opinie</title> 
-      <para>Aby zgłosić błąd lub sugestię dotyczące programu <application>Brasero</application> lub niniejszego podręcznika, proszę postępować zgodnie ze wskazówkami opublikowanymi na stronie <ulink url="ghelp:gnome-feedback" type="help">GNOME Feedback Page</ulink>.</para>
+      <para>Aby zgłosić błąd lub sugestię dotyczące programu <application>Brasero</application> lub niniejszego podręcznika, proszę postępować zgodnie ze wskazówkami opublikowanymi na stronie <ulink url="help:gnome-feedback" type="help">GNOME Feedback Page</ulink>.</para>
 <!-- Translators may also add here feedback address for translations -->
     </legalnotice> 
   </articleinfo> 

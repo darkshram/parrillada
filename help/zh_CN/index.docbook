@@ -47,7 +47,7 @@
     </publisher> 
 
      <legalnotice id="legalnotice">
-	<para>对于本文档的复制、分发和/或修改必须遵循自由软件基金会 (Free Software Foundation) 发布的 GNU 自由文档许可证 (GFDL) 版本 1.1 或更高版本，该许可证没有固定的部分、没有封面和背页文本。您可以在 <ulink type="help" url="ghelp:fdl">link</ulink> 或在随本手册一起分发的 COPYING-DOCS 文件中找到 GFDL 的副本。</para>
+	<para>对于本文档的复制、分发和/或修改必须遵循自由软件基金会 (Free Software Foundation) 发布的 GNU 自由文档许可证 (GFDL) 版本 1.1 或更高版本，该许可证没有固定的部分、没有封面和背页文本。您可以在 <ulink type="help" url="help:fdl">link</ulink> 或在随本手册一起分发的 COPYING-DOCS 文件中找到 GFDL 的副本。</para>
          <para>本手册是以 GFDL 协议下发布的 GNOME 手册集的一部分。如果您希望单独发布本手册，您可以通过添加一个这个许可证的一份副本到这个手册来做到，就像在第六节中所描述的这个许可证。</para>
 
 	<para>各个公司使用的许多用于区别它们产品和服务的名称都声明为商标。在所有的 GNOME 文档以及 GNOME 文档项目的成员中，这些名称都是以全大写字母或首字母大写显示，从而表明它们是商标。</para>
@@ -140,7 +140,7 @@
     <releaseinfo>本手册描述的是 Brasero 的 2.26 版。</releaseinfo> 
     <legalnotice> 
       <title>反馈</title> 
-      <para>报告一个错误或者一个关于 <application>Brasero</application> 程序以及本文档的建议，请看 <ulink url="ghelp:gnome-feedback" type="help">GNOME Feedback Page</ulink>。</para>
+      <para>报告一个错误或者一个关于 <application>Brasero</application> 程序以及本文档的建议，请看 <ulink url="help:gnome-feedback" type="help">GNOME Feedback Page</ulink>。</para>
 <!-- Translators may also add here feedback address for translations -->
     </legalnotice> 
   </articleinfo> 

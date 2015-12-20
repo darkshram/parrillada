@@ -47,7 +47,7 @@
     </publisher> 
 
      <legalnotice id="legalnotice">
-	<para>Je povoleno kopírovat, šířit a/nebo upravovat tento dokument za podmínek GNU Free Documentation License (GFDL), verze 1.1 nebo jakékoli další verze vydané nadací Free Software Foundation; bez neměnných oddílů, bez textů předních desek a bez textů zadních desek. Kopii licence GFDL naleznete pod tímto <ulink type="help" url="ghelp:fdl">odkazem</ulink> nebo v souboru COPYING-DOCS dodávaném s touto příručkou.</para>
+	<para>Je povoleno kopírovat, šířit a/nebo upravovat tento dokument za podmínek GNU Free Documentation License (GFDL), verze 1.1 nebo jakékoli další verze vydané nadací Free Software Foundation; bez neměnných oddílů, bez textů předních desek a bez textů zadních desek. Kopii licence GFDL naleznete pod tímto <ulink type="help" url="help:fdl">odkazem</ulink> nebo v souboru COPYING-DOCS dodávaném s touto příručkou.</para>
          <para>Tato příručka je součástí sbírky příruček GNOME šířených za podmínek licence GNU FDL. Pokud chcete tento dokument šířit odděleně od sbírky, musíte přiložit kopii licence dle popisu v oddílu 6 dané licence.</para>
 
 	<para>Mnoho užívaných jmen určených ke zviditelnění produktů nebo služeb jsou ochranné známky. Na místech, kde jsou tato jména v dokumentaci užita a členové Dokumentačního projektu GNOME jsou si vědomi skutečnosti, že se jedná o ochrannou známku, je takové jméno psáno velkými písmeny celé nebo s velkým písmenem na začátku.</para>
@@ -140,7 +140,7 @@
     <releaseinfo>Tato příručka popisuje Brasero verze 2.26.</releaseinfo> 
     <legalnotice> 
       <title>Ohlasy</title> 
-      <para>Chcete-li podat oznámení o chybě nebo návrh co se týče aplikace <application>Brasero</application> nebo této příručky, postupujte dle pokynů na <ulink url="ghelp:gnome-feedback" type="help">Stránce s ohlasy na GNOME</ulink>.</para>
+      <para>Chcete-li podat oznámení o chybě nebo návrh co se týče aplikace <application>Brasero</application> nebo této příručky, postupujte dle pokynů na <ulink url="help:gnome-feedback" type="help">Stránce s ohlasy na GNOME</ulink>.</para>
 <!-- Translators may also add here feedback address for translations -->
     </legalnotice> 
   </articleinfo> 

@@ -47,7 +47,7 @@
     </publisher> 
 
      <legalnotice id="legalnotice">
-	<para>Dano je dovoljenje za kopiranje, distribuiranje in/ali spreminjanje tega dokumenta pod pogoji GNU Free Documentation License (GFDL) različice 1.1 ali katerekoli kasnejše različice, ki jo je objavila Free Software Foundation brez stalnih odsekov, besedila naslovnice in zadnje strani. Kopijo GFDL lahko najdete na tej <ulink type="help" url="ghelp:fdl">povezavi</ulink> ali v COPYING-DOCS distribuiranim s tem priročnikom.</para>
+	<para>Dano je dovoljenje za kopiranje, distribuiranje in/ali spreminjanje tega dokumenta pod pogoji GNU Free Documentation License (GFDL) različice 1.1 ali katerekoli kasnejše različice, ki jo je objavila Free Software Foundation brez stalnih odsekov, besedila naslovnice in zadnje strani. Kopijo GFDL lahko najdete na tej <ulink type="help" url="help:fdl">povezavi</ulink> ali v COPYING-DOCS distribuiranim s tem priročnikom.</para>
          <para>Ta priročnik je del zbirke priročnikov GNOME distribuiranih pod GFDL. V primeru da želite ta priročnik distribuirati ločeno od zbirke, lahko to storite z dodajanjem kopije licence priročnika, kot je opisano v odseku 6 licence.</para>
 
 	<para>Veliko imen podjetja uporabljajo za ločevanje njihovih produktov in storitev, zato si jih lastijo kot blagovne znamke. Kjer se ta mena pojavijo v katerikoli dokumentaciji GNOME in člani dokumentacijskega projekta GNOME vedo za njih, so imena v velikih črkah ali pa se začnejo z velikimi črkami.</para>
@@ -173,7 +173,7 @@
     <releaseinfo>Ta priročnik opisuje Brasero različico 2.26</releaseinfo> 
     <legalnotice> 
       <title>Odziv</title> 
-      <para>Za poročilo hrošča ali predloga glede programa <application>Brasero</application> ali tega priročnika, sledite smerem na <ulink url="ghelp:gnome-feedback" type="help">Strani odziva GNOME</ulink>.</para>
+      <para>Za poročilo hrošča ali predloga glede programa <application>Brasero</application> ali tega priročnika, sledite smerem na <ulink url="help:gnome-feedback" type="help">Strani odziva GNOME</ulink>.</para>
 <!-- Translators may also add here feedback address for translations -->
     </legalnotice> 
   </articleinfo> 

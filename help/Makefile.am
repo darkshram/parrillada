@@ -1,19 +1,18 @@
-include $(top_srcdir)/mate-doc-utils.make
-dist-hook: doc-dist-hook
+@YELP_HELP_RULES@
 
 # Module name
-DOC_MODULE = parrillada
+HELP_ID = parrillada
 
 # Legal entity include
-DOC_ENTITIES = legal.xml
+HELP_FILES = index.docbook legal.xml
 
 # Othe includes
 DOC_INCLUDES = 
 
 # List of figures to be included
-DOC_FIGURES = figures/parrillada_main.png 
+HELP_MEDIA = figures/parrillada_main.png 
 
 # List of translations
-DOC_LINGUAS = bg ca cs de el en_GB es fi fr gl it pl ru sl sv zh_CN zh_HK zh_TW
+HELP_LINGUAS = bg ca cs de el en_GB es fi fr gl it pl ru sl sv zh_CN zh_HK zh_TW
 
 -include $(top_srcdir)/git.mk
