@@ -3,6 +3,7 @@
 Fixed libdvdcss detection.
 Migrate to yelp-tools.
 Initial Support for caja 1.12
+Remove beagle support.
 
 03/01/2015
 

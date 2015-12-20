@@ -21,7 +21,7 @@ dnl   change to C+1:0:0
 dnl - If the interface is the same as the previous version, change to C:R+1:A
 
 LT_CURRENT=3
-LT_REVISION=0
+LT_REVISION=6
 LT_AGE=2
 
 AC_SUBST(LT_CURRENT)
@@ -48,13 +48,13 @@ AC_CONFIG_HEADERS([config.h])
 AC_DISABLE_STATIC
 LT_INIT
 
-AM_MAINTAINER_MODE
+AM_MAINTAINER_MODE([enable])
 
 dnl **************** Support GSettings *************************
 GLIB_GSETTINGS
 
 dnl **************** documentation *****************************
-MATE_DOC_INIT
+YELP_HELP_INIT
 GTK_DOC_CHECK([1.12])
 
 dnl ***************** GNOME MACROS *****************************
@@ -138,6 +138,7 @@ dnl ***************** LARGE FILE SUPPORT ***********************
 AC_SYS_LARGEFILE
 
 dnl ********** Required libraries **********************
+
 GLIB_REQUIRED=2.25.10
 GTHREAD_REQUIRED=2.6.0
 GMODULE_REQUIRED=2.6.0
@@ -205,11 +206,15 @@ PKG_CHECK_MODULES(PARRILLADA_GMODULE_EXPORT,		\
 AC_SUBST(PARRILLADA_GMODULE_EXPORT_CFLAGS)
 AC_SUBST(PARRILLADA_GMODULE_EXPORT_LIBS)
 
-PKG_CHECK_MODULES(PARRILLADA_SM,			\
-	sm)
+PKG_CHECK_MODULES(PARRILLADA_SM,
+	sm \
+	ice)
 
 AC_SUBST(PARRILLADA_SM_CFLAGS)
 AC_SUBST(PARRILLADA_SM_LIBS)
+
+AC_CHECK_LIBM
+AC_SUBST(LIBM)
 
 #
 # GTK+ stuff (taken and adapted from empathy)
@@ -245,6 +250,16 @@ AC_SUBST(PARRILLADA_GTK_CFLAGS)
 AC_SUBST(PARRILLADA_GTK_LIBS)
 
 #
+# libnotify check
+#
+
+LIBNOTIFY_REQUIRED=0.6.1
+
+PKG_CHECK_MODULES([PARRILLADA_LIBNOTIFY],[libnotify >= $LIBNOTIFY_REQUIRED])
+AC_SUBST(PARRILLADA_LIBNOTIFY_CFLAGS)
+AC_SUBST(PARRILLADA_LIBNOTIFY_LIBS)
+
+#
 # Canberra
 #
 
@@ -261,10 +276,6 @@ esac
 
 AC_SUBST(PARRILLADA_CANBERRA_CFLAGS)
 AC_SUBST(PARRILLADA_CANBERRA_LIBS)
-
-PKG_CHECK_MODULES([PARRILLADA_ICE], [ice])
-AC_SUBST(PARRILLADA_ICE_CFLAGS)
-AC_SUBST(PARRILLADA_ICE_LIBS)
 
 dnl ****************Caja**********************************
 # Note: the extension is built against gtk+-2.0 so we cannot build extension with gtk+-3.0
@@ -395,14 +406,10 @@ TRACKER_REQUIRED=0.8.0
 AC_ARG_ENABLE(search,
 			AS_HELP_STRING([--enable-search],[Build search pane (if a search backend is available) [[default=auto]]]),
 			[case "$enableval" in
-				"auto")    enable_search="yes" ;;
-				"yes")     enable_search="yes" ;;
-				"no")      enable_search="no" ;;
-				"tracker") enable_search="tracker" ;;
-				"beagle")  enable_search="beagle" ;;
+				"auto"|"yes"|"no") ;;
 				*)         echo "Unknown option"; exit 2 ;;
 			esac],
-			[enable_search="yes"])
+			[enable_search="auto"])
 
 if test x"$enable_search" = "xtracker"; then
 	PKG_CHECK_MODULES(PARRILLADA_SEARCH, tracker-client-0.8 >= $TRACKER_REQUIRED)
@@ -410,48 +417,12 @@ if test x"$enable_search" = "xtracker"; then
 	AC_DEFINE(BUILD_TRACKER, 1, [define if you  want to use search pane])
 	AC_SUBST(PARRILLADA_SEARCH_CFLAGS)
 	AC_SUBST(PARRILLADA_SEARCH_LIBS)
-	build_beagle="no"
 	build_tracker="yes"
 	build_search="yes"
-elif test x"$enable_search" = "xbeagle"; then
-	PKG_CHECK_MODULES(PARRILLADA_SEARCH, libbeagle-1.0 >= $BEAGLE_REQUIRED)
-	AC_DEFINE(BUILD_SEARCH, 1, [define if you  want to use search pane])
-	AC_DEFINE(BUILD_BEAGLE, 1, [define if you  want to use search pane])
-	AC_SUBST(PARRILLADA_SEARCH_CFLAGS)
-	AC_SUBST(PARRILLADA_SEARCH_LIBS)
-	build_beagle="yes"
-	build_tracker="no"
-	build_search="yes"
-elif test x"$enable_search" = "xyes"; then
-	PKG_CHECK_MODULES(PARRILLADA_SEARCH, tracker-client-0.8 >= $TRACKER_REQUIRED, build_search=yes, build_search=no)
-	if test x"$build_search" = "xyes"; then
-		AC_DEFINE(BUILD_SEARCH, 1, [define if you  want to use search pane])
-		AC_DEFINE(BUILD_TRACKER, 1, [define if you  want to use search pane])
-
-		AC_SUBST(PARRILLADA_SEARCH_CFLAGS)
-		AC_SUBST(PARRILLADA_SEARCH_LIBS)
-
-		build_beagle="no"
-		build_tracker="yes"
-	else 
-		PKG_CHECK_MODULES(PARRILLADA_SEARCH, libbeagle-1.0 >= $BEAGLE_REQUIRED, build_search=yes, build_search=no)
-		if test x"$build_search" = "xyes"; then
-			AC_DEFINE(BUILD_SEARCH, 1, [define if you  want to use search pane])
-			AC_DEFINE(BUILD_BEAGLE, 1, [define if you  want to use search pane])
-
-			AC_SUBST(PARRILLADA_SEARCH_CFLAGS)
-			AC_SUBST(PARRILLADA_SEARCH_LIBS)
-
-			build_beagle="yes"
-			build_tracker="no"
-		fi
-	fi
-else
 	build_search="no"
 fi
 
 AM_CONDITIONAL(BUILD_SEARCH, test x"$build_search" = "xyes")
-AM_CONDITIONAL(BUILD_BEAGLE, test x"$build_beagle" = "xyes")
 AM_CONDITIONAL(BUILD_TRACKER, test x"$build_tracker" = "xyes")
 
 dnl ****************check for playlist (optional)**************
@@ -600,7 +571,7 @@ AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [Package name for gettex
 
 AM_GLIB_GNU_GETTEXT
 
-IT_PROG_INTLTOOL([0.35.0])
+IT_PROG_INTLTOOL([0.50])
 
 if test "x${prefix}" = "xNONE"; then
   AC_DEFINE_UNQUOTED(PACKAGE_LOCALE_DIR, "${ac_default_prefix}/${DATADIRNAME}/locale", [Location of package locale files])
@@ -616,6 +587,7 @@ data/Makefile
 data/parrillada.desktop.in
 data/icons/Makefile
 data/mime/Makefile
+help/Makefile
 caja/Makefile
 caja/parrillada-caja.desktop.in
 libparrillada-media/Makefile
