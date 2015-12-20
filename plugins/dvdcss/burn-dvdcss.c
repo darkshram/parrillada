@@ -96,10 +96,6 @@ parrillada_dvdcss_library_init (ParrilladaPlugin *plugin)
 	if (!module)
 		goto error_doesnt_exist;
 
-	if (!g_module_symbol (module, "dvdcss_interface_2", &address))
-		goto error_version;
-	dvdcss_interface_2 = address;
-
 	if (!g_module_symbol (module, "dvdcss_open", &address))
 		goto error_version;
 	dvdcss_open = address;
