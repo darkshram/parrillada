@@ -334,18 +334,6 @@ parrillada_search_engine_new_default (void)
 
 #endif
 
-#ifdef BUILD_BEAGLE
-
-#include "parrillada-search-beagle.h"
-
-ParrilladaSearchEngine *
-parrillada_search_engine_new_default (void)
-{
-	return g_object_new (PARRILLADA_TYPE_SEARCH_BEAGLE, NULL);
-}
-
-#endif
-
 #else
 
 ParrilladaSearchEngine *
