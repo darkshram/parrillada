@@ -76,7 +76,6 @@ Requirements:
 - a fairly new kernel (>= 2.6.13 because of inotify) (optional)
 - cairo
 - libcanberra
-- beagle (>= 0.3.0) (optional)
 - tracker (>= 0.7.0) (optional)
 - libburn (>=0.4.0) (optional)
 - libisofs (>=0.6.2) (optional)
