@@ -139,12 +139,6 @@ parrillada_SOURCES += \
 		   parrillada-search-tracker.c
 endif
 
-if BUILD_BEAGLE
-parrillada_SOURCES += 				\
-		   parrillada-search-beagle.h	\
-		   parrillada-search-beagle.c
-endif
-
 if BUILD_SEARCH
 
 parrillada_SOURCES += \
