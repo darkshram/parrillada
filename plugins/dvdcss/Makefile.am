@@ -1,4 +1,4 @@
-INCLUDES = \
+AM_CPPFLAGS = \
 	-I$(top_srcdir)					\
 	-I$(top_srcdir)/libparrillada-media/					\
 	-I$(top_builddir)/libparrillada-media/		\

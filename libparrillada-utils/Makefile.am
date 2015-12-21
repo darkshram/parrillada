@@ -1,5 +1,5 @@
 
-INCLUDES = \
+AM_CPPFLAGS = \
 	-I$(top_srcdir)							\
 	-I$(top_builddir)						\
 	-DPARRILLADA_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" 	\
