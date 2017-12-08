@@ -1,7 +1,7 @@
 parrillada
 ==========
 
-A CD/DVD burning application for MATE Desktop forked from GNOME's Brasero.
+A CD/DVD burning application for MATE Desktop forked from GNOME's Brasero by Philippe Rouquier.
 
 Parrillada is a CD/DVD mastering tool for the MATE Desktop. It is designed to be simple and easy to use. 
 
@@ -76,7 +76,6 @@ Requirements:
 - a fairly new kernel (>= 2.6.13 because of inotify) (optional)
 - cairo
 - libcanberra
-- tracker (>= 0.7.0) (optional)
 - libburn (>=0.4.0) (optional)
 - libisofs (>=0.6.2) (optional)
 

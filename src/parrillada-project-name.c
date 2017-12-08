@@ -139,7 +139,6 @@ parrillada_project_name_icon_button_clicked (ParrilladaProjectName *project,
 					  GdkEvent *event,
 					  gpointer NULL_data)
 {
-	ParrilladaProjectNamePrivate *priv;
 	ParrilladaTrackDataCfg *track;
 	GtkFileFilter *filter;
 	gchar *filename;
@@ -147,8 +146,6 @@ parrillada_project_name_icon_button_clicked (ParrilladaProjectName *project,
 	GtkWidget *chooser;
 	gchar *path;
 	gint res;
-
-	priv = PARRILLADA_PROJECT_NAME_PRIVATE (project);
 
 	track = parrillada_project_name_get_track_data_cfg (project);
 	if (!track)
@@ -359,7 +356,6 @@ parrillada_project_name_label_insert_text (GtkEditable *editable,
 				        gint *position,
 				        gpointer NULL_data)
 {
-	ParrilladaProjectNamePrivate *priv;
 	const gchar *label;
 	gchar *new_text;
 	gint new_length;
@@ -367,8 +363,6 @@ parrillada_project_name_label_insert_text (GtkEditable *editable,
 	gint max_len;
 	gchar *prev;
 	gchar *next;
-
-	priv = PARRILLADA_PROJECT_NAME_PRIVATE (editable);	
 
 	/* check if this new text will fit in 32 _bytes_ long buffer */
 	label = gtk_entry_get_text (GTK_ENTRY (editable));
@@ -672,10 +666,6 @@ parrillada_project_name_set_property (GObject *object,
 				   const GValue *value,
 				   GParamSpec *pspec)
 {
-	ParrilladaProjectNamePrivate *priv;
-
-	priv = PARRILLADA_PROJECT_NAME_PRIVATE (object);
-
 	switch (property_id) {
 	case PROP_SESSION:
 		parrillada_project_name_set_session (PARRILLADA_PROJECT_NAME (object),
@@ -710,10 +700,6 @@ parrillada_project_name_get_property (GObject *object,
 static void
 parrillada_project_name_finalize (GObject *object)
 {
-	ParrilladaProjectNamePrivate *priv;
-
-	priv = PARRILLADA_PROJECT_NAME_PRIVATE (object);
-
 	parrillada_project_name_unset_session (PARRILLADA_PROJECT_NAME (object));
 
 	G_OBJECT_CLASS (parrillada_project_name_parent_class)->finalize (object);

@@ -41,14 +41,14 @@ typedef struct _ParrilladaTimeButton ParrilladaTimeButton;
 
 struct _ParrilladaTimeButtonClass
 {
-	GtkHBoxClass parent_class;
+	GtkBoxClass parent_class;
 
 	void		(*value_changed)	(ParrilladaTimeButton *self);
 };
 
 struct _ParrilladaTimeButton
 {
-	GtkHBox parent_instance;
+	GtkBox parent_instance;
 };
 
 GType parrillada_time_button_get_type (void) G_GNUC_CONST;

@@ -222,6 +222,7 @@ parrillada_libburn_common_process_message (ParrilladaJob *self)
 	PARRILLADA_JOB_LOG (self, "Libburn reported an error %s", err_txt);
 	error = g_error_new (PARRILLADA_BURN_ERROR,
 			     PARRILLADA_BURN_ERROR_GENERAL,
+			     "%s",
 			     err_txt);
 	parrillada_job_error (PARRILLADA_JOB (self), error);
 	return FALSE;

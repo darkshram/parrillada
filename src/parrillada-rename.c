@@ -59,7 +59,7 @@ struct _ParrilladaRenamePrivate
 
 
 
-G_DEFINE_TYPE (ParrilladaRename, parrillada_rename, GTK_TYPE_VBOX);
+G_DEFINE_TYPE (ParrilladaRename, parrillada_rename, GTK_TYPE_BOX);
 
 void
 parrillada_rename_set_show_keep_default (ParrilladaRename *self,
@@ -73,7 +73,7 @@ parrillada_rename_set_show_keep_default (ParrilladaRename *self,
 		if (!priv->show_default)
 			return;
 
-		gtk_combo_box_remove_text (GTK_COMBO_BOX (priv->combo), 0);
+		gtk_combo_box_text_remove (GTK_COMBO_BOX_TEXT (priv->combo), 0);
 
 		/* make sure there is one item active */
 		if (gtk_combo_box_get_active (GTK_COMBO_BOX (priv->combo)) == -1) {
@@ -86,8 +86,8 @@ parrillada_rename_set_show_keep_default (ParrilladaRename *self,
 		if (priv->show_default)
 			return;
 
-		gtk_combo_box_prepend_text (GTK_COMBO_BOX (priv->combo),
-					     _("<Keep current values>"));
+		gtk_combo_box_text_prepend_text  (GTK_COMBO_BOX_TEXT (priv->combo),
+						  _("<Keep current values>"));
 	}
 
 	priv->show_default = show;
@@ -174,11 +174,11 @@ parrillada_rename_sequence_string (ParrilladaRename *self,
                                 guint nb_items)
 {
 	ParrilladaRenamePrivate *priv;
-	gboolean is_at_end;
 
 	priv = PARRILLADA_RENAME_PRIVATE (self);
 
-	is_at_end = gtk_combo_box_get_active (GTK_COMBO_BOX (priv->insert_combo)) != 0;
+	if (!gtk_combo_box_get_active (GTK_COMBO_BOX (priv->insert_combo)))
+		return NULL;
 
 	if (nb_items < 10){
 		return g_strdup_printf ("%i%s", item_num, name);
@@ -305,23 +305,25 @@ parrillada_rename_init (ParrilladaRename *object)
 
 	priv = PARRILLADA_RENAME_PRIVATE (object);
 
+	gtk_orientable_set_orientation (GTK_ORIENTABLE (object), GTK_ORIENTATION_VERTICAL);
+
 	priv->notebook = gtk_notebook_new ();
 	gtk_widget_show (priv->notebook);
 	gtk_box_pack_end (GTK_BOX (object), priv->notebook, FALSE, FALSE, 4);
 	gtk_notebook_set_show_border (GTK_NOTEBOOK (priv->notebook), FALSE);
 	gtk_notebook_set_show_tabs (GTK_NOTEBOOK (priv->notebook), FALSE);
 
-	priv->combo = gtk_combo_box_new_text ();
+	priv->combo = gtk_combo_box_text_new ();
 	gtk_widget_show (priv->combo);
 	gtk_box_pack_start (GTK_BOX (object), priv->combo, FALSE, FALSE, 0);
 
 	priv->show_default = 1;
-	gtk_combo_box_prepend_text (GTK_COMBO_BOX (priv->combo), _("<Keep current values>"));
-	gtk_combo_box_append_text (GTK_COMBO_BOX (priv->combo), _("Insert text"));
-	gtk_combo_box_append_text (GTK_COMBO_BOX (priv->combo), _("Delete text"));
-	gtk_combo_box_append_text (GTK_COMBO_BOX (priv->combo), _("Substitute text"));
-	gtk_combo_box_append_text (GTK_COMBO_BOX (priv->combo), _("Number files according to a pattern"));
-	gtk_combo_box_append_text (GTK_COMBO_BOX (priv->combo), _("Insert number sequence at beginning"));
+	gtk_combo_box_text_prepend_text (GTK_COMBO_BOX_TEXT (priv->combo), _("<Keep current values>"));
+	gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (priv->combo), _("Insert text"));
+	gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (priv->combo), _("Delete text"));
+	gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (priv->combo), _("Substitute text"));
+	gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (priv->combo), _("Number files according to a pattern"));
+	gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (priv->combo), _("Insert number sequence at beginning"));
 
 	g_signal_connect (priv->combo,
 			  "changed",
@@ -331,7 +333,7 @@ parrillada_rename_init (ParrilladaRename *object)
 	gtk_combo_box_set_active (GTK_COMBO_BOX (priv->combo), 0);
 
 	/* Insert */
-	hbox = gtk_hbox_new (FALSE, 6);
+	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
 	gtk_widget_show (hbox);
 	gtk_notebook_append_page (GTK_NOTEBOOK (priv->notebook), hbox, NULL);
 
@@ -345,23 +347,23 @@ parrillada_rename_init (ParrilladaRename *object)
 	gtk_box_pack_start (GTK_BOX (hbox), entry, TRUE, TRUE, 0);
 	priv->insert_entry = entry;
 
-	combo = gtk_combo_box_new_text ();
+	combo = gtk_combo_box_text_new ();
 	gtk_widget_show (combo);
 
 	/* Translators: This finishes previous action "Insert". It goes like
 	 * this: "Insert" [Entry] "at the beginning". */
-	gtk_combo_box_append_text (GTK_COMBO_BOX (combo), _("at the beginning"));
+	gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combo), _("at the beginning"));
 
 	/* Translators: This finishes previous action "Insert". It goes like
 	 * this: "Insert" [Entry] "at the end". */
-	gtk_combo_box_append_text (GTK_COMBO_BOX (combo), _("at the end"));
+	gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combo), _("at the end"));
 
 	gtk_combo_box_set_active (GTK_COMBO_BOX (combo), 0);
 	gtk_box_pack_start (GTK_BOX (hbox), combo, FALSE, FALSE, 0);
 	priv->insert_combo = combo;
 
 	/* Delete */
-	hbox = gtk_hbox_new (FALSE, 6);
+	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
 	gtk_widget_show (hbox);
 	gtk_notebook_append_page (GTK_NOTEBOOK (priv->notebook), hbox, NULL);
 
@@ -375,7 +377,7 @@ parrillada_rename_init (ParrilladaRename *object)
 	priv->delete_entry = entry;
 
 	/* Substitution */
-	hbox = gtk_hbox_new (FALSE, 6);
+	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
 	gtk_widget_show (hbox);
 	gtk_notebook_append_page (GTK_NOTEBOOK (priv->notebook), hbox, NULL);
 
@@ -405,7 +407,7 @@ parrillada_rename_init (ParrilladaRename *object)
 	priv->joker_entry = entry;
 
 	/* Pattern */
-	hbox = gtk_hbox_new (FALSE, 6);
+	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
 	gtk_widget_show (hbox);
 	gtk_notebook_append_page (GTK_NOTEBOOK (priv->notebook), hbox, NULL);
 

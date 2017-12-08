@@ -3,7 +3,7 @@
  *
  *  ven déc 30 11:29:33 2005
  *  Copyright  2005  Rouquier Philippe
- *  brasero-app@wanadoo.fr
+ *  parrillada-app@wanadoo.fr
  ***************************************************************************/
 
 /*
@@ -38,7 +38,7 @@
 #include <gtk/gtk.h>
 
 #include <gst/gst.h>
-#include <gst/interfaces/xoverlay.h>
+#include <gst/video/videooverlay.h>
 
 #include "parrillada-player-bacon.h"
 #include "parrillada-setting.h"
@@ -48,7 +48,7 @@ struct ParrilladaPlayerBaconPrivate {
 	GstElement *pipe;
 	GstState state;
 
-	GstXOverlay *xoverlay;
+	GstVideoOverlay *xoverlay;
 	XID xid;
 
 	gchar *uri;
@@ -133,10 +133,7 @@ parrillada_player_bacon_realize (GtkWidget *widget)
 	gint attributes_mask;
 	GtkAllocation allocation;
 	GdkWindowAttr attributes;
-	ParrilladaPlayerBacon *bacon;
-	gfloat screen_width, screen_height, ratio;
-
-	bacon = PARRILLADA_PLAYER_BACON (widget);
+	gfloat screen_width, screen_height;
 
 	attributes.window_type = GDK_WINDOW_CHILD;
 
@@ -144,12 +141,6 @@ parrillada_player_bacon_realize (GtkWidget *widget)
 
 	screen_width = allocation.width;
 	screen_height = allocation.height;
-	
-	if ((gfloat) screen_width / PLAYER_BACON_WIDTH > 
-	    (gfloat) screen_height / PLAYER_BACON_HEIGHT)
-		ratio = (gfloat) screen_height / PLAYER_BACON_HEIGHT;
-	else
-		ratio = (gfloat) screen_width / PLAYER_BACON_WIDTH;
 
 	attributes.x = allocation.x + (allocation.width - (gint) screen_width) / 2;
 	attributes.y = allocation.y + (allocation.height - (gint) screen_height) / 2;
@@ -157,12 +148,11 @@ parrillada_player_bacon_realize (GtkWidget *widget)
 	attributes.height = screen_height;
 	attributes.wclass = GDK_INPUT_OUTPUT;
 	attributes.visual = gtk_widget_get_visual (widget);
-	attributes.colormap = gtk_widget_get_colormap (widget);
 	attributes.event_mask = gtk_widget_get_events (widget);
 	attributes.event_mask |= GDK_EXPOSURE_MASK|
 				 GDK_BUTTON_PRESS_MASK|
 				 GDK_BUTTON_RELEASE_MASK;
-	attributes_mask = GDK_WA_X | GDK_WA_Y | GDK_WA_COLORMAP;
+	attributes_mask = GDK_WA_X | GDK_WA_Y | GDK_WA_VISUAL;
 
 	gtk_widget_set_window (widget, gdk_window_new (gtk_widget_get_parent_window (widget),
 						       &attributes,
@@ -171,67 +161,72 @@ parrillada_player_bacon_realize (GtkWidget *widget)
 	gdk_window_set_user_data (window, widget);
 	gdk_window_show (gtk_widget_get_window (widget));
 	gtk_widget_set_realized (widget, TRUE);
-
-	gtk_widget_style_attach (widget);
-	//gtk_style_set_background (widget->style, widget->window, GTK_STATE_NORMAL);
 }
 
 static gboolean
-parrillada_player_bacon_expose (GtkWidget *widget, GdkEventExpose *event)
+parrillada_player_bacon_draw (GtkWidget *widget, cairo_t *cr)
 {
 	ParrilladaPlayerBacon *bacon;
 	GdkWindow *window;
 
-	if (event && event->count > 0)
-		return TRUE;
-
 	g_return_val_if_fail (widget != NULL, FALSE);
+
 	bacon = PARRILLADA_PLAYER_BACON (widget);
 
 	window = gtk_widget_get_window (widget);
 	if (window)
-		bacon->priv->xid = gdk_x11_drawable_get_xid (GDK_DRAWABLE (window));
+		bacon->priv->xid = gdk_x11_window_get_xid (window);
 
 	if (bacon->priv->xoverlay
-	&&  GST_IS_X_OVERLAY (bacon->priv->xoverlay)
+	&&  GST_IS_VIDEO_OVERLAY (bacon->priv->xoverlay)
 	&&  bacon->priv->state >= GST_STATE_PAUSED)
-		gst_x_overlay_expose (bacon->priv->xoverlay);
+		gst_video_overlay_expose (bacon->priv->xoverlay);
 	else if (window)
-		gdk_window_clear (window);
+		gtk_widget_queue_draw (GTK_WIDGET (widget));
 
 	return TRUE;
 }
 
 static void
-parrillada_player_bacon_size_request (GtkWidget *widget,
-				   GtkRequisition *requisition)
+parrillada_player_bacon_get_preferred_width (GtkWidget *widget,
+                                          gint      *minimum,
+                                          gint      *natural)
 {
-	ParrilladaPlayerBacon *bacon;
-
 	g_return_if_fail (widget != NULL);
-	bacon = PARRILLADA_PLAYER_BACON (widget);
 
-	requisition->width = PLAYER_BACON_WIDTH;
-	requisition->height = PLAYER_BACON_HEIGHT;
+	*minimum = *natural = PLAYER_BACON_WIDTH;
 
-	if (GTK_WIDGET_CLASS (parrillada_player_bacon_parent_class)->size_request)
-		GTK_WIDGET_CLASS (parrillada_player_bacon_parent_class)->size_request (widget, requisition);
+	if (GTK_WIDGET_CLASS (parrillada_player_bacon_parent_class)->get_preferred_width)
+		GTK_WIDGET_CLASS (parrillada_player_bacon_parent_class)->get_preferred_width (widget, minimum, natural);
+}
+
+static void
+parrillada_player_bacon_get_preferred_height (GtkWidget *widget,
+                                           gint      *minimum,
+                                          gint      *natural)
+{
+	g_return_if_fail (widget != NULL);
+
+	*minimum = *natural = PLAYER_BACON_WIDTH;
+
+	if (GTK_WIDGET_CLASS (parrillada_player_bacon_parent_class)->get_preferred_height)
+		GTK_WIDGET_CLASS (parrillada_player_bacon_parent_class)->get_preferred_height (widget, minimum, natural);
 }
 
 static void
 parrillada_player_bacon_size_allocate (GtkWidget *widget,
-				    GtkAllocation *allocation)
+                                    GtkAllocation *allocation)
 {
 	int screen_x, screen_y;
 	ParrilladaPlayerBacon *bacon;
 	gfloat screen_width, screen_height, ratio;
 
 	g_return_if_fail (widget != NULL);
-	bacon = PARRILLADA_PLAYER_BACON (widget);
 
 	if (!gtk_widget_get_realized (widget))
 		return;
 
+	bacon = PARRILLADA_PLAYER_BACON (widget);
 	if (bacon->priv->xoverlay) {
 		screen_width = allocation->width;
 		screen_height = allocation->height;
@@ -258,28 +253,26 @@ parrillada_player_bacon_size_allocate (GtkWidget *widget,
 		GTK_WIDGET_CLASS (parrillada_player_bacon_parent_class)->size_allocate (widget, allocation);
 }
 
+/* FIXME: we could get rid of this by setting the XID directly on playbin
+ * right after creation, since it proxies the video overlay interface now */
 static GstBusSyncReply
 parrillada_player_bacon_bus_messages_handler (GstBus *bus,
 					   GstMessage *message,
 					   ParrilladaPlayerBacon *bacon)
 {
-	const GstStructure *structure;
-
-	structure = gst_message_get_structure (message);
-	if (!structure)
-		return GST_BUS_PASS;
-
-	if (!gst_structure_has_name (structure, "prepare-xwindow-id"))
+	if (!gst_is_video_overlay_prepare_window_handle_message (message))
 		return GST_BUS_PASS;
 
 	/* NOTE: apparently GDK does not like to be asked to retrieve the XID
 	 * in a thread so we do it in the callback of the expose event. */
-	bacon->priv->xoverlay = GST_X_OVERLAY (GST_MESSAGE_SRC (message));
-	gst_x_overlay_set_xwindow_id (bacon->priv->xoverlay, bacon->priv->xid);
+	bacon->priv->xoverlay = GST_VIDEO_OVERLAY (GST_MESSAGE_SRC (message));
+	gst_video_overlay_set_window_handle (bacon->priv->xoverlay,
+	                                     bacon->priv->xid);
 
 	return GST_BUS_DROP;
 }
 
+#if 0
 static void
 parrillada_player_bacon_clear_pipe (ParrilladaPlayerBacon *bacon)
 {
@@ -304,6 +297,7 @@ parrillada_player_bacon_clear_pipe (ParrilladaPlayerBacon *bacon)
 		bacon->priv->uri = NULL;
 	}
 }
+#endif
 
 void
 parrillada_player_bacon_set_uri (ParrilladaPlayerBacon *bacon, const gchar *uri)
@@ -465,34 +459,36 @@ gboolean
 parrillada_player_bacon_forward (ParrilladaPlayerBacon *bacon,
                               gint64 pos)
 {
+	gint64 cur;
+
 	if (!bacon->priv->pipe)
 		return FALSE;
 
-	return gst_element_seek (bacon->priv->pipe,
-				 1.0,
+	if (!gst_element_query_position (bacon->priv->pipe, GST_FORMAT_TIME, &cur))
+		return FALSE;
+
+	return gst_element_seek_simple (bacon->priv->pipe,
 				 GST_FORMAT_TIME,
 				 GST_SEEK_FLAG_FLUSH,
-				 GST_SEEK_TYPE_CUR,
-				 pos,
-				 GST_SEEK_TYPE_NONE,
-				 0);
+				 cur + pos);
 }
 
 gboolean
 parrillada_player_bacon_backward (ParrilladaPlayerBacon *bacon,
                                gint64 pos)
 {
+	gint64 cur;
+
 	if (!bacon->priv->pipe)
 		return FALSE;
 
-	return gst_element_seek (bacon->priv->pipe,
-				 1.0,
+	if (!gst_element_query_position (bacon->priv->pipe, GST_FORMAT_TIME, &cur))
+		return FALSE;
+
+	return gst_element_seek_simple (bacon->priv->pipe,
 				 GST_FORMAT_TIME,
 				 GST_SEEK_FLAG_FLUSH,
-				 GST_SEEK_TYPE_SET,
-				 - pos,
-				 GST_SEEK_TYPE_NONE,
-				 0);
+				 MAX (0, cur - pos));
 }
 
 gboolean
@@ -516,7 +512,6 @@ gboolean
 parrillada_player_bacon_get_pos (ParrilladaPlayerBacon *bacon,
 			      gint64 *pos)
 {
-	GstFormat format = GST_FORMAT_TIME;
 	gboolean result;
 	gint64 value;
 
@@ -525,7 +520,7 @@ parrillada_player_bacon_get_pos (ParrilladaPlayerBacon *bacon,
 
 	if (pos) {
 		result = gst_element_query_position (bacon->priv->pipe,
-						     &format,
+						     GST_FORMAT_TIME,
 						     &value);
 		if (!result)
 			return FALSE;
@@ -571,15 +566,18 @@ parrillada_player_bacon_setup_pipe (ParrilladaPlayerBacon *bacon)
 			      NULL);
 
 		element = gst_bin_get_by_interface (GST_BIN (video_sink),
-						    GST_TYPE_X_OVERLAY);
-		if (element && GST_IS_X_OVERLAY (element))
-			bacon->priv->xoverlay = GST_X_OVERLAY (element);
+						    GST_TYPE_VIDEO_OVERLAY);
+		if (element && GST_IS_VIDEO_OVERLAY (element))
+			bacon->priv->xoverlay = GST_VIDEO_OVERLAY (element);
 	}
 
 	bus = gst_pipeline_get_bus (GST_PIPELINE (bacon->priv->pipe));
+	/* FIXME: we should just set the XID directly on playbin right after
+	 * creation, since it proxies the video overlay interface now, and get
+	 * rid of the sync message handler and the stuff above */
 	gst_bus_set_sync_handler (bus,
 				  (GstBusSyncHandler) parrillada_player_bacon_bus_messages_handler,
-				  bacon);
+				  bacon, NULL);
 	gst_bus_add_watch (bus,
 			   (GstBusFunc) parrillada_player_bacon_bus_messages,
 			   bacon);
@@ -619,7 +617,7 @@ parrillada_player_bacon_init (ParrilladaPlayerBacon *obj)
 }
 
 static void
-parrillada_player_bacon_destroy (GtkObject *obj)
+parrillada_player_bacon_destroy (GtkWidget *obj)
 {
 	ParrilladaPlayerBacon *cobj;
 
@@ -638,7 +636,7 @@ parrillada_player_bacon_destroy (GtkObject *obj)
 	}
 
 	if (cobj->priv->xoverlay
-	&&  GST_IS_X_OVERLAY (cobj->priv->xoverlay))
+	&&  GST_IS_VIDEO_OVERLAY (cobj->priv->xoverlay))
 		cobj->priv->xoverlay = NULL;
 
 	if (cobj->priv->pipe) {
@@ -652,8 +650,8 @@ parrillada_player_bacon_destroy (GtkObject *obj)
 		cobj->priv->uri = NULL;
 	}
 
-	if (GTK_OBJECT_CLASS (parrillada_player_bacon_parent_class)->destroy)
-		GTK_OBJECT_CLASS (parrillada_player_bacon_parent_class)->destroy (obj);
+	if (GTK_WIDGET_CLASS (parrillada_player_bacon_parent_class)->destroy)
+		GTK_WIDGET_CLASS (parrillada_player_bacon_parent_class)->destroy (obj);
 }
 
 static void
@@ -671,18 +669,18 @@ static void
 parrillada_player_bacon_class_init (ParrilladaPlayerBaconClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS(klass);
-	GtkObjectClass *gtk_object_class = GTK_OBJECT_CLASS (klass);
 	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
 	object_class->finalize = parrillada_player_bacon_finalize;
 	object_class->set_property = parrillada_player_bacon_set_property;
 	object_class->get_property = parrillada_player_bacon_get_property;
-	gtk_object_class->destroy = parrillada_player_bacon_destroy;
 
-	widget_class->expose_event = parrillada_player_bacon_expose;
+	widget_class->destroy = parrillada_player_bacon_destroy;
+	widget_class->draw = parrillada_player_bacon_draw;
 	widget_class->realize = parrillada_player_bacon_realize;
 	widget_class->unrealize = parrillada_player_bacon_unrealize;
-	widget_class->size_request = parrillada_player_bacon_size_request;
+        widget_class->get_preferred_width = parrillada_player_bacon_get_preferred_width;
+        widget_class->get_preferred_height = parrillada_player_bacon_get_preferred_height;
 	widget_class->size_allocate = parrillada_player_bacon_size_allocate;
 
 	parrillada_player_bacon_signals [STATE_CHANGED_SIGNAL] = 

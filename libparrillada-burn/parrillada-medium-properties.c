@@ -120,12 +120,9 @@ static gboolean
 parrillada_medium_properties_wrong_extension (ParrilladaSessionCfg *session,
 					   ParrilladaMediumProperties *self)
 {
+	guint answer;
 	GtkWidget *dialog;
 	GtkWidget *toplevel;
-	GtkResponseType answer;
-	ParrilladaMediumPropertiesPrivate *priv;
-
-	priv = PARRILLADA_MEDIUM_PROPERTIES_PRIVATE (self);
 
 	toplevel = gtk_widget_get_toplevel (GTK_WIDGET (self));
 	dialog = gtk_message_dialog_new (GTK_WINDOW (toplevel),
@@ -170,7 +167,8 @@ parrillada_medium_properties_image_properties (ParrilladaMediumProperties *self)
 					      PARRILLADA_SESSION_CFG (priv->session));
 
 	gtk_dialog_add_buttons (GTK_DIALOG (priv->medium_prop),
-				GTK_STOCK_CLOSE, GTK_RESPONSE_OK,
+				GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+				GTK_STOCK_SAVE, GTK_RESPONSE_OK,
 				NULL);
 
 	toplevel = GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (self)));
@@ -233,10 +231,6 @@ parrillada_medium_properties_output_changed (ParrilladaBurnSession *session,
 static void
 parrillada_medium_properties_init (ParrilladaMediumProperties *object)
 {
-	ParrilladaMediumPropertiesPrivate *priv;
-
-	priv = PARRILLADA_MEDIUM_PROPERTIES_PRIVATE (object);
-
 	gtk_widget_set_tooltip_text (GTK_WIDGET (object), _("Configure recording options"));
 }
 

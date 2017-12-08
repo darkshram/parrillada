@@ -47,12 +47,12 @@ typedef struct _ParrilladaRename ParrilladaRename;
 
 struct _ParrilladaRenameClass
 {
-	GtkVBoxClass parent_class;
+	GtkBoxClass parent_class;
 };
 
 struct _ParrilladaRename
 {
-	GtkVBox parent_instance;
+	GtkBox parent_instance;
 };
 
 GType parrillada_rename_get_type (void) G_GNUC_CONST;

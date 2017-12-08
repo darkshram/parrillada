@@ -18,7 +18,7 @@ AM_CPPFLAGS = \
 cdrdaodir = $(PARRILLADA_PLUGIN_DIRECTORY)
 cdrdao_LTLIBRARIES = libparrillada-cdrdao.la
 libparrillada_cdrdao_la_SOURCES = burn-cdrdao.c 
-libparrillada_cdrdao_la_LIBADD = ../../libparrillada-media/libparrillada-media@PARRILLADA_LIBRARY_SUFFIX@.la ../../libparrillada-burn/libparrillada-burn@PARRILLADA_LIBRARY_SUFFIX@.la $(PARRILLADA_GLIB_LIBS)
+libparrillada_cdrdao_la_LIBADD = ../../libparrillada-media/libparrillada-media3.la ../../libparrillada-burn/libparrillada-burn3.la $(PARRILLADA_GLIB_LIBS)
 libparrillada_cdrdao_la_LDFLAGS = -module -avoid-version
 
 -include $(top_srcdir)/git.mk

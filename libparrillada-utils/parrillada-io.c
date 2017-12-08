@@ -602,16 +602,17 @@ parrillada_io_mount_enclosing_volume (ParrilladaIO *self,
 	GMount *mounted;
 	GtkWindow *parent;
 	ParrilladaIOPrivate *priv;
-	GMountOperation *operation;
 	ParrilladaIOMount mount = { NULL, };
+	GMountOperation *operation = NULL;
 
 	priv = PARRILLADA_IO_PRIVATE (self);
 
-	if (priv->win_callback)
+	if (priv->win_callback) {
 		parent = priv->win_callback (priv->win_user_data);
 
-	if (parent)
-		operation = gtk_mount_operation_new (parent);
+		if (parent)
+			operation = gtk_mount_operation_new (parent);
+	}
 
 	g_file_mount_enclosing_volume (file,
 				       G_MOUNT_MOUNT_NONE,
@@ -619,7 +620,8 @@ parrillada_io_mount_enclosing_volume (ParrilladaIO *self,
 				       cancel,
 				       parrillada_io_mount_enclosing_volume_cb,
 				       &mount);
-	g_object_unref (operation);
+	if (operation)
+		g_object_unref (operation);
 
 	/* sleep and wait operation end */
 	while (!mount.finished && !g_cancellable_is_cancelled (cancel))
@@ -834,7 +836,6 @@ static void
 parrillada_io_set_metadata_attributes (GFileInfo *info,
 				    ParrilladaMetadataInfo *metadata)
 {
-	g_file_info_set_attribute_int32 (info, PARRILLADA_IO_ISRC, metadata->isrc);
 	g_file_info_set_attribute_uint64 (info, PARRILLADA_IO_LEN, metadata->len);
 
 	if (metadata->type)
@@ -854,6 +855,9 @@ parrillada_io_set_metadata_attributes (GFileInfo *info,
 
 	if (metadata->composer)
 		g_file_info_set_attribute_string (info, PARRILLADA_IO_COMPOSER, metadata->composer);
+
+	if (metadata->isrc)
+		g_file_info_set_attribute_string (info, PARRILLADA_IO_ISRC, metadata->isrc);
 
 	g_file_info_set_attribute_boolean (info, PARRILLADA_IO_HAS_AUDIO, metadata->has_audio);
 	if (metadata->has_audio) {
@@ -2353,7 +2357,7 @@ static int
 		GtkWindow *parent;
 
 		parent = priv->win_callback (priv->win_user_data);
-		xid = gdk_x11_drawable_get_xid (GDK_DRAWABLE (gtk_widget_get_window(GTK_WIDGET (parent))));
+		xid = gdk_x11_window_get_xid (gtk_widget_get_window(GTK_WIDGET (parent)));
 		return xid;
 	}
 

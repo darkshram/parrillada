@@ -3,25 +3,27 @@ SUBDIRS = icons mime
 convertdir=$(datadir)/GConf/gsettings
 convert_DATA=parrillada.convert
 
-gsettings_in_file = org.mate.parrillada.gschema.xml.in
-gsettings_SCHEMAS = $(gsettings_in_file:.xml.in=.xml)
-@INTLTOOL_XML_NOMERGE_RULE@
+gsettings_SCHEMAS = org.mate.parrillada.gschema.xml
 @GSETTINGS_RULES@
 
 desktopdir=$(datadir)/applications
 desktop_in_files =	parrillada.desktop.in
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
-
 @INTLTOOL_DESKTOP_RULE@
 
-IMAGES =	logo.png
+appdatadir = $(datadir)/metainfo
+appdata_in_files = parrillada.appdata.xml.in
+appdata_DATA = $(appdata_in_files:.xml.in=.xml)
+@INTLTOOL_XML_RULE@
 
-CLEANFILES =		$(desktop_DATA)		\
-			$(gsettings_SCHEMAS)
+CLEANFILES =		$(appdata_DATA)	\
+			$(desktop_DATA)
 
 
-EXTRA_DIST = 		$(desktop_in_files)	\
-			$(gsettings_in_file)	\
+
+EXTRA_DIST = 		$(appdata_in_files)	\
+			$(desktop_in_files)	\
+			$(gsettings_SCHEMAS)	\
 			$(convert_DATA)
 
 UPDATE_DESKTOP = \

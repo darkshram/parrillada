@@ -33,10 +33,13 @@
 #endif
 
 #include <string.h>
+#include <sys/resource.h>
 
 #include <glib.h>
 #include <glib-object.h>
 #include <glib/gi18n-lib.h>
+
+#include "parrillada-volume.h"
 
 #include "burn-basics.h"
 #include "burn-debug.h"
@@ -70,13 +73,22 @@ struct _ParrilladaSessionCfgPrivate
 	ParrilladaBurnFlag supported;
 	ParrilladaBurnFlag compulsory;
 
+	/* Do some caching to improve performances */
+	ParrilladaImageFormat output_format;
 	gchar *output;
+
+	ParrilladaTrackType *source;
+	goffset disc_size;
+	goffset session_blocks;
+	goffset session_size;
 
 	ParrilladaSessionError is_valid;
 
 	guint CD_TEXT_modified:1;
 	guint configuring:1;
 	guint disabled:1;
+
+	guint output_msdos:1;
 };
 
 #define PARRILLADA_SESSION_CFG_PRIVATE(o)  (G_TYPE_INSTANCE_GET_PRIVATE ((o), PARRILLADA_TYPE_SESSION_CFG, ParrilladaSessionCfgPrivate))
@@ -114,7 +126,7 @@ parrillada_session_cfg_tag_changed (ParrilladaBurnSession *session,
 
 /**
  * parrillada_session_cfg_has_default_output_path:
- * @cfg: a #ParrilladaSessionCfg
+ * @session: a #ParrilladaSessionCfg
  *
  * This function returns whether the path returned
  * by parrillada_burn_session_get_output () is an 
@@ -310,8 +322,10 @@ parrillada_session_cfg_get_output_path (ParrilladaBurnSession *session,
 	ParrilladaBurnResult result;
 	ParrilladaImageFormat format;
 	ParrilladaBurnSessionClass *klass;
+	ParrilladaSessionCfgPrivate *priv;
 
 	klass = PARRILLADA_BURN_SESSION_CLASS (parrillada_session_cfg_parent_class);
+	priv = PARRILLADA_SESSION_CFG_PRIVATE (session);
 
 	result = klass->get_output_path (session,
 					 image,
@@ -319,8 +333,13 @@ parrillada_session_cfg_get_output_path (ParrilladaBurnSession *session,
 	if (result == PARRILLADA_BURN_OK)
 		return result;
 
-	format = parrillada_burn_session_get_output_format (session);
-	path = parrillada_image_format_get_default_path (format);
+	if (priv->output_format == PARRILLADA_IMAGE_FORMAT_NONE)
+		return PARRILLADA_BURN_ERR;
+
+	/* Note: path and format are determined earlier in fact, in the function
+	 * that check the free space on the hard drive. */
+	path = g_strdup (priv->output);
+	format = priv->output_format;
 
 	switch (format) {
 	case PARRILLADA_IMAGE_FORMAT_BIN:
@@ -340,6 +359,8 @@ parrillada_session_cfg_get_output_path (ParrilladaBurnSession *session,
 
 	default:
 		g_free (path);
+		g_free (priv->output);
+		priv->output = NULL;
 		return PARRILLADA_BURN_ERR;
 	}
 
@@ -350,20 +371,28 @@ static ParrilladaImageFormat
 parrillada_session_cfg_get_output_format (ParrilladaBurnSession *session)
 {
 	ParrilladaBurnSessionClass *klass;
+	ParrilladaSessionCfgPrivate *priv;
 	ParrilladaImageFormat format;
 
 	klass = PARRILLADA_BURN_SESSION_CLASS (parrillada_session_cfg_parent_class);
 	format = klass->get_output_format (session);
 
-	if (format == PARRILLADA_IMAGE_FORMAT_NONE)
-		format = parrillada_burn_session_get_default_output_format (session);
+	if (format != PARRILLADA_IMAGE_FORMAT_NONE)
+		return format;
 
-	return format;
+	priv = PARRILLADA_SESSION_CFG_PRIVATE (session);
+
+	if (priv->output_format)
+		return priv->output_format;
+
+	/* Cache the path for later use */
+	priv->output_format = parrillada_burn_session_get_default_output_format (session);
+	return priv->output_format;
 }
 
 /**
  * parrillada_session_cfg_get_error:
- * @cfg: a #ParrilladaSessionCfg
+ * @session: a #ParrilladaSessionCfg
  *
  * This function returns the current status and if
  * autoconfiguration is/was successful.
@@ -372,11 +401,11 @@ parrillada_session_cfg_get_output_format (ParrilladaBurnSession *session)
  **/
 
 ParrilladaSessionError
-parrillada_session_cfg_get_error (ParrilladaSessionCfg *self)
+parrillada_session_cfg_get_error (ParrilladaSessionCfg *session)
 {
 	ParrilladaSessionCfgPrivate *priv;
 
-	priv = PARRILLADA_SESSION_CFG_PRIVATE (self);
+	priv = PARRILLADA_SESSION_CFG_PRIVATE (session);
 
 	if (priv->is_valid == PARRILLADA_SESSION_VALID
 	&&  priv->CD_TEXT_modified)
@@ -387,35 +416,35 @@ parrillada_session_cfg_get_error (ParrilladaSessionCfg *self)
 
 /**
  * parrillada_session_cfg_disable:
- * @cfg: a #ParrilladaSessionCfg
+ * @session: a #ParrilladaSessionCfg
  *
  * This function disables autoconfiguration
  *
  **/
 
 void
-parrillada_session_cfg_disable (ParrilladaSessionCfg *self)
+parrillada_session_cfg_disable (ParrilladaSessionCfg *session)
 {
 	ParrilladaSessionCfgPrivate *priv;
 
-	priv = PARRILLADA_SESSION_CFG_PRIVATE (self);
+	priv = PARRILLADA_SESSION_CFG_PRIVATE (session);
 	priv->disabled = TRUE;
 }
 
 /**
  * parrillada_session_cfg_enable:
- * @cfg: a #ParrilladaSessionCfg
+ * @session: a #ParrilladaSessionCfg
  *
  * This function (re)-enables autoconfiguration
  *
  **/
 
 void
-parrillada_session_cfg_enable (ParrilladaSessionCfg *self)
+parrillada_session_cfg_enable (ParrilladaSessionCfg *session)
 {
 	ParrilladaSessionCfgPrivate *priv;
 
-	priv = PARRILLADA_SESSION_CFG_PRIVATE (self);
+	priv = PARRILLADA_SESSION_CFG_PRIVATE (session);
 	priv->disabled = FALSE;
 }
 
@@ -521,7 +550,6 @@ parrillada_session_cfg_set_drive_properties_flags (ParrilladaSessionCfg *self,
 						ParrilladaBurnFlag flags)
 {
 	ParrilladaDrive *drive;
-	ParrilladaMedia media;
 	ParrilladaBurnFlag flag;
 	ParrilladaMedium *medium;
 	ParrilladaBurnResult result;
@@ -531,6 +559,16 @@ parrillada_session_cfg_set_drive_properties_flags (ParrilladaSessionCfg *self,
 	priv = PARRILLADA_SESSION_CFG_PRIVATE (self);
 
 	original_flags = parrillada_burn_session_get_flags (PARRILLADA_BURN_SESSION (self));
+
+	/* If the session is invalid no need to check the flags: just add them.
+	 * The correct flags will be re-computed anyway when the session becomes
+	 * valid again. */
+	if (priv->is_valid != PARRILLADA_SESSION_VALID) {
+		PARRILLADA_BURN_LOG ("Session currently not ready for flag computation: adding flags (will update later)");
+		parrillada_burn_session_set_flags (PARRILLADA_BURN_SESSION (self), flags);
+		return;
+	}
+
 	PARRILLADA_BURN_LOG ("Resetting all flags");
 	PARRILLADA_BURN_LOG_FLAGS (original_flags, "Current are");
 	PARRILLADA_BURN_LOG_FLAGS (flags, "New should be");
@@ -546,8 +584,6 @@ parrillada_session_cfg_set_drive_properties_flags (ParrilladaSessionCfg *self,
 		PARRILLADA_BURN_LOG ("No medium");
 		return;
 	}
-
-	media = parrillada_medium_get_status (medium);
 
 	/* This prevents signals to be emitted while (re-) adding them one by one */
 	g_object_freeze_notify (G_OBJECT (self));
@@ -652,10 +688,7 @@ parrillada_session_cfg_rm_drive_properties_flags (ParrilladaSessionCfg *self,
 static void
 parrillada_session_cfg_check_drive_settings (ParrilladaSessionCfg *self)
 {
-	ParrilladaSessionCfgPrivate *priv;
 	ParrilladaBurnFlag flags;
-
-	priv = PARRILLADA_SESSION_CFG_PRIVATE (self);
 
 	/* Try to properly update the flags for the current drive */
 	flags = parrillada_burn_session_get_flags (PARRILLADA_BURN_SESSION (self));
@@ -669,6 +702,115 @@ parrillada_session_cfg_check_drive_settings (ParrilladaSessionCfg *self)
 }
 
 static ParrilladaSessionError
+parrillada_session_cfg_check_volume_size (ParrilladaSessionCfg *self)
+{
+	struct rlimit limit;
+	ParrilladaSessionCfgPrivate *priv;
+
+	priv = PARRILLADA_SESSION_CFG_PRIVATE (self);
+	if (!priv->disc_size) {
+		GFileInfo *info;
+		gchar *directory;
+		GFile *file = NULL;
+		const gchar *filesystem;
+
+		/* Cache the path for later use */
+		if (priv->output_format == PARRILLADA_IMAGE_FORMAT_NONE)
+			priv->output_format = parrillada_burn_session_get_output_format (PARRILLADA_BURN_SESSION (self));
+
+		if (!priv->output) {
+			gchar *name = NULL;
+
+			/* If we try to copy a volume get (and use) its name */
+			if (parrillada_track_type_get_has_medium (priv->source)) {
+				ParrilladaMedium *medium;
+
+				medium = parrillada_burn_session_get_src_medium (PARRILLADA_BURN_SESSION (self));
+				if (medium)
+					name = parrillada_volume_get_name (PARRILLADA_VOLUME (medium));
+			}
+
+			priv->output = parrillada_image_format_get_default_path (priv->output_format, name);
+			g_free (name);
+		}
+
+		directory = g_path_get_dirname (priv->output);
+		file = g_file_new_for_path (directory);
+		g_free (directory);
+
+		if (file == NULL)
+			goto error;
+
+		/* Check permissions first */
+		info = g_file_query_info (file,
+					  G_FILE_ATTRIBUTE_ACCESS_CAN_WRITE,
+					  G_FILE_QUERY_INFO_NONE,
+					  NULL,
+					  NULL);
+		if (!info) {
+			g_object_unref (file);
+			goto error;
+		}
+
+		if (!g_file_info_get_attribute_boolean (info, G_FILE_ATTRIBUTE_ACCESS_CAN_WRITE)) {
+			g_object_unref (info);
+			g_object_unref (file);
+			goto error;
+		}
+		g_object_unref (info);
+
+		/* Now size left */
+		info = g_file_query_filesystem_info (file,
+						     G_FILE_ATTRIBUTE_FILESYSTEM_FREE ","
+						     G_FILE_ATTRIBUTE_FILESYSTEM_TYPE,
+						     NULL,
+						     NULL);
+		g_object_unref (file);
+
+		if (!info)
+			goto error;
+
+		/* Now check the filesystem type: the problem here is that some
+		 * filesystems have a maximum file size limit of 4 GiB and more than
+		 * often we need a temporary file size of 4 GiB or more. */
+		filesystem = g_file_info_get_attribute_string (info, G_FILE_ATTRIBUTE_FILESYSTEM_TYPE);
+		if (!g_strcmp0 (filesystem, "msdos"))
+			priv->output_msdos = TRUE;
+		else
+			priv->output_msdos = FALSE;
+
+		priv->disc_size = g_file_info_get_attribute_uint64 (info, G_FILE_ATTRIBUTE_FILESYSTEM_FREE);
+		g_object_unref (info);
+	}
+
+	PARRILLADA_BURN_LOG ("Session size %lli/Hard drive size %lli",
+			  priv->session_size,
+			  priv->disc_size);
+
+	if (priv->output_msdos && priv->session_size >= 2147483648ULL)
+		goto error;
+
+	if (priv->session_size > priv->disc_size)
+		goto error;
+
+	/* Last but not least, use getrlimit () to check that we are allowed to
+	 * write a file of such length and that quotas won't get in our way */
+	if (getrlimit (RLIMIT_FSIZE, &limit))
+		goto error;
+
+	if (limit.rlim_cur < priv->session_size)
+		goto error;
+
+	priv->is_valid = PARRILLADA_SESSION_VALID;
+	return PARRILLADA_SESSION_VALID;
+
+error:
+
+	priv->is_valid = PARRILLADA_SESSION_INSUFFICIENT_SPACE;
+	return PARRILLADA_SESSION_INSUFFICIENT_SPACE;
+}
+
+static ParrilladaSessionError
 parrillada_session_cfg_check_size (ParrilladaSessionCfg *self)
 {
 	ParrilladaSessionCfgPrivate *priv;
@@ -677,23 +819,39 @@ parrillada_session_cfg_check_size (ParrilladaSessionCfg *self)
 	ParrilladaDrive *burner;
 	GValue *value = NULL;
 	/* in sectors */
-	goffset session_size;
 	goffset max_sectors;
-	goffset disc_size;
 
 	priv = PARRILLADA_SESSION_CFG_PRIVATE (self);
 
+	/* Get the session size if need be */
+	if (!priv->session_blocks) {
+		if (parrillada_burn_session_tag_lookup (PARRILLADA_BURN_SESSION (self),
+						     PARRILLADA_DATA_TRACK_SIZE_TAG,
+						     &value) == PARRILLADA_BURN_OK) {
+			priv->session_blocks = g_value_get_int64 (value);
+			priv->session_size = priv->session_blocks * 2048;
+		}
+		else if (parrillada_burn_session_tag_lookup (PARRILLADA_BURN_SESSION (self),
+							  PARRILLADA_STREAM_TRACK_SIZE_TAG,
+							  &value) == PARRILLADA_BURN_OK) {
+			priv->session_blocks = g_value_get_int64 (value);
+			priv->session_size = priv->session_blocks * 2352;
+		}
+		else
+			parrillada_burn_session_get_size (PARRILLADA_BURN_SESSION (self),
+						       &priv->session_blocks,
+						       &priv->session_size);
+	}
+
+	/* Get the disc and its size if need be */
 	burner = parrillada_burn_session_get_burner (PARRILLADA_BURN_SESSION (self));
 	if (!burner) {
 		priv->is_valid = PARRILLADA_SESSION_NO_OUTPUT;
 		return PARRILLADA_SESSION_NO_OUTPUT;
 	}
 
-	/* FIXME: here we could check the hard drive space */
-	if (parrillada_drive_is_fake (burner)) {
-		priv->is_valid = PARRILLADA_SESSION_VALID;
-		return PARRILLADA_SESSION_VALID;
-	}
+	if (parrillada_drive_is_fake (burner))
+		return parrillada_session_cfg_check_volume_size (self);
 
 	medium = parrillada_drive_get_medium (burner);
 	if (!medium) {
@@ -701,33 +859,18 @@ parrillada_session_cfg_check_size (ParrilladaSessionCfg *self)
 		return PARRILLADA_SESSION_NO_OUTPUT;
 	}
 
-	disc_size = parrillada_burn_session_get_available_medium_space (PARRILLADA_BURN_SESSION (self));
-	if (disc_size < 0)
-		disc_size = 0;
-
-	/* get input track size */
-	session_size = 0;
-
-	if (parrillada_burn_session_tag_lookup (PARRILLADA_BURN_SESSION (self),
-					     PARRILLADA_DATA_TRACK_SIZE_TAG,
-					     &value) == PARRILLADA_BURN_OK) {
-		session_size = g_value_get_int64 (value);
+	/* Get both sizes if need be */
+	if (!priv->disc_size) {
+		priv->disc_size = parrillada_burn_session_get_available_medium_space (PARRILLADA_BURN_SESSION (self));
+		if (priv->disc_size < 0)
+			priv->disc_size = 0;
 	}
-	else if (parrillada_burn_session_tag_lookup (PARRILLADA_BURN_SESSION (self),
-						  PARRILLADA_STREAM_TRACK_SIZE_TAG,
-						  &value) == PARRILLADA_BURN_OK) {
-		session_size = g_value_get_int64 (value);
-	}
-	else
-		parrillada_burn_session_get_size (PARRILLADA_BURN_SESSION (self),
-					       &session_size,
-					       NULL);
 
 	PARRILLADA_BURN_LOG ("Session size %lli/Disc size %lli",
-			  session_size,
-			  disc_size);
+			  priv->session_blocks,
+			  priv->disc_size);
 
-	if (session_size < disc_size) {
+	if (priv->session_blocks < priv->disc_size) {
 		priv->is_valid = PARRILLADA_SESSION_VALID;
 		return PARRILLADA_SESSION_VALID;
 	}
@@ -743,8 +886,8 @@ parrillada_session_cfg_check_size (ParrilladaSessionCfg *self)
 	 * when we propose overburning to the user, we could ask if he wants
 	 * us to determine how much data can be written to a particular disc
 	 * provided he has chosen a real disc. */
-	max_sectors = disc_size * 103 / 100;
-	if (max_sectors < session_size) {
+	max_sectors = priv->disc_size * 103 / 100;
+	if (max_sectors < priv->session_blocks) {
 		priv->is_valid = PARRILLADA_SESSION_INSUFFICIENT_SPACE;
 		return PARRILLADA_SESSION_INSUFFICIENT_SPACE;
 	}
@@ -787,19 +930,20 @@ parrillada_session_cfg_set_tracks_audio_format (ParrilladaBurnSession *session,
 	}
 }
 
-static void
-parrillada_session_cfg_update (ParrilladaSessionCfg *self)
+static gboolean
+parrillada_session_cfg_can_update (ParrilladaSessionCfg *self)
 {
-	ParrilladaTrackType *source = NULL;
 	ParrilladaSessionCfgPrivate *priv;
 	ParrilladaBurnResult result;
 	ParrilladaStatus *status;
-	ParrilladaDrive *burner;
 
 	priv = PARRILLADA_SESSION_CFG_PRIVATE (self);
 
+	if (priv->disabled)
+		return FALSE;
+
 	if (priv->configuring)
-		return;
+		return FALSE;
 
 	/* Make sure the session is ready */
 	status = parrillada_status_new ();
@@ -811,7 +955,7 @@ parrillada_session_cfg_update (ParrilladaSessionCfg *self)
 		g_signal_emit (self,
 			       session_cfg_signals [IS_VALID_SIGNAL],
 			       0);
-		return;
+		return FALSE;
 	}
 
 	if (result == PARRILLADA_BURN_ERR) {
@@ -827,21 +971,35 @@ parrillada_session_cfg_update (ParrilladaSessionCfg *self)
 				g_signal_emit (self,
 					       session_cfg_signals [IS_VALID_SIGNAL],
 					       0);
-				return;
+				return FALSE;
 			}
 
 			g_error_free (error);
 		}
 	}
 	g_object_unref (status);
+	return TRUE;
+}
+
+static void
+parrillada_session_cfg_update (ParrilladaSessionCfg *self)
+{
+	ParrilladaSessionCfgPrivate *priv;
+	ParrilladaBurnResult result;
+	ParrilladaDrive *burner;
+
+	priv = PARRILLADA_SESSION_CFG_PRIVATE (self);
 
 	/* Make sure there is a source */
-	source = parrillada_track_type_new ();
-	parrillada_burn_session_get_input_type (PARRILLADA_BURN_SESSION (self), source);
+	if (priv->source) {
+		parrillada_track_type_free (priv->source);
+		priv->source = NULL;
+	}
 
-	if (parrillada_track_type_is_empty (source)) {
-		parrillada_track_type_free (source);
+	priv->source = parrillada_track_type_new ();
+	parrillada_burn_session_get_input_type (PARRILLADA_BURN_SESSION (self), priv->source);
 
+	if (parrillada_track_type_is_empty (priv->source)) {
 		priv->is_valid = PARRILLADA_SESSION_EMPTY;
 		g_signal_emit (self,
 			       session_cfg_signals [IS_VALID_SIGNAL],
@@ -850,10 +1008,8 @@ parrillada_session_cfg_update (ParrilladaSessionCfg *self)
 	}
 
 	/* it can be empty with just an empty track */
-	if (parrillada_track_type_get_has_medium (source)
-	&&  parrillada_track_type_get_medium_type (source) == PARRILLADA_MEDIUM_NONE) {
-		parrillada_track_type_free (source);
-
+	if (parrillada_track_type_get_has_medium (priv->source)
+	&&  parrillada_track_type_get_medium_type (priv->source) == PARRILLADA_MEDIUM_NONE) {
 		priv->is_valid = PARRILLADA_SESSION_NO_INPUT_MEDIUM;
 		g_signal_emit (self,
 			       session_cfg_signals [IS_VALID_SIGNAL],
@@ -861,12 +1017,10 @@ parrillada_session_cfg_update (ParrilladaSessionCfg *self)
 		return;
 	}
 
-	if (parrillada_track_type_get_has_image (source)
-	&&  parrillada_track_type_get_image_format (source) == PARRILLADA_IMAGE_FORMAT_NONE) {
+	if (parrillada_track_type_get_has_image (priv->source)
+	&&  parrillada_track_type_get_image_format (priv->source) == PARRILLADA_IMAGE_FORMAT_NONE) {
 		gchar *uri;
 		GSList *tracks;
-
-		parrillada_track_type_free (source);
 
 		tracks = parrillada_burn_session_get_tracks (PARRILLADA_BURN_SESSION (self));
 
@@ -897,8 +1051,6 @@ parrillada_session_cfg_update (ParrilladaSessionCfg *self)
 	/* make sure there is an output set */
 	burner = parrillada_burn_session_get_burner (PARRILLADA_BURN_SESSION (self));
 	if (!burner) {
-		parrillada_track_type_free (source);
-
 		priv->is_valid = PARRILLADA_SESSION_NO_OUTPUT;
 		g_signal_emit (self,
 			       session_cfg_signals [IS_VALID_SIGNAL],
@@ -906,46 +1058,56 @@ parrillada_session_cfg_update (ParrilladaSessionCfg *self)
 		return;
 	}
 
+	/* In case the output was an image remove the path cache. It will be
+	 * re-computed on demand. */
+	if (priv->output) {
+		g_free (priv->output);
+		priv->output = NULL;
+	}
+
+	if (priv->output_format)
+		priv->output_format = PARRILLADA_IMAGE_FORMAT_NONE;
+
 	/* Check that current input and output work */
-	if (parrillada_track_type_get_has_stream (source)) {
+	if (parrillada_track_type_get_has_stream (priv->source)) {
 		if (priv->CD_TEXT_modified) {
 			/* Try to redo what we undid (after all a new plugin
 			 * could have been activated in the mean time ...) and
 			 * see what happens */
-			parrillada_track_type_set_stream_format (source,
+			parrillada_track_type_set_stream_format (priv->source,
 							      PARRILLADA_METADATA_INFO|
-							      parrillada_track_type_get_stream_format (source));
-			result = parrillada_burn_session_input_supported (PARRILLADA_BURN_SESSION (self), source, FALSE);
+							      parrillada_track_type_get_stream_format (priv->source));
+			result = parrillada_burn_session_input_supported (PARRILLADA_BURN_SESSION (self), priv->source, FALSE);
 			if (result == PARRILLADA_BURN_OK) {
 				priv->CD_TEXT_modified = FALSE;
 
 				priv->configuring = TRUE;
 				parrillada_session_cfg_set_tracks_audio_format (PARRILLADA_BURN_SESSION (self),
-									     parrillada_track_type_get_stream_format (source));
+									     parrillada_track_type_get_stream_format (priv->source));
 				priv->configuring = FALSE;
 			}
 			else {
 				/* No, nothing's changed */
-				parrillada_track_type_set_stream_format (source,
+				parrillada_track_type_set_stream_format (priv->source,
 								      (~PARRILLADA_METADATA_INFO) &
-								      parrillada_track_type_get_stream_format (source));
-				result = parrillada_burn_session_input_supported (PARRILLADA_BURN_SESSION (self), source, FALSE);
+								      parrillada_track_type_get_stream_format (priv->source));
+				result = parrillada_burn_session_input_supported (PARRILLADA_BURN_SESSION (self), priv->source, FALSE);
 			}
 		}
 		else {
 			result = parrillada_burn_session_can_burn (PARRILLADA_BURN_SESSION (self), FALSE);
 
 			if (result != PARRILLADA_BURN_OK
-			&& (parrillada_track_type_get_stream_format (source) & PARRILLADA_METADATA_INFO)) {
+			&& (parrillada_track_type_get_stream_format (priv->source) & PARRILLADA_METADATA_INFO)) {
 				/* Another special case in case some burning backends 
 				 * don't support CD-TEXT for audio (libburn). If no
 				 * other backend is available remove CD-TEXT option but
 				 * tell user... */
-				parrillada_track_type_set_stream_format (source,
+				parrillada_track_type_set_stream_format (priv->source,
 								      (~PARRILLADA_METADATA_INFO) &
-								      parrillada_track_type_get_stream_format (source));
+								      parrillada_track_type_get_stream_format (priv->source));
 
-				result = parrillada_burn_session_input_supported (PARRILLADA_BURN_SESSION (self), source, FALSE);
+				result = parrillada_burn_session_input_supported (PARRILLADA_BURN_SESSION (self), priv->source, FALSE);
 
 				PARRILLADA_BURN_LOG ("Tested support without Metadata information (result %d)", result);
 				if (result == PARRILLADA_BURN_OK) {
@@ -953,14 +1115,14 @@ parrillada_session_cfg_update (ParrilladaSessionCfg *self)
 
 					priv->configuring = TRUE;
 					parrillada_session_cfg_set_tracks_audio_format (PARRILLADA_BURN_SESSION (self),
-										     parrillada_track_type_get_has_stream (source));
+										     parrillada_track_type_get_has_stream (priv->source));
 					priv->configuring = FALSE;
 				}
 			}
 		}
 	}
-	else if (parrillada_track_type_get_has_medium (source)
-	&&  (parrillada_track_type_get_medium_type (source) & PARRILLADA_MEDIUM_HAS_AUDIO)) {
+	else if (parrillada_track_type_get_has_medium (priv->source)
+	&&  (parrillada_track_type_get_medium_type (priv->source) & PARRILLADA_MEDIUM_HAS_AUDIO)) {
 		ParrilladaImageFormat format = PARRILLADA_IMAGE_FORMAT_NONE;
 
 		/* If we copy an audio disc check the image
@@ -1013,9 +1175,9 @@ parrillada_session_cfg_update (ParrilladaSessionCfg *self)
 	}
 
 	if (result != PARRILLADA_BURN_OK) {
-		if (parrillada_track_type_get_has_medium (source)
-		&& (parrillada_track_type_get_medium_type (source) & PARRILLADA_MEDIUM_PROTECTED)
-		&&  parrillada_burn_library_input_supported (source) != PARRILLADA_BURN_OK) {
+		if (parrillada_track_type_get_has_medium (priv->source)
+		&& (parrillada_track_type_get_medium_type (priv->source) & PARRILLADA_MEDIUM_PROTECTED)
+		&&  parrillada_burn_library_input_supported (priv->source) != PARRILLADA_BURN_OK) {
 			/* This is a special case to display a helpful message */
 			priv->is_valid = PARRILLADA_SESSION_DISC_PROTECTED;
 			g_signal_emit (self,
@@ -1029,21 +1191,18 @@ parrillada_session_cfg_update (ParrilladaSessionCfg *self)
 				       0);
 		}
 
-		parrillada_track_type_free (source);
 		return;
 	}
 
 	/* Special case for video projects */
-	if (parrillada_track_type_get_has_stream (source)
-	&&  PARRILLADA_STREAM_FORMAT_HAS_VIDEO (parrillada_track_type_get_stream_format (source))) {
+	if (parrillada_track_type_get_has_stream (priv->source)
+	&&  PARRILLADA_STREAM_FORMAT_HAS_VIDEO (parrillada_track_type_get_stream_format (priv->source))) {
 		/* Only set if it was not already set */
 		if (parrillada_burn_session_tag_lookup (PARRILLADA_BURN_SESSION (self), PARRILLADA_VCD_TYPE, NULL) != PARRILLADA_BURN_OK)
 			parrillada_burn_session_tag_add_int (PARRILLADA_BURN_SESSION (self),
 							  PARRILLADA_VCD_TYPE,
 							  PARRILLADA_SVCD);
 	}
-
-	parrillada_track_type_free (source);
 
 	/* Configure flags */
 	priv->configuring = TRUE;
@@ -1083,6 +1242,9 @@ parrillada_session_cfg_session_loaded (ParrilladaTrackDataCfg *track,
 	priv = PARRILLADA_SESSION_CFG_PRIVATE (session);
 	if (priv->disabled)
 		return;
+	
+	priv->session_blocks = 0;
+	priv->session_size = 0;
 
 	session_flags = parrillada_burn_session_get_flags (PARRILLADA_BURN_SESSION (session));
 	if (is_loaded) {
@@ -1103,9 +1265,12 @@ parrillada_session_cfg_track_added (ParrilladaBurnSession *session,
 {
 	ParrilladaSessionCfgPrivate *priv;
 
-	priv = PARRILLADA_SESSION_CFG_PRIVATE (session);
-	if (priv->disabled)
+	if (!parrillada_session_cfg_can_update (PARRILLADA_SESSION_CFG (session)))
 		return;
+
+	priv = PARRILLADA_SESSION_CFG_PRIVATE (session);
+	priv->session_blocks = 0;
+	priv->session_size = 0;
 
 	if (PARRILLADA_IS_TRACK_DATA_CFG (track))
 		g_signal_connect (track,
@@ -1117,8 +1282,8 @@ parrillada_session_cfg_track_added (ParrilladaBurnSession *session,
 	 * - check if all flags are supported
 	 * - check available formats for path
 	 * - set one path */
-	parrillada_session_cfg_check_drive_settings (PARRILLADA_SESSION_CFG (session));
 	parrillada_session_cfg_update (PARRILLADA_SESSION_CFG (session));
+	parrillada_session_cfg_check_drive_settings (PARRILLADA_SESSION_CFG (session));
 }
 
 static void
@@ -1128,9 +1293,12 @@ parrillada_session_cfg_track_removed (ParrilladaBurnSession *session,
 {
 	ParrilladaSessionCfgPrivate *priv;
 
-	priv = PARRILLADA_SESSION_CFG_PRIVATE (session);
-	if (priv->disabled)
+	if (!parrillada_session_cfg_can_update (PARRILLADA_SESSION_CFG (session)))
 		return;
+
+	priv = PARRILLADA_SESSION_CFG_PRIVATE (session);
+	priv->session_blocks = 0;
+	priv->session_size = 0;
 
 	/* Just in case */
 	g_signal_handlers_disconnect_by_func (track,
@@ -1148,18 +1316,35 @@ parrillada_session_cfg_track_changed (ParrilladaBurnSession *session,
 				   ParrilladaTrack *track)
 {
 	ParrilladaSessionCfgPrivate *priv;
+	ParrilladaTrackType *current;
+
+	if (!parrillada_session_cfg_can_update (PARRILLADA_SESSION_CFG (session)))
+		return;
 
 	priv = PARRILLADA_SESSION_CFG_PRIVATE (session);
-	if (priv->disabled)
-		return;
+	priv->session_blocks = 0;
+	priv->session_size = 0;
+
+	current = parrillada_track_type_new ();
+	parrillada_burn_session_get_input_type (session, current);
+	if (parrillada_track_type_equal (current, priv->source)) {
+		/* This is a shortcut if the source type has not changed */
+		parrillada_track_type_free (current);
+		parrillada_session_cfg_check_size (PARRILLADA_SESSION_CFG (session));
+		g_signal_emit (session,
+			       session_cfg_signals [IS_VALID_SIGNAL],
+			       0);
+ 		return;
+	}
+	parrillada_track_type_free (current);
 
 	/* when that happens it's mostly because a medium source changed, or
 	 * a new image was set. 
 	 * - check if all flags are supported
 	 * - check available formats for path
 	 * - set one path if need be */
-	parrillada_session_cfg_check_drive_settings (PARRILLADA_SESSION_CFG (session));
 	parrillada_session_cfg_update (PARRILLADA_SESSION_CFG (session));
+	parrillada_session_cfg_check_drive_settings (PARRILLADA_SESSION_CFG (session));
 }
 
 static void
@@ -1167,18 +1352,17 @@ parrillada_session_cfg_output_changed (ParrilladaBurnSession *session,
 				    ParrilladaMedium *former)
 {
 	ParrilladaSessionCfgPrivate *priv;
-	ParrilladaTrackType *type;
 
-	priv = PARRILLADA_SESSION_CFG_PRIVATE (session);
-	if (priv->disabled)
+	if (!parrillada_session_cfg_can_update (PARRILLADA_SESSION_CFG (session)))
 		return;
 
-	/* Case for video project */
-	type = parrillada_track_type_new ();
-	parrillada_burn_session_get_input_type (session, type);
+	priv = PARRILLADA_SESSION_CFG_PRIVATE (session);
+	priv->disc_size = 0;
 
-	if (parrillada_track_type_get_has_stream (type)
-	&&  PARRILLADA_STREAM_FORMAT_HAS_VIDEO (parrillada_track_type_get_stream_format (type))) {
+	/* Case for video project */
+	if (priv->source
+	&&  parrillada_track_type_get_has_stream (priv->source)
+	&&  PARRILLADA_STREAM_FORMAT_HAS_VIDEO (parrillada_track_type_get_stream_format (priv->source))) {
 		ParrilladaMedia media;
 
 		media = parrillada_burn_session_get_dest_media (session);
@@ -1204,13 +1388,12 @@ parrillada_session_cfg_output_changed (ParrilladaBurnSession *session,
 								  PARRILLADA_AUDIO_FORMAT_AC3);
 		}
 	}
-	parrillada_track_type_free (type);
 
 	/* In this case need to :
 	 * - check if all flags are supported
 	 * - for images, set a path if it wasn't already set */
-	parrillada_session_cfg_check_drive_settings (PARRILLADA_SESSION_CFG (session));
 	parrillada_session_cfg_update (PARRILLADA_SESSION_CFG (session));
+	parrillada_session_cfg_check_drive_settings (PARRILLADA_SESSION_CFG (session));
 }
 
 static void
@@ -1219,21 +1402,25 @@ parrillada_session_cfg_caps_changed (ParrilladaPluginManager *manager,
 {
 	ParrilladaSessionCfgPrivate *priv;
 
-	priv = PARRILLADA_SESSION_CFG_PRIVATE (self);
-	if (priv->disabled)
+	if (!parrillada_session_cfg_can_update (self))
 		return;
+ 
+	priv = PARRILLADA_SESSION_CFG_PRIVATE (self);
+	priv->disc_size = 0;
+	priv->session_blocks = 0;
+	priv->session_size = 0;
 
 	/* In this case we need to check if:
 	 * - flags are supported or not supported anymore
 	 * - image types as input/output are supported
 	 * - if the current set of input/output still works */
-	parrillada_session_cfg_check_drive_settings (self);
 	parrillada_session_cfg_update (self);
+	parrillada_session_cfg_check_drive_settings (self);
 }
 
 /**
  * parrillada_session_cfg_add_flags:
- * @cfg: a #ParrilladaSessionCfg
+ * @session: a #ParrilladaSessionCfg
  * @flags: a #ParrilladaBurnFlag
  *
  * Adds all flags from @flags that are supported.
@@ -1241,26 +1428,28 @@ parrillada_session_cfg_caps_changed (ParrilladaPluginManager *manager,
  **/
 
 void
-parrillada_session_cfg_add_flags (ParrilladaSessionCfg *self,
+parrillada_session_cfg_add_flags (ParrilladaSessionCfg *session,
 			       ParrilladaBurnFlag flags)
 {
 	ParrilladaSessionCfgPrivate *priv;
 
-	priv = PARRILLADA_SESSION_CFG_PRIVATE (self);
+	priv = PARRILLADA_SESSION_CFG_PRIVATE (session);
 
 	if ((priv->supported & flags) != flags)
 		return;
 
-	if ((parrillada_burn_session_get_flags (PARRILLADA_BURN_SESSION (self)) & flags) == flags)
+	if ((parrillada_burn_session_get_flags (PARRILLADA_BURN_SESSION (session)) & flags) == flags)
 		return;
 
-	parrillada_session_cfg_add_drive_properties_flags (self, flags);
-	parrillada_session_cfg_update (self);
+	parrillada_session_cfg_add_drive_properties_flags (session, flags);
+
+	if (parrillada_session_cfg_can_update (session))
+		parrillada_session_cfg_update (session);
 }
 
 /**
  * parrillada_session_cfg_remove_flags:
- * @cfg: a #ParrilladaSessionCfg
+ * @session: a #ParrilladaSessionCfg
  * @flags: a #ParrilladaBurnFlag
  *
  * Removes all flags that are not compulsory.
@@ -1268,26 +1457,24 @@ parrillada_session_cfg_add_flags (ParrilladaSessionCfg *self,
  **/
 
 void
-parrillada_session_cfg_remove_flags (ParrilladaSessionCfg *self,
+parrillada_session_cfg_remove_flags (ParrilladaSessionCfg *session,
 				  ParrilladaBurnFlag flags)
 {
-	ParrilladaSessionCfgPrivate *priv;
-
-	priv = PARRILLADA_SESSION_CFG_PRIVATE (self);
-
-	parrillada_burn_session_remove_flag (PARRILLADA_BURN_SESSION (self), flags);
+	parrillada_burn_session_remove_flag (PARRILLADA_BURN_SESSION (session), flags);
 
 	/* For this case reset all flags as some flags could
 	 * be made available after the removal of one flag
 	 * Example: After the removal of MULTI, FAST_BLANK
 	 * becomes available again for DVDRW sequential */
-	parrillada_session_cfg_set_drive_properties_default_flags (self);
-	parrillada_session_cfg_update (self);
+	parrillada_session_cfg_set_drive_properties_default_flags (session);
+
+	if (parrillada_session_cfg_can_update (session))
+		parrillada_session_cfg_update (session);
 }
 
 /**
  * parrillada_session_cfg_is_supported:
- * @cfg: a #ParrilladaSessionCfg
+ * @session: a #ParrilladaSessionCfg
  * @flag: a #ParrilladaBurnFlag
  *
  * Checks whether a particular flag is supported.
@@ -1297,18 +1484,18 @@ parrillada_session_cfg_remove_flags (ParrilladaSessionCfg *self,
  **/
 
 gboolean
-parrillada_session_cfg_is_supported (ParrilladaSessionCfg *self,
+parrillada_session_cfg_is_supported (ParrilladaSessionCfg *session,
 				  ParrilladaBurnFlag flag)
 {
 	ParrilladaSessionCfgPrivate *priv;
 
-	priv = PARRILLADA_SESSION_CFG_PRIVATE (self);
+	priv = PARRILLADA_SESSION_CFG_PRIVATE (session);
 	return (priv->supported & flag) == flag;
 }
 
 /**
  * parrillada_session_cfg_is_compulsory:
- * @cfg: a #ParrilladaSessionCfg
+ * @session: a #ParrilladaSessionCfg
  * @flag: a #ParrilladaBurnFlag
  *
  * Checks whether a particular flag is compulsory.
@@ -1318,12 +1505,12 @@ parrillada_session_cfg_is_supported (ParrilladaSessionCfg *self,
  **/
 
 gboolean
-parrillada_session_cfg_is_compulsory (ParrilladaSessionCfg *self,
+parrillada_session_cfg_is_compulsory (ParrilladaSessionCfg *session,
 				   ParrilladaBurnFlag flag)
 {
 	ParrilladaSessionCfgPrivate *priv;
 
-	priv = PARRILLADA_SESSION_CFG_PRIVATE (self);
+	priv = PARRILLADA_SESSION_CFG_PRIVATE (session);
 	return (priv->compulsory & flag) == flag;
 }
 
@@ -1335,6 +1522,7 @@ parrillada_session_cfg_init (ParrilladaSessionCfg *object)
 
 	priv = PARRILLADA_SESSION_CFG_PRIVATE (object);
 
+	priv->is_valid = PARRILLADA_SESSION_EMPTY;
 	manager = parrillada_plugin_manager_get_default ();
 	g_signal_connect (manager,
 	                  "caps-changed",
@@ -1365,6 +1553,16 @@ parrillada_session_cfg_finalize (GObject *object)
 	g_signal_handlers_disconnect_by_func (manager,
 	                                      parrillada_session_cfg_caps_changed,
 	                                      object);
+
+	if (priv->source) {
+		parrillada_track_type_free (priv->source);
+		priv->source = NULL;
+	}
+
+	if (priv->output) {
+		g_free (priv->output);
+		priv->output = NULL;
+	}
 
 	G_OBJECT_CLASS (parrillada_session_cfg_parent_class)->finalize (object);
 }

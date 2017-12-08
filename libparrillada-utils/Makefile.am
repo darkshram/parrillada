@@ -18,9 +18,9 @@ AM_CPPFLAGS = \
 
 
 lib_LTLIBRARIES = \
-	libparrillada-utils@PARRILLADA_LIBRARY_SUFFIX@.la
+	libparrillada-utils3.la
 
-libparrillada_utils@PARRILLADA_LIBRARY_SUFFIX@_la_LIBADD =					\
+libparrillada_utils3_la_LIBADD =					\
 	$(PARRILLADA_GLIB_LIBS)					\
 	$(PARRILLADA_GIO_LIBS)		\
 	$(PARRILLADA_GSTREAMER_LIBS)	\
@@ -28,12 +28,12 @@ libparrillada_utils@PARRILLADA_LIBRARY_SUFFIX@_la_LIBADD =					\
 	$(PARRILLADA_PL_PARSER_LIBS)	\
 	$(PARRILLADA_GTK_LIBS)
 
-libparrillada_utils@PARRILLADA_LIBRARY_SUFFIX@_la_LDFLAGS =					\
+libparrillada_utils3_la_LDFLAGS =					\
 	-version-info $(LIBPARRILLADA_LT_VERSION)			\
 	-no-undefined
 #	-export-symbols ./libparrillada-utils.symbols
 
-libparrillada_utils@PARRILLADA_LIBRARY_SUFFIX@_la_SOURCES =		\
+libparrillada_utils3_la_SOURCES =		\
 	parrillada-disc-message.c        \
 	parrillada-disc-message.h        \
 	parrillada-misc.c        \

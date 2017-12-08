@@ -317,7 +317,7 @@ parrillada_audio2cue_len_to_string (guint64 len)
 	else
 		frame = len * 75;
 
-	frame = frame / 1000000000 + ((frame % 1000000000LL) ? 1:0);
+	frame = frame / 1000000000;
 
 	len /= 1000000000LL;
 	min = len / 60;
@@ -455,7 +455,6 @@ parrillada_audio2cue_create_thread (gpointer data)
 	tracks = NULL;
 	parrillada_job_get_tracks (data, &tracks);
 	for (; tracks; tracks = tracks->next) {
-		int isrc;
 		guint64 gap;
 		guint64 len;
 		gchar *string;
@@ -463,6 +462,7 @@ parrillada_audio2cue_create_thread (gpointer data)
 		ParrilladaTrack *track;
 		const gchar *performer;
 		const gchar *songwriter;
+		const gchar *isrc;
 
 		track = tracks->data;
 
@@ -527,9 +527,9 @@ parrillada_audio2cue_create_thread (gpointer data)
 			g_free (line);
 		}
 
-		isrc = parrillada_track_tag_lookup_int (track, PARRILLADA_TRACK_STREAM_ISRC_TAG);
-		if (isrc > 0) {
-			line = g_strdup_printf ("\tISRC %i\n", isrc);
+		isrc = parrillada_track_tag_lookup_string (track, PARRILLADA_TRACK_STREAM_ISRC_TAG);
+		if (isrc) {
+			line = g_strdup_printf ("\tISRC \"%s\"\n", isrc);
 			if (write (fd_out, line, strlen (line)) < 0) {
 				int err_saved = errno;
 				priv->error = g_error_new_literal (PARRILLADA_BURN_ERROR,

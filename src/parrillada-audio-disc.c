@@ -5,7 +5,7 @@
  *
  *  dim nov 27 15:34:32 2005
  *  Copyright  2005  Rouquier Philippe
- *  brasero-app@wanadoo.fr
+ *  parrillada-app@wanadoo.fr
  ***************************************************************************/
 
 /*
@@ -229,7 +229,7 @@ static void parrillada_audio_disc_iface_disc_init (ParrilladaDiscIface *iface);
 
 G_DEFINE_TYPE_WITH_CODE (ParrilladaAudioDisc,
 			 parrillada_audio_disc,
-			 GTK_TYPE_VBOX,
+			 GTK_TYPE_BOX,
 			 G_IMPLEMENT_INTERFACE (PARRILLADA_TYPE_DISC,
 					        parrillada_audio_disc_iface_disc_init));
 static gboolean
@@ -363,10 +363,10 @@ parrillada_audio_disc_selection_function (GtkTreeSelection *selection,
 				       gboolean is_selected,
 				       gpointer NULL_data)
 {
-	ParrilladaTrack *track;
+/*	ParrilladaTrack *track;
 
 	track = parrillada_video_tree_model_path_to_track (PARRILLADA_VIDEO_TREE_MODEL (model), treepath);
-/*	if (track)
+	if (track)
 		gtk_list_store_set (GTK_LIST_STORE (model), &iter,
 				    PARRILLADA_VIDEO_TREE_MODEL_EDITABLE, (is_selected == FALSE),
 				    -1);
@@ -384,6 +384,7 @@ parrillada_audio_disc_init (ParrilladaAudioDisc *obj)
 
 	obj->priv = g_new0 (ParrilladaAudioDiscPrivate, 1);
 	gtk_box_set_spacing (GTK_BOX (obj), 0);
+	gtk_orientable_set_orientation (GTK_ORIENTABLE (obj), GTK_ORIENTATION_VERTICAL);
 
 	/* Tree */
 	obj->priv->tree = gtk_tree_view_new ();
@@ -884,7 +885,6 @@ parrillada_audio_disc_session_changed (ParrilladaSessionCfg *session,
 {
 	GSList *next;
 	GSList *tracks;
-	gboolean notready;
 	ParrilladaStatus *status;
 	gboolean should_use_dts;
 
@@ -892,7 +892,6 @@ parrillada_audio_disc_session_changed (ParrilladaSessionCfg *session,
 		return;
 
 	/* make sure all tracks have video */
-	notready = FALSE;
 	should_use_dts = FALSE;
 	status = parrillada_status_new ();
 	tracks = parrillada_burn_session_get_tracks (PARRILLADA_BURN_SESSION (session));
@@ -950,10 +949,8 @@ parrillada_audio_disc_session_changed (ParrilladaSessionCfg *session,
 			continue;
 		}
 
-		if (result == PARRILLADA_BURN_NOT_READY || result == PARRILLADA_BURN_RUNNING) {
-			notready = TRUE;
+		if (result == PARRILLADA_BURN_NOT_READY || result == PARRILLADA_BURN_RUNNING)
 			continue;
-		}
 
 		if (result != PARRILLADA_BURN_OK)
 			continue;
@@ -1137,12 +1134,10 @@ parrillada_audio_disc_display_edited_cb (GtkCellRendererText *renderer,
 	GtkTreeModel *model;
 	ParrilladaTrack *track;
 	GtkTreePath *treepath;
-	ParrilladaSessionCfg *session;
 
 	tag = g_object_get_data (G_OBJECT (renderer), COL_KEY);
 
 	model = gtk_tree_view_get_model (GTK_TREE_VIEW (disc->priv->tree));
-	session = parrillada_video_tree_model_get_session (PARRILLADA_VIDEO_TREE_MODEL (model));
 	treepath = gtk_tree_path_new_from_string (path_string);
 	track = parrillada_video_tree_model_path_to_track (PARRILLADA_VIDEO_TREE_MODEL (model), treepath);
 	parrillada_track_tag_add_string (PARRILLADA_TRACK (track),
@@ -1273,7 +1268,6 @@ static void
 parrillada_audio_disc_split (ParrilladaAudioDisc *disc)
 {
 	GtkTreeSelection *selection;
-	ParrilladaSessionCfg *session;
 	GtkTreePath *treepath;
 	GtkTreeModel *model;
 	ParrilladaTrack *track;
@@ -1306,7 +1300,6 @@ parrillada_audio_disc_split (ParrilladaAudioDisc *disc)
 	g_list_free (selected);
 
 	/* NOTE: this is necessarily a song since otherwise button is grey */
-	session = parrillada_video_tree_model_get_session (PARRILLADA_VIDEO_TREE_MODEL (model));
 	track = parrillada_video_tree_model_path_to_track (PARRILLADA_VIDEO_TREE_MODEL (model), treepath);
 
 	dialog = parrillada_split_dialog_new ();
@@ -1359,12 +1352,10 @@ parrillada_audio_disc_selection_changed (GtkTreeSelection *selection,
 	GtkAction *action_edit;
 	GtkAction *action_open;
 	guint selected_num = 0;
-	GtkTreeView *treeview;
 	GtkTreeModel *model;
 	GList *selected;
 	GList *iter;
 
-	treeview = gtk_tree_selection_get_tree_view (selection);
 	selected = gtk_tree_selection_get_selected_rows (selection, &model);
 
 	if (disc->priv->selected_path)
@@ -1470,12 +1461,9 @@ parrillada_audio_disc_rename_songs (GtkTreeModel *model,
 				 const gchar *old_name,
 				 const gchar *new_name)
 {
-	ParrilladaSessionCfg *session;
 	ParrilladaTrack *track;
 
-	session = parrillada_video_tree_model_get_session (PARRILLADA_VIDEO_TREE_MODEL (model));
 	track = parrillada_video_tree_model_path_to_track (PARRILLADA_VIDEO_TREE_MODEL (model), treepath);
-
 	parrillada_track_tag_add_string (track,
 				      PARRILLADA_TRACK_STREAM_TITLE_TAG,
 				      new_name);
@@ -1489,7 +1477,6 @@ static void
 parrillada_audio_disc_edit_multi_song_properties (ParrilladaAudioDisc *disc,
 					       GList *list)
 {
-	gint isrc;
 	gint64 gap;
 	GList *copy;
 	GList *item;
@@ -1499,6 +1486,7 @@ parrillada_audio_disc_edit_multi_song_properties (ParrilladaAudioDisc *disc,
 	gchar *artist = NULL;
 	GtkResponseType result;
 	gchar *composer = NULL;
+	gchar *isrc = NULL;
 
 	model = gtk_tree_view_get_model (GTK_TREE_VIEW (disc->priv->tree));
 	toplevel = gtk_widget_get_toplevel (GTK_WIDGET (disc));
@@ -1562,10 +1550,10 @@ parrillada_audio_disc_edit_multi_song_properties (ParrilladaAudioDisc *disc,
                                                       PARRILLADA_TRACK_STREAM_COMPOSER_TAG,
                                                       composer);
 
-		if (isrc > 0)
-                        parrillada_track_tag_add_int (PARRILLADA_TRACK (track),
-                                                   PARRILLADA_TRACK_STREAM_ISRC_TAG,
-                                                   isrc);
+		if (isrc)
+                        parrillada_track_tag_add_string (PARRILLADA_TRACK (track),
+                                                      PARRILLADA_TRACK_STREAM_ISRC_TAG,
+                                                      isrc);
 
                 if (gap > -1)
                         parrillada_track_stream_set_boundaries (PARRILLADA_TRACK_STREAM (track),
@@ -1576,6 +1564,7 @@ parrillada_audio_disc_edit_multi_song_properties (ParrilladaAudioDisc *disc,
 	g_list_free (copy);
 	g_free (artist);
 	g_free (composer);
+	g_free (isrc);
 
 	gtk_widget_destroy (props);
 }
@@ -1585,7 +1574,6 @@ parrillada_audio_disc_edit_single_song_properties (ParrilladaAudioDisc *disc,
 						GtkTreePath *treepath)
 {
 	gint64 gap;
-	gint isrc;
 	gint64 end;
 	gint64 start;
 	guint track_num;
@@ -1594,15 +1582,14 @@ parrillada_audio_disc_edit_single_song_properties (ParrilladaAudioDisc *disc,
 	GtkTreeModel *model;
 	ParrilladaTrack *track;
 	GtkResponseType result;
-	ParrilladaSessionCfg *session;
 	guint64 length;
 	gchar *title;
 	gchar *artist;
 	gchar *composer;
+	gchar *isrc;
 	GtkTreeIter iter;
 
 	model = gtk_tree_view_get_model (GTK_TREE_VIEW (disc->priv->tree));
-	session = parrillada_video_tree_model_get_session (PARRILLADA_VIDEO_TREE_MODEL (model));
         track = parrillada_video_tree_model_path_to_track (PARRILLADA_VIDEO_TREE_MODEL (model), treepath);
 	if (!track)
 		return;
@@ -1621,7 +1608,7 @@ parrillada_audio_disc_edit_single_song_properties (ParrilladaAudioDisc *disc,
 					   parrillada_track_tag_lookup_string (PARRILLADA_TRACK (track), PARRILLADA_TRACK_STREAM_ARTIST_TAG),
 					   parrillada_track_tag_lookup_string (PARRILLADA_TRACK (track), PARRILLADA_TRACK_STREAM_TITLE_TAG),
 					   parrillada_track_tag_lookup_string (PARRILLADA_TRACK (track), PARRILLADA_TRACK_STREAM_COMPOSER_TAG),
-					   parrillada_track_tag_lookup_int (PARRILLADA_TRACK (track), PARRILLADA_TRACK_STREAM_ISRC_TAG),
+					   parrillada_track_tag_lookup_string (PARRILLADA_TRACK (track), PARRILLADA_TRACK_STREAM_ISRC_TAG),
 					   length,
 					   parrillada_track_stream_get_start (PARRILLADA_TRACK_STREAM (track)),
 					   parrillada_track_stream_get_end (PARRILLADA_TRACK_STREAM (track)),
@@ -1671,10 +1658,10 @@ parrillada_audio_disc_edit_single_song_properties (ParrilladaAudioDisc *disc,
 					      PARRILLADA_TRACK_STREAM_COMPOSER_TAG,
 					      composer);
 
-	if (isrc > 0)
-		parrillada_track_tag_add_int (PARRILLADA_TRACK (track),
-					   PARRILLADA_TRACK_STREAM_ISRC_TAG,
-					   isrc);
+	if (isrc)
+		parrillada_track_tag_add_string (PARRILLADA_TRACK (track),
+					      PARRILLADA_TRACK_STREAM_ISRC_TAG,
+					      isrc);
 
 	if (end - start + PARRILLADA_SECTORS_TO_DURATION (gap) < PARRILLADA_MIN_STREAM_LENGTH)
 		parrillada_audio_disc_short_track_dialog (disc);
@@ -1682,6 +1669,7 @@ parrillada_audio_disc_edit_single_song_properties (ParrilladaAudioDisc *disc,
 	g_free (title);
 	g_free (artist);
 	g_free (composer);
+	g_free (isrc);
 	gtk_widget_destroy (props);
 }
 

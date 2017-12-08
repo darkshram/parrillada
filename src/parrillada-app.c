@@ -29,6 +29,7 @@
 #include <glib/gi18n.h>
 
 #include <gtk/gtk.h>
+#include <gdk/gdkx.h>
 
 #include "parrillada-misc.h"
 #include "parrillada-io.h"
@@ -39,7 +40,6 @@
 #include "parrillada-sum-dialog.h"
 #include "parrillada-eject-dialog.h"
 #include "parrillada-project-manager.h"
-#include "parrillada-xsession.h"
 #include "parrillada-pref.h"
 
 #include "parrillada-drive.h"
@@ -67,7 +67,7 @@
 typedef struct _ParrilladaAppPrivate ParrilladaAppPrivate;
 struct _ParrilladaAppPrivate
 {
-	UniqueApp *gapp;
+	GApplication *gapp;
 
 	ParrilladaSetting *setting;
 
@@ -320,7 +320,7 @@ parrillada_app_get_saved_contents (ParrilladaApp *app)
  **/
 
 static void
-parrillada_app_toplevel_destroyed_cb (GtkObject *object,
+parrillada_app_toplevel_destroyed_cb (GtkWidget *object,
 				   ParrilladaApp *app)
 {
 	ParrilladaAppPrivate *priv;
@@ -512,7 +512,10 @@ parrillada_app_set_parent (ParrilladaApp *app,
 	ParrilladaAppPrivate *priv;
 
 	priv = PARRILLADA_APP_PRIVATE (app);
-	priv->parent = gdk_window_foreign_new (parent_xid);
+#ifdef GDK_WINDOWING_X11
+	if (GDK_IS_X11_DISPLAY (gdk_display_get_default ()))
+		priv->parent = gdk_x11_window_foreign_new_for_display (gdk_display_get_default (), parent_xid);
+#endif
 }
 
 gboolean
@@ -1158,12 +1161,14 @@ on_about_cb (GtkAction *action, ParrilladaApp *app)
 {
 	const gchar *authors[] = {
 		"Philippe Rouquier <bonfire-app@wanadoo.fr>",
+		"Luis Medinas <lmedinas@gmail.com>",
+		"Joel Barrios <darkshram@gmail.com>",
 		NULL
 	};
 
 	const gchar *documenters[] = {
-		"Phil Bull <philbull@gmail.com>\n"
-		"Milo Casagrande <milo_casagrande@yahoo.it>\n"
+		"Phil Bull <philbull@gmail.com>",
+		"Milo Casagrande <milo_casagrande@yahoo.it>",
 		"Andrew Stabeno <stabeno@gmail.com>",
 		NULL
 	};
@@ -1204,10 +1209,10 @@ on_about_cb (GtkAction *action, ParrilladaApp *app)
 			       "program-name", "Parrillada",
 			       "comments", comments,
 			       "version", VERSION,
-			       "copyright", "Copyright © 2005-2010 Philippe Rouquier\nCopyright © 2014-2015 Joel Barrios",
+			       "copyright", "Copyright © 2005-2010 Philippe Rouquier / © 2014-2018 Joel Barrios",
 			       "authors", authors,
 			       "documenters", documenters,
-			       "website", "http://www.alcancelibre.org/staticpages/parrillada",
+			       "website", "https://github.com/darkshram/parrillada",
 			       "website-label", _("Parrillada Homepage"),
 			       "license", license,
 			       "wrap-license", TRUE,
@@ -1235,7 +1240,7 @@ on_help_cb (GtkAction *action, ParrilladaApp *app)
 
 	priv = PARRILLADA_APP_PRIVATE (app);
 
- 	gtk_show_uri (NULL, "ghelp:parrillada", gtk_get_current_event_time (), &error);
+	gtk_show_uri (NULL, "help:parrillada", gtk_get_current_event_time (), &error);
    	if (error) {
 		GtkWidget *d;
         
@@ -1305,9 +1310,6 @@ parrillada_app_open_project (ParrilladaApp *app,
                           gboolean burn)
 {
 	ParrilladaSessionCfg *session;
-	ParrilladaAppPrivate *priv;
-
-	priv = PARRILLADA_APP_PRIVATE (app);
 
 	session = parrillada_session_cfg_new ();
 
@@ -1340,10 +1342,6 @@ parrillada_app_open_by_mime (ParrilladaApp *app,
                           const gchar *mime,
                           gboolean warn_user)
 {
-	ParrilladaAppPrivate *priv;
-
-	priv = PARRILLADA_APP_PRIVATE (app);
-
 	if (!mime) {
 		/* that can happen when the URI could not be identified */
 		return FALSE;
@@ -1685,10 +1683,8 @@ parrillada_app_recent_open (GtkRecentChooser *chooser,
 	gchar *uri;
     	const gchar *mime;
     	GtkRecentInfo *item;
-	ParrilladaAppPrivate *priv;
 	GtkRecentManager *manager;
 
-	priv = PARRILLADA_APP_PRIVATE (app);
 	/* This is a workaround since following code doesn't work */
 	/*
     	item = gtk_recent_chooser_get_current_item (GTK_RECENT_CHOOSER (chooser));
@@ -1896,7 +1892,7 @@ parrillada_app_create_mainwin (ParrilladaApp *app)
 			  app);
 
 	/* contents */
-	priv->contents = gtk_vbox_new (FALSE, 0);
+	priv->contents = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
 	gtk_widget_show (priv->contents);
 
 	gtk_container_add (GTK_CONTAINER (priv->mainwin), priv->contents);
@@ -1938,14 +1934,13 @@ parrillada_app_create_mainwin (ParrilladaApp *app)
 	gtk_box_pack_start (GTK_BOX (priv->contents), priv->projects, TRUE, TRUE, 0);
 
 	/* status bar to display the size of selected files */
-	hbox = gtk_hbox_new (TRUE, 0);
+	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
 	gtk_widget_show (hbox);
 	gtk_box_pack_end (GTK_BOX (priv->contents), hbox, FALSE, TRUE, 0);
 
 	priv->statusbar2 = gtk_statusbar_new ();
 	gtk_widget_show (priv->statusbar2);
 	priv->tooltip_ctx = gtk_statusbar_get_context_id (GTK_STATUSBAR (priv->statusbar2), "tooltip_info");
-	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR (priv->statusbar2), FALSE);
 	gtk_box_pack_start (GTK_BOX (hbox), priv->statusbar2, FALSE, TRUE, 0);
 
 	priv->statusbar1 = gtk_statusbar_new ();
@@ -1999,24 +1994,19 @@ parrillada_app_create_mainwin (ParrilladaApp *app)
 	parrillada_app_load_window_state (app);
 }
 
-static UniqueResponse
-parrillada_app_unique_message (UniqueApp *uapp,
-			    gint command,
-			    UniqueMessageData *message_data,
-			    ParrilladaApp *app)
+static void
+parrillada_app_activate (GApplication *gapp,
+                      ParrilladaApp *app)
 {
 	ParrilladaAppPrivate *priv;
 
 	priv = PARRILLADA_APP_PRIVATE (app);
 
-	if (command == UNIQUE_ACTIVATE) {
-	       if (priv->mainwin_running) {
-		       gtk_widget_show (priv->mainwin);
-		       gtk_window_present (GTK_WINDOW (priv->mainwin));
-	       }
- 	}
-
-	return UNIQUE_RESPONSE_OK;
+	/* Except if we are supposed to quit, show the window */
+	if (priv->mainwin_running) {
+		gtk_widget_show (priv->mainwin);
+		gtk_window_present (GTK_WINDOW (priv->mainwin));
+	}
 }
 
 gboolean
@@ -2026,12 +2016,20 @@ parrillada_app_run_mainwin (ParrilladaApp *app)
 
 	priv = PARRILLADA_APP_PRIVATE (app);
 
+	if (!priv->mainwin)
+		return FALSE;
+
 	if (priv->mainwin_running)
 		return TRUE;
 
 	priv->mainwin_running = 1;
 	gtk_widget_show (GTK_WIDGET (priv->mainwin));
 
+	if (priv->gapp)
+		g_signal_connect (priv->gapp,
+				  "activate",
+				  G_CALLBACK (parrillada_app_activate),
+				  app);
 	gtk_main ();
 	return TRUE;
 }
@@ -2063,12 +2061,11 @@ parrillada_app_init (ParrilladaApp *object)
 
 	priv = PARRILLADA_APP_PRIVATE (object);
 
+	priv->mainwin = NULL;
+
 	/* Load settings */
 	priv->setting = parrillada_setting_get_default ();
 	parrillada_setting_load (priv->setting);
-
-	/* Connect to session */
-	parrillada_session_connect (object);
 
 	g_set_application_name (_("Disc Burner"));
 	gtk_window_set_default_icon_name ("parrillada");
@@ -2087,8 +2084,6 @@ parrillada_app_finalize (GObject *object)
 	g_object_unref (priv->setting);
 	priv->setting = NULL;
 
-	parrillada_session_disconnect (PARRILLADA_APP (object));
-
 	if (priv->saved_contents) {
 		g_free (priv->saved_contents);
 		priv->saved_contents = NULL;
@@ -2102,17 +2097,16 @@ parrillada_app_set_property (GObject *object,
                           const GValue *value,
                           GParamSpec *pspec)
 {
-	ParrilladaApp *app = PARRILLADA_APP (object);
-	ParrilladaAppPrivate *priv = PARRILLADA_APP_PRIVATE (object);
+	ParrilladaAppPrivate *priv;
+
+	g_return_if_fail (PARRILLADA_IS_APP (object));
+
+	priv = PARRILLADA_APP_PRIVATE (object);
 
 	switch (prop_id)
 	{
 	case PROP_GAPP:
 		priv->gapp = g_value_dup_object (value);
-		g_signal_connect (priv->gapp,
-				  "message-received",
-				  G_CALLBACK (parrillada_app_unique_message),
-				  app);
 		break;
 	default:
 		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -2156,16 +2150,15 @@ parrillada_app_class_init (ParrilladaAppClass *klass)
 
 	g_object_class_install_property (object_class,
 	                                 PROP_GAPP,
-					 g_param_spec_object("gapp",
-	                                 "UniqueApplication",
-					 "The UniqueApp object",
-					 UNIQUE_TYPE_APP,
-					 G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
-
+	                                 g_param_spec_object("gapp",
+	                                                     "GApplication",
+	                                                     "The GApplication object",
+	                                                     G_TYPE_APPLICATION,
+	                                                     G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
 }
 
 ParrilladaApp *
-parrillada_app_new (UniqueApp *gapp)
+parrillada_app_new (GApplication *gapp)
 {
 	return g_object_new (PARRILLADA_TYPE_APP,
 	                     "gapp", gapp,

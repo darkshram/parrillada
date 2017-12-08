@@ -89,9 +89,6 @@ parrillada_image_properties_get_format (ParrilladaImageProperties *self)
 static gchar *
 parrillada_image_properties_get_path (ParrilladaImageProperties *self)
 {
-	ParrilladaImagePropertiesPrivate *priv;
-
-	priv = PARRILLADA_IMAGE_PROPERTIES_PRIVATE (self);
 	return gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (self));
 }
 
@@ -99,9 +96,6 @@ static void
 parrillada_image_properties_set_path (ParrilladaImageProperties *self,
 				   const gchar *path)
 {
-	ParrilladaImagePropertiesPrivate *priv;
-
-	priv = PARRILLADA_IMAGE_PROPERTIES_PRIVATE (self);
 	if (path) {
 		gchar *name;
 
@@ -116,6 +110,38 @@ parrillada_image_properties_set_path (ParrilladaImageProperties *self,
 	else
 		gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (self),
 						     g_get_home_dir ());
+}
+
+static gchar *
+parrillada_image_properties_get_output_path (ParrilladaImageProperties *self)
+{
+	gchar *path = NULL;
+	ParrilladaImageFormat format;
+	ParrilladaImagePropertiesPrivate *priv;
+
+	priv = PARRILLADA_IMAGE_PROPERTIES_PRIVATE (self);
+
+	format = parrillada_burn_session_get_output_format (PARRILLADA_BURN_SESSION (priv->session));
+	switch (format) {
+	case PARRILLADA_IMAGE_FORMAT_BIN:
+		parrillada_burn_session_get_output (PARRILLADA_BURN_SESSION (priv->session),
+						 &path,
+						 NULL);
+		break;
+
+	case PARRILLADA_IMAGE_FORMAT_CLONE:
+	case PARRILLADA_IMAGE_FORMAT_CDRDAO:
+	case PARRILLADA_IMAGE_FORMAT_CUE:
+		parrillada_burn_session_get_output (PARRILLADA_BURN_SESSION (priv->session),
+						 NULL,
+						 &path);
+		break;
+
+	default:
+		break;
+	}
+
+	return path;
 }
 
 static void
@@ -146,18 +172,14 @@ parrillada_image_properties_format_changed_cb (ParrilladaImageTypeChooser *choos
 	if (!priv->edited) {
 		/* not changed: get a new default path */
 		g_free (image_path);
-		image_path = parrillada_image_format_get_default_path (format);
+		image_path = parrillada_image_properties_get_output_path (self);
 	}
-	else if (image_path) {
+	else {
 		gchar *tmp;
 
 		tmp = image_path;
 		image_path = parrillada_image_format_fix_path_extension (format, FALSE, image_path);
 		g_free (tmp);
-	}
-	else {
-		priv->edited = FALSE;
-		image_path = parrillada_image_format_get_default_path (format);
 	}
 
 	parrillada_image_properties_set_path (self, image_path);
@@ -208,7 +230,7 @@ parrillada_image_properties_set_formats (ParrilladaImageProperties *self,
 		GtkWidget *label;
 		GtkWidget *dialog_box;
 
-		box = gtk_hbox_new (FALSE, 6);
+		box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
 		gtk_container_set_border_width (GTK_CONTAINER (box), 4);
 
 		dialog_box = gtk_dialog_get_content_area (GTK_DIALOG (self));
@@ -342,38 +364,6 @@ parrillada_image_properties_response (GtkFileChooser *chooser,
 	}
 }
 
-static gchar *
-parrillada_image_properties_get_output_path (ParrilladaImageProperties *self)
-{
-	gchar *path = NULL;
-	ParrilladaImageFormat format;
-	ParrilladaImagePropertiesPrivate *priv;
-
-	priv = PARRILLADA_IMAGE_PROPERTIES_PRIVATE (self);
-
-	format = parrillada_burn_session_get_output_format (PARRILLADA_BURN_SESSION (priv->session));
-	switch (format) {
-	case PARRILLADA_IMAGE_FORMAT_BIN:
-		parrillada_burn_session_get_output (PARRILLADA_BURN_SESSION (priv->session),
-						 &path,
-						 NULL);
-		break;
-
-	case PARRILLADA_IMAGE_FORMAT_CLONE:
-	case PARRILLADA_IMAGE_FORMAT_CDRDAO:
-	case PARRILLADA_IMAGE_FORMAT_CUE:
-		parrillada_burn_session_get_output (PARRILLADA_BURN_SESSION (priv->session),
-						 NULL,
-						 &path);
-		break;
-
-	default:
-		break;
-	}
-
-	return path;
-}
-
 static void
 parrillada_image_properties_update (ParrilladaImageProperties *self)
 {
@@ -430,10 +420,6 @@ parrillada_image_properties_set_property (GObject *object,
 				       const GValue *value,
 				       GParamSpec *pspec)
 {
-	ParrilladaImagePropertiesPrivate *priv;
-
-	priv = PARRILLADA_IMAGE_PROPERTIES_PRIVATE (object);
-
 	switch (property_id) {
 	case PROP_SESSION: /* Readable and only writable at creation time */
 		parrillada_image_properties_set_session (PARRILLADA_IMAGE_PROPERTIES (object),
@@ -468,10 +454,7 @@ parrillada_image_properties_get_property (GObject *object,
 static void
 parrillada_image_properties_init (ParrilladaImageProperties *object)
 {
-	ParrilladaImagePropertiesPrivate *priv;
 	GtkWidget *box;
-
-	priv = PARRILLADA_IMAGE_PROPERTIES_PRIVATE (object);
 
 	gtk_window_set_title (GTK_WINDOW (object), _("Location for Image File"));
 	box = gtk_dialog_get_content_area (GTK_DIALOG (object));

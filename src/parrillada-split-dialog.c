@@ -102,6 +102,7 @@ parrillada_split_dialog_set_boundaries (ParrilladaSplitDialog *self,
 				     gint64 end)
 {
 	ParrilladaSplitDialogPrivate *priv;
+	guint64 length;
 
 	priv = PARRILLADA_SPLIT_DIALOG_PRIVATE (self);
 
@@ -120,6 +121,11 @@ parrillada_split_dialog_set_boundaries (ParrilladaSplitDialog *self,
 	parrillada_song_control_set_boundaries (PARRILLADA_SONG_CONTROL (priv->player),
 	                                     priv->start,
 	                                     priv->end);
+
+	/* Don't allow splitting the track in sections longer than the track
+	 * length in seconds */
+	length = (gdouble) parrillada_song_control_get_length  (PARRILLADA_SONG_CONTROL (priv->player)) / 1000000000;
+	gtk_spin_button_set_range (GTK_SPIN_BUTTON (priv->spin_sec), 1.0, length);
 }
 
 GSList *
@@ -726,7 +732,6 @@ parrillada_split_dialog_cut_clicked_cb (GtkButton *button,
 				     ParrilladaSplitDialog *self)
 {
 	ParrilladaSplitDialogPrivate *priv;
-	GtkTreeModel *model;
 	guint page;
 
 	priv = PARRILLADA_SPLIT_DIALOG_PRIVATE (self);
@@ -741,7 +746,6 @@ parrillada_split_dialog_cut_clicked_cb (GtkButton *button,
 		return;
 	}
 
-	model = gtk_tree_view_get_model (GTK_TREE_VIEW (priv->tree));
 	if (!parrillada_split_dialog_clear_confirm_dialog (self,
 							_("Do you really want to carry on with automatic splitting?"),
 							_("_Don't split"),
@@ -958,7 +962,6 @@ parrillada_split_dialog_reset_clicked_cb (GtkButton *button,
 				       ParrilladaSplitDialog *self)
 {
 	ParrilladaSplitDialogPrivate *priv;
-	GtkTreeModel *model;
 
 	priv = PARRILLADA_SPLIT_DIALOG_PRIVATE (self);
 	if (!parrillada_split_dialog_clear_confirm_dialog (self,
@@ -967,7 +970,6 @@ parrillada_split_dialog_reset_clicked_cb (GtkButton *button,
 							_("Re_move All")))
 		return;
 
-	model = gtk_tree_view_get_model (GTK_TREE_VIEW (priv->tree));
 	gtk_list_store_clear (priv->model);
 }
 
@@ -1062,10 +1064,10 @@ parrillada_split_dialog_init (ParrilladaSplitDialog *object)
 	size_group = gtk_size_group_new (GTK_SIZE_GROUP_BOTH);
 
 	/* Slicing method */
-	hbox = gtk_hbox_new (FALSE, 6);
+	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
 	gtk_widget_show (hbox);
 
-	priv->combo = gtk_combo_box_new_text ();
+	priv->combo = gtk_combo_box_text_new ();
 
 	label = gtk_label_new_with_mnemonic (_("M_ethod:"));
 	gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
@@ -1076,10 +1078,10 @@ parrillada_split_dialog_init (ParrilladaSplitDialog *object)
 	gtk_widget_set_tooltip_text (priv->combo, _("Method to be used to split the track"));
 	gtk_widget_show (priv->combo);
 	gtk_box_pack_start (GTK_BOX (hbox), priv->combo, TRUE, TRUE, 0);
-	gtk_combo_box_append_text (GTK_COMBO_BOX (priv->combo), _("Split track manually"));
-	gtk_combo_box_append_text (GTK_COMBO_BOX (priv->combo), _("Split track in parts with a fixed length"));
-	gtk_combo_box_append_text (GTK_COMBO_BOX (priv->combo), _("Split track in a fixed number of parts"));
-	gtk_combo_box_append_text (GTK_COMBO_BOX (priv->combo), _("Split track for each silence"));
+	gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (priv->combo), _("Split track manually"));
+	gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (priv->combo), _("Split track in parts with a fixed length"));
+	gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (priv->combo), _("Split track in a fixed number of parts"));
+	gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (priv->combo), _("Split track for each silence"));
 	g_signal_connect (priv->combo,
 			  "changed",
 			  G_CALLBACK (parrillada_split_dialog_combo_changed_cb),
@@ -1108,7 +1110,7 @@ parrillada_split_dialog_init (ParrilladaSplitDialog *object)
 	gtk_widget_show (priv->player);
 	gtk_notebook_append_page (GTK_NOTEBOOK (priv->notebook), priv->player, NULL);
 
-	hbox2 = gtk_hbox_new (FALSE, 6);
+	hbox2 = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
 	gtk_widget_show (hbox2);
 	gtk_notebook_append_page (GTK_NOTEBOOK (priv->notebook), hbox2, NULL);
 
@@ -1126,7 +1128,7 @@ parrillada_split_dialog_init (ParrilladaSplitDialog *object)
 	gtk_widget_show (label);
 	gtk_box_pack_start (GTK_BOX (hbox2), label, FALSE, FALSE, 0);
 
-	hbox2 = gtk_hbox_new (FALSE, 6);
+	hbox2 = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
 	gtk_widget_show (hbox2);
 	gtk_notebook_append_page (GTK_NOTEBOOK (priv->notebook), hbox2, NULL);
 
@@ -1160,7 +1162,7 @@ parrillada_split_dialog_init (ParrilladaSplitDialog *object)
 	g_free (title);
 
 	/* slices preview */
-	hbox = gtk_hbox_new (FALSE, 6);
+	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
 	gtk_widget_show (hbox);
 
 	priv->model = gtk_list_store_new (COLUMN_NUM,
@@ -1232,7 +1234,7 @@ parrillada_split_dialog_init (ParrilladaSplitDialog *object)
 			  object);
 
 	/* buttons */
-	vbox2 = gtk_vbox_new (FALSE, 6);
+	vbox2 = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
 	gtk_widget_show (vbox2);
 	gtk_box_pack_start (GTK_BOX (hbox), vbox2, FALSE, TRUE, 0);
 
@@ -1282,7 +1284,7 @@ parrillada_split_dialog_init (ParrilladaSplitDialog *object)
 	gtk_widget_set_sensitive (priv->merge_button, FALSE);
 	gtk_widget_set_sensitive (priv->remove_button, FALSE);
 
-	vbox2 = gtk_vbox_new (FALSE, 6);
+	vbox2 = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
 	gtk_widget_show (vbox2);
 
 	label = gtk_label_new_with_mnemonic (_("_List of slices that are to be created:"));

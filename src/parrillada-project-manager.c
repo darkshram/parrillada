@@ -5,7 +5,7 @@
  *
  *  mer mai 24 14:22:56 2006
  *  Copyright  2006  Rouquier Philippe
- *  brasero-app@wanadoo.fr
+ *  parrillada-app@wanadoo.fr
  ***************************************************************************/
 
 /*
@@ -51,10 +51,6 @@
 #include "parrillada-file-chooser.h"
 #include "parrillada-uri-container.h"
 #include "parrillada-project-type-chooser.h"
-
-#ifdef BUILD_SEARCH
-#include "parrillada-search.h"
-#endif
 
 #ifdef BUILD_PLAYLIST
 #include "parrillada-playlist.h"
@@ -254,7 +250,7 @@ parrillada_project_manager_set_statusbar (ParrilladaProjectManager *manager,
 		||  manager->priv->type == PARRILLADA_PROJECT_TYPE_VIDEO)
 			size_string = parrillada_units_get_time_string (files_size, TRUE, FALSE);
 		else if (manager->priv->type == PARRILLADA_PROJECT_TYPE_DATA)
-			size_string = g_format_size_for_display (files_size);
+			size_string = g_format_size (files_size);
 		else
 			return;
 
@@ -276,7 +272,7 @@ parrillada_project_manager_set_statusbar (ParrilladaProjectManager *manager,
 							 size_string);
 		}
 		else if (manager->priv->type == PARRILLADA_PROJECT_TYPE_DATA) {
-			size_string = g_format_size_for_display (files_size);
+			size_string = g_format_size (files_size);
 			status_string = g_strdup_printf (ngettext ("%d file can be added (%s)", "%d selected files can be added (%s)", valid_num),
 							 valid_num,
 							 size_string);
@@ -898,27 +894,6 @@ parrillada_project_manager_init (ParrilladaProjectManager *obj)
 	parrillada_layout_add_project (PARRILLADA_LAYOUT (obj->priv->layout),
 				    obj->priv->project);
 	gtk_widget_show (obj->priv->project);
-
-#ifdef BUILD_SEARCH
-	GtkWidget *search;
-
-	search = parrillada_search_new ();
-    	PARRILLADA_PROJECT_MANAGER_CONNECT_CHANGED (obj, search);
-
-	gtk_widget_show_all (search);
-	parrillada_layout_add_source (PARRILLADA_LAYOUT (obj->priv->layout),
-				   search,
-				   "Search",
-				   _("Search files using keywords"),
-				   GTK_STOCK_FIND,
-				   PARRILLADA_LAYOUT_AUDIO|PARRILLADA_LAYOUT_DATA|PARRILLADA_LAYOUT_VIDEO);
-
-#ifdef BUILD_PREVIEW
-	parrillada_preview_add_source (PARRILLADA_PREVIEW (preview),
-				    PARRILLADA_URI_CONTAINER (search));
-#endif
-
-#endif /* BUILD_SEARCH */
 
 #ifdef BUILD_PLAYLIST
 	GtkWidget *playlist;

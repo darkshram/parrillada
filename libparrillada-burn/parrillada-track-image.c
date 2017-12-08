@@ -100,15 +100,12 @@ parrillada_track_image_set_source (ParrilladaTrackImage *track,
 				const gchar *toc,
 				ParrilladaImageFormat format)
 {
-	ParrilladaTrackImagePrivate *priv;
 	ParrilladaTrackImageClass *klass;
 	ParrilladaBurnResult res;
 
 	g_return_val_if_fail (PARRILLADA_IS_TRACK_IMAGE (track), PARRILLADA_BURN_ERR);
 
 	/* See if it has changed */
-	priv = PARRILLADA_TRACK_IMAGE_PRIVATE (track);
-
 	klass = PARRILLADA_TRACK_IMAGE_GET_CLASS (track);
 	if (!klass->set_source)
 		return PARRILLADA_BURN_ERR;

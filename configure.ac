@@ -1,9 +1,9 @@
 dnl Process this file with autoconf to produce a configure script.
-AC_INIT([parrillada],[1.8.0])
+AC_INIT([parrillada],[1.18.0])
 AC_CONFIG_SRCDIR(src/main.c)
 
 PARRILLADA_MAJOR_VERSION=1
-PARRILLADA_MINOR_VERSION=8
+PARRILLADA_MINOR_VERSION=10
 PARRILLADA_SUB=0
 PARRILLADA_VERSION=$PARRILLADA_MAJOR_VERSION.$PARRILLADA_MINOR_VERSION.$PARRILLADA_SUB
 
@@ -30,6 +30,9 @@ AC_SUBST(LT_AGE)
 
 LIBPARRILLADA_LT_VERSION=$LT_CURRENT:$LT_REVISION:$LT_AGE
 AC_SUBST(LIBPARRILLADA_LT_VERSION) 
+
+TYPELIB_VERSION=$PARRILLADA_MAJOR_VERSION.$((LT_CURRENT-LT_AGE))
+AC_SUBST(TYPELIB_VERSION)
 
 AC_DEFINE_UNQUOTED(PARRILLADA_MAJOR_VERSION, $PARRILLADA_MAJOR_VERSION, [major version])
 AC_DEFINE_UNQUOTED(PARRILLADA_MINOR_VERSION, $PARRILLADA_MINOR_VERSION, [minor version])
@@ -60,13 +63,13 @@ GTK_DOC_CHECK([1.12])
 dnl ***************** GNOME MACROS *****************************
 
 dnl This allows to set warnings
-MATE_COMPILE_WARNINGS([maximum])
-MATE_CXX_WARNINGS
+GNOME_COMPILE_WARNINGS([maximum])
+GNOME_CXX_WARNINGS
 
 dnl This could be use one day not to compile all debugging message
-dnl MATE_DEBUG_CHECK
+dnl GNOME_DEBUG_CHECK
 
-MATE_MAINTAINER_MODE_DEFINES
+GNOME_MAINTAINER_MODE_DEFINES
 DISABLE_DEPRECATED="$DISABLE_DEPRECATED -DGSEAL_ENABLE"
 AC_SUBST(DISABLE_DEPRECATED)
 
@@ -139,26 +142,28 @@ AC_SYS_LARGEFILE
 
 dnl ********** Required libraries **********************
 
-GLIB_REQUIRED=2.25.10
+GLIB_REQUIRED=2.29.14
 GTHREAD_REQUIRED=2.6.0
 GMODULE_REQUIRED=2.6.0
 GMODULE_EXPORT_REQUIRED=2.6.0
-GIO_REQUIRED=2.25.0
-GSTREAMER_REQUIRED=0.10.15
-GSTREAMER_BASE_REQUIRED=0.10.0
+GIO_REQUIRED=2.28.0
+GSTREAMER_REQUIRED=0.11.92
+GSTREAMER_BASE_REQUIRED=0.11.92
+GSTREAMER_MODULE_REQUIRED=0.11.92
 LIBXML2_REQUIRED=2.6.0
-LIBUNIQUE_REQUIRED=1.0.0
 
 dnl ** used by parrillada and one plugin
 PKG_CHECK_MODULES(PARRILLADA_GSTREAMER, 			\
-	gstreamer-0.10 >= $GSTREAMER_REQUIRED		\
-	gstreamer-interfaces-0.10			\
-	gstreamer-plugins-base-0.10 >= $GSTREAMER_BASE_REQUIRED)
-
+	gstreamer-1.0 >= $GSTREAMER_REQUIRED		\
+	gstreamer-base-1.0 >= $GSTREAMER_REQUIRED		\
+	gstreamer-video-1.0 >= $GSTREAMER_BASE_REQUIRED	\
+	gstreamer-pbutils-1.0 >= $GSTREAMER_BASE_REQUIRED \
+	gstreamer-tag-1.0 >= $GSTREAMER_BASE_REQUIRED)
+PARRILLADA_GSTREAMER_CFLAGS="-DGST_USE_UNSTABLE_API $PARRILLADA_GSTREAMER_CFLAGS"
 AC_SUBST(PARRILLADA_GSTREAMER_CFLAGS)
 AC_SUBST(PARRILLADA_GSTREAMER_LIBS)
 
-PARRILLADA_GSTREAMER_LIBS="$PARRILLADA_GSTREAMER_LIBS -lgstpbutils-0.10"
+PARRILLADA_GSTREAMER_LIBS="$PARRILLADA_GSTREAMER_LIBS -lgstpbutils-1.0"
 
 dnl ** used by parrillada and one plugin
 PKG_CHECK_MODULES(PARRILLADA_GIO, 	\
@@ -173,11 +178,6 @@ PKG_CHECK_MODULES(PARRILLADA_LIBXML, 	\
 
 AC_SUBST(PARRILLADA_LIBXML_CFLAGS)
 AC_SUBST(PARRILLADA_LIBXML_LIBS)
-
-dnl ** used by parrillada
-PKG_CHECK_MODULES([PARRILLADA_LIBUNIQUE],[unique-1.0 >= $LIBUNIQUE_REQUIRED])
-AC_SUBST([PARRILLADA_LIBUNIQUE_CFLAGS])
-AC_SUBST([PARRILLADA_LIBUNIQUE_LIBS])
 
 dnl ** used by parrillada and both libraries
 PKG_CHECK_MODULES(PARRILLADA_GTHREAD, 		\
@@ -220,31 +220,11 @@ AC_SUBST(LIBM)
 # GTK+ stuff (taken and adapted from empathy)
 #
 
-AC_MSG_CHECKING([which gtk+ version to compile against])
-AC_ARG_WITH([gtk],
-  [AS_HELP_STRING([--with-gtk=2.0|3.0],[which gtk+ version to compile against (default: 2.0)])],
-  [case "$with_gtk" in
-     2.0|3.0) ;;
-     *) AC_MSG_ERROR([invalid gtk version specified]) ;;
-   esac],
-  [with_gtk=2.0])
-AC_MSG_RESULT([$with_gtk])
+GTK_REQUIRED=3.0.0
 
-case "$with_gtk" in
-  2.0) GTK_API_VERSION=2.0
-       GTK_REQUIRED=2.21.8
-       PARRILLADA_LIBRARY_SUFFIX=
-       ;;
-  3.0) GTK_API_VERSION=3.0
-       GTK_REQUIRED=2.90.7
-       PARRILLADA_LIBRARY_SUFFIX=3
-       ;;
-esac
-
-PKG_CHECK_MODULES([PARRILLADA_GTK],[gtk+-$GTK_API_VERSION >= $GTK_REQUIRED])
-
-AC_SUBST(GTK_API_VERSION)
-AC_SUBST(PARRILLADA_LIBRARY_SUFFIX)
+PKG_CHECK_MODULES([PARRILLADA_GTK],	\
+		  gtk+-3.0 >= $GTK_REQUIRED	\
+		  gdk-x11-3.0)
 
 AC_SUBST(PARRILLADA_GTK_CFLAGS)
 AC_SUBST(PARRILLADA_GTK_LIBS)
@@ -265,21 +245,16 @@ AC_SUBST(PARRILLADA_LIBNOTIFY_LIBS)
 
 CANBERRA_REQUIRED=0.1
 
-case "$with_gtk" in
-  2.0) PKG_CHECK_MODULES(PARRILLADA_CANBERRA,
-         libcanberra >= $CANBERRA_REQUIRED
-         libcanberra-gtk >= $CANBERRA_REQUIRED) ;;
-  3.0) PKG_CHECK_MODULES(PARRILLADA_CANBERRA,
+PKG_CHECK_MODULES(PARRILLADA_CANBERRA,
 	      libcanberra >= $CANBERRA_REQUIRED
-	      libcanberra-gtk3 >= $CANBERRA_REQUIRED) ;;
-esac
+	      libcanberra-gtk3 >= $CANBERRA_REQUIRED)
 
 AC_SUBST(PARRILLADA_CANBERRA_CFLAGS)
 AC_SUBST(PARRILLADA_CANBERRA_LIBS)
 
 dnl ****************Caja**********************************
-# Note: the extension is built against gtk+-2.0 so we cannot build extension with gtk+-3.0
-CAJA_REQUIRED=1.6.0
+# Note: the extension is built against gtk+-3.0 so we cannot build extension with gtk+-2.0
+CAJA_REQUIRED=1.17.0
 
 AC_ARG_ENABLE(caja,
 			AS_HELP_STRING([--enable-caja],[Build Caja extension [[default=yes]]]),
@@ -320,7 +295,7 @@ AM_CONDITIONAL(BUILD_CAJA, test x"$build_caja" = "xyes")
 # Installation path for plugins
 #
 
-PARRILLADA_PLUGIN_DIRECTORY=${libdir}/parrillada${PARRILLADA_LIBRARY_SUFFIX}/plugins
+PARRILLADA_PLUGIN_DIRECTORY=${libdir}/parrillada3/plugins
 AC_SUBST(PARRILLADA_PLUGIN_DIRECTORY)
 
 dnl ****************check for libburn (optional)**************
@@ -400,8 +375,7 @@ else
 fi
 AM_CONDITIONAL(BUILD_GROWISOFS, test x"$build_growisofs" = "xyes")
 
-BEAGLE_REQUIRED=0.3.0
-TRACKER_REQUIRED=0.8.0
+TRACKER_REQUIRED=0.10.0
 
 AC_ARG_ENABLE(search,
 			AS_HELP_STRING([--enable-search],[Build search pane (if a search backend is available) [[default=auto]]]),
@@ -411,14 +385,30 @@ AC_ARG_ENABLE(search,
 			esac],
 			[enable_search="auto"])
 
-if test x"$enable_search" = "xtracker"; then
-	PKG_CHECK_MODULES(PARRILLADA_SEARCH, tracker-client-0.8 >= $TRACKER_REQUIRED)
+if test x"$enable_search" != "xno"; then
+        # Try to figure out the tracker API version to use
+        tracker_api="0.10"
+        m4_foreach([VERSION], [[0.10], [0.12], [0.14], [0.16], [0.18], [1.0]],
+                              [PKG_CHECK_EXISTS([tracker-sparql-VERSION >= $TRACKER_REQUIRED],
+                                                [tracker_api="VERSION"])
+                              ])
+fi
+
+if test x"$enable_search" = "xauto"; then
+        PKG_CHECK_EXISTS([tracker-sparql-$tracker_api >= $TRACKER_REQUIRED],
+                         [enable_search=yes],
+                         [enable_search=no])
+fi
+
+if test x"$enable_search" = "xyes"; then
+	PKG_CHECK_MODULES(PARRILLADA_SEARCH, tracker-sparql-$tracker_api >= $TRACKER_REQUIRED)
 	AC_DEFINE(BUILD_SEARCH, 1, [define if you  want to use search pane])
 	AC_DEFINE(BUILD_TRACKER, 1, [define if you  want to use search pane])
 	AC_SUBST(PARRILLADA_SEARCH_CFLAGS)
 	AC_SUBST(PARRILLADA_SEARCH_LIBS)
 	build_tracker="yes"
 	build_search="yes"
+else
 	build_search="no"
 fi
 
@@ -449,14 +439,13 @@ AC_SUBST(PARRILLADA_PL_PARSER_LIBS)
 AM_CONDITIONAL(BUILD_PLAYLIST, test x"$build_totem" = "xyes")
 
 dnl ****************check for preview (optional)**************
-GSTREAMER_MODULE_REQUIRED=0.10.0
 AC_ARG_ENABLE(preview,
 			AS_HELP_STRING([--enable-preview],[Build preview pane [[default=yes]]]),
 			[enable_preview=$enableval],
 			[enable_preview="yes"])
 
 if test x"$enable_preview" = "xyes"; then
-	PKG_CHECK_MODULES(PARRILLADA_GSTREAMER_BASE, gstreamer-plugins-base-0.10 >= $GSTREAMER_MODULE_REQUIRED, build_preview=yes, build_preview=no)
+	PKG_CHECK_MODULES(PARRILLADA_GSTREAMER_BASE, gstreamer-plugins-base-1.0 >= $GSTREAMER_MODULE_REQUIRED, build_preview=yes, build_preview=no)
 else
 	build_preview="no"
 fi
@@ -583,6 +572,12 @@ dnl ****** END ***********************
 
 AC_CONFIG_FILES([
 Makefile
+docs/Makefile
+docs/reference/Makefile
+docs/reference/libparrillada-media/Makefile
+docs/reference/libparrillada-burn/Makefile
+docs/reference/libparrillada-media/version.xml
+docs/reference/libparrillada-burn/version.xml
 data/Makefile
 data/parrillada.desktop.in
 data/icons/Makefile
@@ -610,10 +605,9 @@ plugins/local-track/Makefile
 plugins/vcdimager/Makefile
 po/Makefile.in
 src/Makefile
+libparrillada-media3.pc
+libparrillada-burn3.pc
 ])
-
-AC_CONFIG_FILES([libparrillada-media${PARRILLADA_LIBRARY_SUFFIX}.pc:libparrillada-media.pc.in],[PARRILLADA_LIBRARY_SUFFIX=${PARRILLADA_LIBRARY_SUFFIX}])
-AC_CONFIG_FILES([libparrillada-burn${PARRILLADA_LIBRARY_SUFFIX}.pc:libparrillada-burn.pc.in],[PARRILLADA_LIBRARY_SUFFIX=${PARRILLADA_LIBRARY_SUFFIX}])
 
 AC_OUTPUT
 
@@ -625,13 +619,13 @@ echo "----------------------------------"
 dnl 	Build libnotify support : ${build_libnotify}
 
 echo "Version: $PARRILLADA_VERSION
-	Using GTK+ ${GTK_API_VERSION}
+	Using GTK+ 3
 	Update caches: ${enable_caches}
 	Build Caja extension : ${build_caja}
 	Build inotify: ${enable_inotify}
 	Build search pane : ${build_search}
 	Build playlist pane : ${build_totem}
-	Build Preview pane : ${enable_preview}
+	Build Preview pane : ${build_preview}
 	Plugins installed in : ${PARRILLADA_PLUGIN_DIRECTORY}
 	Build cdrdao plugins : ${build_cdrdao}
 	Build cdrtools plugins : ${build_cdrtools}

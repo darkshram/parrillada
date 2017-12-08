@@ -576,12 +576,10 @@ parrillada_process_setup_channel (ParrilladaProcess *process,
 static void
 parrillada_process_setup (gpointer data)
 {
-	ParrilladaProcessPrivate *priv;
 	ParrilladaProcess *process;
 	int fd;
 
 	process = PARRILLADA_PROCESS (data);
-	priv = PARRILLADA_PROCESS_PRIVATE (process);
 
 	fd = -1;
 	if (parrillada_job_get_fd_in (PARRILLADA_JOB (process), &fd) == PARRILLADA_BURN_OK) {

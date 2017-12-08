@@ -17,6 +17,7 @@ AM_CPPFLAGS = \
 	$(PARRILLADA_GLIB_CFLAGS)						\
 	$(PARRILLADA_GIO_CFLAGS)						\
 	$(PARRILLADA_GTK_CFLAGS)						\
+	$(PARRILLADA_LIBNOTIFY_CFLAGS) \
 	$(PARRILLADA_GSTREAMER_CFLAGS)					\
 	$(PARRILLADA_CANBERRA_CFLAGS)
 
@@ -28,7 +29,7 @@ libparrillada-marshal.h: libparrillada-marshal.list
 libparrillada-marshal.c: libparrillada-marshal.h
 	( $(GLIB_GENMARSHAL) --prefix=parrillada_marshal $(srcdir)/libparrillada-marshal.list --body --header > libparrillada-marshal.c )
 
-headerdir=$(includedir)/parrillada@PARRILLADA_LIBRARY_SUFFIX@
+headerdir=$(includedir)/parrillada3
 header_HEADERS =	parrillada-tags.h						\
 		parrillada-enums.h						\
 		parrillada-error.h						\
@@ -54,26 +55,28 @@ header_HEADERS =	parrillada-tags.h						\
 		parrillada-blank-dialog.h
 
 lib_LTLIBRARIES = \
-	libparrillada-burn@PARRILLADA_LIBRARY_SUFFIX@.la
+	libparrillada-burn3.la
 
-libparrillada_burn@PARRILLADA_LIBRARY_SUFFIX@_la_LIBADD =					\
-	../libparrillada-media/libparrillada-media@PARRILLADA_LIBRARY_SUFFIX@.la			\
-	../libparrillada-utils/libparrillada-utils@PARRILLADA_LIBRARY_SUFFIX@.la			\
+libparrillada_burn3_la_LIBADD =					\
+	../libparrillada-media/libparrillada-media3.la			\
+	../libparrillada-utils/libparrillada-utils3.la			\
 	$(PARRILLADA_GLIB_LIBS)					\
 	$(PARRILLADA_GTHREAD_LIBS)					\
 	$(PARRILLADA_GMODULE_LIBS)					\
 	$(PARRILLADA_GIO_LIBS)					\
 	$(PARRILLADA_GTK_LIBS)					\
 	$(PARRILLADA_GSTREAMER_LIBS)				\
-	$(PARRILLADA_CANBERRA_LIBS)
+	$(PARRILLADA_LIBNOTIFY_LIBS)					\
+	$(PARRILLADA_CANBERRA_LIBS)				\
+	$(LIBM)
 
-libparrillada_burn@PARRILLADA_LIBRARY_SUFFIX@_la_LDFLAGS =					\
+libparrillada_burn3_la_LDFLAGS =					\
 	-version-info $(LIBPARRILLADA_LT_VERSION)			\
 	-no-undefined						\
 	-export-dynamic
 #	-export-symbols ./libparrillada-burn.symbols
 
-libparrillada_burn@PARRILLADA_LIBRARY_SUFFIX@_la_SOURCES = 		\
+libparrillada_burn3_la_SOURCES = 		\
 	libparrillada-marshal.c		\
 	libparrillada-marshal.h		\
 	parrillada-tool-dialog.c         \
@@ -137,8 +140,6 @@ libparrillada_burn@PARRILLADA_LIBRARY_SUFFIX@_la_SOURCES = 		\
 	parrillada-src-image.h                 \
 	parrillada-src-selection.c                 \
 	parrillada-src-selection.h                 \
-	parrillada-tray.c                 \
-	parrillada-tray.h                 \
 	parrillada-burn-lib.h                 \
 	parrillada-error.h                 \
 	parrillada-enums.h                 \
@@ -194,7 +195,7 @@ libparrillada_burn@PARRILLADA_LIBRARY_SUFFIX@_la_SOURCES = 		\
 	parrillada-plugin-private.h                 
 
 if BUILD_INOTIFY
-libparrillada_burn@PARRILLADA_LIBRARY_SUFFIX@_la_SOURCES += parrillada-file-monitor.c parrillada-file-monitor.h
+libparrillada_burn3_la_SOURCES += parrillada-file-monitor.c parrillada-file-monitor.h
 endif
 
 EXTRA_DIST =			\
@@ -203,24 +204,24 @@ EXTRA_DIST =			\
 
 if HAVE_INTROSPECTION
 girdir = $(INTROSPECTION_GIRDIR)
-gir_DATA = ParrilladaBurn-@PARRILLADA_VERSION@.gir
+gir_DATA = ParrilladaBurn-@TYPELIB_VERSION@.gir
 
 typelibsdir = $(INTROSPECTION_TYPELIBDIR)
-typelibs_DATA = ParrilladaBurn-@PARRILLADA_VERSION@.typelib
+typelibs_DATA = ParrilladaBurn-@TYPELIB_VERSION@.typelib
 
-ParrilladaBurn-@PARRILLADA_VERSION@.gir: libparrillada-burn@PARRILLADA_LIBRARY_SUFFIX@.la $(INTROSPECTION_SCANNER)
+ParrilladaBurn-@TYPELIB_VERSION@.gir: libparrillada-burn3.la $(INTROSPECTION_SCANNER)
 	$(INTROSPECTION_SCANNER) -v --namespace=ParrilladaBurn --nsversion=1.0 \
 	    -I$(top_srcdir)/libparrillada-media	\
 	    -I$(top_builddir)/libparrillada-media	\
 	    -I$(top_srcdir)/libparrillada-burn		\
 	    -I$(top_builddir)/libparrillada-burn	\
-            --include=Gtk-@GTK_API_VERSION@ \
+            --include=Gtk-3.0 \
             --add-include-path=$(top_builddir)/libparrillada-media	\
-	    --include=ParrilladaMedia-@PARRILLADA_VERSION@ \
-	    --library=parrillada-burn@PARRILLADA_LIBRARY_SUFFIX@ \
+	    --include=ParrilladaMedia-@TYPELIB_VERSION@ \
+	    --library=parrillada-burn3 \
 	    --libtool="$(LIBTOOL)" \
             --output $@ \
-            --pkg=gtk+-@GTK_API_VERSION@  \
+            --pkg=gtk+-3.0  \
 	    --strip-prefix=Parrillada	\
             $(top_srcdir)/libparrillada-burn/parrillada-tags.h						\
             $(top_srcdir)/libparrillada-burn/parrillada-enums.h						\
@@ -246,8 +247,8 @@ ParrilladaBurn-@PARRILLADA_VERSION@.gir: libparrillada-burn@PARRILLADA_LIBRARY_S
 	    $(top_srcdir)/libparrillada-burn/parrillada-sum-dialog.h					\
 	    $(top_srcdir)/libparrillada-burn/*.c	    
 
-ParrilladaBurn-@PARRILLADA_VERSION@.typelib: $(gir_DATA) $(INTROSPECTION_COMPILER)
-	$(INTROSPECTION_COMPILER) $(top_builddir)/libparrillada-burn/$(gir_DATA) --shared-library=libparrillada-burn@PARRILLADA_LIBRARY_SUFFIX@ -o $(typelibs_DATA) --includedir=$(top_builddir)/libparrillada-media
+ParrilladaBurn-@TYPELIB_VERSION@.typelib: $(gir_DATA) $(INTROSPECTION_COMPILER)
+	$(INTROSPECTION_COMPILER) $(top_builddir)/libparrillada-burn/$(gir_DATA) --shared-library=libparrillada-burn3 -o $(typelibs_DATA) --includedir=$(top_builddir)/libparrillada-media
 endif
 
 CLEANFILES =			\

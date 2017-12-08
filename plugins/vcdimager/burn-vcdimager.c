@@ -305,13 +305,7 @@ parrillada_vcd_imager_generate_xml_file (ParrilladaProcess *process,
 	if (success < 0)
 		goto error;
 
-	/* get all tracks */
-	parrillada_job_get_tracks (PARRILLADA_JOB (process), &tracks);
-	for (i = 0, iter = tracks; iter; iter = iter->next, i++) {
-		ParrilladaTrack *track;
-
-		track = iter->data;
-
+	for (i = 0; i < priv->num_tracks; i++) {
 		sprintf (buffer, "playlist-%i", i);
 		success = xmlTextWriterStartElement (xml, (xmlChar *) "playlist");
 		if (success < 0)

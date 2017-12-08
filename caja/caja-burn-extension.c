@@ -17,8 +17,8 @@
  *
  * You should have received a copy of the GNU General Public
  * License along with this program; if not, write to the
- * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
- * Boston, MA 02111-1307, USA.
+ * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA 02110-1301, USA.
  *
  */
 
@@ -55,15 +55,13 @@
 
 #include "caja-burn-bar.h"
 
-#include "parrillada-project-name.h"
-
 #include "parrillada-misc.h"
-#include "parrillada-drive-settings.h"
 
 #include "parrillada-media-private.h"
 #include "burn-debug.h"
 
-#define BURN_URI "burn:///"
+#define BURN_URI	"burn:///"
+#define WINDOW_KEY      "CajaWindow"
 
 #define CAJA_TYPE_DISC_BURN  (caja_disc_burn_get_type ())
 #define CAJA_DISC_BURN(o)    (G_TYPE_CHECK_INSTANCE_CAST ((o), CAJA_TYPE_DISC_BURN, CajaDiscBurn))
@@ -93,6 +91,9 @@ struct _CajaDiscBurnPrivate
         guint         empty_update_id;
 
         GSList       *widget_list;
+
+	gchar        *title;
+	gchar        *icon;
 };
 
 static GType caja_disc_burn_get_type      (void);
@@ -137,16 +138,9 @@ launch_parrillada_on_window_session (ParrilladaSessionCfg	*session,
 				  GtkWidget		*options,
 				  GtkWindow		*window)
 {
-	gboolean		 success;
 	GtkResponseType		 result;
 	const gchar		*icon_name;
 	GtkWidget		*dialog;
-	ParrilladaDriveSettings	*settings;
-
-	/* Set saved temporary directory for the session.
-	 * NOTE: ParrilladaBurnSession can cope with NULL path */
-	settings = parrillada_drive_settings_new ();
-	parrillada_drive_settings_set_session (settings, PARRILLADA_BURN_SESSION (session));
 
 	/* Get the icon for the window */
 	if (window)
@@ -169,10 +163,8 @@ launch_parrillada_on_window_session (ParrilladaSessionCfg	*session,
 	gtk_widget_destroy (dialog);
 
 	if (result != GTK_RESPONSE_OK
-	&&  result != GTK_RESPONSE_ACCEPT) {
-		g_object_unref (settings);
+	&&  result != GTK_RESPONSE_ACCEPT)
 		return;
-	}
 
 	/* now run burn dialog */
 	dialog = parrillada_burn_dialog_new ();
@@ -188,15 +180,13 @@ launch_parrillada_on_window_session (ParrilladaSessionCfg	*session,
 	gtk_window_present (GTK_WINDOW (dialog));
 
 	if (result == GTK_RESPONSE_OK)
-		success = parrillada_burn_dialog_run (PARRILLADA_BURN_DIALOG (dialog),
+		parrillada_burn_dialog_run (PARRILLADA_BURN_DIALOG (dialog),
 		                                   PARRILLADA_BURN_SESSION (session));
 	else
-		success = parrillada_burn_dialog_run_multi (PARRILLADA_BURN_DIALOG (dialog),
+		parrillada_burn_dialog_run_multi (PARRILLADA_BURN_DIALOG (dialog),
 		                                         PARRILLADA_BURN_SESSION (session));
 
 	gtk_widget_destroy (dialog);
-
-	g_object_unref (settings);
 }
 
 static gboolean
@@ -257,23 +247,11 @@ caja_disc_burn_is_empty (GtkWindow *toplevel)
 }
 
 static void
-parrillada_session_name_changed (ParrilladaProjectName *project_name,
-                              ParrilladaBurnSession *session)
-{
-	const gchar *label;
-
-	label = gtk_entry_get_text (GTK_ENTRY (project_name));
-	parrillada_burn_session_set_label (session, label);
-}
-
-static void
-write_activate (GtkWindow *toplevel)
+write_activate (CajaDiscBurn *burn,
+                GtkWindow *toplevel)
 {
 	ParrilladaTrackDataCfg	*track;
 	ParrilladaSessionCfg	*session;
-	GtkWidget 		*name_options;
-	GtkWidget		*options;
-	gchar			*string;
 
 	if (caja_disc_burn_is_empty (toplevel))
 		return;
@@ -283,32 +261,25 @@ write_activate (GtkWindow *toplevel)
 	track = parrillada_track_data_cfg_new ();
 	parrillada_track_data_cfg_add (track, BURN_URI, NULL);
 
+	if (burn->priv->icon)
+		parrillada_track_data_cfg_set_icon (PARRILLADA_TRACK_DATA_CFG (track),
+		                                 burn->priv->icon,
+		                                 NULL);
+
 	session = parrillada_session_cfg_new ();
 	parrillada_burn_session_add_track (PARRILLADA_BURN_SESSION (session),
 					PARRILLADA_TRACK (track),
 					NULL);
 	g_object_unref (track);
 
-	/* add name widget here to set the label of the volume */
-	name_options = parrillada_project_name_new (NULL);
-	parrillada_project_name_set_session (PARRILLADA_PROJECT_NAME (name_options),
-					  PARRILLADA_BURN_SESSION (session));
-	g_signal_connect (name_options,
-	                  "name-changed",
-	                  G_CALLBACK (parrillada_session_name_changed),
-	                  session);
-
-	string = g_strdup_printf ("<b>%s</b>", _("Disc name"));
-	options = parrillada_utils_pack_properties (string,
-						 name_options,
-						 NULL);
-	g_free (string);
-	gtk_widget_show_all (options);
+	if (burn->priv->title)
+		parrillada_burn_session_set_label (PARRILLADA_BURN_SESSION (session),
+		                                burn->priv->title);
 
 	/* NOTE: set the disc we're handling */
 	launch_parrillada_on_window_session (session,
 	                                  _("CD/DVD Creator"),
-	                                  options,
+	                                  NULL,
 	                                  toplevel);
 
 	/* cleanup */
@@ -319,7 +290,8 @@ static void
 write_activate_cb (CajaMenuItem *item,
                    gpointer          user_data)
 {
-	write_activate (GTK_WINDOW (user_data));
+	write_activate (CAJA_DISC_BURN (user_data),
+	                GTK_WINDOW (g_object_get_data (G_OBJECT (item), WINDOW_KEY)));
 }
 
 static void
@@ -344,6 +316,17 @@ launch_parrillada_on_window_track (ParrilladaTrack	*track,
 }
 
 static void
+parrillada_caja_track_changed_cb (ParrilladaTrack *track,
+				   gpointer user_data)
+{
+	launch_parrillada_on_window_track (track,
+	                                _("Write to Disc"),
+	                                NULL,
+	                                GTK_WINDOW (user_data));
+	g_object_unref (track);
+}
+
+static void
 write_iso_activate_cb (CajaMenuItem *item,
                        gpointer          user_data)
 {
@@ -359,11 +342,8 @@ write_iso_activate_cb (CajaMenuItem *item,
 	track = parrillada_track_image_cfg_new ();
 	parrillada_track_image_cfg_set_source (track, uri);
 
-	launch_parrillada_on_window_track (PARRILLADA_TRACK (track),
-	                                _("Write to Disc"),
-	                                NULL,
-	                                GTK_WINDOW (user_data));
-	g_object_unref (track);
+	g_signal_connect (track, "changed",
+			  G_CALLBACK (parrillada_caja_track_changed_cb), user_data);
 }
 
 static void
@@ -742,9 +722,10 @@ caja_disc_burn_get_background_items (CajaMenuProvider *provider,
                                                _("_Write to Disc…"),
                                                _("Write contents to a CD or DVD"),
                                                "parrillada");
+		g_object_set_data (G_OBJECT (item), WINDOW_KEY, window);
                 g_signal_connect (item, "activate",
                                   G_CALLBACK (write_activate_cb),
-                                  window);
+                                  CAJA_DISC_BURN (provider));
                 items = g_list_append (items, item);
 
                 g_object_set (item, "sensitive", ! CAJA_DISC_BURN (provider)->priv->empty, NULL);
@@ -755,31 +736,37 @@ caja_disc_burn_get_background_items (CajaMenuProvider *provider,
         return items;
 }
 
-static GList *
-caja_disc_burn_get_toolbar_items (CajaMenuProvider *provider,
-                                      GtkWidget            *window,
-                                      CajaFileInfo     *current_folder)
-{
-        GList *items;
-
-        items = NULL;
-
-        return items;
-}
-
 static void
 caja_disc_burn_menu_provider_iface_init (CajaMenuProviderIface *iface)
 {
         iface->get_file_items = caja_disc_burn_get_file_items;
         iface->get_background_items = caja_disc_burn_get_background_items;
-        iface->get_toolbar_items = caja_disc_burn_get_toolbar_items;
 }
 
 static void
 bar_activated_cb (CajaDiscBurnBar	*bar,
                   gpointer		 user_data)
 {
-	write_activate (GTK_WINDOW (user_data));
+	write_activate (CAJA_DISC_BURN (user_data),
+	                GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (bar))));
+}
+
+static void
+title_changed_cb (CajaDiscBurnBar	*bar,
+                  CajaDiscBurn	*burn)
+{
+	if (burn->priv->title)
+		g_free (burn->priv->title);
+	burn->priv->title = g_strdup (caja_disc_burn_bar_get_title (bar));
+}
+
+static void
+icon_changed_cb (CajaDiscBurnBar	*bar,
+                 CajaDiscBurn	*burn)
+{
+	if (burn->priv->icon)
+		g_free (burn->priv->icon);
+	burn->priv->icon = g_strdup (caja_disc_burn_bar_get_icon (bar));
 }
 
 static void
@@ -816,12 +803,21 @@ caja_disc_burn_get_location_widget (CajaLocationWidgetProvider *iface,
                 burn = CAJA_DISC_BURN (iface);
 
                 bar = caja_disc_burn_bar_new ();
-
+		caja_disc_burn_bar_set_title (CAJA_DISC_BURN_BAR (bar),
+		                                  burn->priv->title);
+		caja_disc_burn_bar_set_icon (CAJA_DISC_BURN_BAR (bar),
+		                                 burn->priv->icon);
                 sense_widget (burn, caja_disc_burn_bar_get_button (CAJA_DISC_BURN_BAR (bar)));
 
                 g_signal_connect (bar, "activate",
                                   G_CALLBACK (bar_activated_cb),
-                                  window);
+                                  burn);
+		g_signal_connect (bar, "title-changed",
+		                  G_CALLBACK (title_changed_cb),
+		                  burn);
+		g_signal_connect (bar, "icon-changed",
+		                  G_CALLBACK (icon_changed_cb),
+		                  burn);
 
                 gtk_widget_show (bar);
 
@@ -957,6 +953,16 @@ caja_disc_burn_finalize (GObject *object)
         burn = CAJA_DISC_BURN (object);
 
         g_return_if_fail (burn->priv != NULL);
+
+	if (burn->priv->icon) {
+		g_free (burn->priv->icon);
+		burn->priv->icon = NULL;
+	}
+
+	if (burn->priv->title) {
+		g_free (burn->priv->title);
+		burn->priv->title = NULL;
+	}
 
         if (burn->priv->empty_update_id > 0) {
                 g_source_remove (burn->priv->empty_update_id);

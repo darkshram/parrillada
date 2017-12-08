@@ -283,12 +283,9 @@ parrillada_dvd_author_set_argv (ParrilladaProcess *process,
 			     GPtrArray *argv,
 			     GError **error)
 {
-	ParrilladaDvdAuthorPrivate *priv;
 	ParrilladaBurnResult result;
 	ParrilladaJobAction action;
 	gchar *output;
-
-	priv = PARRILLADA_DVD_AUTHOR_PRIVATE (process);
 
 	parrillada_job_get_action (PARRILLADA_JOB (process), &action);
 	if (action != PARRILLADA_JOB_ACTION_IMAGE)

@@ -41,6 +41,8 @@
 
 #include <gst/gst.h>
 
+#include <stdio.h>
+
 #include "parrillada-media-private.h"
 
 #include "parrillada-media.h"
@@ -53,7 +55,7 @@
 #include "parrillada-plugin-registration.h"
 #include "burn-caps.h"
 
-#define PARRILLADA_SCHEMA_PLUGINS			"org.mate.parrillada.plugins"
+#define PARRILLADA_SCHEMA_PLUGINS				"org.mate.parrillada.plugins"
 #define PARRILLADA_PROPS_PRIORITY_KEY			"priority"
 
 typedef struct _ParrilladaPluginFlagPair ParrilladaPluginFlagPair;
@@ -1081,9 +1083,6 @@ parrillada_plugin_get_description (ParrilladaPlugin *plugin)
 const gchar *
 parrillada_plugin_get_icon_name (ParrilladaPlugin *plugin)
 {
-	ParrilladaPluginPrivate *priv;
-
-	priv = PARRILLADA_PLUGIN_PRIVATE (plugin);
 	return default_icon;
 }
 

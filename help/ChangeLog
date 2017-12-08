@@ -21,7 +21,7 @@
 
 2009-03-09  Milo Casagrande  <milo@ubuntu.com>
 
-	* C/parrillada.xml: Fixed two typos, closes bug #572267.
+	* C/brasero.xml: Fixed two typos, closes bug #572267.
 
 2009-03-02  Milo Casagrande  <milo@ubuntu.com>
 
@@ -61,7 +61,7 @@
 
 2009-01-21  Luis Medinas  <lmedinas@gnome.org>
 
-	* C/parrillada.xml:
+	* C/brasero.xml:
 	
 	Update Documentation. Patch from his author:
 	Milo Casagrande <milo@ubuntu.com> 
@@ -83,7 +83,7 @@
 	Fixed typos
 	Fix #562007 – typos in the documentation
 
-	* C/parrillada.xml:
+	* C/brasero.xml:
 
 2008-10-22  Jorge Gonzalez  <jorgegonz@svn.gnome.org>
 
@@ -97,19 +97,19 @@
 
 	Update burn option dialogs sections
 
-	* C/parrillada.xml:
+	* C/brasero.xml:
 
 2008-11-19  Philippe Rouquier  <ykw@localhost.localdomain>
 
 	Update disc title/label sections for new UI
 
-	* C/parrillada.xml:
+	* C/brasero.xml:
 
 2008-11-19  Philippe Rouquier  <ykw@localhost.localdomain>
 
 	Fix #559154 – Help with regard to "simulate burn" not up to date
 
-	* C/parrillada.xml:
+	* C/brasero.xml:
 
 2008-09-28  Nickolay V. Shmyrev  <nshmyrev@yandex.ru>
     
@@ -141,7 +141,7 @@
 
 	Patch by Milo Casagrande to fix typos in help manual
 
-	* C/parrillada.xml:
+	* C/brasero.xml:
 
 2008-08-31  Jorge Gonzalez  <jorgegonz@svn.gnome.org>
 
@@ -156,7 +156,7 @@
 
 	Fix #547111 – Brasero ships out-of-date manual
 
-	* C/parrillada.xml:
+	* C/brasero.xml:
 
 2008-08-17  Andre Klapper  <a9016009@gmx.de>
 

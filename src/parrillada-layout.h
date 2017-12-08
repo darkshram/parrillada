@@ -3,7 +3,7 @@
  *
  *  mer mai 24 15:14:42 2006
  *  Copyright  2006  Rouquier Philippe
- *  brasero-app@wanadoo.fr
+ *  parrillada-app@wanadoo.fr
  ***************************************************************************/
 
 /*
@@ -55,12 +55,12 @@ typedef enum {
 } ParrilladaLayoutType;
 
 typedef struct {
-	GtkHPaned parent;
+	GtkPaned parent;
 	ParrilladaLayoutPrivate *priv;
 } ParrilladaLayout;
 
 typedef struct {
-	GtkHPanedClass parent_class;
+	GtkPanedClass parent_class;
 } ParrilladaLayoutClass;
 
 GType parrillada_layout_get_type (void);

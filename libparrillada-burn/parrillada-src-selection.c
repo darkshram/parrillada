@@ -92,12 +92,19 @@ parrillada_src_selection_new (ParrilladaBurnSession *session)
 }
 
 static void
-parrillada_src_selection_init (ParrilladaSrcSelection *object)
+parrillada_src_selection_constructed (GObject *object)
 {
+	G_OBJECT_CLASS (parrillada_src_selection_parent_class)->constructed (object);
+
 	/* only show media with something to be read on them */
 	parrillada_medium_selection_show_media_type (PARRILLADA_MEDIUM_SELECTION (object),
 						  PARRILLADA_MEDIA_TYPE_AUDIO|
 						  PARRILLADA_MEDIA_TYPE_DATA);
+}
+
+static void
+parrillada_src_selection_init (ParrilladaSrcSelection *object)
+{
 }
 
 static void
@@ -229,6 +236,7 @@ parrillada_src_selection_class_init (ParrilladaSrcSelectionClass *klass)
 	object_class->finalize = parrillada_src_selection_finalize;
 	object_class->set_property = parrillada_src_selection_set_property;
 	object_class->get_property = parrillada_src_selection_get_property;
+	object_class->constructed = parrillada_src_selection_constructed;
 
 	medium_selection_class->medium_changed = parrillada_src_selection_medium_changed;
 

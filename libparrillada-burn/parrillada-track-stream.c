@@ -356,10 +356,7 @@ parrillada_track_stream_get_size (ParrilladaTrack *track,
 			       goffset *blocks,
 			       goffset *block_size)
 {
-	ParrilladaTrackStreamPrivate *priv;
 	ParrilladaStreamFormat format;
-
-	priv = PARRILLADA_TRACK_STREAM_PRIVATE (track);
 
 	format = parrillada_track_stream_get_format (PARRILLADA_TRACK_STREAM (track));
 	if (!PARRILLADA_STREAM_FORMAT_HAS_VIDEO (format)) {

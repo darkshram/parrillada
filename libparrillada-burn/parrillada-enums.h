@@ -142,9 +142,6 @@ typedef enum {
 	PARRILLADA_METADATA_INFO			= 1 << 10,
 
 	PARRILLADA_AUDIO_FORMAT_RAW_LITTLE_ENDIAN  = 1 << 11,
-
-	/* Deprecated */
-	PARRILLADA_AUDIO_FORMAT_4_CHANNEL		= 0
 } ParrilladaStreamFormat;
 
 #define PARRILLADA_STREAM_FORMAT_AUDIO(stream_FORMAT)	((stream_FORMAT) & 0x087F)

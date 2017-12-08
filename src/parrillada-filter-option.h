@@ -41,12 +41,12 @@ typedef struct _ParrilladaFilterOption ParrilladaFilterOption;
 
 struct _ParrilladaFilterOptionClass
 {
-	GtkVBoxClass parent_class;
+	GtkBoxClass parent_class;
 };
 
 struct _ParrilladaFilterOption
 {
-	GtkVBox parent_instance;
+	GtkBox parent_instance;
 };
 
 GType parrillada_filter_option_get_type (void) G_GNUC_CONST;

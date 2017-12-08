@@ -368,12 +368,9 @@ static gboolean
 parrillada_medium_monitor_is_drive (ParrilladaMediumMonitor *monitor,
                                  const gchar *device)
 {
-	ParrilladaMediumMonitorPrivate *priv;
 	ParrilladaDeviceHandle *handle;
 	ParrilladaScsiErrCode code;
 	gboolean result;
-
-	priv = PARRILLADA_MEDIUM_MONITOR_PRIVATE (monitor);
 
 	PARRILLADA_MEDIA_LOG ("Testing drive %s", device);
 

@@ -50,11 +50,11 @@ typedef struct _ParrilladaImageTypeChooserPrivate ParrilladaImageTypeChooserPriv
 typedef struct _ParrilladaImageTypeChooserClass ParrilladaImageTypeChooserClass;
 
 struct _ParrilladaImageTypeChooser {
-	GtkHBox parent;
+	GtkBox parent;
 };
 
 struct _ParrilladaImageTypeChooserClass {
-	GtkHBoxClass parent_class;
+	GtkBoxClass parent_class;
 };
 
 GType parrillada_image_type_chooser_get_type (void);

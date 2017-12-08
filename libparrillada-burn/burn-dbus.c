@@ -127,6 +127,7 @@ parrillada_inhibit_suspend (const char *reason)
 		cookie = -1;
 	}
 	else {
+		g_variant_get (res, "(u)", &cookie);
 		g_variant_unref (res);
 	}
 

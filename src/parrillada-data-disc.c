@@ -185,7 +185,7 @@ parrillada_data_disc_iface_disc_init (ParrilladaDiscIface *iface);
 
 G_DEFINE_TYPE_WITH_CODE (ParrilladaDataDisc,
 			 parrillada_data_disc,
-			 GTK_TYPE_VBOX,
+			 GTK_TYPE_BOX,
 			 G_IMPLEMENT_INTERFACE (PARRILLADA_TYPE_DISC,
 					        parrillada_data_disc_iface_disc_init));
 
@@ -558,7 +558,7 @@ parrillada_data_disc_project_loaded_cb (ParrilladaTrackDataCfg *project,
 		parrillada_disc_message_set_primary (PARRILLADA_DISC_MESSAGE (message),
 						  _("The contents of the project changed since it was saved."));
 		parrillada_disc_message_set_secondary (PARRILLADA_DISC_MESSAGE (message),
-						    _("Discard the current modified project"));
+						    _("Discard the current modified project ?"));
 
 		gtk_info_bar_set_message_type (GTK_INFO_BAR (message), GTK_MESSAGE_WARNING);
 
@@ -608,9 +608,6 @@ parrillada_data_disc_image_uri_cb (ParrilladaTrackDataCfg *vfs,
 	gchar *string;
 	GtkWidget *button;
 	GtkWidget *dialog;
-	ParrilladaDataDiscPrivate *priv;
-
-	priv = PARRILLADA_DATA_DISC_PRIVATE (self);
 
 	dialog = parrillada_app_dialog (parrillada_app_get_default (),
 	                             _("Do you want to create a disc from the contents of the image or with the image file inside?"),
@@ -671,9 +668,6 @@ parrillada_data_disc_unreadable_uri_cb (ParrilladaTrackDataCfg *vfs,
 {
 	gchar *name;
 	gchar *primary;
-	ParrilladaDataDiscPrivate *priv;
-
-	priv = PARRILLADA_DATA_DISC_PRIVATE (self);
 
 	name = parrillada_utils_get_uri_name (uri);
 	primary = g_strdup_printf (_("\"%s\" cannot be added to the selection."), name);
@@ -692,9 +686,6 @@ parrillada_data_disc_recursive_uri_cb (ParrilladaTrackDataCfg *vfs,
 {
 	gchar *name;
 	gchar *primary;
-	ParrilladaDataDiscPrivate *priv;
-
-	priv = PARRILLADA_DATA_DISC_PRIVATE (self);
 
 	name = parrillada_utils_get_uri_name (uri);
 	primary = g_strdup_printf (_("\"%s\" cannot be added to the selection."), name);
@@ -713,9 +704,6 @@ parrillada_data_disc_unknown_uri_cb (ParrilladaTrackDataCfg *vfs,
 {
 	gchar *name;
 	gchar *primary;
-	ParrilladaDataDiscPrivate *priv;
-
-	priv = PARRILLADA_DATA_DISC_PRIVATE (self);
 
 	name = parrillada_utils_get_uri_name (uri);
 	primary = g_strdup_printf (_("\"%s\" cannot be added to the selection."), name);
@@ -1657,10 +1645,7 @@ parrillada_data_disc_set_session_contents (ParrilladaDisc *self,
 					ParrilladaBurnSession *session)
 {
 	ParrilladaBurnResult result = PARRILLADA_BURN_OK;
-	ParrilladaDataDiscPrivate *priv;
 	GSList *tracks;
-
-	priv = PARRILLADA_DATA_DISC_PRIVATE (self);
 
 	parrillada_data_disc_unset_track (PARRILLADA_DATA_DISC (self));
 
@@ -1921,8 +1906,6 @@ parrillada_data_disc_rename_activated (ParrilladaDataDisc *disc)
 						      GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
 						      _("_Rename"), GTK_RESPONSE_APPLY,
 						      NULL);
-		gtk_dialog_set_has_separator (GTK_DIALOG (dialog), FALSE);
-
 		rename = parrillada_rename_new ();
 		parrillada_rename_set_show_keep_default (PARRILLADA_RENAME (rename), FALSE);
 		gtk_widget_show (rename);
@@ -2281,8 +2264,9 @@ parrillada_data_disc_init (ParrilladaDataDisc *object)
 	priv = PARRILLADA_DATA_DISC_PRIVATE (object);
 
 	gtk_box_set_spacing (GTK_BOX (object), 8);
+	gtk_orientable_set_orientation (GTK_ORIENTABLE (object), GTK_ORIENTATION_VERTICAL);
 
-	mainbox = gtk_vbox_new (FALSE, 0);
+	mainbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
 	gtk_widget_show (mainbox);
 	gtk_box_pack_start (GTK_BOX (object), mainbox, TRUE, TRUE, 0);
 

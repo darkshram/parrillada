@@ -4,7 +4,7 @@
 *
 *  mer mai 25 22:22:53 2005
 *  Copyright  2005  Philippe Rouquier
-*  brasero-app@wanadoo.fr
+*  parrillada-app@wanadoo.fr
 ****************************************************************************/
 
 /*
@@ -96,7 +96,7 @@ static void parrillada_playlist_iface_layout_object_init (ParrilladaLayoutObject
 
 G_DEFINE_TYPE_WITH_CODE (ParrilladaPlaylist,
 			 parrillada_playlist,
-			 GTK_TYPE_VBOX,
+			 GTK_TYPE_BOX,
 			 G_IMPLEMENT_INTERFACE (PARRILLADA_TYPE_URI_CONTAINER,
 					        parrillada_playlist_iface_uri_container_init)
 			 G_IMPLEMENT_INTERFACE (PARRILLADA_TYPE_LAYOUT_OBJECT,
@@ -112,8 +112,8 @@ parrillada_playlist_get_proportion (ParrilladaLayoutObject *object,
 {
 	GtkRequisition requisition;
 
-	gtk_widget_size_request (gtk_widget_get_parent (PARRILLADA_PLAYLIST (object)->priv->button_add),
-				 &requisition);
+	gtk_widget_get_preferred_size (gtk_widget_get_parent (PARRILLADA_PLAYLIST (object)->priv->button_add),
+				 &requisition, NULL);
 	(*footer) = requisition.height + PARRILLADA_PLAYLIST_SPACING;
 }
 
@@ -132,7 +132,7 @@ parrillada_playlist_increase_activity_counter (ParrilladaPlaylist *playlist)
 		cursor = gdk_cursor_new (GDK_WATCH);
 		gdk_window_set_cursor (window,
 				       cursor);
-		gdk_cursor_unref (cursor);
+		g_object_unref (cursor);
 	}
 	playlist->priv->activity_counter++;
 }
@@ -208,9 +208,9 @@ parrillada_playlist_start_search (ParrilladaPlaylist *playlist)
 }
 
 static gboolean
-parrillada_playlist_expose_event_cb (GtkWidget *widget,
-				  gpointer event,
-				  gpointer null_data)
+parrillada_playlist_draw_cb (GtkWidget *widget,
+			  cairo_t *cr,
+			  gpointer null_data)
 {
 	ParrilladaPlaylist *playlist = PARRILLADA_PLAYLIST (widget);
 
@@ -697,8 +697,9 @@ parrillada_playlist_init (ParrilladaPlaylist *obj)
 
 	obj->priv = g_new0 (ParrilladaPlaylistPrivate, 1);
 	gtk_box_set_spacing (GTK_BOX (obj), PARRILLADA_PLAYLIST_SPACING);
+	gtk_orientable_set_orientation (GTK_ORIENTABLE (obj), GTK_ORIENTATION_VERTICAL);
 
-	hbox = gtk_hbox_new (FALSE, 8);
+	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 8);
 	gtk_widget_show (hbox);
 
 	obj->priv->button_add = gtk_button_new_from_stock (GTK_STOCK_ADD);
@@ -840,7 +841,7 @@ parrillada_playlist_init (ParrilladaPlaylist *obj)
 }
 
 static void
-parrillada_playlist_destroy (GtkObject *object)
+parrillada_playlist_destroy (GtkWidget *object)
 {
 	ParrilladaPlaylist *playlist = PARRILLADA_PLAYLIST (object);
 
@@ -863,8 +864,8 @@ parrillada_playlist_destroy (GtkObject *object)
 		playlist->priv->parse_type = NULL;
 	}
 
-	if (GTK_OBJECT_CLASS (parrillada_playlist_parent_class)->destroy)
-		GTK_OBJECT_CLASS (parrillada_playlist_parent_class)->destroy (object);
+	if (GTK_WIDGET_CLASS (parrillada_playlist_parent_class)->destroy)
+		GTK_WIDGET_CLASS (parrillada_playlist_parent_class)->destroy (object);
 }
 
 static void
@@ -883,10 +884,10 @@ static void
 parrillada_playlist_class_init (ParrilladaPlaylistClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
-	GtkObjectClass *gtkobject_class = GTK_OBJECT_CLASS (klass);
+	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
 	object_class->finalize = parrillada_playlist_finalize;
-	gtkobject_class->destroy = parrillada_playlist_destroy;
+	widget_class->destroy = parrillada_playlist_destroy;
 }
 
 static void
@@ -910,8 +911,8 @@ parrillada_playlist_new ()
 	obj = PARRILLADA_PLAYLIST (g_object_new (PARRILLADA_TYPE_PLAYLIST, NULL));
 
 	g_signal_connect (obj,
-			  "expose-event",
-			  G_CALLBACK (parrillada_playlist_expose_event_cb),
+			  "draw",
+			  G_CALLBACK (parrillada_playlist_draw_cb),
 			  NULL);
 
 	return GTK_WIDGET (obj);

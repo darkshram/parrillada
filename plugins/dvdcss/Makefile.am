@@ -17,7 +17,7 @@ plugindir = $(PARRILLADA_PLUGIN_DIRECTORY)
 plugin_LTLIBRARIES = libparrillada-dvdcss.la
 libparrillada_dvdcss_la_SOURCES = burn-dvdcss.c \
 	burn-dvdcss-private.h 
-libparrillada_dvdcss_la_LIBADD = ../../libparrillada-media/libparrillada-media@PARRILLADA_LIBRARY_SUFFIX@.la ../../libparrillada-burn/libparrillada-burn@PARRILLADA_LIBRARY_SUFFIX@.la $(PARRILLADA_GLIB_LIBS) $(PARRILLADA_GMODULE_LIBS)
+libparrillada_dvdcss_la_LIBADD = ../../libparrillada-media/libparrillada-media3.la ../../libparrillada-burn/libparrillada-burn3.la $(PARRILLADA_GLIB_LIBS) $(PARRILLADA_GMODULE_LIBS)
 libparrillada_dvdcss_la_LDFLAGS = -module -avoid-version
 
 -include $(top_srcdir)/git.mk

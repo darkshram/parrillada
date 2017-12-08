@@ -26,8 +26,6 @@
 #include <glib-object.h>
 #include <gtk/gtk.h>
 
-#include <unique/unique.h>
-
 #include "parrillada-session-cfg.h"
 
 G_BEGIN_DECLS
@@ -55,7 +53,7 @@ struct _ParrilladaApp
 GType parrillada_app_get_type (void) G_GNUC_CONST;
 
 ParrilladaApp *
-parrillada_app_new (UniqueApp *gapp);
+parrillada_app_new (GApplication *gapp);
 
 ParrilladaApp *
 parrillada_app_get_default (void);

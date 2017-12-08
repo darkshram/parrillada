@@ -19,21 +19,21 @@ transcodedir = $(PARRILLADA_PLUGIN_DIRECTORY)
 transcode_LTLIBRARIES = libparrillada-transcode.la
 
 libparrillada_transcode_la_SOURCES = burn-transcode.c burn-normalize.h 
-libparrillada_transcode_la_LIBADD = ../../libparrillada-burn/libparrillada-burn@PARRILLADA_LIBRARY_SUFFIX@.la $(PARRILLADA_GLIB_LIBS) $(PARRILLADA_GSTREAMER_LIBS)
+libparrillada_transcode_la_LIBADD = ../../libparrillada-burn/libparrillada-burn3.la $(PARRILLADA_GLIB_LIBS) $(PARRILLADA_GSTREAMER_LIBS)
 libparrillada_transcode_la_LDFLAGS = -module -avoid-version
 
 normalizedir = $(PARRILLADA_PLUGIN_DIRECTORY)
 normalize_LTLIBRARIES = libparrillada-normalize.la
 
 libparrillada_normalize_la_SOURCES = burn-normalize.c burn-normalize.h
-libparrillada_normalize_la_LIBADD = ../../libparrillada-burn/libparrillada-burn@PARRILLADA_LIBRARY_SUFFIX@.la $(PARRILLADA_GLIB_LIBS) $(PARRILLADA_GSTREAMER_LIBS)
+libparrillada_normalize_la_LIBADD = ../../libparrillada-burn/libparrillada-burn3.la $(PARRILLADA_GLIB_LIBS) $(PARRILLADA_GSTREAMER_LIBS)
 libparrillada_normalize_la_LDFLAGS = -module -avoid-version
 
 vobdir = $(PARRILLADA_PLUGIN_DIRECTORY)
 vob_LTLIBRARIES = libparrillada-vob.la
 
 libparrillada_vob_la_SOURCES = burn-vob.c 
-libparrillada_vob_la_LIBADD = ../../libparrillada-burn/libparrillada-burn@PARRILLADA_LIBRARY_SUFFIX@.la $(PARRILLADA_GLIB_LIBS) $(PARRILLADA_GSTREAMER_LIBS)
+libparrillada_vob_la_LIBADD = ../../libparrillada-burn/libparrillada-burn3.la $(PARRILLADA_GLIB_LIBS) $(PARRILLADA_GSTREAMER_LIBS)
 libparrillada_vob_la_LDFLAGS = -module -avoid-version
 
 -include $(top_srcdir)/git.mk

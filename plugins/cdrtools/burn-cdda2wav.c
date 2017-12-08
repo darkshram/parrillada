@@ -336,10 +336,8 @@ parrillada_cdda2wav_set_argv (ParrilladaProcess *process,
 	ParrilladaJobAction action;
 	ParrilladaBurnResult result;
 	ParrilladaCdda2wav *cdda2wav;
-	ParrilladaCdda2wavPrivate *priv;
 
 	cdda2wav = PARRILLADA_CDDA2WAV (process);
-	priv = PARRILLADA_CDDA2WAV_PRIVATE (process);
 
 	g_ptr_array_add (argv, g_strdup ("cdda2wav"));
 

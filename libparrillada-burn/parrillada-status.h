@@ -70,9 +70,6 @@ typedef enum {
 	PARRILLADA_STATUS_INFORMATION
 } ParrilladaStatusType;
 
-G_GNUC_DEPRECATED void
-parrillada_status_free (ParrilladaStatus *status);
-
 ParrilladaBurnResult
 parrillada_status_get_result (ParrilladaStatus *status);
 

@@ -3,7 +3,7 @@
  *
  *  dim nov 27 15:34:32 2005
  *  Copyright  2005  Rouquier Philippe
- *  brasero-app@wanadoo.fr
+ *  parrillada-app@wanadoo.fr
  ***************************************************************************/
 
 /*
@@ -44,12 +44,12 @@ G_BEGIN_DECLS
 typedef struct _ParrilladaAudioDiscPrivate ParrilladaAudioDiscPrivate;
 
 typedef struct {
-	GtkVBox parent;
+	GtkBox parent;
 	ParrilladaAudioDiscPrivate *priv;
 } ParrilladaAudioDisc;
 
 typedef struct {
-	GtkVBoxClass parent_class;
+	GtkBoxClass parent_class;
 } ParrilladaAudioDiscClass;
 
 GType parrillada_audio_disc_get_type (void);

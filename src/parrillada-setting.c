@@ -47,9 +47,9 @@ struct _ParrilladaSettingPrivate
 
 	gchar **search_entry_history;
 
-	guint win_maximized:1;
-	guint show_preview:1;
-	guint show_sidepane:1;
+	gboolean win_maximized;
+	gboolean show_preview;
+	gboolean show_sidepane;
 };
 
 #define PARRILLADA_SETTING_PRIVATE(o)  (G_TYPE_INSTANCE_GET_PRIVATE ((o), PARRILLADA_TYPE_SETTING, ParrilladaSettingPrivate))
@@ -371,6 +371,9 @@ parrillada_setting_load (ParrilladaSetting *setting)
 	                                              "Player",
 	                                              "player-volume",
 	                                              NULL);
+	/* A volume of 0 isn't a very sane default */
+	if (priv->player_volume == 0)
+		priv->player_volume = 10;
 	priv->display_layout = g_key_file_get_integer (key_file,
 	                                              "Display",
 	                                              "layout",
@@ -414,7 +417,6 @@ parrillada_setting_save (ParrilladaSetting *setting)
 	gchar *contents = NULL;
 	gsize content_size = 0;
 	GKeyFile *key_file;
-	gboolean res;
 	gchar *path;
 
 	priv = PARRILLADA_SETTING_PRIVATE (setting);
@@ -426,10 +428,10 @@ parrillada_setting_save (ParrilladaSetting *setting)
 	                     NULL);
 
 	key_file = g_key_file_new ();
-	res = g_key_file_load_from_file (key_file,
-	                                 path,
-	                                 G_KEY_FILE_KEEP_COMMENTS|G_KEY_FILE_KEEP_TRANSLATIONS,
-	                                 NULL);
+	g_key_file_load_from_file (key_file,
+	                           path,
+	                           G_KEY_FILE_KEEP_COMMENTS|G_KEY_FILE_KEEP_TRANSLATIONS,
+	                           NULL);
 
 	/* Don't worry if it does not work, it could be
 	 * that there isn't any at the moment. */

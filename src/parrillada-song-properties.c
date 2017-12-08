@@ -3,7 +3,7 @@
  *
  *  lun avr 10 18:39:17 2006
  *  Copyright  2006  Rouquier Philippe
- *  brasero-app@wanadoo.fr
+ *  parrillada-app@wanadoo.fr
  ***************************************************************************/
 
 /*
@@ -307,7 +307,7 @@ parrillada_song_props_get_properties (ParrilladaSongProps *self,
 				   gchar **artist,
 				   gchar **title,
 				   gchar **composer,
-				   gint *isrc,
+				   gchar **isrc,
 				   gint64 *start,
 				   gint64 *end,
 				   gint64 *gap)
@@ -333,15 +333,8 @@ parrillada_song_props_get_properties (ParrilladaSongProps *self,
 			*composer = NULL;
 	}
 
-	if (isrc) {
-		const gchar *string;
-
-		string = parrillada_song_props_get_entry_value (GTK_ENTRY (self->priv->isrc));
-		if (string)
-			*isrc = (gint) g_strtod (string, NULL);
-		else
-			*isrc = 0;
-	}
+	if (isrc)
+		*isrc = parrillada_song_props_get_entry_value (GTK_ENTRY (self->priv->isrc));
 
 	if (start)
 		*start = parrillada_time_button_get_value (PARRILLADA_TIME_BUTTON (self->priv->start));
@@ -357,7 +350,7 @@ parrillada_song_props_set_properties (ParrilladaSongProps *self,
 				   const gchar *artist,
 				   const gchar *title,
 				   const gchar *composer,
-				   gint isrc,
+				   const gchar *isrc,
 				   gint64 length,
 				   gint64 start,
 				   gint64 end,
@@ -391,12 +384,8 @@ parrillada_song_props_set_properties (ParrilladaSongProps *self,
 		gtk_entry_set_text (GTK_ENTRY (self->priv->title), title);
 	if (composer)
 		gtk_entry_set_text (GTK_ENTRY (self->priv->composer), composer);
-
-	if (isrc) {
-		string = g_strdup_printf ("%i", isrc);
-		gtk_entry_set_text (GTK_ENTRY (self->priv->isrc), string);
-		g_free (string);
-	}
+	if (isrc)
+		gtk_entry_set_text (GTK_ENTRY (self->priv->isrc), isrc);
 
 	if (gap > 0) {
 		secs = gap / GST_SECOND;

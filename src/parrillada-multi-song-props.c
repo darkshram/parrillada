@@ -77,7 +77,7 @@ void
 parrillada_multi_song_props_get_properties (ParrilladaMultiSongProps *self,
 					 gchar **artist,
 					 gchar **composer,
-					 gint *isrc,
+					 gchar **isrc,
 					 gint64 *gap)
 {
 	const gchar *text;
@@ -103,9 +103,9 @@ parrillada_multi_song_props_get_properties (ParrilladaMultiSongProps *self,
 	if (isrc) {
 		text = gtk_entry_get_text (GTK_ENTRY (priv->isrc));
 		if (text && strcmp (text, _("<Keep current values>")))
-			*isrc = (gint) g_strtod (text, NULL);
+			*isrc = g_strdup (text);
 		else
-			*isrc = -1;
+			*isrc = NULL;
 	}
 
 	if (gap)
@@ -302,7 +302,7 @@ parrillada_multi_song_props_init (ParrilladaMultiSongProps *object)
 			  NULL);
 
 	/* second part of the dialog */
-	box = gtk_hbox_new (FALSE, 6);
+	box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
 	gtk_widget_show (box);
 
 	title = g_strdup_printf ("<b>%s</b>", _("Options"));

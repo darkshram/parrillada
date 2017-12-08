@@ -3,7 +3,7 @@
  *
  *  lun mai 29 08:53:18 2006
  *  Copyright  2006  Rouquier Philippe
- *  brasero-app@wanadoo.fr
+ *  parrillada-app@wanadoo.fr
  ***************************************************************************/
 
 /*
@@ -284,7 +284,7 @@ parrillada_file_chooser_customize (GtkWidget *widget, gpointer null_data)
 			parent = gtk_widget_get_parent (widget);
 			gtk_widget_get_requisition (parent, &request);
 			width = request.width;
-			gtk_widget_size_request (parent, &request);
+			gtk_widget_get_preferred_size (parent, &request, NULL);
 			if (request.width >= width)
 				gtk_widget_set_size_request (parent,
 							     request.width,
@@ -415,7 +415,8 @@ parrillada_file_chooser_find_pane (GtkWidget *child,
 		vbox = gtk_paned_get_child2 (GTK_PANED (child));
 		children_vbox = gtk_container_get_children (GTK_CONTAINER (vbox));
 		for (iter_vbox = children_vbox; iter_vbox; iter_vbox = iter_vbox->next) {
-			if (GTK_IS_HBOX (iter_vbox->data)) {
+			if (GTK_IS_BOX (iter_vbox->data) &&
+                            gtk_orientable_get_orientation (GTK_ORIENTABLE (iter_vbox->data)) == GTK_ORIENTATION_HORIZONTAL) {
 				GtkPackType packing;
 
 				gtk_box_query_child_packing (GTK_BOX (vbox),
@@ -428,10 +429,10 @@ parrillada_file_chooser_find_pane (GtkWidget *child,
 				if (packing == GTK_PACK_START) {
 					GtkRequisition total_request, footer_request;
 
-					gtk_widget_size_request (GTK_WIDGET (vbox),
-								 &total_request);
-					gtk_widget_size_request (GTK_WIDGET (iter_vbox->data),
-								 &footer_request);
+					gtk_widget_get_preferred_size (GTK_WIDGET (vbox),
+								 &total_request, NULL);
+					gtk_widget_get_preferred_size (GTK_WIDGET (iter_vbox->data),
+								 &footer_request, NULL);
 					*((gint *) footer) = total_request.height - footer_request.height;
 					break;
 				}

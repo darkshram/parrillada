@@ -51,12 +51,12 @@ G_BEGIN_DECLS
 typedef struct ParrilladaBurnProgressPrivate ParrilladaBurnProgressPrivate;
 
 typedef struct {
-	GtkVBox parent;
+	GtkBox parent;
 	ParrilladaBurnProgressPrivate *priv;
 } ParrilladaBurnProgress;
 
 typedef struct {
-	GtkVBoxClass parent_class;
+	GtkBoxClass parent_class;
 } ParrilladaBurnProgressClass;
 
 GType parrillada_burn_progress_get_type (void);

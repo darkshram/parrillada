@@ -5,7 +5,7 @@
  *
  *  dim nov 27 14:58:13 2008
  *  Copyright  2005-2008  Rouquier Philippe
- *  brasero-app@wanadoo.fr
+ *  parrillada-app@wanadoo.fr
  ***************************************************************************/
 
 /*
@@ -330,18 +330,22 @@ _read_audio_track (xmlDocPtr project,
         		g_free (unescaped_composer);
 		}
 		else if (!xmlStrcmp (uris->name, (const xmlChar *) "isrc")) {
-			gchar *isrc;
+			xmlChar *isrc;
+                        gchar *unescaped_isrc;
 
-			isrc = (gchar *) xmlNodeListGetString (project,
-							       uris->xmlChildrenNode,
-							       1);
+			isrc = xmlNodeListGetString (project,
+						     uris->xmlChildrenNode,
+						     1);
 			if (!isrc)
 				goto error;
 
-                        parrillada_track_tag_add_int (PARRILLADA_TRACK (track),
-                                                   PARRILLADA_TRACK_STREAM_ISRC_TAG,
-                                                   (gint) g_ascii_strtod (isrc, NULL));
+			unescaped_isrc = g_uri_unescape_string ((char *) isrc, NULL);
 			g_free (isrc);
+
+                        parrillada_track_tag_add_string (PARRILLADA_TRACK (track),
+                                                      PARRILLADA_TRACK_STREAM_ISRC_TAG,
+                                                      unescaped_isrc);
+        		g_free (unescaped_isrc);
 		}
 		else if (uris->type == XML_ELEMENT_NODE)
 			goto error;
@@ -626,7 +630,6 @@ _save_audio_track_xml (xmlTextWriter *project,
 	xmlChar *escaped;
 	gchar *start;
 	gint success;
-	gchar *isrc;
 	gchar *uri;
 	gchar *end;
 
@@ -709,13 +712,13 @@ _save_audio_track_xml (xmlTextWriter *project,
 			return FALSE;
 	}
 
-	if (parrillada_track_tag_lookup_int (PARRILLADA_TRACK (track), PARRILLADA_TRACK_STREAM_ISRC_TAG)) {
-		isrc = g_strdup_printf ("%d", parrillada_track_tag_lookup_int (PARRILLADA_TRACK (track), PARRILLADA_TRACK_STREAM_ISRC_TAG));
+	if (parrillada_track_tag_lookup_string (PARRILLADA_TRACK (track), PARRILLADA_TRACK_STREAM_ISRC_TAG)) {
+		escaped = (unsigned char *) g_uri_escape_string (parrillada_track_tag_lookup_string (PARRILLADA_TRACK (track), PARRILLADA_TRACK_STREAM_ISRC_TAG), NULL, FALSE);
 		success = xmlTextWriterWriteElement (project,
 						     (xmlChar *) "isrc",
-						     (xmlChar *) isrc);
+						     escaped);
 
-		g_free (isrc);
+		g_free (escaped);
 		if (success == -1)
 			return FALSE;
 	}
@@ -1114,7 +1117,7 @@ parrillada_project_save_audio_project_playlist (ParrilladaBurnSession *session,
 
 	result = totem_pl_parser_save (parser, playlist, file,
 				       parrillada_burn_session_get_label (session),
-				       type, NULL);
+				       pl_type, NULL);
 
 	g_object_unref (playlist);
 	g_object_unref (parser);

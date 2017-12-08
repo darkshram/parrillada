@@ -106,11 +106,8 @@ parrillada_filtered_uri_filter (ParrilladaFilteredUri *filtered,
 			     const gchar *uri,
 			     ParrilladaFilterStatus status)
 {
-	ParrilladaFilteredUriPrivate *priv;
 	GtkTreeIter iter;
 	gboolean fatal;
-
-	priv = PARRILLADA_FILTERED_URI_PRIVATE (filtered);
 
 	gtk_list_store_append (GTK_LIST_STORE (filtered), &iter);
 	fatal = (status != PARRILLADA_FILTER_HIDDEN && status != PARRILLADA_FILTER_BROKEN_SYM);
@@ -118,7 +115,7 @@ parrillada_filtered_uri_filter (ParrilladaFilteredUri *filtered,
 	gtk_list_store_set (GTK_LIST_STORE (filtered), &iter,
 			    PARRILLADA_FILTERED_STOCK_ID_COL, fatal ? GTK_STOCK_CANCEL:NULL,
 			    PARRILLADA_FILTERED_URI_COL, uri,
-			    PARRILLADA_FILTERED_STATUS_COL, labels [status - 1],
+			    PARRILLADA_FILTERED_STATUS_COL, _(labels [status - 1]),
 			    PARRILLADA_FILTERED_FATAL_ERROR_COL, fatal == FALSE,
 			    -1);
 }

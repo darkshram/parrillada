@@ -896,7 +896,7 @@ parrillada_job_item_stop (ParrilladaTaskItem *item,
 	ParrilladaJobClass *klass;
 	ParrilladaJobPrivate *priv;
 	ParrilladaBurnResult result = PARRILLADA_BURN_OK;
-
+	
 	self = PARRILLADA_JOB (item);
 	priv = PARRILLADA_JOB_PRIVATE (self);
 
@@ -917,7 +917,7 @@ parrillada_job_item_stop (ParrilladaTaskItem *item,
 		priv->ctx = NULL;
 	}
 
-	return PARRILLADA_BURN_OK;
+	return result;
 }
 
 static void
@@ -1237,12 +1237,9 @@ parrillada_job_set_nonblocking (ParrilladaJob *self,
 			     GError **error)
 {
 	ParrilladaBurnResult result;
-	ParrilladaJobPrivate *priv;
 	int fd;
 
 	PARRILLADA_JOB_DEBUG (self);
-
-	priv = PARRILLADA_JOB_PRIVATE (self);
 
 	fd = -1;
 	if (parrillada_job_get_fd_in (self, &fd) == PARRILLADA_BURN_OK) {

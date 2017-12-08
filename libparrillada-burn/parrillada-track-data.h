@@ -134,19 +134,6 @@ parrillada_track_data_get_grafts (ParrilladaTrackData *track);
 GSList *
 parrillada_track_data_get_excluded_list (ParrilladaTrackData *track);
 
-G_GNUC_DEPRECATED GSList *
-parrillada_track_data_get_excluded (ParrilladaTrackData *track,
-				 gboolean copy);
-
-G_GNUC_DEPRECATED ParrilladaBurnResult
-parrillada_track_data_get_paths (ParrilladaTrackData *track,
-			      gboolean use_joliet,
-			      const gchar *grafts_path,
-			      const gchar *excluded_path,
-			      const gchar *emptydir,
-			      const gchar *videodir,
-			      GError **error);
-
 ParrilladaBurnResult
 parrillada_track_data_write_to_paths (ParrilladaTrackData *track,
                                    const gchar *grafts_path,

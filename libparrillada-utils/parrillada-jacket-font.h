@@ -49,12 +49,12 @@ typedef struct _ParrilladaJacketFont ParrilladaJacketFont;
 
 struct _ParrilladaJacketFontClass
 {
-	GtkHBoxClass parent_class;
+	GtkBoxClass parent_class;
 };
 
 struct _ParrilladaJacketFont
 {
-	GtkHBox parent_instance;
+	GtkBox parent_instance;
 };
 
 GType parrillada_jacket_font_get_type (void) G_GNUC_CONST;

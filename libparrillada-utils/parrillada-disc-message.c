@@ -226,9 +226,6 @@ parrillada_disc_message_destroy (ParrilladaDiscMessage *self)
 void
 parrillada_disc_message_remove_buttons (ParrilladaDiscMessage *self)
 {
-	ParrilladaDiscMessagePrivate *priv;
-
-	priv = PARRILLADA_DISC_MESSAGE_PRIVATE (self);
 	gtk_container_foreach (GTK_CONTAINER (gtk_info_bar_get_action_area (GTK_INFO_BAR (self))),
 			       (GtkCallback) gtk_widget_destroy,
 			       NULL);
@@ -349,7 +346,7 @@ parrillada_disc_message_init (ParrilladaDiscMessage *object)
 
 	main_box = gtk_info_bar_get_content_area (GTK_INFO_BAR (object));
 
-	priv->text_box = gtk_vbox_new (FALSE, 6);
+	priv->text_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
 	gtk_widget_show (priv->text_box);
 	gtk_box_pack_start (GTK_BOX (main_box), priv->text_box, FALSE, FALSE, 0);
 

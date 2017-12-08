@@ -78,7 +78,7 @@ struct _ParrilladaPluginManagerUIPrivate
 	GSList		*plugins;
 };
 
-G_DEFINE_TYPE (ParrilladaPluginManagerUI, parrillada_plugin_manager_ui, GTK_TYPE_VBOX)
+G_DEFINE_TYPE (ParrilladaPluginManagerUI, parrillada_plugin_manager_ui, GTK_TYPE_BOX)
 
 static void plugin_manager_ui_toggle_active (GtkTreeIter *iter, GtkTreeModel *model); 
 static void parrillada_plugin_manager_ui_finalize (GObject *object);
@@ -168,16 +168,12 @@ static void
 configure_button_cb (GtkWidget          *button,
 		     ParrilladaPluginManagerUI *pm)
 {
-	GtkResponseType result;
 	ParrilladaPlugin *plugin;
-	GtkWindow *toplevel;
 	GtkWidget *dialog;
 
 	plugin = plugin_manager_ui_get_selected_plugin (pm);
 
 	g_return_if_fail (plugin != NULL);
-
-	toplevel = GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET(pm)));
 
 	dialog = parrillada_plugin_option_new ();
 
@@ -188,7 +184,7 @@ configure_button_cb (GtkWidget          *button,
 	gtk_window_set_modal (GTK_WINDOW (dialog), TRUE);
 	gtk_window_set_position (GTK_WINDOW (dialog), GTK_WIN_POS_CENTER_ON_PARENT);
 	
-	result = gtk_dialog_run (GTK_DIALOG (dialog));
+	gtk_dialog_run (GTK_DIALOG (dialog));
 	gtk_widget_destroy (dialog);
 }
 
@@ -245,16 +241,12 @@ plugin_manager_ui_view_icon_cell_cb (GtkTreeViewColumn *tree_column,
 				     GtkTreeIter       *iter,
 				     gpointer           data)
 {
-	ParrilladaPlugin *plugin;
 	
 	g_return_if_fail (tree_model != NULL);
 	g_return_if_fail (tree_column != NULL);
 
-	gtk_tree_model_get (tree_model, iter, PLUGIN_COLUMN, &plugin, -1);
-
 	g_object_set (G_OBJECT (cell),
 		      "visible", FALSE,
-		      "sensitive", parrillada_plugin_get_gtype (plugin) != G_TYPE_NONE && !parrillada_plugin_get_compulsory (plugin),
 		      NULL);
 	return;
 /*
@@ -275,7 +267,7 @@ plugin_manager_ui_view_icon_cell_cb (GtkTreeViewColumn *tree_column,
 		      "icon-name",
 		      parrillada_plugin_get_icon_name (plugin),
 		      "sensitive",
-		      parrillada_plugin_get_gtype (plugin) != G_TYPE_NONE,
+		      parrillada_plugin_get_gtype (plugin) != G_TYPE_NONE && !parrillada_plugin_get_compulsory (plugin),
 		      NULL);
 */
 }
@@ -296,8 +288,7 @@ active_toggled_cb (GtkCellRendererToggle *cell,
 	model = gtk_tree_view_get_model (GTK_TREE_VIEW (priv->tree));
 	g_return_if_fail (model != NULL);
 
-	gtk_tree_model_get_iter (model, &iter, path);
-	if (&iter != NULL)
+	if (gtk_tree_model_get_iter (model, &iter, path))
 		plugin_manager_ui_toggle_active (&iter, model);
 
 	gtk_tree_path_free (path);
@@ -336,10 +327,7 @@ row_activated_cb (GtkTreeView       *tree_view,
 	model = gtk_tree_view_get_model (GTK_TREE_VIEW (priv->tree));
 
 	g_return_if_fail (model != NULL);
-
-	gtk_tree_model_get_iter (model, &iter, path);
-
-	g_return_if_fail (&iter != NULL);
+	g_return_if_fail (gtk_tree_model_get_iter (model, &iter, path));
 
 	plugin_manager_ui_toggle_active (&iter, model);
 }
@@ -651,7 +639,7 @@ menu_position_under_widget (GtkMenu  *menu,
 	GtkAllocation allocation;
 
 	gdk_window_get_origin (gtk_widget_get_window (w), x, y);
-	gtk_widget_size_request (GTK_WIDGET (menu), &requisition);
+	gtk_widget_get_preferred_size (GTK_WIDGET (menu), &requisition, NULL);
 
 	gtk_widget_get_allocation (w, &allocation);
 	if (gtk_widget_get_direction (w) == GTK_TEXT_DIR_RTL) {
@@ -705,7 +693,7 @@ menu_position_under_tree_view (GtkMenu  *menu,
 		if (gtk_widget_get_direction (GTK_WIDGET (tree)) == GTK_TEXT_DIR_RTL) {
 			GtkRequisition requisition;
 
-			gtk_widget_size_request (GTK_WIDGET (menu), &requisition);
+			gtk_widget_get_preferred_size (GTK_WIDGET (menu), &requisition, NULL);
 
 			*x += rect.width - requisition.width;
 		}
@@ -938,6 +926,7 @@ parrillada_plugin_manager_ui_init (ParrilladaPluginManagerUI *pm)
 
 	priv = PARRILLADA_PLUGIN_MANAGER_UI_GET_PRIVATE (pm);
 
+	gtk_orientable_set_orientation (GTK_ORIENTABLE (pm), GTK_ORIENTATION_VERTICAL);
 	gtk_box_set_spacing (GTK_BOX (pm), 6);
 	gtk_container_set_border_width (GTK_CONTAINER (pm), 12);
 
@@ -945,12 +934,12 @@ parrillada_plugin_manager_ui_init (ParrilladaPluginManagerUI *pm)
 	gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 0, 0, 12, 0);
 	gtk_box_pack_start (GTK_BOX (pm), alignment, TRUE, TRUE, 0);
  	
-	vbox = gtk_vbox_new (FALSE, 0);
+	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
 	gtk_widget_show (vbox);
 	gtk_container_add (GTK_CONTAINER (alignment), vbox);
 
 	/* bottom part: tree, buttons */
-	hbox = gtk_hbox_new (FALSE, 12);
+	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
 	gtk_widget_show (hbox);
 	gtk_box_pack_start (GTK_BOX (vbox), hbox, TRUE, TRUE, 6);
 
@@ -966,7 +955,7 @@ parrillada_plugin_manager_ui_init (ParrilladaPluginManagerUI *pm)
 	priv->tree = gtk_tree_view_new ();
 	gtk_container_add (GTK_CONTAINER (viewport), priv->tree);
 
-	vbuttonbox = gtk_vbutton_box_new ();
+	vbuttonbox = gtk_button_box_new (GTK_ORIENTATION_VERTICAL);
 	gtk_box_pack_start (GTK_BOX (hbox), vbuttonbox, FALSE, FALSE, 0);
 	gtk_button_box_set_layout (GTK_BUTTON_BOX (vbuttonbox), GTK_BUTTONBOX_START);
 	gtk_box_set_spacing (GTK_BOX (vbuttonbox), 8);

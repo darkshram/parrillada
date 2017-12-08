@@ -307,6 +307,8 @@ stat_end:
 		file = g_file_new_for_commandline_arg (img_uri);
 		g_free (img_uri);
 	}
+	else
+		return FALSE;
 
 	g_free (path);
 
@@ -840,7 +842,8 @@ parrillada_image_format_get_clone_size (gchar *uri,
 }
 
 gchar *
-parrillada_image_format_get_default_path (ParrilladaImageFormat format)
+parrillada_image_format_get_default_path (ParrilladaImageFormat format,
+				       const gchar *name)
 {
 	const gchar *suffixes [] = {".iso",
 				    ".toc",
@@ -860,15 +863,17 @@ parrillada_image_format_get_default_path (ParrilladaImageFormat format)
 	else if (format & PARRILLADA_IMAGE_FORMAT_CDRDAO)
 		suffix = suffixes [3];
 
-	path = g_strdup_printf ("%s/parrillada%s",
+	path = g_strdup_printf ("%s/%s%s",
 				g_get_home_dir (),
+				name? name:"parrillada",
 				suffix);
 
 	while (g_file_test (path, G_FILE_TEST_EXISTS)) {
 		g_free (path);
 
-		path = g_strdup_printf ("%s/parrillada-%i%s",
+		path = g_strdup_printf ("%s/%s-%i%s",
 					g_get_home_dir (),
+					name? name:"parrillada",
 					i,
 					suffix);
 		i ++;

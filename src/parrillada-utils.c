@@ -20,7 +20,7 @@
  *
  *  Wed May 18 16:58:16 2005
  *  Copyright  2005  Philippe Rouquier
- *  <brasero-app@wanadoo.fr>
+ *  <parrillada-app@wanadoo.fr>
  ****************************************************************************/
 
 
@@ -98,7 +98,7 @@ parrillada_clipboard_selection_may_have_uri (GdkAtom *atoms,
 		gchar *target;
 
 		target = gdk_atom_name (*iter);
-		if (!strcmp (target, "x-special/gnome-copied-files")) {
+		if (!strcmp (target, "x-special/mate-copied-files")) {
 			g_free (target);
 			return TRUE;
 		}

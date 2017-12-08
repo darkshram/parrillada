@@ -617,10 +617,10 @@ again:
 	else
 		error_type = PARRILLADA_BURN_ERROR_NONE;
 
-	if (media & PARRILLADA_MEDIUM_BLANK) {
+	if (error_type != PARRILLADA_BURN_ERROR_NONE) {
 		result = parrillada_burn_ask_for_src_media (burn,
 							 PARRILLADA_BURN_ERROR_MEDIUM_NO_DATA,
-							 PARRILLADA_MEDIUM_HAS_DATA,
+							 error_type,
 							 error);
 		if (result != PARRILLADA_BURN_OK)
 			return result;
@@ -1474,15 +1474,12 @@ parrillada_burn_run_recorder (ParrilladaBurn *burn, GError **error)
 {
 	gint error_code;
 	ParrilladaDrive *src;
-	gboolean has_slept;
 	ParrilladaDrive *burner;
 	GError *ret_error = NULL;
 	ParrilladaBurnResult result;
 	ParrilladaMedium *src_medium;
 	ParrilladaMedium *burnt_medium;
 	ParrilladaBurnPrivate *priv = PARRILLADA_BURN_PRIVATE (burn);
-
-	has_slept = FALSE;
 
 	src = parrillada_burn_session_get_src_drive (priv->session);
 	src_medium = parrillada_drive_get_medium (src);
@@ -1587,8 +1584,6 @@ start:
 		result = parrillada_burn_sleep (burn, 2000);
 		if (result != PARRILLADA_BURN_OK)
 			return result;
-
-		has_slept = TRUE;
 
 		/* set speed at 8x max and even less if speed  */
 		rate = parrillada_burn_session_get_rate (priv->session);
@@ -2280,20 +2275,12 @@ parrillada_burn_check_real (ParrilladaBurn *self,
 			 ParrilladaTrack *track,
 			 GError **error)
 {
-	ParrilladaMedium *medium;
 	ParrilladaBurnResult result;
 	ParrilladaBurnPrivate *priv;
-	ParrilladaChecksumType checksum_type;
 
 	priv = PARRILLADA_BURN_PRIVATE (self);
-
+	
 	PARRILLADA_BURN_LOG ("Starting to check track integrity");
-
-	checksum_type = parrillada_track_get_checksum_type (track);
-
-	/* if the input is a DISC and there isn't any checksum specified that 
-	 * means the checksum file is on the disc. */
-	medium = parrillada_drive_get_medium (priv->dest);
 
 	/* get the task and run it skip it otherwise */
 	priv->task = parrillada_burn_caps_new_checksuming_task (priv->caps,
@@ -2386,7 +2373,6 @@ parrillada_burn_record_session (ParrilladaBurn *burn,
 	ParrilladaBurnPrivate *priv;
 	ParrilladaBurnResult result;
 	GError *ret_error = NULL;
-	ParrilladaMedium *medium;
 	GSList *tracks;
 
 	priv = PARRILLADA_BURN_PRIVATE (burn);
@@ -2502,8 +2488,6 @@ parrillada_burn_record_session (ParrilladaBurn *burn,
 		parrillada_burn_session_pop_tracks (priv->session);
 		return result;
 	}
-
-	medium = parrillada_drive_get_medium (priv->dest);
 
 	/* Why do we do this?
 	 * Because for a lot of medium types the size

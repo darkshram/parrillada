@@ -46,10 +46,10 @@
 #include <gtk/gtk.h>
 
 #include <canberra-gtk.h>
+#include <libnotify/notify.h>
 
 #include "parrillada-burn-dialog.h"
 
-#include "parrillada-tray.h"
 #include "parrillada-session-cfg.h"
 #include "parrillada-session-helper.h"
 
@@ -75,15 +75,6 @@ static void
 parrillada_burn_dialog_cancel_clicked_cb (GtkWidget *button,
 				       ParrilladaBurnDialog *dialog);
 
-static void
-parrillada_burn_dialog_tray_cancel_cb (ParrilladaTrayIcon *tray,
-				    ParrilladaBurnDialog *dialog);
-
-static void
-parrillada_burn_dialog_tray_show_dialog_cb (ParrilladaTrayIcon *tray,
-					 gboolean show,
-					 GtkWidget *dialog);
-
 typedef struct ParrilladaBurnDialogPrivate ParrilladaBurnDialogPrivate;
 struct ParrilladaBurnDialogPrivate {
 	ParrilladaBurn *burn;
@@ -97,7 +88,6 @@ struct ParrilladaBurnDialogPrivate {
 	GtkWidget *header;
 	GtkWidget *cancel;
 	GtkWidget *image;
-	ParrilladaTrayIcon *tray;
 
 	/* for our final statistics */
 	GTimer *total_time;
@@ -144,6 +134,51 @@ parrillada_burn_dialog_update_media (ParrilladaBurnDialog *dialog)
 	}
 
 	priv->media = media;
+}
+
+static void
+parrillada_burn_dialog_notify_daemon_close (NotifyNotification *notification,
+                                         ParrilladaBurnDialog *dialog)
+{
+	g_object_unref (notification);
+}
+
+static gboolean
+parrillada_burn_dialog_notify_daemon (ParrilladaBurnDialog *dialog,
+                                   const char *message)
+{
+        NotifyNotification *notification;
+	GError *error = NULL;
+        gboolean result;
+
+	if (!notify_is_initted ()) {
+		notify_init (_("Parrillada notification"));
+	}
+
+        notification = notify_notification_new (message,
+                                                NULL,
+                                                GTK_STOCK_CDROM);
+
+	if (!notification)
+                return FALSE;
+
+	g_signal_connect (notification,
+                          "closed",
+                          G_CALLBACK (parrillada_burn_dialog_notify_daemon_close),
+                          dialog);
+
+	notify_notification_set_timeout (notification, 10000);
+	notify_notification_set_urgency (notification, NOTIFY_URGENCY_NORMAL);
+	notify_notification_set_hint_string (notification, "desktop-entry",
+                                             "parrillada");
+
+	result = notify_notification_show (notification, &error);
+	if (error) {
+		g_warning ("Error showing notification");
+		g_error_free (error);
+	}
+
+	return result;
 }
 
 static GtkWidget *
@@ -984,21 +1019,18 @@ parrillada_burn_dialog_eject_failure_cb (ParrilladaBurn *burn,
 	gchar *name;
 	gchar *string;
 	gint removal_id;
-	GtkWindow *window;
 	GtkWidget *message;
 	gboolean hide = FALSE;
 	ParrilladaBurnDialogPrivate *priv;
 
 	priv = PARRILLADA_BURN_DIALOG_PRIVATE (dialog);
-
+	
 	if (!gtk_widget_get_visible (GTK_WIDGET (dialog))) {
 		gtk_widget_show (GTK_WIDGET (dialog));
 		hide = TRUE;
 	}
 
 	g_timer_stop (priv->total_time);
-
-	window = GTK_WINDOW (dialog);
 
 	name = parrillada_drive_get_display_name (drive);
 	/* Translators: %s is the name of a drive */
@@ -1119,15 +1151,9 @@ parrillada_burn_dialog_update_title_writing_progress (ParrilladaBurnDialog *dial
 						   ParrilladaMedia media,
 						   guint percent)
 {
-	ParrilladaBurnDialogPrivate *priv;
-	ParrilladaBurnFlag flags;
 	gchar *title = NULL;
 	gchar *icon_name;
 	guint remains;
-
-	priv = PARRILLADA_BURN_DIALOG_PRIVATE (dialog);
-
-	flags = parrillada_burn_session_get_flags (priv->session);
 
 	/* This is used only when actually writing to a disc */
 	if (media == PARRILLADA_MEDIUM_FILE)
@@ -1220,10 +1246,6 @@ parrillada_burn_dialog_progress_changed_real (ParrilladaBurnDialog *dialog,
 					  mb_written,
 					  rate);
 
-	parrillada_tray_icon_set_progress (PARRILLADA_TRAYICON (priv->tray),
-					task_progress,
-					remaining);
-
 	if (rate > 0 && priv->is_writing)
 		priv->rates = g_slist_prepend (priv->rates, GINT_TO_POINTER ((gint) rate));
 }
@@ -1273,9 +1295,6 @@ parrillada_burn_dialog_action_changed_real (ParrilladaBurnDialog *dialog,
 	parrillada_burn_progress_set_action (PARRILLADA_BURN_PROGRESS (priv->progress),
 					  action,
 					  string);
-	parrillada_tray_icon_set_action (PARRILLADA_TRAYICON (priv->tray),
-				      action,
-				      string);
 }
 
 static void
@@ -1413,7 +1432,7 @@ parrillada_burn_dialog_activity_start (ParrilladaBurnDialog *dialog)
 	if (window) {
 		cursor = gdk_cursor_new (GDK_WATCH);
 		gdk_window_set_cursor (window, cursor);
-		gdk_cursor_unref (cursor);
+		g_object_unref (cursor);
 	}
 
 	gtk_button_set_use_stock (GTK_BUTTON (priv->cancel), TRUE);
@@ -1501,7 +1520,7 @@ parrillada_burn_dialog_install_missing_cb (ParrilladaBurn *burn,
 
 	/* Get the xid */
 	window = gtk_widget_get_window (user_data);
-	xid = gdk_x11_drawable_get_xid (GDK_DRAWABLE (window));
+	xid = gdk_x11_window_get_xid (window);
 
 	package = parrillada_pk_new ();
 	cancel = g_cancellable_new ();
@@ -1617,17 +1636,9 @@ parrillada_burn_dialog_setup_session (ParrilladaBurnDialog *dialog,
 					  -1,
 					  -1);
 
-	parrillada_tray_icon_set_progress (PARRILLADA_TRAYICON (priv->tray),
-					0.0,
-					-1);
-
 	parrillada_burn_progress_set_action (PARRILLADA_BURN_PROGRESS (priv->progress),
 					  PARRILLADA_BURN_ACTION_NONE,
 					  NULL);
-
-	parrillada_tray_icon_set_action (PARRILLADA_TRAYICON (priv->tray),
-				      PARRILLADA_BURN_ACTION_NONE,
-				      NULL);
 
 	g_timer_continue (priv->total_time);
 
@@ -1747,6 +1758,8 @@ parrillada_burn_dialog_notify_error (ParrilladaBurnDialog *dialog,
 			       GTK_STOCK_CLOSE,
 			       GTK_RESPONSE_CLOSE);
 
+	parrillada_burn_dialog_notify_daemon (dialog, _("Error while burning."));
+
 	response = gtk_dialog_run (GTK_DIALOG (message));
 	while (response == GTK_RESPONSE_OK) {
 		parrillada_burn_dialog_save_log (dialog);
@@ -1777,7 +1790,6 @@ parrillada_burn_dialog_get_success_message (ParrilladaBurnDialog *dialog)
 			else
 				return g_strdup (_("Audio CD successfully burned"));
 		}
-
 		return g_strdup (_("Image successfully created"));
 	}
 	else if (parrillada_track_type_get_has_medium (&priv->input)) {
@@ -1809,7 +1821,6 @@ parrillada_burn_dialog_get_success_message (ParrilladaBurnDialog *dialog)
 			else
 				return g_strdup (_("Data CD successfully burned"));
 		}
-
 		return g_strdup (_("Image successfully created"));
 	}
 
@@ -1889,6 +1900,8 @@ parrillada_burn_dialog_notify_copy_finished (ParrilladaBurnDialog *dialog,
 	                        CA_PROP_EVENT_ID, "complete-media-burn",
 	                        CA_PROP_EVENT_DESCRIPTION, main_message,
 	                        NULL);
+
+	parrillada_burn_dialog_notify_daemon (dialog, main_message);
 	g_free (main_message);
 
 	response = gtk_dialog_run (GTK_DIALOG (message));
@@ -1956,7 +1969,7 @@ parrillada_burn_dialog_notify_success (ParrilladaBurnDialog *dialog)
 	&& (parrillada_track_type_get_medium_type (&priv->input) & PARRILLADA_MEDIUM_HAS_AUDIO))) {
 		/* since we succeed offer the possibility to create cover if that's an audio disc */
 		create_cover = gtk_dialog_add_button (GTK_DIALOG (dialog),
-						      _("_Create Cover"),
+						      _("Create Co_ver"),
 						      GTK_RESPONSE_CLOSE);
 	}
 
@@ -1967,6 +1980,7 @@ parrillada_burn_dialog_notify_success (ParrilladaBurnDialog *dialog)
 			       CA_PROP_EVENT_DESCRIPTION, primary,
 			       NULL);
 
+	parrillada_burn_dialog_notify_daemon (dialog, primary);
 	g_free (primary);
 
 	res = parrillada_burn_dialog_success_run (dialog);
@@ -2496,57 +2510,12 @@ parrillada_burn_dialog_cancel (ParrilladaBurnDialog *dialog,
 	return TRUE;
 }
 
-static gboolean
-parrillada_burn_dialog_delete (GtkWidget *widget, 
-			    GdkEventAny *event)
-{
-	ParrilladaBurnDialogPrivate *priv;
-
-	priv = PARRILLADA_BURN_DIALOG_PRIVATE (widget);
-
-	parrillada_tray_icon_set_show_dialog (PARRILLADA_TRAYICON (priv->tray), FALSE);
- 	return TRUE;
-}
-
 static void
 parrillada_burn_dialog_cancel_clicked_cb (GtkWidget *button,
 				       ParrilladaBurnDialog *dialog)
 {
 	/* a burning is ongoing cancel it */
 	parrillada_burn_dialog_cancel (dialog, FALSE);
-}
-
-static void
-parrillada_burn_dialog_tray_cancel_cb (ParrilladaTrayIcon *tray,
-				    ParrilladaBurnDialog *dialog)
-{
-	parrillada_burn_dialog_cancel (dialog, FALSE);
-}
-
-static void
-parrillada_burn_dialog_tray_show_dialog_cb (ParrilladaTrayIcon *tray,
-					 gboolean show,
-					 GtkWidget *dialog)
-{
-	ParrilladaBurnDialogPrivate *priv;
-
-	priv = PARRILLADA_BURN_DIALOG_PRIVATE (dialog);
-
-	/* we prevent to show the burn dialog once the success dialog has been 
-	 * shown to avoid the following strange behavior:
-	 * Steps:
-	 * - start burning
-	 * - move to another workspace (ie, virtual desktop)
-	 * - when the burning finishes, double-click the notification icon
-	 * - you'll be unable to dismiss the dialogues normally and their behaviour will
-	 *   be generally strange */
-	if (!priv->burn)
-		return;
-
-	if (show)
-		gtk_widget_show (dialog);
-	else
-		gtk_widget_hide (dialog);
 }
 
 static void
@@ -2561,16 +2530,6 @@ parrillada_burn_dialog_init (ParrilladaBurnDialog * obj)
 
 	gtk_window_set_default_size (GTK_WINDOW (obj), 500, 0);
 
-	priv->tray = parrillada_tray_icon_new ();
-	g_signal_connect (priv->tray,
-			  "cancel",
-			  G_CALLBACK (parrillada_burn_dialog_tray_cancel_cb),
-			  obj);
-	g_signal_connect (priv->tray,
-			  "show-dialog",
-			  G_CALLBACK (parrillada_burn_dialog_tray_show_dialog_cb),
-			  obj);
-
 	alignment = gtk_alignment_new (0.5, 0.5, 1.0, 1.0);
 	gtk_widget_show (alignment);
 	gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 6, 8, 6, 6);
@@ -2580,11 +2539,11 @@ parrillada_burn_dialog_init (ParrilladaBurnDialog * obj)
 			    TRUE,
 			    0);
 
-	vbox = gtk_vbox_new (FALSE, 0);
+	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
 	gtk_widget_show (vbox);
 	gtk_container_add (GTK_CONTAINER (alignment), vbox);
 
-	box = gtk_hbox_new (FALSE, 0);
+	box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
 	gtk_widget_show (box);
 	gtk_box_pack_start (GTK_BOX (vbox), box, FALSE, TRUE, 0);
 
@@ -2611,22 +2570,6 @@ parrillada_burn_dialog_init (ParrilladaBurnDialog * obj)
 	priv->cancel = gtk_dialog_add_button (GTK_DIALOG (obj),
 					      GTK_STOCK_CANCEL,
 					      GTK_RESPONSE_CANCEL);
-}
-
-static void
-parrillada_burn_dialog_destroy (GtkObject * object)
-{
-	ParrilladaBurnDialogPrivate *priv;
-
-	priv = PARRILLADA_BURN_DIALOG_PRIVATE (object);
-
-	if (priv->burn) {
-		g_object_unref (priv->burn);
-		priv->burn = NULL;
-	}
-
-	if (GTK_OBJECT_CLASS (parrillada_burn_dialog_parent_class)->destroy)
-		GTK_OBJECT_CLASS (parrillada_burn_dialog_parent_class)->destroy (object);
 }
 
 static void
@@ -2662,11 +2605,6 @@ parrillada_burn_dialog_finalize (GObject * object)
 		priv->burn = NULL;
 	}
 
-	if (priv->tray) {
-		g_object_unref (priv->tray);
-		priv->tray = NULL;
-	}
-
 	if (priv->session) {
 		g_object_unref (priv->session);
 		priv->session = NULL;
@@ -2689,14 +2627,10 @@ static void
 parrillada_burn_dialog_class_init (ParrilladaBurnDialogClass * klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
-	GtkObjectClass *gtk_object_class = GTK_OBJECT_CLASS (klass);
-	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
 	g_type_class_add_private (klass, sizeof (ParrilladaBurnDialogPrivate));
 
 	object_class->finalize = parrillada_burn_dialog_finalize;
-	gtk_object_class->destroy = parrillada_burn_dialog_destroy;
-	widget_class->delete_event = parrillada_burn_dialog_delete;
 }
 
 /**

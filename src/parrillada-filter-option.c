@@ -43,7 +43,7 @@ struct _ParrilladaFilterOptionPrivate
 
 #define PARRILLADA_FILTER_OPTION_PRIVATE(o)  (G_TYPE_INSTANCE_GET_PRIVATE ((o), PARRILLADA_TYPE_FILTER_OPTION, ParrilladaFilterOptionPrivate))
 
-G_DEFINE_TYPE (ParrilladaFilterOption, parrillada_filter_option, GTK_TYPE_VBOX);
+G_DEFINE_TYPE (ParrilladaFilterOption, parrillada_filter_option, GTK_TYPE_BOX);
 
 static void
 parrillada_filter_option_init (ParrilladaFilterOption *object)
@@ -58,6 +58,8 @@ parrillada_filter_option_init (ParrilladaFilterOption *object)
 	priv = PARRILLADA_FILTER_OPTION_PRIVATE (object);
 
 	priv->settings = g_settings_new (PARRILLADA_SCHEMA_FILTER);
+
+	gtk_orientable_set_orientation (GTK_ORIENTABLE (object), GTK_ORIENTATION_VERTICAL);
 
 	/* filter hidden files */
 	button_hidden = gtk_check_button_new_with_mnemonic (_("Filter _hidden files"));

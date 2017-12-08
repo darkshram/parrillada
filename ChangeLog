@@ -1,4 +1,12 @@
 Author: Joel Barrios<darkshram@gmail.com>
+Date:   Fri Dec 08 14:21:25 2015 -0600
+
+    Port to GTK3.
+    Require Caja >= 1.17.
+    Used Brasero 3.12.1 as base.
+    Install appdata in $(DATADIR)/metainfo
+
+Author: Joel Barrios<darkshram@gmail.com>
 Date:   Sun Dec 20 13:57:16 2015 -0600
 
     Fixed libdvdcss detection.

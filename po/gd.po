@@ -1,0 +1,5145 @@
+# Gaelic; Scottish translation for parrillada
+# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# This file is distributed under the same license as the parrillada package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
+# GunChleoc <fios@foramnagaidhlig.net>, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: parrillada\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=braser"
+"o&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2014-02-04 04:04+0000\n"
+"PO-Revision-Date: 2014-02-04 14:29+0100\n"
+"Last-Translator: GunChleoc <fios@foramnagaidhlig.net>\n"
+"Language-Team: Fòram na Gàidhlig http://www.foramnagaidhlig.net\n"
+"Language: gd\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 || n==11) ? 0 : (n==2 || n==12) ? 1 : "
+"(n > 2 && n < 20) ? 2 : 3;\n"
+"X-Generator: Virtaal 0.7.1\n"
+"X-Launchpad-Export-Date: 2013-09-20 17:32+0000\n"
+"X-Project-Style: gnome\n"
+
+#: ../data/parrillada.appdata.xml.in.h:1
+msgid ""
+"Parrillada is a application to burn CD/DVD for the MATE Desktop. It is "
+"designed to be as simple as possible and has some unique features to enable "
+"users to create their discs easily and quickly."
+msgstr ""
+"'S e aplacaid an deasga MATE a th' ann am Parrillada gus CD/DVD a losgadh. "
+"Chaidh a dhealbhachadh ach am biodh e cho furasta cleachdadh 's a ghabhas "
+"agus tha feartan àraidh 'na lùib leis an urrainn dhut na diosgan agad a "
+"chruthachadh gu furasta 's gu luath."
+
+#: ../data/parrillada.appdata.xml.in.h:2
+msgid ""
+"Parrillada can create, copy and burn Data and Audio CD/DVDs. It fully supports "
+"CD-TEXT, multisession and joliet extensions. You can simply drag and drop "
+"files from other local applications or from remote shared drives to easily "
+"burn them to a disc."
+msgstr ""
+"Tha comas aig Parrillada air CD/DVDan dàta no fuaime a chruthachadh, "
+"lethbhreacan dhiubh a dhèanamh 's an losgadh. Cuiridh e làn-taic ris na "
+"leudachain CD-TEXT, multisession agus joliet. Cha leig thu leas ach dàta a "
+"shlaodadh 's a leigeil às o dh'aplacaid ionadail eile no o dhraibhean cèine "
+"co-roinnte gus an losgadh air diosga."
+
+#: ../data/parrillada.desktop.in.in.h:1
+msgid "Parrillada"
+msgstr "Parrillada"
+
+#: ../data/parrillada.desktop.in.in.h:2
+msgid "Disc Burner and Copier"
+msgstr "Inneal losgadh is lethbhreac dhiosgan"
+
+#: ../data/parrillada.desktop.in.in.h:3
+msgid "Create and copy CDs and DVDs"
+msgstr "Cruthaich is dèan lethbhreac dhe CDan is DVDan"
+
+#: ../data/parrillada.desktop.in.in.h:4
+msgid "disc;cdrom;dvd;burn;audio;video;"
+msgstr "diosga;cdrom;dvd;loisg;losgadh;fuaim;video;clàr;"
+
+#: ../data/parrillada.desktop.in.in.h:5
+msgid "Parrillada Disc Burner"
+msgstr "Loisgeadair dhiosgan Parrillada"
+
+#: ../data/parrillada.desktop.in.in.h:6
+msgid "Open a New Window"
+msgstr "Fosgail uinneag ùr"
+
+#: ../data/parrillada.desktop.in.in.h:7
+msgid "Burn an Image File"
+msgstr "Loisg faidhle ìomhaighe"
+
+#: ../data/parrillada.desktop.in.in.h:8
+msgid "Create an Audio Project"
+msgstr "Cruthaich pròiseact fuaime"
+
+#: ../data/parrillada.desktop.in.in.h:9
+msgid "Create a Video Project"
+msgstr "Cruthaich pròiseact video"
+
+#: ../data/mime/parrillada.xml.in.h:1
+msgid "Parrillada project file"
+msgstr "Faidhle pròiseict Parrillada"
+
+#: ../data/org.mate.parrillada.gschema.xml.h:1
+msgid "Should Caja extension output debug statements"
+msgstr "Co-dhiù an dèan an leudachan Caja aithris dì-bhugachaidh"
+
+#: ../data/org.mate.parrillada.gschema.xml.h:2
+msgid ""
+"Should Caja extension output debug statements. The value should be set "
+"to true if it should."
+msgstr ""
+"Co-dhiù an dèan an leudachan Caja aithris dì-bhugachaidh. Cuir an luach "
+"air \"true\" ma tha thu ga h-iarraidh."
+
+#: ../data/org.mate.parrillada.gschema.xml.h:3
+msgid "The type of checksum used for images"
+msgstr ""
+"An seòrsa de dh'àireamh dhearbhaidh a thèid a chleachdadh airson ìomhaighean"
+
+#: ../data/org.mate.parrillada.gschema.xml.h:4
+msgid "Set to 0 for MD5, 1 for SHA1 and 2 for SHA256"
+msgstr "Suidhich seo air 0 airson MD5, 1 airson SHA1 is 2 airson SHA256"
+
+#: ../data/org.mate.parrillada.gschema.xml.h:5
+msgid "The type of checksum used for files"
+msgstr ""
+"An seòrsa de dh'àireamh dhearbhaidh a thèid a chleachdadh airson faidhlichean"
+
+#: ../data/org.mate.parrillada.gschema.xml.h:6
+msgid "Directory to use for temporary files"
+msgstr "Am pasgan a thèid a chleachdadh airson faidhlichean sealach"
+
+#: ../data/org.mate.parrillada.gschema.xml.h:7
+msgid ""
+"Contains the path to the directory where parrillada should store temporary "
+"files. If that value is empty, the default directory set for glib will be "
+"used."
+msgstr ""
+"Seo an t-slighe dhan phasgan a chleachdas parrillada gus faidhlichean sealach a "
+"ghlèidheadh. Ma tha an luach falamh, thèid am pasgan bunaiteach aig glib a "
+"chleachdadh."
+
+#: ../data/org.mate.parrillada.gschema.xml.h:8
+msgid "Favourite burn engine"
+msgstr "An t-inneal losgaidh as annsa leat"
+
+#: ../data/org.mate.parrillada.gschema.xml.h:9
+msgid ""
+"Contains the name of the favourite burn engine suite installed. It will be "
+"used if possible."
+msgstr ""
+"Seo ainm a' phrògraim losgaidh as annsa leat a chaidh a stàladh. Thèid a "
+"chleachdadh ma ghabhas seo dèanamh."
+
+#: ../data/org.mate.parrillada.gschema.xml.h:10
+msgid "White list of additional plugins to use"
+msgstr "Geal-liosta nam plugan eile ri an cleachdadh"
+
+#: ../data/org.mate.parrillada.gschema.xml.h:11
+msgid ""
+"Contains the list of additional plugins Parrillada will use to burn discs. If "
+"set to NULL, Parrillada will load them all."
+msgstr ""
+"Seo an liosta dhe na plugain eile a chleachdas parrillada gus diosgan a loisg. "
+"Mas e \"NULL\" a th' ann, luchdaichidh Parrillada a h-uile gin dhiubh."
+
+#: ../data/org.mate.parrillada.gschema.xml.h:12
+msgid "Enable the \"-immed\" flag with cdrecord"
+msgstr "Cuir an comas a' bhratach \"-immed\" le cdrecord"
+
+#: ../data/org.mate.parrillada.gschema.xml.h:13
+msgid ""
+"Whether to use the \"-immed\" flag with cdrecord. Use with caution (set to "
+"true) as it's only a workaround for some drives/setups."
+msgstr ""
+"Co-dhiù an tèid a' bhratach \"-immed\" a chleachdadh le cdrecord. Cleachd gu "
+"faiceallach e ('s e air \"true\") on nach e ach oidhirp càraidh a th' ann "
+"airson cuid a dhraibhean/rèiteachaidhean."
+
+#: ../data/org.mate.parrillada.gschema.xml.h:14
+msgid "Whether to use the \"-use-the-force-luke=dao\" flag with growisofs"
+msgstr ""
+"Co-dhiù an tèid a' bhratach \"-use-the-force-luke=dao\" a chleachdadh le "
+"growisofs."
+
+#: ../data/org.mate.parrillada.gschema.xml.h:15
+msgid ""
+"Whether to use the \"-use-the-force-luke=dao\" flag with growisofs. Set to "
+"false, parrillada won't use it; it may be a workaround for some drives/setups."
+msgstr ""
+"Co-dhiù an tèid a' bhratach \"-use-the-force-luke=dao\" a chleachdadh le "
+"growisofs. Mas e \"false\" a th' ann cha chleachd parrillada e; dh'fhaoidte gun "
+"càraich a' bhratach seo duilgheadasan le cuid a dhraibhean/rèiteachaidhean."
+
+#: ../data/org.mate.parrillada.gschema.xml.h:16
+msgid "Used in conjunction with the \"-immed\" flag with cdrecord"
+msgstr "Ga chleachdadh còmhla ris a' bhratach \"-immed\" le cdrecord"
+
+#: ../data/org.mate.parrillada.gschema.xml.h:17
+msgid "Used in conjunction with the \"-immed\" flag with cdrecord."
+msgstr "Ga chleachdadh còmhla ris a' bhratach \"-immed\" le cdrecord."
+
+#: ../data/org.mate.parrillada.gschema.xml.h:18
+msgid "Whether to use the \"--driver generic-mmc-raw\" flag with cdrdao"
+msgstr ""
+"Co-dhiù an tèid a bhratach \"--driver generic-mmc-raw\" a chleachdadh le "
+"cdrdao"
+
+#: ../data/org.mate.parrillada.gschema.xml.h:19
+msgid ""
+"Whether to use the \"--driver generic-mmc-raw\" flag with cdrdao. Set to "
+"True, parrillada will use it; it may be a workaround for some drives/setups."
+msgstr ""
+"Co-dhiù an tèid a bhratach \"--driver generic-mmc-raw\" a chleachdadh le "
+"cdrdao.  Mas e \"true\" a th' ann cleachdaidh parrillada e; dh'fhaoidte gun "
+"càraich a' bhratach seo duilgheadasan le cuid a dhraibhean/rèiteachaidhean."
+
+#: ../data/org.mate.parrillada.gschema.xml.h:20
+msgid "The last browsed folder while looking for images to burn"
+msgstr ""
+"Am pasgan mu dheireadh a bhrabhsaich thu fhad 's a bha thu a' lorg airson "
+"ìomhaighean ri an losgadh"
+
+#: ../data/org.mate.parrillada.gschema.xml.h:21
+msgid ""
+"Contains the absolute path of the directory that was last browsed for images "
+"to burn"
+msgstr ""
+"Seo an t-slighe absaloideach dhan phasgan mu dheireadh a chaidh a bhrabhsadh "
+"airson ìomhaighean ri an losgadh"
+
+#: ../data/org.mate.parrillada.gschema.xml.h:22
+msgid "Enable file preview"
+msgstr "Cuir ro-shealladh fhaidhlichean an comas"
+
+#: ../data/org.mate.parrillada.gschema.xml.h:23
+msgid "Whether to display file preview. Set to true to use it."
+msgstr ""
+"Co-dhiù an tèid ro-shealladh air na faidhlichean a shealltainn. Suidhich air "
+"\"true\" e gus a chleachdadh."
+
+#: ../data/org.mate.parrillada.gschema.xml.h:24
+msgid "Should parrillada filter hidden files"
+msgstr "Co-dhiù an criathraich parrillada faidhlichean falaichte air falbh"
+
+#: ../data/org.mate.parrillada.gschema.xml.h:25
+msgid ""
+"Should parrillada filter hidden files. Set to true, parrillada will filter hidden "
+"files."
+msgstr ""
+"Co-dhiù an dèan parrillada criathradh air faidhlichean falaichte. Mas e \"true"
+"\" a th' ann, thèid na faidhlichean falaichte a chriathradh air falbh."
+
+#: ../data/org.mate.parrillada.gschema.xml.h:26
+msgid "Replace symbolic links by their targets"
+msgstr "Cuir an cinn-uidhe an àite nan ceanglaichean samhlachail"
+
+#: ../data/org.mate.parrillada.gschema.xml.h:27
+msgid ""
+"Should parrillada replace symbolic links by their target files in the project. "
+"Set to true, parrillada will replace symbolic links."
+msgstr ""
+"Co-dhiù an cuir parrillada an cinn-uidhe an àite nan ceanglaichean samhlachail "
+"sa phròiseact. Mas e \"true\" a th' ann, thèid an cur 'nan àite."
+
+#: ../data/org.mate.parrillada.gschema.xml.h:28
+msgid "Should parrillada filter broken symbolic links"
+msgstr "Co-dhiù an criathraich parrillada ceanglaichean samhlachail briste"
+
+#: ../data/org.mate.parrillada.gschema.xml.h:29
+msgid ""
+"Should parrillada filter broken symbolic links. Set to true, parrillada will "
+"filter broken symbolic links."
+msgstr ""
+"Co-dhiù an criathraich parrillada ceanglaichean samhlachail briste air falbh. "
+"Mas e \"true\" a th' ann, thèid na ceanglaichean samhlachail briste a "
+"chriathradh air falbh le parrillada."
+
+#: ../data/org.mate.parrillada.gschema.xml.h:30
+msgid "The priority value for the plugin"
+msgstr "Luach a' phrìomhachais airson a' phlugain"
+
+#: ../data/org.mate.parrillada.gschema.xml.h:31
+msgid ""
+"When several plugins are available for the same task, this value is used to "
+"determine which plugin should be given priority. 0 means the plugin's native "
+"priority is used. A positive value overrides the plugin's native priority. A "
+"negative value disables the plugin."
+msgstr ""
+"Nuair a bhios iomadh plugan ri làimh airson an aon saothair, thèid an luach "
+"seo a chleachdadh airson suidheachadh dè am plugan a gheibh prìomhachas. Is "
+"ciall dha 0 gun tèid prìomhachas tùsail a' plugain a chleachdadh. Tar-"
+"àithnidh luach dearbh sam bith prìomhachas tùsail a' plugain. Cuiridh luach "
+"àicheil am plugan à comas."
+
+#: ../data/org.mate.parrillada.gschema.xml.h:32
+msgid "Burning flags to be used"
+msgstr "Brataich losgaidh ri an cleachdadh"
+
+#: ../data/org.mate.parrillada.gschema.xml.h:33
+msgid ""
+"This value represents the burning flags that were used in such a context the "
+"last time."
+msgstr ""
+"Riochdaichidh an luach seo na brataich losgaidh a chaidh a chleachdadh ann "
+"an co-theacs dhen leithid an turas mu dheireadh."
+
+#: ../data/org.mate.parrillada.gschema.xml.h:34
+msgid "The speed to be used"
+msgstr "An luaths ri chleachdadh"
+
+#: ../data/org.mate.parrillada.gschema.xml.h:35
+msgid ""
+"This value represents the speed that was used in such a context the last "
+"time."
+msgstr ""
+"Riochdaichidh an luach seo an luaths a chaidh a chleachdadh ann an co-theacs "
+"dhen leithid an turas mu dheireadh."
+
+#: ../libparrillada-burn/parrillada-blank-dialog.c:222
+msgid "Error while blanking."
+msgstr "Mearachd rè a' bhànachaidh."
+
+#: ../libparrillada-burn/parrillada-blank-dialog.c:227
+#: ../libparrillada-burn/parrillada-blank-dialog.c:272
+msgid "Blank _Again"
+msgstr "Bànaich _a-rithist"
+
+#: ../libparrillada-burn/parrillada-blank-dialog.c:244
+msgid "Unknown error."
+msgstr "Mearachd neo-aithnichte."
+
+#: ../libparrillada-burn/parrillada-blank-dialog.c:264
+#: ../libparrillada-burn/parrillada-blank-dialog.c:288
+msgid "The disc was successfully blanked."
+msgstr "Chaidh an diosga a bhànachadh."
+
+#: ../libparrillada-burn/parrillada-blank-dialog.c:270
+msgid "The disc is ready for use."
+msgstr "Cha an diosga deiseil airson a chleachdadh."
+
+#. Translators: This is a verb, an action
+#: ../libparrillada-burn/parrillada-blank-dialog.c:371
+msgid "_Blank"
+msgstr "_Bànaich"
+
+#: ../libparrillada-burn/parrillada-blank-dialog.c:402
+msgid "_Fast blanking"
+msgstr "Bànachadh _luath"
+
+#: ../libparrillada-burn/parrillada-blank-dialog.c:403
+msgid "Activate fast blanking, as opposed to a longer, thorough blanking"
+msgstr ""
+"Cuir an gnìomh bànachadh luath seach mion-bhànachadh a bheir barrachd ùine"
+
+#: ../libparrillada-burn/parrillada-blank-dialog.c:433
+msgid "Disc Blanking"
+msgstr "A' bànachadh diosga"
+
+#: ../libparrillada-burn/parrillada-burn.c:162
+msgid "Burning CD/DVD"
+msgstr "A' losgadh CD/DVD"
+
+#: ../libparrillada-burn/parrillada-burn.c:331
+#: ../libparrillada-burn/parrillada-data-session.c:123
+#: ../libparrillada-burn/parrillada-tool-dialog.c:89
+#: ../libparrillada-media/scsi-error.c:47 ../plugins/cdrdao/burn-cdrdao.c:243
+#: ../plugins/cdrkit/burn-readom.c:110 ../plugins/cdrkit/burn-wodim.c:135
+#: ../plugins/cdrkit/burn-wodim.c:144 ../plugins/cdrtools/burn-cdrecord.c:135
+#: ../plugins/cdrtools/burn-cdrecord.c:144
+#: ../plugins/cdrtools/burn-readcd.c:111
+#: ../plugins/growisofs/burn-dvd-rw-format.c:84
+#: ../plugins/growisofs/burn-growisofs.c:190
+#: ../plugins/libburnia/burn-libburn-common.c:186
+#, c-format
+msgid "The drive is busy"
+msgstr "Tha an draibh trang"
+
+#: ../libparrillada-burn/parrillada-burn.c:332
+#: ../libparrillada-burn/parrillada-burn-dialog.c:651
+#: ../libparrillada-burn/parrillada-tool-dialog.c:90
+msgid "Make sure another application is not using it"
+msgstr "Dèan cinnteach nach eil aplacaid eile ga chleachdadh"
+
+#: ../libparrillada-burn/parrillada-burn.c:409
+#, c-format
+msgid "\"%s\" cannot be unlocked"
+msgstr "Chan urrainn dhuinn a' ghlais a thoirt far \"%s\""
+
+#: ../libparrillada-burn/parrillada-burn.c:546 ../libparrillada-burn/parrillada-burn.c:678
+#: ../libparrillada-burn/parrillada-burn.c:761
+msgid "No burner specified"
+msgstr "Cha deach loisgeadair a shònrachadh"
+
+#: ../libparrillada-burn/parrillada-burn.c:586
+msgid "No source drive specified"
+msgstr "Cha deach draibh an tùis a shònrachadh"
+
+#: ../libparrillada-burn/parrillada-burn.c:632
+msgid "Ongoing copying process"
+msgstr "Tha lethbhreac 'ga dhèanamh"
+
+#: ../libparrillada-burn/parrillada-burn.c:636 ../libparrillada-burn/parrillada-burn.c:735
+#: ../libparrillada-burn/parrillada-burn.c:872 ../libparrillada-burn/parrillada-burn.c:987
+#, c-format
+msgid "The drive cannot be locked (%s)"
+msgstr "Cha ghabh an draibh a ghlasadh (%s)"
+
+#: ../libparrillada-burn/parrillada-burn.c:695
+msgid "The drive has no rewriting capabilities"
+msgstr "Chan eil comas ath-sgrìobhaidh aig an draibh"
+
+#: ../libparrillada-burn/parrillada-burn.c:731
+msgid "Ongoing blanking process"
+msgstr "Tha bànachadh a' dol"
+
+#: ../libparrillada-burn/parrillada-burn.c:770
+msgid "The drive cannot burn"
+msgstr "Chan urrainn dhan draibh a losgadh"
+
+#: ../libparrillada-burn/parrillada-burn.c:866
+#: ../libparrillada-burn/parrillada-dest-selection.c:108
+msgid "Ongoing burning process"
+msgstr "Tha losgadh a' dol"
+
+#: ../libparrillada-burn/parrillada-burn.c:983
+msgid "Ongoing checksumming operation"
+msgstr "Tha àireamh dearbhaidh 'ga chruthachadh"
+
+#: ../libparrillada-burn/parrillada-burn.c:1623
+#: ../libparrillada-burn/parrillada-burn.c:1817
+msgid "Merging data is impossible with this disc"
+msgstr "Cha ghabh dàta a cho-aonachadh leis an diosga seo"
+
+#: ../libparrillada-burn/parrillada-burn.c:1624
+#: ../libparrillada-burn/parrillada-burn-dialog.c:2186
+#: ../plugins/cdrkit/burn-genisoimage.c:206 ../plugins/cdrkit/burn-wodim.c:114
+#: ../plugins/cdrtools/burn-cdrecord.c:114
+#: ../plugins/cdrtools/burn-mkisofs.c:206
+#: ../plugins/growisofs/burn-growisofs.c:198
+#, c-format
+msgid "Not enough space available on the disc"
+msgstr "Chan eil rum gu leòr ri làimh air an diosga"
+
+#. Translators: %s is the name of a missing application
+#: ../libparrillada-burn/parrillada-burn.c:1708
+#: ../libparrillada-burn/parrillada-burn-options.c:1187
+#: ../src/parrillada-project.c:1385
+#, c-format
+msgid "%s (application)"
+msgstr "%s (aplacaid)"
+
+#. Translators: %s is the name of a missing library
+#: ../libparrillada-burn/parrillada-burn.c:1714
+#: ../libparrillada-burn/parrillada-burn-options.c:1193
+#: ../src/parrillada-project.c:1391
+#, c-format
+msgid "%s (library)"
+msgstr "%s (leabharlann)"
+
+#. Translators: %s is the name of a missing GStreamer plugin
+#: ../libparrillada-burn/parrillada-burn.c:1719
+#: ../libparrillada-burn/parrillada-burn-options.c:1198
+#: ../src/parrillada-project.c:1396
+#, c-format
+msgid "%s (GStreamer plugin)"
+msgstr "%s (plugan GStreamer)"
+
+#: ../libparrillada-burn/parrillada-burn.c:1752
+msgid "There is no track to burn"
+msgstr "Chan eil traca ann ri losgadh"
+
+#: ../libparrillada-burn/parrillada-burn.c:1859
+msgid ""
+"Please install the following required applications and libraries manually "
+"and try again:"
+msgstr ""
+"Stàlaich na h-aplacaidean is leabhar-lannan riatanach seo a làimh is feuch "
+"ris a-rithist:"
+
+#: ../libparrillada-burn/parrillada-burn.c:2576
+#: ../libparrillada-burn/parrillada-caps-burn.c:868
+#, c-format
+msgid "Only one track at a time can be checked"
+msgstr "Cha ghabh ach aon traca a dhearbhadh aig an aon àm"
+
+#: ../libparrillada-burn/parrillada-burn.c:2635
+msgid "No format for the temporary image could be found"
+msgstr "Cha deach fòrmat airson na h-ìomhaighe sealaich a lorg"
+
+#. Translators: Error message saying no graft point
+#. * is specified. A graft point is the path (on the
+#. * disc) where a file from any source will be added
+#. * ("grafted")
+#: ../libparrillada-burn/parrillada-burn.c:2846
+#: ../libparrillada-burn/parrillada-caps-burn.c:66
+#: ../libparrillada-burn/burn-job.c:1219 ../libparrillada-burn/burn-job.c:1228
+#: ../libparrillada-burn/burn-mkisofs-base.c:302
+#: ../caja/caja-burn-extension.c:218
+#: ../plugins/cdrkit/burn-genisoimage.c:368
+#: ../plugins/cdrkit/burn-readom.c:129 ../plugins/cdrkit/burn-readom.c:370
+#: ../plugins/cdrkit/burn-wodim.c:725 ../plugins/cdrkit/burn-wodim.c:837
+#: ../plugins/cdrkit/burn-wodim.c:852 ../plugins/cdrtools/burn-cdrecord.c:835
+#: ../plugins/cdrtools/burn-cdrecord.c:850
+#: ../plugins/cdrtools/burn-mkisofs.c:368
+#: ../plugins/cdrtools/burn-readcd.c:130 ../plugins/cdrtools/burn-readcd.c:380
+#: ../src/parrillada-app.c:786
+#, c-format
+msgid "An internal error occurred"
+msgstr "Thachair mearachd taobh a-staigh"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:155
+msgid "Parrillada notification"
+msgstr "Brath Parrillada"
+
+#. Translators: This string is used in the title bar %s is the action currently performed
+#: ../libparrillada-burn/parrillada-burn-dialog.c:219
+#, c-format
+msgid "%s (%i%% Done)"
+msgstr "%s (%i%% Dèanta)"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:241
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1161
+msgid "Creating Image"
+msgstr "Cruthaich ìomhaigh"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:246
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1170
+msgid "Burning DVD"
+msgstr "A' losgadh DVD"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:250
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1166
+msgid "Copying DVD"
+msgstr "A' dèanamh lethbhreac de DVD"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:256
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1180
+msgid "Burning CD"
+msgstr "A' losgadh CD"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:260
+#: ../libparrillada-burn/parrillada-burn-dialog.c:381
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1176
+msgid "Copying CD"
+msgstr "A' dèanamh lethbhreac de CD"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:266
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1190
+msgid "Burning Disc"
+msgstr "A' losgadh diosga"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:270
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1186
+msgid "Copying Disc"
+msgstr "A' dèanamh lethbhreac de dhiosga"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:300
+#: ../libparrillada-burn/burn-basics.c:78
+msgid "Creating image"
+msgstr "A' cruthachadh ìomhaigh"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:306
+msgid "Simulation of video DVD burning"
+msgstr "A' losgadh DVD video mas-fhìor"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:308
+msgid "Burning video DVD"
+msgstr "A' losgadh DVD video"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:316
+msgid "Simulation of data DVD burning"
+msgstr "A' losgadh DVD dàta mas-fhìor"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:318
+msgid "Burning data DVD"
+msgstr "A' losgadh DVD dàta"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:326
+msgid "Simulation of image to DVD burning"
+msgstr "A' losgadh ìomhaigh gu DVD mas-fhìor"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:328
+msgid "Burning image to DVD"
+msgstr "A' losgadh ìomhaigh gu DVD"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:336
+msgid "Simulation of data DVD copying"
+msgstr "A' dèanamh lethbhreac de DVD mas-fhìor"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:338
+msgid "Copying data DVD"
+msgstr "A' dèanamh lethbhreac de DVD"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:349
+msgid "Simulation of (S)VCD burning"
+msgstr "A' losgadh (S)VCD mas-fhìor"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:351
+msgid "Burning (S)VCD"
+msgstr "A' losgadh (S)VCD"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:359
+#: ../libparrillada-burn/parrillada-burn-dialog.c:412
+msgid "Simulation of audio CD burning"
+msgstr "A' losgadh CD fuaime mas-fhìor"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:361
+#: ../libparrillada-burn/parrillada-burn-dialog.c:414
+msgid "Burning audio CD"
+msgstr "A' losgadh CD fuaime"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:369
+msgid "Simulation of data CD burning"
+msgstr "A' losgadh CD dàta mas-fhìor"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:371
+msgid "Burning data CD"
+msgstr "A' losgadh CD dàta"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:379
+msgid "Simulation of CD copying"
+msgstr "A' dèanamh lethbhreac de CD mas-fhìor"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:389
+msgid "Simulation of image to CD burning"
+msgstr "A' losgadh ìomhaigh gu CD mas-fhìor"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:391
+msgid "Burning image to CD"
+msgstr "A' losgadh ìomhaigh gu CD"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:402
+msgid "Simulation of video disc burning"
+msgstr "A' losgadh diosga video mas-fhìor"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:404
+msgid "Burning video disc"
+msgstr "A' losgadh diosga video"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:422
+msgid "Simulation of data disc burning"
+msgstr "A' losgadh diosga dàta mas-fhìor"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:424
+msgid "Burning data disc"
+msgstr "A' losgadh diosga dàta"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:432
+msgid "Simulation of disc copying"
+msgstr "A' dèanamh lethbhreac de dhiosga mas-fhìor"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:434
+#: ../libparrillada-burn/burn-basics.c:82
+msgid "Copying disc"
+msgstr "A' dèanamh lethbhreac de dhiosga"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:442
+msgid "Simulation of image to disc burning"
+msgstr "A' losgadh ìomhaigh gu diosga mas-fhìor"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:444
+msgid "Burning image to disc"
+msgstr "A' losgadh ìomhaigh gu diosga"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:549
+msgid "Please replace the disc with a rewritable disc holding data."
+msgstr ""
+"An cuir thu diosga a ghabhas ath-sgrìobhadh le dàta air an àite an diosga "
+"seo?"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:551
+msgid "Please replace the disc with a disc holding data."
+msgstr "An cuir thu diosga air a bheil dàta an àite an diosga seo?"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:555
+msgid "Please insert a rewritable disc holding data."
+msgstr "An cuir thu a-steach diosga a ghabhas ath-sgrìobhadh air a bheil dàta?"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:557
+#: ../libparrillada-burn/parrillada-burn-options.c:501
+msgid "Please insert a disc holding data."
+msgstr "An cuir thu a-steach diosga air a bheil dàta?"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:572
+#, c-format
+msgid ""
+"Please replace the disc with a writable CD with at least %i MiB of free "
+"space."
+msgstr ""
+"An cuir thu CD a ghabhas sgrìobhadh le co-dhiù %i MiB dhe rum saor air an "
+"àite an diosga seo?"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:575
+msgid "Please replace the disc with a writable CD."
+msgstr "An cuir thu CD a ghabhas sgrìobhadh an àite an diosga seo?"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:579
+#, c-format
+msgid "Please insert a writable CD with at least %i MiB of free space."
+msgstr ""
+"An cuir thu a-steach CD a ghabhas sgrìobhadh le co-dhiù %i MiB dhe rum saor "
+"air?"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:582
+msgid "Please insert a writable CD."
+msgstr "An cuir thu a-steach CD a ghabhas sgrìobhadh?"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:588
+#, c-format
+msgid ""
+"Please replace the disc with a writable DVD with at least %i MiB of free "
+"space."
+msgstr ""
+"An cuir thu DVD a ghabhas sgrìobhadh le co-dhiù %i MiB dhe rum saor air an "
+"àite an diosga seo?"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:591
+msgid "Please replace the disc with a writable DVD."
+msgstr "An cuir thu DVD a ghabhas sgrìobhadh an àite an diosga seo?"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:595
+#, c-format
+msgid "Please insert a writable DVD with at least %i MiB of free space."
+msgstr ""
+"An cuir thu a-steach DVD a ghabhas sgrìobhadh le co-dhiù %i MiB dhe rum saor "
+"air?"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:598
+msgid "Please insert a writable DVD."
+msgstr "An cuir thu a-steach DVD a ghabhas sgrìobhadh?"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:603
+#, c-format
+msgid ""
+"Please replace the disc with a writable CD or DVD with at least %i MiB of "
+"free space."
+msgstr ""
+"An cuir thu CD no DVD a ghabhas sgrìobhadh le co-dhiù %i MiB dhe rum saor "
+"air an àite an diosga seo?"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:606
+msgid "Please replace the disc with a writable CD or DVD."
+msgstr "An cuir thu CD no DVD a ghabhas sgrìobhadh an àite an diosga seo?"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:610
+#, c-format
+msgid "Please insert a writable CD or DVD with at least %i MiB of free space."
+msgstr ""
+"An cuir thu a-steach CD no DVD a ghabhas sgrìobhadh le co-dhiù %i MiB dhe "
+"rum saor air?"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:613
+#: ../libparrillada-burn/parrillada-burn-dialog.c:2171
+#: ../libparrillada-burn/parrillada-burn-dialog.c:2185
+#: ../libparrillada-burn/parrillada-burn-options.c:457 ../src/parrillada-project.c:995
+msgid "Please insert a writable CD or DVD."
+msgstr "An cuir thu a-steach CD no DVD a ghabhas sgrìobhadh?"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:640
+msgid ""
+"An image of the disc has been created on your hard drive.\n"
+"Burning will begin as soon as a writable disc is inserted."
+msgstr ""
+"Chaidh ìomhaigh dhen diosga a chruthachadh air a' chlàr-chruaidh agad.\n"
+"Tòisichidh sinn leis an losgadh cho luath 's a chuireas tu a-steach diosga a "
+"ghabhas sgrìobhadh."
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:645
+msgid "A data integrity test will begin as soon as the disc is inserted."
+msgstr ""
+"Nì sinn deuchainn air an dàta ach a bheil e mar bu chòir gus nach eil cho "
+"luath 's a chuireas tu an diosga a-steach."
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:646
+msgid "Please re-insert the disc in the CD/DVD burner."
+msgstr "An cuir thu an diosga a-steach dhan loisgeadair CD/DVD a-rithist?"
+
+#. Translators: %s is the name of a drive
+#: ../libparrillada-burn/parrillada-burn-dialog.c:650
+#, c-format
+msgid "\"%s\" is busy."
+msgstr "Tha \"%s\" trang."
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:654
+#, c-format
+msgid "There is no disc in \"%s\"."
+msgstr "Chan eil diosga ann an \"%s\"."
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:658
+#, c-format
+msgid "The disc in \"%s\" is not supported."
+msgstr "Cha chuirear taic ris an diosga ann an \"%s\"."
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:662
+#, c-format
+msgid "The disc in \"%s\" is not rewritable."
+msgstr "Cha ghabh an diosga ann an \"%s\" ath-sgrìobhadh."
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:666
+#, c-format
+msgid "The disc in \"%s\" is empty."
+msgstr "Tha an diosga ann an \"%s\" falamh."
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:670
+#, c-format
+msgid "The disc in \"%s\" is not writable."
+msgstr "Cha ghabh an diosga ann an \"%s\" sgrìobhadh."
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:674
+#, c-format
+msgid "Not enough space available on the disc in \"%s\"."
+msgstr "Cha eil rum gu leòr ri làimh air an diosga ann an \"%s\"."
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:682
+#, c-format
+msgid "The disc in \"%s\" needs to be reloaded."
+msgstr "Tha an diosga ann an \"%s\" feumach air ath-luchdadh."
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:683
+msgid "Please eject the disc and reload it."
+msgstr "Gluais an diosga a-mach is ath-luchdaich e."
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:728
+#: ../libparrillada-burn/parrillada-sum-dialog.c:333
+msgid ""
+"A file could not be created at the location specified for temporary files"
+msgstr ""
+"Cha b' urrainn dhuinn faidhle a chruthachadh air an ionad a chaidh a "
+"shònrachadh airson faidhlichean sealach."
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:729
+msgid "The image could not be created at the specified location"
+msgstr ""
+"Cha b' urrainn dhuinn an ìomhaigh a chruthachadh air an ionad a chaidh a "
+"shònrachadh"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:730
+msgid ""
+"Do you want to specify another location for this session or retry with the "
+"current location?"
+msgstr ""
+"A bheil thu airson ionad eile a shònrachadh airson an t-seisein seo no am b' "
+"fhearr leat feuchainn a-rithist leis an ionad làithreach?"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:742
+msgid "You may want to free some space on the disc and retry"
+msgstr ""
+"Dh'fhaoidte gum bu chòir dhut rum a shaoradh air an diosga is feuchainn a-"
+"rithist"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:749
+#: ../libparrillada-burn/parrillada-drive-properties.c:244
+#: ../libparrillada-burn/parrillada-drive-properties.c:282
+#: ../libparrillada-burn/parrillada-drive-properties.c:334
+msgid "_Keep Current Location"
+msgstr "Cum an t-ionad _làithreach"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:751
+#: ../libparrillada-burn/parrillada-drive-properties.c:245
+#: ../libparrillada-burn/parrillada-drive-properties.c:283
+#: ../libparrillada-burn/parrillada-drive-properties.c:335
+msgid "_Change Location"
+msgstr "_Atharraich an t-ionad"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:773
+#: ../libparrillada-burn/parrillada-image-properties.c:459
+msgid "Location for Image File"
+msgstr "Ionad an fhaidhle ìomhaighe"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:781
+#: ../libparrillada-burn/parrillada-drive-properties.c:366
+msgid "Location for Temporary Files"
+msgstr "Ionad nam faidhlichean sealach"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:889
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1135
+msgid "_Replace Disc"
+msgstr "Cui_r diosga 'na àite"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:930
+msgid "Do you really want to blank the current disc?"
+msgstr "A bheil thu cinnteach bu bheil thu airson an diosga seo a bhànachadh?"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:931
+msgid "The disc in the drive holds data."
+msgstr "Tha dàta air an diosga a tha san draibh."
+
+#. Translators: Blank is a verb here
+#: ../libparrillada-burn/parrillada-burn-dialog.c:933
+msgid "_Blank Disc"
+msgstr "Diosga _bàn"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:947
+msgid ""
+"If you import them you will be able to see and use them once the current "
+"selection of files is burned."
+msgstr ""
+"Ma dh'ion-phortaicheas tu iad, 's urrainn dhut am faicinn is cleachdadh "
+"nuair a bhios an taghadh làithreach dhe dh'fhaidhlichean air a losgadh."
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:948
+msgid "If you don't, they will be invisible (though still readable)."
+msgstr "Mur dèan thu seo, cha ghabh am faicinn (ged a ghabhas an leughadh)."
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:951
+msgid ""
+"There are files already burned on this disc. Would you like to import them?"
+msgstr ""
+"Tha faidhlichean air an losgadh air an diosga seo mar-thà. A bheil thu "
+"airson an ion-phortadh?"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:953
+msgid "_Import"
+msgstr "_Ion-phortaich"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:954
+msgid "Only _Append"
+msgstr "Cuir ris _a-mhàin"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:967
+msgid ""
+"CD-RW audio discs may not play correctly in older CD players and CD-Text "
+"won't be written."
+msgstr ""
+"Dh'fhaoidte nach tèid diosgan CD-RW fuaime a chluich mar bu chòir le seann "
+"chluicheadairean CD is cha tèid CD-Text a sgrìobhadh."
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:968
+#: ../libparrillada-burn/parrillada-burn-dialog.c:990
+msgid "Do you want to continue anyway?"
+msgstr "A bheil thu airson leantainn air adhart co-dhiù?"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:971
+msgid "Appending audio tracks to a CD is not advised."
+msgstr "Cha mholamaid gun cuir thu tracaichean fuaime ri CD."
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:973
+#: ../libparrillada-burn/parrillada-burn-dialog.c:995
+#: ../libparrillada-burn/parrillada-tool-dialog.c:422 ../src/parrillada-data-disc.c:572
+msgid "_Continue"
+msgstr "_Lean air adhart"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:989
+msgid "CD-RW audio discs may not play correctly in older CD players."
+msgstr ""
+"Dh'fhaoidte nach tèid diosgan CD-RW fuaime a chluich mar bu chòir le seann "
+"chluicheadairean CD."
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:993
+msgid "Recording audio tracks on a rewritable disc is not advised."
+msgstr ""
+"Cha mholamaid gun clàraich thu tracaichean fuaime air diosga a ghabhas ath-"
+"sgrìobhadh."
+
+#. Translators: %s is the name of a drive
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1037
+#, c-format
+msgid "Please eject the disc from \"%s\" manually."
+msgstr "An gluais thu an dioga a-mach à \"%s\" a làimh?"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1046
+msgid ""
+"The disc could not be ejected though it needs to be removed for the current "
+"operation to continue."
+msgstr ""
+"Cha b' urrainn dhuinn an diosga a ghluasad a-mach ach feumar a thoirt air "
+"falbh mus urrainn dhan obrachadh làithreach a leantainn air adhart"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1133
+msgid "Do you want to replace the disc and continue?"
+msgstr "A bheil thu airson diosga a chur 'na àite is leantainn air adhart?"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1134
+msgid "The currently inserted disc could not be blanked."
+msgstr ""
+"Cha b' urrainn dhuinn an diosga a tha san draibh an-dràsta a bhànachadh."
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1143
+msgid "Do you want to continue with full Windows compatibility disabled?"
+msgstr ""
+"A bheil thu airson leantainn air adhart leis a' chò-chòrdalachd shlàn ri "
+"Windows air a chur à comas?"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1144
+#: ../libparrillada-burn/parrillada-status-dialog.c:340
+#: ../src/parrillada-data-disc.c:734
+msgid ""
+"Some files don't have a suitable name for a fully Windows-compatible CD."
+msgstr ""
+"Chan eil ainm freagarrach air a h-uile faidhle ach am biodh an CD co-"
+"chòrdail ri Windows gu slàn."
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1145
+msgid "C_ontinue"
+msgstr "L_ean air adhart"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1365
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1386
+msgid "The simulation was successful."
+msgstr "Shoirbhich leis an losgadh mas-fhìor."
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1368
+msgid "Real disc burning will take place in 10 seconds."
+msgstr "Tòisichidh sinn a' losgadh an diosga dha-rìribh an ceann 10 diogan."
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1371
+msgid "Burn _Now"
+msgstr "Loisg a_n-dràsta"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1660
+msgid "Save Current Session"
+msgstr "Sàbhail an seisean làithreach"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1735
+msgid "An unknown error occurred."
+msgstr "Thachair mearachd neo-aithnichte"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1743
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1761 ../src/parrillada-app.c:620
+msgid "Error while burning."
+msgstr "Mearachd leis an losgadh"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1751
+msgid "_Save Log"
+msgstr "_Sàbhail loga"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1786
+msgid "Video DVD successfully burned"
+msgstr "Shoirbhich le losgadh a' DVD video"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1788
+msgid "(S)VCD successfully burned"
+msgstr "Shoirbhich le losgadh a' (S)VCD"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1791
+msgid "Audio CD successfully burned"
+msgstr "Shoirbhich le losgadh a' CD fuaime"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1793
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1824
+msgid "Image successfully created"
+msgstr "Shoirbhich le losgadh na h-ìomhaighe"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1798
+msgid "DVD successfully copied"
+msgstr "Chaidh lethbhreac dhen DVD a dhèanamh gu soirbheachail"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1800
+msgid "CD successfully copied"
+msgstr "Chaidh lethbhreac dhen CD a dhèanamh gu soirbheachail"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1804
+msgid "Image of DVD successfully created"
+msgstr "Shoirbhich le cruthachadh ìomhaigh a' DVD"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1806
+msgid "Image of CD successfully created"
+msgstr "Shoirbhich le cruthachadh ìomhaigh a' CD"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1812
+msgid "Image successfully burned to DVD"
+msgstr "Shoirbhich le losgadh na h-ìomhaighe gun DVD"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1814
+msgid "Image successfully burned to CD"
+msgstr "Shoirbhich le losgadh na h-ìomhaighe gun CD"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1820
+msgid "Data DVD successfully burned"
+msgstr "Shoirbhich le losgadh a' DVD dàta"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1822
+msgid "Data CD successfully burned"
+msgstr "Shoirbhich le losgadh a' CD dàta"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1881
+#, c-format
+msgid "Copy #%i has been burned successfully."
+msgstr "Shoirbhich le losgadh an lethbric %i"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1889
+msgid ""
+"Another copy will start as soon as you insert a new writable disc. If you do "
+"not want to burn another copy, press \"Cancel\"."
+msgstr ""
+"Tòisichidh sinn air lethbhreac eile a dhèanamh cho luath 's a chuireas tu "
+"diosga ùr a ghabhas sgrìobhadh a-steach. Briog air \"Sguir dheth\" mur eil "
+"thu airson lethbhreac eile a losgadh."
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1963
+msgid "Make _More Copies"
+msgstr "Dèan _barrachd lethbhreacan"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:1972
+msgid "Create Co_ver"
+msgstr "Cruthaich _còmhdachadh"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:2134
+msgid "There are some files left to burn"
+msgstr "Tha faidhle no dhà ri losgadh fhathast"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:2141
+msgid "There are some more videos left to burn"
+msgstr "Tha video no dhà ri losgadh fhathast"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:2145
+msgid "There are some more songs left to burn"
+msgstr "Tha òran no dhà ri losgadh fhathast"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:2451
+#: ../libparrillada-burn/parrillada-tool-dialog.c:411
+msgid "Do you really want to quit?"
+msgstr "A bheil thu cinnteach gu bheil thu airson fàgail?"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:2455
+#: ../libparrillada-burn/parrillada-tool-dialog.c:417
+msgid "Interrupting the process may make disc unusable."
+msgstr ""
+"Dh'fhaoidte nach gabh an diosga cleachdadh ma sguireas tu dhen phròiseas."
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:2458
+msgid "C_ontinue Burning"
+msgstr "Lean air adhart leis an l_osgadh"
+
+#: ../libparrillada-burn/parrillada-burn-dialog.c:2465
+msgid "_Cancel Burning"
+msgstr "_Sguir dhen  losgadh"
+
+#: ../libparrillada-burn/parrillada-burn-options.c:228 ../src/parrillada-project.c:1020
+msgid ""
+"Please insert a writable CD or DVD if you don't want to write to an image "
+"file."
+msgstr ""
+"Cuir a-steach CD no DVD a ghabhas sgrìobhadh mur eil thu airson sgrìobhadh "
+"gu faidhle ìomhaighe."
+
+#: ../libparrillada-burn/parrillada-burn-options.c:302 ../src/parrillada-project.c:1595
+msgid "Create _Image"
+msgstr "Cruthaich _ìomhaigh"
+
+#. Translators: This is a verb, an action
+#: ../libparrillada-burn/parrillada-burn-options.c:307
+msgid "_Copy"
+msgstr "Dèan _lethbhreac"
+
+#: ../libparrillada-burn/parrillada-burn-options.c:310
+msgid "Make _Several Copies"
+msgstr "Dèan _iomadh lethbhreac"
+
+#. Translators: This is a verb, an action
+#: ../libparrillada-burn/parrillada-burn-options.c:314 ../src/parrillada-project.c:1524
+msgid "_Burn"
+msgstr "_Loisg"
+
+#: ../libparrillada-burn/parrillada-burn-options.c:317 ../src/parrillada-project.c:1521
+msgid "Burn _Several Copies"
+msgstr "Loisg _iomadh lethbhreac"
+
+#: ../libparrillada-burn/parrillada-burn-options.c:433 ../src/parrillada-project.c:949
+msgid "Would you like to burn the selection of files across several media?"
+msgstr ""
+"A bheil thu airson an taghadh de dh'fhaidhlichean a losgadh thar iomadh "
+"meadhain?"
+
+#: ../libparrillada-burn/parrillada-burn-options.c:434
+#: ../libparrillada-burn/parrillada-burn-options.c:451
+msgid "The data size is too large for the disc even with the overburn option."
+msgstr ""
+"Tha cus dàta ann airson an diosga fiù 's leis an roghainn losgaidh "
+"anabarraich."
+
+#: ../libparrillada-burn/parrillada-burn-options.c:439 ../src/parrillada-project.c:954
+msgid "_Burn Several Discs"
+msgstr "_Loisg iomadh diosg"
+
+#: ../libparrillada-burn/parrillada-burn-options.c:441 ../src/parrillada-project.c:956
+msgid "Burn the selection of files across several media"
+msgstr "Loisg an taghadh dhe dh'fhaoidhlichean thar iomadh meadhain"
+
+#: ../libparrillada-burn/parrillada-burn-options.c:450 ../src/parrillada-project.c:965
+msgid "Please choose another CD or DVD or insert a new one."
+msgstr "Tagh CD no DVD eile no cuir fear ùr a-steach."
+
+#: ../libparrillada-burn/parrillada-burn-options.c:464 ../src/parrillada-project.c:1010
+msgid "No track information (artist, title, ...) will be written to the disc."
+msgstr ""
+"Cha tèid fiosrachadh air na tracaichean (neach-ciùil, tiotal, ...) a "
+"sgrìobhadh gun diosga."
+
+#: ../libparrillada-burn/parrillada-burn-options.c:465 ../src/parrillada-project.c:1011
+msgid "This is not supported by the current active burning backend."
+msgstr "Cha chuir am backend losgaidh a tha gnìomhach an-dràsta taic ri seo."
+
+#: ../libparrillada-burn/parrillada-burn-options.c:477
+#: ../caja/caja-burn-extension.c:239
+msgid "Please add files."
+msgstr "An cuir thu faidhle no dhà ris?"
+
+#: ../libparrillada-burn/parrillada-burn-options.c:478
+#: ../libparrillada-burn/parrillada-track-data.c:672
+#: ../libparrillada-burn/parrillada-track-data-cfg.c:2432
+#: ../libparrillada-burn/parrillada-track-stream.c:402
+#: ../caja/caja-burn-extension.c:240 ../src/parrillada-project.c:1277
+#, c-format
+msgid "There are no files to write to disc"
+msgstr "Chan eil faidhle ri sgrìobhadh gun diosga ann"
+
+#: ../libparrillada-burn/parrillada-burn-options.c:483
+msgid "Please add songs."
+msgstr "An cuir thu òran no dhà ris?"
+
+#: ../libparrillada-burn/parrillada-burn-options.c:484 ../src/parrillada-project.c:1268
+msgid "There are no songs to write to disc"
+msgstr "Chan eil òran ri sgrìobhadh gun diosga ann"
+
+#: ../libparrillada-burn/parrillada-burn-options.c:489
+msgid "Please add videos."
+msgstr "An cuir thu video no dhà ris?"
+
+#: ../libparrillada-burn/parrillada-burn-options.c:490
+msgid "There are no videos to write to disc"
+msgstr "Chan eil video ri sgrìobhadh gun diosga ann"
+
+#: ../libparrillada-burn/parrillada-burn-options.c:502
+msgid "There is no inserted disc to copy."
+msgstr "Cha deach diosga gus lethbhreac a dhèanamh dheth a chur a-steach."
+
+#: ../libparrillada-burn/parrillada-burn-options.c:511
+msgid "Please select a disc image."
+msgstr "An tagh thu ìomhaigh diosga?"
+
+#: ../libparrillada-burn/parrillada-burn-options.c:512
+msgid "There is no selected disc image."
+msgstr "Cha deach ìomhaigh diosga a thaghadh."
+
+#. Translators: this is a disc image not a picture
+#. Translators: this is a disc image, not a picture
+#: ../libparrillada-burn/parrillada-burn-options.c:522
+#: ../libparrillada-burn/parrillada-src-image.c:167
+msgctxt "disc"
+msgid "Please select another image."
+msgstr "An tagh thu ìomhaigh diosga eile?"
+
+#: ../libparrillada-burn/parrillada-burn-options.c:523
+msgid "It doesn't appear to be a valid disc image or a valid cue file."
+msgstr ""
+"Chan e faidhle ìomhaigh diosga no faidhle cue dligheach a th' ann a-rèir "
+"coltais."
+
+#: ../libparrillada-burn/parrillada-burn-options.c:532
+msgid "Please insert a disc that is not copy protected."
+msgstr "An cuir thu diosga a-steach anns nach eil dìon air lethbhreacan?"
+
+#: ../libparrillada-burn/parrillada-burn-options.c:533
+#: ../libparrillada-burn/parrillada-burn-options.c:1235
+#: ../src/parrillada-project.c:1445
+msgid "All required applications and libraries are not installed."
+msgstr "Cha deach a h-uile aplacaid is leabhar-lann riatanach a stàladh."
+
+#: ../libparrillada-burn/parrillada-burn-options.c:540 ../src/parrillada-project.c:1003
+msgid "Please replace the disc with a supported CD or DVD."
+msgstr "An cuir thu CD no DVD ris an cuirear taic an àite an diosga?"
+
+#: ../libparrillada-burn/parrillada-burn-options.c:549 ../src/parrillada-project.c:976
+msgid "Would you like to burn beyond the disc's reported capacity?"
+msgstr ""
+"A bheil thu airson barrachd a losgadh dha na chaidh aithris de rum air an "
+"diosga?"
+
+#: ../libparrillada-burn/parrillada-burn-options.c:550
+msgid ""
+"The data size is too large for the disc and you must remove files from the "
+"selection otherwise.\n"
+"You may want to use this option if you're using 90 or 100 min CD-R(W) which "
+"cannot be properly recognised and therefore need overburn option.\n"
+"NOTE: This option might cause failure."
+msgstr ""
+"Mur tèid seo a dhèanamh, bidh cus dàta ann airson an diosga is feumaidh tu "
+"faidhlichean a thoirt far na thagh thu.\n"
+"Dh'fhaoidte gu bheil thu airson an roghainne seo a chleachdadh ma tha thu a' "
+"cleachdadh CD-R(W) le 90 no 100 mionaid nach urrainn dhuinn aithneachadh mar "
+"bu chòir 's tu feumach air an roghainn losgaidh anabarraich air an adhbhar "
+"seo.\n"
+"AN AIRE: Dh'fhaoidte gun adhbharaich an roghainn seo fàilligeadh."
+
+#: ../libparrillada-burn/parrillada-burn-options.c:557 ../src/parrillada-project.c:983
+msgid "_Overburn"
+msgstr "Sgrìobhadh _anabarrach"
+
+#: ../libparrillada-burn/parrillada-burn-options.c:559 ../src/parrillada-project.c:985
+msgid "Burn beyond the disc's reported capacity"
+msgstr "Loisg barrachd na chaidh aithris de rum air an diosga"
+
+#: ../libparrillada-burn/parrillada-burn-options.c:569
+msgid ""
+"The drive that holds the source disc will also be the one used to record."
+msgstr ""
+"Thèid an draibh sa bheil an diosga tùsail a chleachdadh airson a' chlàraidh "
+"cuideachd."
+
+#: ../libparrillada-burn/parrillada-burn-options.c:570
+msgid ""
+"A new writable disc will be required once the currently loaded one has been "
+"copied."
+msgstr ""
+"Bidh feum air diosga a ghabhas losgadh nuair a chaidh lethbhreac a dhèanamh "
+"dhen fhear a tha ann an-dràsta."
+
+#: ../libparrillada-burn/parrillada-burn-options.c:657
+msgid "Select a disc to write to"
+msgstr "Tagh diosga airson sgrìobhadh thuige"
+
+#: ../libparrillada-burn/parrillada-burn-options.c:737
+#: ../libparrillada-burn/parrillada-burn-options.c:755
+#: ../libparrillada-burn/parrillada-burn-options.c:875
+msgid "Disc Burning Setup"
+msgstr "Rèiteachadh losgadh dhiosgan"
+
+#: ../libparrillada-burn/parrillada-burn-options.c:764 ../src/parrillada-project.c:1544
+msgid "Video Options"
+msgstr "Roghainnean airson video"
+
+#: ../libparrillada-burn/parrillada-burn-options.c:795
+#: ../src/parrillada-data-disc.c:613
+msgid ""
+"Do you want to create a disc from the contents of the image or with the "
+"image file inside?"
+msgstr ""
+"A bheil thu airson diosga a chruthachadh o shusbaint na h-ìomhaighe no le "
+"faidhle na h-ìomhaighe 'na bhroinn?"
+
+#. Translators: %s is the name of the image
+#: ../libparrillada-burn/parrillada-burn-options.c:804
+#, c-format
+msgid ""
+"There is only one selected file (\"%s\"). It is the image of a disc and its "
+"contents can be burned."
+msgstr ""
+"Cha deach ach aon fhaidhle (\"%s\") a thaghadh. Seo ìomhaigh diosga is "
+"gabhaidh a shusbaint a losgadh."
+
+#: ../libparrillada-burn/parrillada-burn-options.c:809
+msgid "Burn as _File"
+msgstr "Loisg mar _fhaidhle"
+
+#: ../libparrillada-burn/parrillada-burn-options.c:811
+msgid "Burn _Contents…"
+msgstr "Loisg an t-_susbaint..."
+
+#: ../libparrillada-burn/parrillada-burn-options.c:893
+msgid "Image Burning Setup"
+msgstr "Rèiteachadh losgadh na h-ìomhaighe"
+
+#. pack everything
+#: ../libparrillada-burn/parrillada-burn-options.c:901
+msgid "Select a disc image to write"
+msgstr "Tagh ìomhaigh diosga ri losgadh"
+
+#: ../libparrillada-burn/parrillada-burn-options.c:921
+msgid "Copy CD/DVD"
+msgstr "Dèan lethbhreac de CD/DVD"
+
+#: ../libparrillada-burn/parrillada-burn-options.c:927
+msgid "Select disc to copy"
+msgstr "Tagh diosga gus lethbhreac a dhèanamh dheth"
+
+#: ../libparrillada-burn/parrillada-burn-options.c:1229
+#: ../src/parrillada-project.c:1439
+msgid "Please install the following manually and try again:"
+msgstr "Stàlaich seo a làimh is feuch ris a-rithist:"
+
+#: ../libparrillada-burn/parrillada-cover.c:119
+msgid "Unknown song"
+msgstr "Òran neo-aithnichte"
+
+#. Reminder: if this string happens to be used
+#. * somewhere else in parrillada we'll need a
+#. * context with C_() macro
+#. Translators: %s is the name of the artist.
+#. * This text is the one written on the cover of a disc.
+#. * Before it there is the name of the song.
+#. * I had to break it because it is in a GtkTextBuffer
+#. * and every word has a different tag.
+#. Translators: %s is the name of the artist
+#. Translators: %s is the name of an artist.
+#: ../libparrillada-burn/parrillada-cover.c:146 ../src/parrillada-player.c:419
+#: ../src/parrillada-song-control.c:270
+#, c-format
+msgid "by %s"
+msgstr "le %s"
+
+#: ../libparrillada-burn/parrillada-data-vfs.c:218
+#, c-format
+msgid "\"%s\" cannot be read"
+msgstr "Cha ghabh \"%s\" a leughadh"
+
+#: ../libparrillada-burn/parrillada-dest-selection.c:605
+#: ../libparrillada-burn/parrillada-image-type-chooser.c:133
+msgid "SVCD image"
+msgstr "Ìomhaigh SVCD"
+
+#: ../libparrillada-burn/parrillada-dest-selection.c:607
+#: ../libparrillada-burn/parrillada-image-type-chooser.c:127
+msgid "VCD image"
+msgstr "Ìomhaigh VCD"
+
+#: ../libparrillada-burn/parrillada-dest-selection.c:611
+#: ../libparrillada-burn/parrillada-image-type-chooser.c:106
+msgid "Video DVD image"
+msgstr "Ìomhaigh DVD video"
+
+#. NOTE for translators: the first %s is medium_name ("File
+#. * Image") and the second the path for the image file
+#: ../libparrillada-burn/parrillada-dest-selection.c:623
+#, c-format
+msgid "%s: \"%s\""
+msgstr "%s: \"%s\""
+
+#. Translators: this string is only used when the user
+#. * wants to copy a disc using the same destination and
+#. * source drive. It tells him that parrillada will use as
+#. * destination disc a new one (once the source has been
+#. * copied) which is to be inserted in the drive currently
+#. * holding the source disc
+#: ../libparrillada-burn/parrillada-dest-selection.c:655
+#, c-format
+msgid "New disc in the burner holding the source disc"
+msgstr "Diosga ùr san loisgeadair sa bheil an diosga tùsail"
+
+#. NOTE for translators, the first %s is the medium name
+#: ../libparrillada-burn/parrillada-dest-selection.c:696
+#, c-format
+msgid "%s: not enough free space"
+msgstr "%s: chan eil rum saor gu leòr ann"
+
+#. NOTE for translators: the first %s is the medium name, the second %s
+#. * is its available free space. "Free" here is the free space available.
+#: ../libparrillada-burn/parrillada-dest-selection.c:727
+#, c-format
+msgid "%s: %s of free space"
+msgstr "%s: %s de rum saor"
+
+#. Translators: the first %s is the path of the directory where parrillada
+#. * will store its temporary files; the second one is the size available
+#: ../libparrillada-burn/parrillada-drive-properties.c:192
+#, c-format
+msgid "%s: %s free"
+msgstr "%s: %s saor"
+
+#: ../libparrillada-burn/parrillada-drive-properties.c:233
+#: ../libparrillada-burn/parrillada-drive-properties.c:272
+#: ../libparrillada-burn/parrillada-drive-properties.c:324
+msgid "Do you really want to choose this location?"
+msgstr "A bheil thu cinnteach gu bheil thu airson an t-ionad seo a thaghadh?"
+
+#: ../libparrillada-burn/parrillada-drive-properties.c:277
+#: ../libparrillada-burn/parrillada-session.c:1287
+#: ../libparrillada-burn/parrillada-session.c:1362 ../libparrillada-burn/burn-job.c:490
+#: ../plugins/cdrkit/burn-genisoimage.c:199
+#: ../plugins/cdrtools/burn-mkisofs.c:199
+#: ../plugins/libburnia/burn-libisofs.c:246
+#, c-format
+msgid "You do not have the required permission to write at this location"
+msgstr "Tha cead a dhìth ort gus sgrìobhadh gun ionad seo"
+
+#: ../libparrillada-burn/parrillada-drive-properties.c:330
+msgid ""
+"The filesystem on this volume does not support large files (size over 2 "
+"GiB).\n"
+"This can be a problem when writing DVDs or large images."
+msgstr ""
+"Cha chuir an siostam-fhaidhlichean air an draibh seo taic ri faidhlichean "
+"mòra (nas motha na 2 GiB).\n"
+"Faodaidh seo a bhith 'na dhuilgheadas nuair a thèid DVDan no ìomhaighean "
+"mòra a sgrìobhadh."
+
+#. Translators %s.1f is the speed used to burn
+#: ../libparrillada-burn/parrillada-drive-properties.c:524
+#, c-format
+msgid "%.1f× (DVD)"
+msgstr "%.1f× (DVD)"
+
+#. Translators %s.1f is the speed used to burn
+#: ../libparrillada-burn/parrillada-drive-properties.c:528
+#, c-format
+msgid "%.1f× (CD)"
+msgstr "%.1f× (CD)"
+
+#. Translators %s.1f is the speed used to burn. BD = Blu Ray
+#: ../libparrillada-burn/parrillada-drive-properties.c:532
+#, c-format
+msgid "%.1f× (BD)"
+msgstr "%.1f× (BD)"
+
+#. Translators %s.1f is the speed used to burn for every medium
+#. * type. BD = Blu Ray
+#: ../libparrillada-burn/parrillada-drive-properties.c:537
+#, c-format
+msgid "%.1f× (BD) %.1f× (DVD) %.1f× (CD)"
+msgstr "%.1f× (BD) %.1f× (DVD) %.1f× (CD)"
+
+#: ../libparrillada-burn/parrillada-drive-properties.c:575
+msgid "Impossible to retrieve speeds"
+msgstr "Chan urrainn dhuinn na luathsan fhaighinn"
+
+#: ../libparrillada-burn/parrillada-drive-properties.c:584
+msgid "Maximum speed"
+msgstr "An luaths as motha"
+
+#: ../libparrillada-burn/parrillada-drive-properties.c:710
+msgid "Burning speed"
+msgstr "An luaths losgaidh"
+
+#: ../libparrillada-burn/parrillada-drive-properties.c:723
+msgid "_Simulate before burning"
+msgstr "Dèan losgadh ma_s-fhìor an toiseach"
+
+#: ../libparrillada-burn/parrillada-drive-properties.c:724
+msgid ""
+"Parrillada will simulate the burning and, if it is successful, go on with "
+"actual burning after 10 seconds"
+msgstr ""
+"Nì Parrillada losgadh mas-fhìor is ma shoirbhicheas leis, tòisichidh sinn air "
+"an losgadh fhèin an ceann 10 diogan an uairsin"
+
+#: ../libparrillada-burn/parrillada-drive-properties.c:726
+msgid "Use burn_proof (decrease the risk of failures)"
+msgstr "Cleachd burn_proof (ìslich cunnart an fhàilligidh)"
+
+#: ../libparrillada-burn/parrillada-drive-properties.c:728
+msgid "Burn the image directly _without saving it to disc"
+msgstr "Loisg an ìomhaigh gu _dìreach gun a bhith 'ga shàbhaladh air an diosga"
+
+#: ../libparrillada-burn/parrillada-drive-properties.c:730
+msgid "Leave the disc _open to add other files later"
+msgstr ""
+"Fàg an diosga f_osgailte ach an gabh barrachd fhaidhlichean a chur ris àm "
+"eile"
+
+#: ../libparrillada-burn/parrillada-drive-properties.c:731
+msgid "Allow to add more data to the disc later"
+msgstr "Ceadaich gun tèid barrachd dàta a chur ris an diosg àm eile"
+
+#: ../libparrillada-burn/parrillada-drive-properties.c:751
+#: ../libparrillada-burn/parrillada-tool-dialog.c:284
+#: ../src/parrillada-multi-song-props.c:308 ../src/parrillada-song-properties.c:226
+msgid "Options"
+msgstr "Roghainnean"
+
+#: ../libparrillada-burn/parrillada-drive-properties.c:763
+msgid "Location for _Temporary Files"
+msgstr "An t-ionad airson faidhlichean _sealach"
+
+#: ../libparrillada-burn/parrillada-drive-properties.c:783
+msgid "Set the directory where to store temporary files"
+msgstr "Suidhich am pasgan far an tèid faidhlichean sealach a chur"
+
+#: ../libparrillada-burn/parrillada-drive-properties.c:788
+msgid "Temporary files"
+msgstr "Faidhlichean sealach"
+
+#: ../libparrillada-burn/parrillada-filtered-uri.c:57
+msgid "Hidden file"
+msgstr "Faidhle falaichte"
+
+#: ../libparrillada-burn/parrillada-filtered-uri.c:58
+msgid "Unreadable file"
+msgstr "Faidhle nach gabh leughadh"
+
+#: ../libparrillada-burn/parrillada-filtered-uri.c:59
+msgid "Broken symbolic link"
+msgstr "Ceangal samhlachail briste"
+
+#: ../libparrillada-burn/parrillada-filtered-uri.c:60
+#: ../libparrillada-utils/parrillada-io.c:1190 ../libparrillada-utils/parrillada-io.c:2061
+#, c-format
+msgid "Recursive symbolic link"
+msgstr "Ceangal samhlachail ath-chùrsach"
+
+#: ../libparrillada-burn/parrillada-image-properties.c:243
+msgid "Disc image type:"
+msgstr "Seòrsa na h-ìomhaighe diosga:"
+
+#: ../libparrillada-burn/parrillada-image-type-chooser.c:97
+msgid "Autodetect"
+msgstr "Aithnich gu fèin-obrachail"
+
+#: ../libparrillada-burn/parrillada-image-type-chooser.c:106
+msgid "ISO9660 image"
+msgstr "Ìomhaigh ISO9660"
+
+#: ../libparrillada-burn/parrillada-image-type-chooser.c:115
+msgid "Readcd/Readom image"
+msgstr "Ìomhaigh Readcd/Readom"
+
+#: ../libparrillada-burn/parrillada-image-type-chooser.c:141
+msgid "Cue image"
+msgstr "Ìomhaigh cue"
+
+#: ../libparrillada-burn/parrillada-image-type-chooser.c:151
+msgid "Cdrdao image"
+msgstr "Ìomhaigh Cdrdao"
+
+#: ../libparrillada-burn/parrillada-medium-properties.c:93
+#: ../src/parrillada-project.c:1503
+#, c-format
+msgid "Properties of %s"
+msgstr "Na roghainnean aig %s"
+
+#: ../libparrillada-burn/parrillada-medium-properties.c:133
+msgid ""
+"Do you really want to keep the current extension for the disc image name?"
+msgstr ""
+"A bheil thu cinnteach gu bheil thu airson an leudachan làithreach a chumail "
+"airson ainm na h-ìomhaighe diosga?"
+
+#: ../libparrillada-burn/parrillada-medium-properties.c:139
+msgid ""
+"If you choose to keep it, programs may not be able to recognize the file "
+"type properly."
+msgstr ""
+"Ma chumas tu e, dh'fhaoidte nach aithnich prògraman seòrsa an fhaidhle mar "
+"bu chòir."
+
+#: ../libparrillada-burn/parrillada-medium-properties.c:142
+msgid "_Keep Current Extension"
+msgstr "_Cum an leudachan làithreach"
+
+#: ../libparrillada-burn/parrillada-medium-properties.c:145
+msgid "Change _Extension"
+msgstr "Atharraich an _leudachan"
+
+#: ../libparrillada-burn/parrillada-medium-properties.c:234
+msgid "Configure recording options"
+msgstr "Rèitich roghainnean a' chlàraidh"
+
+#. Translators: first %02i is hours, the second one is minutes and the
+#. * third one is seconds.
+#: ../libparrillada-burn/parrillada-progress.c:198
+#, c-format
+msgid "Total time: %02i:%02i:%02i"
+msgstr "An ùine iomlan: %02i:%02i:%02i"
+
+#: ../libparrillada-burn/parrillada-progress.c:209
+msgid "Average drive speed:"
+msgstr "Luaths cuibheasach an draibh:"
+
+#. Translators: first %02i is hours, the second one is minutes
+#. * and the third one is seconds.
+#: ../libparrillada-burn/parrillada-progress.c:437
+#, c-format
+msgid "Estimated remaining time: %02i:%02i:%02i"
+msgstr "Tuairmse air an ùine air fhàgail: %02i:%02i:%02i"
+
+#: ../libparrillada-burn/parrillada-progress.c:479
+#, c-format
+msgid "%i MiB of %i MiB"
+msgstr "%i MiB de %i MiB"
+
+#: ../libparrillada-burn/parrillada-progress.c:505
+msgid "Estimated drive speed:"
+msgstr "Tuairmse air luaths an draibh:"
+
+#. Translators: %s is a path
+#: ../libparrillada-burn/parrillada-src-image.c:229
+#, c-format
+msgid "\"%s\": loading"
+msgstr "\"%s\": 'ga luchdadh"
+
+#. Translators: %s is a path and image refers to a disc image
+#: ../libparrillada-burn/parrillada-src-image.c:236
+#, c-format
+msgid "\"%s\": unknown disc image type"
+msgstr "\"%s\": seòrsa ìomhaighe diosga neo-aithnichte"
+
+#. NOTE to translators, the first %s is the path of the image
+#. * file and the second its size.
+#: ../libparrillada-burn/parrillada-src-image.c:258
+#, c-format
+msgid "\"%s\": %s"
+msgstr "\"%s\": %s"
+
+#. This is hackish and meant to avoid ellipsization to make the
+#. * label too small.
+#. Translators: this is a disc image
+#: ../libparrillada-burn/parrillada-src-image.c:271
+#: ../libparrillada-burn/parrillada-src-image.c:554
+msgid "Click here to select a disc _image"
+msgstr "Briog an seo gus ìomha_igh diosga a thaghadh"
+
+#: ../libparrillada-burn/parrillada-src-image.c:415
+msgid "Select Disc Image"
+msgstr "Tagh ìomhaigh diosga"
+
+#: ../libparrillada-burn/parrillada-src-image.c:444
+#: ../caja/caja-burn-bar.c:236 ../src/parrillada-file-chooser.c:350
+#: ../src/parrillada-project.c:2225 ../src/parrillada-project-name.c:162
+msgid "All files"
+msgstr "A h-uile faidhle"
+
+#. Translators: this a disc image here
+#: ../libparrillada-burn/parrillada-src-image.c:450
+msgctxt "disc"
+msgid "Image files"
+msgstr "Faidhlichean ìomhaighe"
+
+#: ../libparrillada-burn/parrillada-src-image.c:467
+msgid "Image type:"
+msgstr "Seòrsa na h-ìomhaighe:"
+
+#: ../libparrillada-burn/parrillada-status-dialog.c:147
+#, c-format
+msgid "Estimated size: %s"
+msgstr "Tuairmse air a' mheud: %s"
+
+#: ../libparrillada-burn/parrillada-status-dialog.c:209
+#: ../src/parrillada-data-disc.c:870
+#, c-format
+msgid "Do you really want to add \"%s\" to the selection?"
+msgstr ""
+"A bheil thu cinnteach gu bheil thu airson \"%s\" a chur ris an taghadh?"
+
+#: ../libparrillada-burn/parrillada-status-dialog.c:228
+#: ../src/parrillada-data-disc.c:879
+msgid ""
+"The children of this directory will have 7 parent directories.\n"
+"Parrillada can create an image of such a file hierarchy and burn it but the "
+"disc may not be readable on all operating systems.\n"
+"Note: Such a file hierarchy is known to work on Linux."
+msgstr ""
+"Bidh 7 pasganan pàraint aig clann a' phasgain seo.\n"
+"'S urrainn do Parrillada ìomhaigh de rangachd fhaidhlichean mar sin a "
+"chruthachadh is a losgadh ach dh'fhaoidte nach gabh an diosga a leughadh "
+"leis a h-uile siostam-obrachaidh.\n"
+"An aire: Obraichidh rangachd dhen leithid air Linux."
+
+#: ../libparrillada-burn/parrillada-status-dialog.c:232
+#: ../libparrillada-burn/parrillada-status-dialog.c:294
+#: ../src/parrillada-data-disc.c:839 ../src/parrillada-data-disc.c:883
+msgid "Ne_ver Add Such File"
+msgstr "Na cuir a leithid faidhle ris _uair sam bith"
+
+#: ../libparrillada-burn/parrillada-status-dialog.c:233
+#: ../libparrillada-burn/parrillada-status-dialog.c:295
+#: ../src/parrillada-data-disc.c:840 ../src/parrillada-data-disc.c:884
+msgid "Al_ways Add Such File"
+msgstr "Cuir a leithid faidhle ris an-_còmhnaidh"
+
+#: ../libparrillada-burn/parrillada-status-dialog.c:271
+#: ../src/parrillada-data-disc.c:826
+#, c-format
+msgid ""
+"Do you really want to add \"%s\" to the selection and use the third version "
+"of the ISO9660 standard to support it?"
+msgstr ""
+"A bheil thu cinnteach gu bheil thu airson \"%s\" a chur ris an taghadh is an "
+"treas tionndadh dhen bhun-tomhas ISO9660 a chleachdadh gus taic a thoirt ris?"
+
+#: ../libparrillada-burn/parrillada-status-dialog.c:290
+#: ../src/parrillada-data-disc.c:835
+msgid ""
+"The size of the file is over 2 GiB. Files larger than 2 GiB are not "
+"supported by the ISO9660 standard in its first and second versions (the most "
+"widespread ones).\n"
+"It is recommended to use the third version of the ISO9660 standard, which is "
+"supported by most operating systems, including Linux and all versions of "
+"Windows™.\n"
+"However, Mac OS X cannot read images created with version 3 of the ISO9660 "
+"standard."
+msgstr ""
+"Tha meud an fhaidhle nas motha na 2 GiB. Cha toir a' chiad no an dàrna "
+"tionndadh dhen bhun-tomhas ISO9660 (seo an fheadhainn as cumanta) taic ri "
+"faidhlichean nas motha na 2 GiB.\n"
+"Mholamaid gun cleachd thu an treas tionndadh dhen bhun-tomhas ISO9660 on a "
+"bheir a' mhòrchuid dhe siostaman-obrachaidh taic ris, a' gabhail a-steach "
+"Linux is a h-uile tionndadh de Windows.\n"
+"Co-dhiù, chan urrainn dha Mac OS X ìomhaighean a leughadh a chaidh a "
+"chruthachadh leis an treas tionndadh dhen bhun-tomhas ISO9660."
+
+#: ../libparrillada-burn/parrillada-status-dialog.c:330
+#: ../src/parrillada-data-disc.c:729
+msgid "Should files be renamed to be fully Windows-compatible?"
+msgstr ""
+"A bheil thu airson 's gun tèid ainmean ùra a thoirt air na faidhlichean ach "
+"am bi iad co-chòrdail ri Windows gu slàn?"
+
+#: ../libparrillada-burn/parrillada-status-dialog.c:341
+#: ../src/parrillada-data-disc.c:735
+msgid "Those names should be changed and truncated to 64 characters."
+msgstr ""
+"B' fheairrde na h-ainmean seo atharrachadh is giorrachadh gu 64 caractar."
+
+#: ../libparrillada-burn/parrillada-status-dialog.c:346
+#: ../src/parrillada-data-disc.c:738
+msgid "_Disable Full Windows Compatibility"
+msgstr "Cuir a' cho-chòr_dalachd Windows shlàn à comas"
+
+#: ../libparrillada-burn/parrillada-status-dialog.c:349
+#: ../src/parrillada-data-disc.c:737
+msgid "_Rename for Full Windows Compatibility"
+msgstr "Thoi_r ainmean ùr orra airson co-chòrdalachd Windows slàin"
+
+#: ../libparrillada-burn/parrillada-status-dialog.c:566
+msgid "Size Estimation"
+msgstr "Tuairmse air a' mheud"
+
+#: ../libparrillada-burn/parrillada-status-dialog.c:568
+msgid "Please wait until the estimation of the size is completed."
+msgstr "Fuirich ort gus am bi an tuairmse air a' mheud coileanta."
+
+#: ../libparrillada-burn/parrillada-status-dialog.c:569
+msgid "All files need to be analysed to complete this operation."
+msgstr ""
+"Feumaidh sinn a h-uile faidhle a sgrùdadh gus an t-obrachadh seo a "
+"choileanadh."
+
+#: ../libparrillada-burn/parrillada-sum-dialog.c:134
+#: ../libparrillada-burn/parrillada-sum-dialog.c:215
+msgid "Check _Again"
+msgstr "Dearbhaich _a-rithist"
+
+#: ../libparrillada-burn/parrillada-sum-dialog.c:165
+#: ../libparrillada-burn/parrillada-sum-dialog.c:514
+msgid "The file integrity check could not be performed."
+msgstr ""
+"Cha b' urrainn dhuinn dearbhadh co-dhiù a bheil na faidhlichean mar bu chòir "
+"gus nach eil."
+
+#: ../libparrillada-burn/parrillada-sum-dialog.c:166 ../src/parrillada-data-disc.c:214
+#: ../src/parrillada-eject-dialog.c:102 ../src/parrillada-playlist.c:393
+#: ../src/parrillada-project.c:2625
+msgid "An unknown error occurred"
+msgstr "Thachair mearachd neo-aithnichte"
+
+#: ../libparrillada-burn/parrillada-sum-dialog.c:178
+msgid "The file integrity check was performed successfully."
+msgstr "Sgrùd sinn na faidhlichean ach a bheil iad mar bu chòir."
+
+#: ../libparrillada-burn/parrillada-sum-dialog.c:179
+msgid "There seem to be no corrupted files on the disc"
+msgstr "Chan eil faidhle coirbte air an diosga a-rèir coltais"
+
+#: ../libparrillada-burn/parrillada-sum-dialog.c:207
+msgid "The following files appear to be corrupted:"
+msgstr "Tha na faidhlichean seo coirbte a-rèir coltais:"
+
+#: ../libparrillada-burn/parrillada-sum-dialog.c:250
+msgid "Corrupted Files"
+msgstr "Faidhlichean coirbte"
+
+#: ../libparrillada-burn/parrillada-sum-dialog.c:342
+msgid "Downloading MD5 file"
+msgstr "A' luchdadh a-nuas faidhle MD5"
+
+#: ../libparrillada-burn/parrillada-sum-dialog.c:397
+#, c-format
+msgid "\"%s\" is not a valid URI"
+msgstr "Chan e URI dligheach th' ann an \"%s\""
+
+#: ../libparrillada-burn/parrillada-sum-dialog.c:515
+msgid "No MD5 file was given."
+msgstr "Cha deach faidhle MD5 a thoirt seachad."
+
+#: ../libparrillada-burn/parrillada-sum-dialog.c:692
+msgid "Use an _MD5 file to check the disc"
+msgstr "Cleachd faidhle _MD5 gus an diosga a sgrùdadh"
+
+#: ../libparrillada-burn/parrillada-sum-dialog.c:693
+msgid "Use an external .md5 file that stores the checksum of a disc"
+msgstr ""
+"Cleachd faidhle .md5 taobh a-muigh sa bheil an àireamh-dearbhaidh aig diosga"
+
+#: ../libparrillada-burn/parrillada-sum-dialog.c:706
+msgid "Open an MD5 file"
+msgstr "Fosgail faidhle MD5"
+
+#: ../libparrillada-burn/parrillada-sum-dialog.c:721
+msgid "_Check"
+msgstr "_Sgrùd"
+
+#: ../libparrillada-burn/parrillada-sum-dialog.c:752
+msgid "Disc Checking"
+msgstr "A' sgrùdadh diosga"
+
+#: ../libparrillada-burn/parrillada-tool-dialog.c:78
+#: ../libparrillada-burn/parrillada-tool-dialog.c:92
+#: ../libparrillada-burn/parrillada-tool-dialog.c:102
+msgid "The operation cannot be performed."
+msgstr "Cha ghabh an t-obrachadh a dhèanamh."
+
+#: ../libparrillada-burn/parrillada-tool-dialog.c:79
+#: ../plugins/cdrkit/burn-wodim.c:151 ../plugins/cdrkit/burn-wodim.c:421
+#: ../plugins/cdrtools/burn-cdrecord.c:151
+#: ../plugins/cdrtools/burn-cdrecord.c:407
+#: ../plugins/growisofs/burn-dvd-rw-format.c:77
+#: ../plugins/libburnia/burn-libburn.c:610
+#, c-format
+msgid "The disc is not supported"
+msgstr "Cha chuirear taic ris an diosga"
+
+#: ../libparrillada-burn/parrillada-tool-dialog.c:103
+msgid "The drive is empty"
+msgstr "Tha an draibh falamh"
+
+#: ../libparrillada-burn/parrillada-tool-dialog.c:554
+#: ../src/parrillada-eject-dialog.c:167
+msgid "Select a disc"
+msgstr "Tagh diosga"
+
+#: ../libparrillada-burn/parrillada-tool-dialog.c:581
+msgid "Progress"
+msgstr "Adhartas"
+
+#: ../libparrillada-burn/parrillada-track-data-cfg.c:617
+#: ../libparrillada-burn/parrillada-track-data-cfg.c:716
+#: ../libparrillada-burn/parrillada-track-data-cfg.c:727
+#: ../libparrillada-burn/parrillada-track-data-cfg.c:788
+#: ../libparrillada-burn/parrillada-track-data-cfg.c:793
+#: ../src/parrillada-playlist.c:536 ../src/parrillada-video-tree-model.c:342
+msgid "(loading…)"
+msgstr "('ga luchdadh…)"
+
+#: ../libparrillada-burn/parrillada-track-data-cfg.c:619
+#: ../libparrillada-burn/parrillada-track-data-cfg.c:799
+#: ../src/parrillada-playlist.c:497
+msgid "Empty"
+msgstr "Falamh"
+
+#: ../libparrillada-burn/parrillada-track-data-cfg.c:725
+msgid "Disc file"
+msgstr "Faidhle diosga"
+
+#: ../libparrillada-burn/parrillada-track-data-cfg.c:803
+#, c-format
+msgid "%d item"
+msgid_plural "%d items"
+msgstr[0] "%d nì"
+msgstr[1] "%d nì"
+msgstr[2] "%d nithean"
+msgstr[3] "%d nì"
+
+#: ../libparrillada-burn/parrillada-track-data-cfg.c:1916
+#, c-format
+msgid "New folder"
+msgstr "Pasgan ùr"
+
+#: ../libparrillada-burn/parrillada-track-data-cfg.c:1919
+#, c-format
+msgid "New folder %i"
+msgstr "Pasgan ùr %i"
+
+#: ../libparrillada-burn/parrillada-track-data-cfg.c:2406
+#: ../libparrillada-burn/parrillada-track-data-cfg.c:2416
+msgid "Analysing files"
+msgstr "A' sgrùdadh nam faidhlichean"
+
+#: ../libparrillada-burn/parrillada-track-data-cfg.c:2552
+#, c-format
+msgid "\"%s\" is a recursive symbolic link."
+msgstr "'S e ceangal samhlachail ath-chùrsach th' ann an \"%s\"."
+
+#. Translators: %s is the path of a drive
+#: ../libparrillada-burn/parrillada-track-data-cfg.c:2578 ../src/parrillada-cli.c:218
+#, c-format
+msgid "\"%s\" cannot be found."
+msgstr "Cha deach \"%s\" a lorg."
+
+#: ../libparrillada-burn/parrillada-track-image-cfg.c:451
+msgid "Retrieving image format and size"
+msgstr "A' faighinn fòrmat is meud na h-ìomhaighe"
+
+#. Translators: This is a disc image
+#: ../libparrillada-burn/parrillada-track-image-cfg.c:471
+msgid "The format of the disc image could not be identified"
+msgstr "Cha b' urrainn dhuinn am fòrmat aig an ìomhaigh diosga aithneachadh"
+
+#: ../libparrillada-burn/parrillada-track-image-cfg.c:472
+msgid "Please set it manually"
+msgstr "An suidhich thu a làimh e?"
+
+#. Translators: %s is the name of the file that has just been deleted
+#: ../libparrillada-burn/parrillada-track-stream-cfg.c:90
+#, c-format
+msgid "\"%s\" was removed from the file system."
+msgstr "Chaidh \"%s\" a thoirt air falbh on t-siostam-fhaidhlichean."
+
+#: ../libparrillada-burn/parrillada-track-stream-cfg.c:129
+#: ../src/parrillada-audio-disc.c:754 ../src/parrillada-video-disc.c:365
+#, c-format
+msgid "Directories cannot be added to video or audio discs"
+msgstr "Cha ghabh pasganan a chur ri diosga video no fuaime"
+
+#: ../libparrillada-burn/parrillada-track-stream-cfg.c:142
+#, c-format
+msgid "Playlists cannot be added to video or audio discs"
+msgstr "Cha ghabh liostaichean-cluiche a chur ri diosga video no fuaime"
+
+#. Translators: %s is the name of the file
+#: ../libparrillada-burn/parrillada-track-stream-cfg.c:157
+#: ../libparrillada-burn/parrillada-track-stream-cfg.c:174
+#, c-format
+msgid "\"%s\" is not suitable for audio or video media"
+msgstr "Chan eil \"%s\" freagarrach airson meadhanan fuaime no video"
+
+#: ../libparrillada-burn/parrillada-track-stream-cfg.c:401
+msgid "Analysing video files"
+msgstr "A' sgrùdadh nam faidhlichean video"
+
+#: ../libparrillada-burn/parrillada-video-options.c:447
+msgid "Video format:"
+msgstr "Fòrmat a' video:"
+
+#: ../libparrillada-burn/parrillada-video-options.c:458
+msgid "_NTSC"
+msgstr "_NTSC"
+
+#: ../libparrillada-burn/parrillada-video-options.c:460
+msgid "Format used mostly on the North American continent"
+msgstr "Seo fòrmat a thèid a chleachdadh ann an Aimeireaga a Tuath"
+
+#: ../libparrillada-burn/parrillada-video-options.c:473
+msgid "_PAL/SECAM"
+msgstr "_PAL/SECAM"
+
+#: ../libparrillada-burn/parrillada-video-options.c:475
+msgid "Format used mostly in Europe"
+msgstr "Seo fòrmat a thèid a chleachdadh san Roinn-Eòrpa gu h-àraidh"
+
+#: ../libparrillada-burn/parrillada-video-options.c:489
+msgid "Native _format"
+msgstr "Am _fòrmat tùsail"
+
+#: ../libparrillada-burn/parrillada-video-options.c:504
+msgid "Aspect ratio:"
+msgstr "Co-mheas deilbh:"
+
+#: ../libparrillada-burn/parrillada-video-options.c:515
+msgid "_4:3"
+msgstr "_4:3"
+
+#: ../libparrillada-burn/parrillada-video-options.c:530
+msgid "_16:9"
+msgstr "_16:9"
+
+#. Video options for (S)VCD
+#: ../libparrillada-burn/parrillada-video-options.c:545
+msgid "VCD type:"
+msgstr "Seòrsa a' VCD:"
+
+#: ../libparrillada-burn/parrillada-video-options.c:558
+msgid "Create an SVCD"
+msgstr "Cruthaich SVCD"
+
+#: ../libparrillada-burn/parrillada-video-options.c:573
+msgid "Create a VCD"
+msgstr "Cruthaich VCD"
+
+#: ../libparrillada-burn/parrillada-xfer.c:130 ../libparrillada-burn/parrillada-xfer.c:266
+#, c-format
+msgid "Directory could not be created (%s)"
+msgstr "Cha b' urrainn dhuinn am pasgan a chruthachadh (%s)"
+
+#: ../libparrillada-burn/burn-basics.c:77
+msgid "Getting size"
+msgstr "A' faighainn am meud"
+
+#: ../libparrillada-burn/burn-basics.c:79
+msgid "Writing"
+msgstr "'Ga sgrìobhadh"
+
+#: ../libparrillada-burn/burn-basics.c:80
+msgid "Blanking"
+msgstr "'Ga bhànachadh"
+
+#: ../libparrillada-burn/burn-basics.c:81
+msgid "Creating checksum"
+msgstr "A' sgrùdadh na h-àireimh-dearbhaidh"
+
+#: ../libparrillada-burn/burn-basics.c:83
+msgid "Copying file"
+msgstr "A' dèanamh lethbhreac dhen fhaidhle"
+
+#: ../libparrillada-burn/burn-basics.c:84
+msgid "Analysing audio files"
+msgstr "A' sgrùdadh nam faidhlichean fuaime"
+
+#: ../libparrillada-burn/burn-basics.c:85
+msgid "Transcoding song"
+msgstr "A' tar-chòdachadh òran"
+
+#: ../libparrillada-burn/burn-basics.c:86
+msgid "Preparing to write"
+msgstr "Ag ullachadh airson sgrìobhadh"
+
+#: ../libparrillada-burn/burn-basics.c:87
+msgid "Writing leadin"
+msgstr "A' sgrìobhadh an leadin"
+
+#: ../libparrillada-burn/burn-basics.c:88
+msgid "Writing CD-Text information"
+msgstr "A' sgrìobhadh fiosrachadh CD-Text"
+
+#: ../libparrillada-burn/burn-basics.c:89
+msgid "Finalizing"
+msgstr "'Ga chrìochnachadh"
+
+#: ../libparrillada-burn/burn-basics.c:90
+msgid "Writing leadout"
+msgstr "A' sgrìobhadh an leadout"
+
+#: ../libparrillada-burn/burn-basics.c:91
+msgid "Starting to record"
+msgstr "A' tòiseachadh air a' chlàradh"
+
+#: ../libparrillada-burn/burn-basics.c:92
+msgid "Success"
+msgstr "Soirbheas"
+
+#: ../libparrillada-burn/burn-basics.c:93
+msgid "Ejecting medium"
+msgstr "A' gluasad am meadhan a-mach"
+
+#: ../libparrillada-burn/burn-debug.c:54
+msgid "Display debug statements on stdout for Parrillada burn library"
+msgstr ""
+"Seall aithris dì-bhugachaidh air stdout airson leabhar-lann losgaidh Parrillada"
+
+#: ../libparrillada-burn/burn-debug.c:80
+msgid "Parrillada media burning library"
+msgstr "Leabhar-lann losgaidh meadhanan Parrillada"
+
+#: ../libparrillada-burn/burn-debug.c:81
+msgid "Display options for Parrillada-burn library"
+msgstr "Seall na roghainnean airson leabhar-lann losgaidh Parrillada"
+
+#. Translators: %s is the plugin name
+#: ../libparrillada-burn/burn-job.c:322 ../libparrillada-burn/burn-job.c:797
+#: ../libparrillada-burn/burn-job.c:810 ../libparrillada-burn/burn-job.c:1029
+#: ../libparrillada-burn/burn-job.c:1119
+#, c-format
+msgid "\"%s\" did not behave properly"
+msgstr "Cha robh an giùlan aig \"%s\" mar bu chòir"
+
+#. Translators: the first %s is the size of the free space on the medium
+#. * and the second %s is the size of the space required by the data to be
+#. * burnt.
+#: ../libparrillada-burn/burn-job.c:430
+#, c-format
+msgid "Not enough space available on the disc (%s available for %s)"
+msgstr "Cha eil rum gu leòr ri làimh air an diosga (%s ri làimh airson %s)"
+
+#: ../libparrillada-burn/burn-job.c:522
+#, c-format
+msgid ""
+"The filesystem you chose to store the temporary image on cannot hold files "
+"with a size over 2 GiB"
+msgstr ""
+"Chan chuir an siostam-fhaidhlichean taic ri faidhlichean nas motha na 2 GiB "
+"'s tu air a thaghadh gus an ìomhaigh shealach a chumail"
+
+#: ../libparrillada-burn/burn-job.c:537 ../libparrillada-burn/burn-job.c:559
+#, c-format
+msgid ""
+"The location you chose to store the temporary image on does not have enough "
+"free space for the disc image (%ld MiB needed)"
+msgstr ""
+"Chan eil rum saor gu leòr gus an ìomhaigh diosga a chur san ionad a thagh "
+"thu airson na h-ìomhaighe sealaich a chumail (feum air %ld MiB)"
+
+#: ../libparrillada-burn/burn-job.c:572 ../plugins/dvdcss/burn-dvdcss.c:365
+#, c-format
+msgid "The size of the volume could not be retrieved"
+msgstr "Cha b' urrainn dhuinn meud an draibh fhaighinn"
+
+#: ../libparrillada-burn/burn-job.c:627
+#, c-format
+msgid "No path was specified for the image output"
+msgstr "Cha deach slighe a shònrachadh airson às-chur na h-ìomhaighe"
+
+#. Translators: %s is the error returned by libburn
+#. Translators: the %s is the error message from errno
+#: ../libparrillada-burn/burn-job.c:768 ../plugins/cdrtools/burn-cdrecord.c:709
+#: ../plugins/libburnia/burn-libburn.c:717
+#: ../plugins/transcode/burn-transcode.c:790
+#, c-format
+msgid "An internal error occurred (%s)"
+msgstr "Thachair mearachd taobh a-staigh (%s)"
+
+#: ../libparrillada-burn/burn-mkisofs-base.c:153
+#: ../libparrillada-burn/burn-mkisofs-base.c:494
+#: ../plugins/checksum/burn-checksum-image.c:287
+#: ../plugins/growisofs/burn-growisofs.c:527
+#: ../plugins/libburnia/burn-libisofs.c:707
+#, c-format
+msgid "The file is not stored locally"
+msgstr "Chan eil am faidhle ga chumail gu h-ionadail"
+
+#: ../libparrillada-burn/burn-mkisofs-base.c:644
+#, c-format
+msgid "VIDEO_TS directory is missing or invalid"
+msgstr "Tha am pasgan VIDEO_TS a dhith no mì-dhligheach"
+
+#: ../libparrillada-burn/burn-plugin.c:647
+#, c-format
+msgid "\"%s\" could not be found in the path"
+msgstr "Cha deach \"%s\" a lorg san t-slighe"
+
+#: ../libparrillada-burn/burn-plugin.c:651
+#, c-format
+msgid "\"%s\" GStreamer plugin could not be found"
+msgstr "Cha deach am plugan GStreamer \"%s\" a lorg"
+
+#: ../libparrillada-burn/burn-plugin.c:655 ../libparrillada-burn/burn-plugin.c:667
+#, c-format
+msgid "The version of \"%s\" is too old"
+msgstr "Tha an tionndadh de \"%s\" ro shean"
+
+#: ../libparrillada-burn/burn-plugin.c:659
+#, c-format
+msgid "\"%s\" is a symbolic link pointing to another program"
+msgstr "'S e ceangal samhlachail a th' ann an \"%s\" thomhas ri prògram eile"
+
+#. Translators: %s is a filename
+#: ../libparrillada-burn/burn-plugin.c:663 ../plugins/cdrdao/burn-cdrdao.c:211
+#: ../plugins/growisofs/burn-growisofs.c:509
+#, c-format
+msgid "\"%s\" could not be found"
+msgstr "Cha deach \"%s\" a lorg"
+
+#. Translators: %s is the name of the parrillada element
+#: ../libparrillada-burn/burn-process.c:259
+#, c-format
+msgid "Process \"%s\" ended with an error code (%i)"
+msgstr "Chrìochnaich am pròiseas \"%s\" le còd mearachd (%i)"
+
+#. Translators: This is a fake drive, a file, and means that
+#. * when we're writing, we're writing to a file and create an
+#. * image on the hard drive.
+#: ../libparrillada-media/parrillada-drive.c:607
+#: ../libparrillada-media/parrillada-medium.c:206
+#: ../libparrillada-media/parrillada-volume.c:382
+msgid "Image File"
+msgstr "Faidhle ìomhaighe"
+
+#: ../libparrillada-media/parrillada-drive-selection.c:341
+#: ../libparrillada-media/parrillada-drive-selection.c:436
+msgid "Unnamed CD/DVD Drive"
+msgstr "Draibh CD/DVD gun ainm"
+
+#: ../libparrillada-media/parrillada-media.c:54
+msgid "Display debug statements on stdout for Parrillada media library"
+msgstr ""
+"Seall aithris dì-bhugachaidh air stdout airson leabhar-lann meadhanan Parrillada"
+
+#: ../libparrillada-media/parrillada-media.c:477
+msgid "Parrillada optical media library"
+msgstr "Leabhar-lann meadhanan lèirsinneach Parrillada"
+
+#: ../libparrillada-media/parrillada-media.c:478
+msgid "Display options for Parrillada media library"
+msgstr "Seall na roghainnean airson leabhar-lann meadhanan Parrillada"
+
+#: ../libparrillada-media/parrillada-medium.c:65
+msgid "File"
+msgstr "Faidhle"
+
+#: ../libparrillada-media/parrillada-medium.c:66
+msgid "CD-ROM"
+msgstr "CD-ROM"
+
+#: ../libparrillada-media/parrillada-medium.c:67
+msgid "CD-R"
+msgstr "CD-R"
+
+#: ../libparrillada-media/parrillada-medium.c:68
+msgid "CD-RW"
+msgstr "CD-RW"
+
+#: ../libparrillada-media/parrillada-medium.c:69
+msgid "DVD-ROM"
+msgstr "DVD-ROM"
+
+#: ../libparrillada-media/parrillada-medium.c:70
+msgid "DVD-R"
+msgstr "DVD-R"
+
+#: ../libparrillada-media/parrillada-medium.c:71
+msgid "DVD-RW"
+msgstr "DVD-RW"
+
+#: ../libparrillada-media/parrillada-medium.c:72
+msgid "DVD+R"
+msgstr "DVD+R"
+
+#: ../libparrillada-media/parrillada-medium.c:73
+msgid "DVD+RW"
+msgstr "DVD+RW"
+
+#: ../libparrillada-media/parrillada-medium.c:74
+msgid "DVD+R dual layer"
+msgstr "DVD+R dual layer"
+
+#: ../libparrillada-media/parrillada-medium.c:75
+msgid "DVD+RW dual layer"
+msgstr "DVD+RW dual layer"
+
+#: ../libparrillada-media/parrillada-medium.c:76
+msgid "DVD-R dual layer"
+msgstr "DVD-R dual layer"
+
+#: ../libparrillada-media/parrillada-medium.c:77
+msgid "DVD-RAM"
+msgstr "DVD-RAM"
+
+#: ../libparrillada-media/parrillada-medium.c:78
+msgid "Blu-ray disc"
+msgstr "Diosga Blu-ray"
+
+#: ../libparrillada-media/parrillada-medium.c:79
+msgid "Writable Blu-ray disc"
+msgstr "Diosga Blu-ray a ghabhas sgrìobhadh"
+
+#: ../libparrillada-media/parrillada-medium.c:80
+msgid "Rewritable Blu-ray disc"
+msgstr "Diosga Blu-ray a ghabhas ath-sgrìobhadh"
+
+#. NOTE for translators: the first %s is the disc type and the
+#. * second %s the name of the drive this disc is in.
+#: ../libparrillada-media/parrillada-medium.c:216
+#, c-format
+msgid "Blank %s in %s"
+msgstr "%s bàn ann an %s"
+
+#. NOTE for translators: the first %s is the disc type and the
+#. * second %s the name of the drive this disc is in.
+#: ../libparrillada-media/parrillada-medium.c:223
+#, c-format
+msgid "Audio and data %s in %s"
+msgstr "%s fuaime is dàta ann an %s"
+
+#. NOTE for translators: the first %s is the disc type and the
+#. * second %s the name of the drive this disc is in.
+#: ../libparrillada-media/parrillada-medium.c:230
+#, c-format
+msgid "Audio %s in %s"
+msgstr "%s fuaime ann an %s"
+
+#. NOTE for translators: the first %s is the disc type and the
+#. * second %s the name of the drive this disc is in.
+#: ../libparrillada-media/parrillada-medium.c:237
+#, c-format
+msgid "Data %s in %s"
+msgstr "%s dàta ann an %s"
+
+#. NOTE for translators: the first %s is the disc type and the
+#. * second %s the name of the drive this disc is in.
+#: ../libparrillada-media/parrillada-medium.c:244
+#, c-format
+msgid "%s in %s"
+msgstr "%s ann an %s"
+
+#. NOTE for translators, the first %s is the medium name
+#: ../libparrillada-media/parrillada-medium-selection.c:158
+#, c-format
+msgid "%s: empty"
+msgstr "%s: falamh"
+
+#. NOTE for translators: the first %s is the medium name, the
+#. * second %s is the space (kio, gio) used by data on the disc.
+#.
+#. NOTE for translators: the first %s is the medium name, the
+#. * second %s is the space (time) used by data on the disc.
+#. * I really don't know if I should set this string as
+#. * translatable.
+#: ../libparrillada-media/parrillada-medium-selection.c:174
+#: ../libparrillada-media/parrillada-medium-selection.c:186
+#, c-format
+msgid "%s: %s"
+msgstr "%s: %s"
+
+#: ../libparrillada-media/parrillada-medium-selection.c:451
+msgid "Searching for available discs"
+msgstr "A' lorg airson diosgan ri làimh"
+
+#: ../libparrillada-media/parrillada-medium-selection.c:460
+msgid "No disc available"
+msgstr "Chan eil diosga ri làimh"
+
+#. Translators: this is hour minute second like '2 h 14 min 25'
+#: ../libparrillada-media/parrillada-units.c:71
+#, c-format
+msgid "%s h %s min %s"
+msgstr "%s uair %s mion %s"
+
+#. Translators: this is hour minute like '2 h 14'
+#: ../libparrillada-media/parrillada-units.c:77
+#, c-format
+msgid "%s h %s"
+msgstr "%s uair %s"
+
+#. Translators: this is hour like '2 h'
+#: ../libparrillada-media/parrillada-units.c:82
+#, c-format
+msgid "%s h"
+msgstr "%s uair"
+
+#. Translators: this is 'hour:minute:second' like '2:14:25'
+#: ../libparrillada-media/parrillada-units.c:86
+#, c-format
+msgid "%s:%s:%s"
+msgstr "%s:%s:%s"
+
+#. Translators: this is 'hour:minute' or 'minute:second'
+#: ../libparrillada-media/parrillada-units.c:92
+#: ../libparrillada-media/parrillada-units.c:107
+#, c-format
+msgid "%s:%s"
+msgstr "%s:%s"
+
+#. Translators: %s is a duration expressed in minutes
+#: ../libparrillada-media/parrillada-units.c:99
+#, c-format
+msgid "%s min"
+msgstr "%s mion"
+
+#. Translators: the first %s is the number of minutes
+#. * and the second one is the number of seconds.
+#. * The whole string expresses a duration
+#: ../libparrillada-media/parrillada-units.c:104
+#, c-format
+msgid "%s:%s min"
+msgstr "%s:%s mion"
+
+#: ../libparrillada-media/parrillada-volume.c:186
+#, c-format
+msgid "The disc mount point could not be retrieved"
+msgstr "Cha deach a' phuing-mhunntachaidh aig an diosga fhaighinn"
+
+#. NOTE for translators: the first %s is the disc type and Blank is an adjective.
+#: ../libparrillada-media/parrillada-volume.c:409
+#, c-format
+msgid "Blank disc (%s)"
+msgstr "Diosga bàn (%s)"
+
+#. NOTE for translators: the first %s is the disc type.
+#: ../libparrillada-media/parrillada-volume.c:413
+#, c-format
+msgid "Audio and data disc (%s)"
+msgstr "Diosga fuaime is dàta (%s)"
+
+#. NOTE for translators: the first %s is the disc type.
+#. NOTE to translators: the final string must not be over
+#. * 32 _bytes_ .
+#. * The %s is the date
+#: ../libparrillada-media/parrillada-volume.c:417 ../src/parrillada-project-name.c:322
+#, c-format
+msgid "Audio disc (%s)"
+msgstr "Diosga fuaime (%s)"
+
+#. NOTE for translators: the first %s is the disc type.
+#. NOTE to translators: the final string must not be over
+#. * 32 _bytes_ otherwise it gets truncated.
+#. * The %s is the date
+#: ../libparrillada-media/parrillada-volume.c:421
+#: ../caja/caja-burn-bar.c:115 ../src/parrillada-project-name.c:255
+#, c-format
+msgid "Data disc (%s)"
+msgstr "Diosga dàta (%s)"
+
+#: ../libparrillada-media/burn-iso9660.c:158
+#: ../libparrillada-media/burn-iso9660.c:167
+#: ../libparrillada-media/burn-iso9660.c:402
+#: ../libparrillada-media/burn-iso9660.c:439
+#: ../libparrillada-media/burn-iso9660.c:488
+#: ../libparrillada-media/burn-volume.c:128
+#, c-format
+msgid "It does not appear to be a valid ISO image"
+msgstr "Chan e ìomhaigh ISO dhligheach a th' ann a-rèir coltais"
+
+#: ../libparrillada-media/scsi-error.c:43 ../src/parrillada-project-name.c:84
+msgid "Unknown error"
+msgstr "Mearachd neo-aithnichte"
+
+#: ../libparrillada-media/scsi-error.c:44
+msgid "Size mismatch"
+msgstr "Meud neo-ionnan"
+
+#: ../libparrillada-media/scsi-error.c:45
+msgid "Type mismatch"
+msgstr "Seòrsa neo-ionnan"
+
+#: ../libparrillada-media/scsi-error.c:46
+msgid "Bad argument"
+msgstr "Droch argamaid"
+
+#: ../libparrillada-media/scsi-error.c:48
+msgid "Outrange address"
+msgstr "Seòladh a-mach à rainse"
+
+#: ../libparrillada-media/scsi-error.c:49
+msgid "Invalid address"
+msgstr "Seòladh mì-dhligheach"
+
+#: ../libparrillada-media/scsi-error.c:50
+msgid "Invalid command"
+msgstr "Àithne mhì-dhligheach"
+
+#: ../libparrillada-media/scsi-error.c:51
+msgid "Invalid parameter in command"
+msgstr "Paramadair mì-dhligheach ann an àithne"
+
+#: ../libparrillada-media/scsi-error.c:52
+msgid "Invalid field in command"
+msgstr "Raon mì-dhligheach ann an àithne"
+
+#: ../libparrillada-media/scsi-error.c:53
+msgid "The device timed out"
+msgstr "Dh'fhalbh an ùine air an uidheam"
+
+#: ../libparrillada-media/scsi-error.c:54
+msgid "Key not established"
+msgstr "Cha deach an iuchair a stèidheachadh"
+
+#: ../libparrillada-media/scsi-error.c:55
+msgid "Invalid track mode"
+msgstr "Modh traca mì-dhligheach"
+
+#: ../libparrillada-utils/parrillada-disc-message.c:133
+msgid "_Hide changes"
+msgstr "_Falaich na h-atharraichean"
+
+#: ../libparrillada-utils/parrillada-disc-message.c:135
+#: ../libparrillada-utils/parrillada-disc-message.c:154
+msgid "_Show changes"
+msgstr "_Seall na h-atharraichean"
+
+#: ../libparrillada-utils/parrillada-io.c:1418
+#, c-format
+msgid "The file does not appear to be a playlist"
+msgstr "Chan e liosta-chluiche a tha san fhaidhle seo a-rèir coltais"
+
+#. Translators: This is an image, a picture, not a "Disc Image"
+#: ../libparrillada-utils/parrillada-jacket-background.c:199
+msgid "Images"
+msgstr "Dealbhan"
+
+#: ../libparrillada-utils/parrillada-jacket-background.c:230
+msgid "_Color"
+msgstr "_Dath"
+
+#: ../libparrillada-utils/parrillada-jacket-background.c:261
+msgid "Solid color"
+msgstr "Dath soladach"
+
+#: ../libparrillada-utils/parrillada-jacket-background.c:262
+msgid "Horizontal gradient"
+msgstr "Caisead còmhnard"
+
+#: ../libparrillada-utils/parrillada-jacket-background.c:263
+msgid "Vertical gradient"
+msgstr "Caisead inghearach"
+
+#. second part
+#. Translators: This is an image, a picture, not a "Disc Image"
+#: ../libparrillada-utils/parrillada-jacket-background.c:280
+msgid "_Image"
+msgstr "_Dealbh"
+
+#. Translators: This is an image, a picture, not a "Disc Image"
+#: ../libparrillada-utils/parrillada-jacket-background.c:308
+msgid "Image path:"
+msgstr "Slighe an deilbh:"
+
+#. Translators: This is an image, a picture, not a "Disc Image"
+#: ../libparrillada-utils/parrillada-jacket-background.c:320
+msgid "Choose an image"
+msgstr "Tagh dealbh"
+
+#. Translators: This is an image, a picture, not a "Disc Image"
+#: ../libparrillada-utils/parrillada-jacket-background.c:331
+msgid "Image style:"
+msgstr "Stoidhle an deilbh"
+
+#: ../libparrillada-utils/parrillada-jacket-background.c:345
+msgid "Centered"
+msgstr "Meadhanaichte"
+
+#: ../libparrillada-utils/parrillada-jacket-background.c:346
+msgid "Tiled"
+msgstr "Leacaichte"
+
+#: ../libparrillada-utils/parrillada-jacket-background.c:347
+msgid "Scaled"
+msgstr "Sgèilichte"
+
+#: ../libparrillada-utils/parrillada-jacket-background.c:384
+msgid "Background Properties"
+msgstr "Roghainnean a' chùlaibh"
+
+#: ../libparrillada-utils/parrillada-jacket-edit.c:534
+msgid "Print"
+msgstr "Clò-bhuail"
+
+#: ../libparrillada-utils/parrillada-jacket-edit.c:546
+msgid "Bac_kground Properties"
+msgstr "Roghainnean a' _chùlaibh"
+
+#: ../libparrillada-utils/parrillada-jacket-edit.c:549
+msgid "Background properties"
+msgstr "Roghainnean a' chùlaibh"
+
+#: ../libparrillada-utils/parrillada-jacket-edit.c:564
+msgid "Align right"
+msgstr "Co-thaobhaich ris an taobh deas"
+
+#: ../libparrillada-utils/parrillada-jacket-edit.c:574
+msgid "Center"
+msgstr "Meadhanaich"
+
+#: ../libparrillada-utils/parrillada-jacket-edit.c:584
+msgid "Align left"
+msgstr "Co-thaobhaich ris an taobh chlì"
+
+#: ../libparrillada-utils/parrillada-jacket-edit.c:598
+msgid "Underline"
+msgstr "Fo-loidhne"
+
+#: ../libparrillada-utils/parrillada-jacket-edit.c:608
+msgid "Italic"
+msgstr "Clò Eadailteach"
+
+#: ../libparrillada-utils/parrillada-jacket-edit.c:618
+msgid "Bold"
+msgstr "Clò trom"
+
+#: ../libparrillada-utils/parrillada-jacket-edit.c:644
+msgid "Font family and size"
+msgstr "Teaghlach is meud a' chruth-chlò"
+
+#: ../libparrillada-utils/parrillada-jacket-edit.c:651
+msgid "_Text Color"
+msgstr "Dath an _teacsa"
+
+#: ../libparrillada-utils/parrillada-jacket-edit.c:652
+msgid "Text color"
+msgstr "Dath an teacsa"
+
+#: ../libparrillada-utils/parrillada-jacket-edit.c:775
+msgid "Cover Editor"
+msgstr "Deasaiche chòmhdaichean"
+
+#: ../libparrillada-utils/parrillada-jacket-view.c:766
+msgid "Set Bac_kground Properties"
+msgstr "Suidhich roghainnean a' _chùlaibh"
+
+#: ../libparrillada-utils/parrillada-jacket-view.c:807
+msgid "SIDES"
+msgstr "TAOBHAN"
+
+#: ../libparrillada-utils/parrillada-jacket-view.c:823
+msgid "BACK COVER"
+msgstr "CÒMHDACH A' CHÙIL"
+
+#: ../libparrillada-utils/parrillada-jacket-view.c:841
+msgid "FRONT COVER"
+msgstr "CÒMHDACH NA H-AGHAIDH"
+
+#. Translators: This is an image,
+#. * a picture, not a "Disc Image"
+#: ../libparrillada-utils/parrillada-jacket-view.c:1021
+msgid "The image could not be loaded."
+msgstr "Cha b' urrainn dhuinn an dealbh a luchdadh"
+
+#: ../libparrillada-utils/parrillada-metadata.c:1126 ../src/parrillada-audio-disc.c:643
+#, c-format
+msgid "\"%s\" could not be handled by GStreamer."
+msgstr "Cha b' urrainn do GStreamer \"%s\" a làimhseachadh."
+
+#. Translators: %s is the name of the object (as in
+#. * GObject) from the Gstreamer library that could
+#. * not be created
+#: ../libparrillada-utils/parrillada-metadata.c:1198
+#: ../libparrillada-utils/parrillada-metadata.c:1211
+#: ../libparrillada-utils/parrillada-metadata.c:1224
+#: ../libparrillada-utils/parrillada-metadata.c:1366
+#: ../libparrillada-utils/parrillada-metadata.c:1738
+#: ../libparrillada-utils/parrillada-metadata.c:1753
+#: ../libparrillada-utils/parrillada-metadata.c:1762
+#: ../plugins/transcode/burn-normalize.c:172
+#: ../plugins/transcode/burn-normalize.c:187
+#: ../plugins/transcode/burn-normalize.c:209
+#: ../plugins/transcode/burn-normalize.c:221
+#: ../plugins/transcode/burn-normalize.c:238
+#: ../plugins/transcode/burn-normalize.c:335
+#: ../plugins/transcode/burn-transcode.c:292
+#: ../plugins/transcode/burn-transcode.c:304
+#: ../plugins/transcode/burn-transcode.c:426
+#: ../plugins/transcode/burn-transcode.c:479
+#: ../plugins/transcode/burn-transcode.c:513
+#: ../plugins/transcode/burn-transcode.c:556
+#: ../plugins/transcode/burn-transcode.c:577
+#: ../plugins/transcode/burn-transcode.c:589
+#: ../plugins/transcode/burn-transcode.c:611
+#: ../plugins/transcode/burn-vob.c:308 ../plugins/transcode/burn-vob.c:328
+#: ../plugins/transcode/burn-vob.c:343 ../plugins/transcode/burn-vob.c:355
+#: ../plugins/transcode/burn-vob.c:372 ../plugins/transcode/burn-vob.c:428
+#: ../plugins/transcode/burn-vob.c:445 ../plugins/transcode/burn-vob.c:457
+#: ../plugins/transcode/burn-vob.c:469 ../plugins/transcode/burn-vob.c:481
+#: ../plugins/transcode/burn-vob.c:498 ../plugins/transcode/burn-vob.c:582
+#: ../plugins/transcode/burn-vob.c:599 ../plugins/transcode/burn-vob.c:611
+#: ../plugins/transcode/burn-vob.c:623 ../plugins/transcode/burn-vob.c:642
+#: ../plugins/transcode/burn-vob.c:659 ../plugins/transcode/burn-vob.c:705
+#: ../plugins/transcode/burn-vob.c:782 ../plugins/transcode/burn-vob.c:799
+#: ../plugins/transcode/burn-vob.c:814 ../plugins/transcode/burn-vob.c:826
+#: ../plugins/transcode/burn-vob.c:837 ../plugins/transcode/burn-vob.c:848
+#: ../plugins/transcode/burn-vob.c:1023 ../plugins/transcode/burn-vob.c:1087
+#: ../plugins/transcode/burn-vob.c:1104 ../plugins/transcode/burn-vob.c:1125
+#: ../plugins/transcode/burn-vob.c:1152
+#, c-format
+msgid "%s element could not be created"
+msgstr "Cha b' urrainn dhuinn an eileamaid %s a cruthachadh"
+
+#: ../libparrillada-utils/parrillada-misc.c:74
+msgid "Display debug statements on stdout for Parrillada utilities library"
+msgstr ""
+"Seall aithris dì-bhugachaidh air stdout airson leabhar-lann innealan Parrillada"
+
+#: ../libparrillada-utils/parrillada-misc.c:91
+msgid "Parrillada utilities library"
+msgstr "Leabhar-lann innealan Parrillada"
+
+#: ../libparrillada-utils/parrillada-misc.c:92
+msgid "Display options for Parrillada-utils library"
+msgstr "Seall na roghainnean airson leabhar-lann innealan Parrillada"
+
+#: ../libparrillada-utils/parrillada-tool-color-picker.c:166
+msgid "Pick a Color"
+msgstr "Tagh dath"
+
+#: ../caja/parrillada-caja.desktop.in.in.h:1
+#: ../caja/caja-burn-extension.c:281
+msgid "CD/DVD Creator"
+msgstr "Cruthadair CDan/DVDan"
+
+#: ../caja/parrillada-caja.desktop.in.in.h:2
+msgid "Create CDs and DVDs"
+msgstr "Cruthaich CDan is DVDan"
+
+#: ../caja/caja-burn-bar.c:228 ../src/parrillada-project-name.c:154
+msgid "Medium Icon"
+msgstr "Ìomhaigheag mheadhanach"
+
+#. Translators: this is an image, a picture, not a "Disc Image"
+#: ../caja/caja-burn-bar.c:242 ../src/parrillada-file-chooser.c:375
+#: ../src/parrillada-project.c:2250 ../src/parrillada-project-name.c:168
+msgctxt "picture"
+msgid "Image files"
+msgstr "Faidhlichean deilbh"
+
+#. Translators: this is the name of the plugin
+#. * which will be translated only when it needs
+#. * displaying.
+#: ../caja/caja-burn-bar.c:356 ../plugins/local-track/burn-uri.c:747
+msgid "CD/DVD Creator Folder"
+msgstr "Pasgan a' chruthadair CDan/DVDan"
+
+#: ../caja/caja-burn-bar.c:368
+msgid "Disc Name:"
+msgstr "Ainm an diosga:"
+
+#. Translators: be careful, anything longer than the English will likely
+#. * not fit on small Caja windows
+#: ../caja/caja-burn-bar.c:407
+msgid "Drag or copy files below to write them to disc"
+msgstr ""
+"Slaod faidhlichean no cuir lethbhreac dhiubh gu h-ìosal gus an sgrìobhadh gu "
+"diosga"
+
+#: ../caja/caja-burn-bar.c:423
+#: ../caja/caja-burn-extension.c:323
+msgid "Write to Disc"
+msgstr "Sgrìobh gu diosga"
+
+#: ../caja/caja-burn-bar.c:442
+#: ../caja/caja-burn-extension.c:723
+msgid "Write contents to a CD or DVD"
+msgstr "Sgrìobh an t-susbaint gu CD no DVD"
+
+#: ../caja/caja-burn-extension.c:370
+msgid "Copy Disc"
+msgstr "Dèan lethbhreac dhen diosga"
+
+#: ../caja/caja-burn-extension.c:571
+#: ../caja/caja-burn-extension.c:722
+msgid "_Write to Disc…"
+msgstr "_Sgrìobh gu diosga..."
+
+#: ../caja/caja-burn-extension.c:572
+msgid "Write disc image to a CD or DVD"
+msgstr "Sgrìobh ìomhaigh diosga gu CD no DVD"
+
+#: ../caja/caja-burn-extension.c:645
+msgid "_Copy Disc…"
+msgstr "Dèan _lethbhreac dhen diosga..."
+
+#: ../caja/caja-burn-extension.c:646
+msgid "Create a copy of this CD or DVD"
+msgstr "Cruthaich lethbhreac dhen CD no DVD seo"
+
+#: ../caja/caja-burn-extension.c:659
+msgid "_Blank Disc…"
+msgstr "_Bànaich an diosga..."
+
+#: ../caja/caja-burn-extension.c:660
+msgid "Blank this CD or DVD"
+msgstr "Bànaich an CD no DVD seo"
+
+#: ../caja/caja-burn-extension.c:676
+msgid "_Check Disc…"
+msgstr "_Sgrùd an diosga..."
+
+#: ../caja/caja-burn-extension.c:677
+msgid "Check the data integrity on this CD or DVD"
+msgstr ""
+"Sgrùd an dàta air a' CD/DVD seo co-dhiù a bheil e mar bu chòir gus nach eil"
+
+#: ../plugins/audio2cue/burn-audio2cue.c:191
+#: ../plugins/checksum/burn-checksum-image.c:124
+#, c-format
+msgid "Data could not be read (%s)"
+msgstr "Cha b' urrainn dhuinn an dàta a leughadh (%s)"
+
+#: ../plugins/audio2cue/burn-audio2cue.c:241
+#: ../plugins/checksum/burn-checksum-files.c:196
+#: ../plugins/checksum/burn-checksum-files.c:219
+#: ../plugins/checksum/burn-checksum-image.c:174
+#: ../plugins/dvdcss/burn-dvdcss.c:216 ../plugins/dvdcss/burn-dvdcss.c:495
+#: ../plugins/libburnia/burn-libisofs.c:160
+#: ../plugins/libburnia/burn-libisofs.c:274
+#, c-format
+msgid "Data could not be written (%s)"
+msgstr "Cha b' urrainn dhuinn an dàta a sgrìobhadh (%s)"
+
+#: ../plugins/audio2cue/burn-audio2cue.c:723
+msgid "Generates .cue files from audio"
+msgstr "Cruthaichidh seo faidhlichean .cue on fuaim"
+
+#: ../plugins/cdrdao/burn-cdrdao.c:55
+msgid "cdrdao burning suite"
+msgstr "Sreath losgaidh cdrdao"
+
+#: ../plugins/cdrdao/burn-cdrdao.c:103
+msgid "Copying audio track"
+msgstr "A' dèanamh lethbhreac dhen traca fuaime"
+
+#: ../plugins/cdrdao/burn-cdrdao.c:109
+msgid "Copying data track"
+msgstr "A' dèanamh lethbhreac dhen traca dàta"
+
+#: ../plugins/cdrdao/burn-cdrdao.c:145
+#, c-format
+msgid "Analysing track %02i"
+msgstr "A' sgrùdadh an traca %02i"
+
+#: ../plugins/cdrdao/burn-cdrdao.c:249 ../plugins/cdrkit/burn-readom.c:116
+#: ../plugins/cdrkit/burn-readom.c:122 ../plugins/cdrkit/burn-wodim.c:106
+#: ../plugins/cdrtools/burn-cdrecord.c:106
+#: ../plugins/cdrtools/burn-readcd.c:117 ../plugins/cdrtools/burn-readcd.c:123
+#, c-format
+msgid "You do not have the required permissions to use this drive"
+msgstr "Tha cead a dhìth ort gus an draibh seo a chleachdadh"
+
+#: ../plugins/cdrdao/burn-cdrdao.c:480
+msgid "Converting toc file"
+msgstr "Ag iompachadh faidhle toc"
+
+#: ../plugins/cdrdao/burn-cdrdao.c:697
+msgid "Copies, burns and blanks CDs"
+msgstr "Losgaidh is bànaichidh seo CDan is nì e lethbhreac dhiubha"
+
+#: ../plugins/cdrdao/burn-cdrdao.c:762
+msgid "Enable the \"--driver generic-mmc-raw\" flag (see cdrdao manual)"
+msgstr ""
+"Cuir an comas a' bhratach \"--driver generic-mmc-raw\" (seall air an leabhar-"
+"mhìneachaidhean cdrdao)"
+
+#: ../plugins/cdrkit/burn-cdrkit.h:38
+msgid "cdrkit burning suite"
+msgstr "Sreath losgaidh cdrkit"
+
+#: ../plugins/cdrkit/burn-genisoimage.c:119
+#: ../plugins/cdrtools/burn-mkisofs.c:119
+#: ../plugins/growisofs/burn-growisofs.c:204
+#: ../plugins/libburnia/burn-libisofs.c:518
+#, c-format
+msgid "Last session import failed"
+msgstr "Dh'fhàillig le ion-phortachadh an t-seisein mu dheireadh"
+
+#: ../plugins/cdrkit/burn-genisoimage.c:125
+#: ../plugins/cdrkit/burn-genisoimage.c:132
+#: ../plugins/cdrtools/burn-mkisofs.c:125
+#: ../plugins/cdrtools/burn-mkisofs.c:132
+#: ../plugins/growisofs/burn-growisofs.c:210
+#: ../plugins/growisofs/burn-growisofs.c:217
+msgid "An image could not be created"
+msgstr "Dh'fhàillig le cruthachadh ìomhaighe"
+
+#: ../plugins/cdrkit/burn-genisoimage.c:138
+msgid "This version of genisoimage is not supported"
+msgstr "Cha chuirear taic ris an tionndadh seo de genisoimage"
+
+#: ../plugins/cdrkit/burn-genisoimage.c:180
+#: ../plugins/cdrtools/burn-mkisofs.c:180
+#: ../plugins/growisofs/burn-growisofs.c:223
+msgid "Some files have invalid filenames"
+msgstr "Tha ainm mì-dhligheach air faidhle no dhà"
+
+#: ../plugins/cdrkit/burn-genisoimage.c:186
+#: ../plugins/cdrtools/burn-mkisofs.c:186
+#: ../plugins/growisofs/burn-growisofs.c:229
+msgid "Unknown character encoding"
+msgstr "Còdachadh charactaran neo-aithnichte"
+
+#: ../plugins/cdrkit/burn-genisoimage.c:192
+#: ../plugins/cdrtools/burn-mkisofs.c:192
+msgid "There is no space left on the device"
+msgstr "Chan eil rum air fhàgail air an diosga"
+
+#: ../plugins/cdrkit/burn-genisoimage.c:527
+#: ../plugins/cdrtools/burn-mkisofs.c:531
+#: ../plugins/libburnia/burn-libisofs.c:1078
+msgid "Creates disc images from a file selection"
+msgstr "Cruthaichidh seo ìomhaighean diosga o thaghadh de dh'fhaidhlichean"
+
+#: ../plugins/cdrkit/burn-readom.c:136 ../plugins/cdrtools/burn-readcd.c:137
+#, c-format
+msgid ""
+"The location you chose to store the image on does not have enough free space "
+"for the disc image"
+msgstr ""
+"Chan eil rum saor gu leòr airson ìomhaigh an diosga air an ionad a thagh thu "
+"gus an ìomhaigh a chumail"
+
+#: ../plugins/cdrkit/burn-readom.c:450 ../plugins/cdrtools/burn-readcd.c:460
+msgid "Copies any disc to a disc image"
+msgstr "Cuiridh seo lethbhreac de dhiosga sam bith gu ìomhaigh diosga"
+
+#: ../plugins/cdrkit/burn-wodim.c:122 ../plugins/cdrtools/burn-cdrecord.c:122
+#: ../plugins/libburnia/burn-libburn.c:856
+#: ../plugins/libburnia/burn-libburn.c:887
+#, c-format
+msgid "An error occurred while writing to disc"
+msgstr "Thachair mearachd le sgrìobhadh gun diosga"
+
+#: ../plugins/cdrkit/burn-wodim.c:128 ../plugins/cdrtools/burn-cdrecord.c:128
+#, c-format
+msgid ""
+"The system is too slow to write the disc at this speed. Try a lower speed"
+msgstr ""
+"Tha an siostam ro shlaodach gus a bhith a' sgrìobhadh gun diosg aig an "
+"luaths seo. Feuch ri luaths nas maille"
+
+#. Translators: %s is the number of the track
+#: ../plugins/cdrkit/burn-wodim.c:255 ../plugins/cdrtools/burn-cdrecord.c:252
+#, c-format
+msgid "Writing track %s"
+msgstr "A' sgrìobhadh traca %s"
+
+#: ../plugins/cdrkit/burn-wodim.c:352 ../plugins/cdrtools/burn-cdrecord.c:346
+msgid "Formatting disc"
+msgstr "A' fòrmatadh an diosga"
+
+#: ../plugins/cdrkit/burn-wodim.c:372 ../plugins/cdrtools/burn-cdrecord.c:358
+msgid "Writing cue sheet"
+msgstr "A' sgrìobhadh an siota cue"
+
+#: ../plugins/cdrkit/burn-wodim.c:394 ../plugins/cdrtools/burn-cdrecord.c:380
+#, c-format
+msgid "The disc needs to be reloaded before being recorded"
+msgstr "Tha an diosga seo feumach air ath-luchdadh mus gabh a chlàradh"
+
+#: ../plugins/cdrkit/burn-wodim.c:1269
+msgid "Burns, blanks and formats CDs and DVDs"
+msgstr "Losgaidh, bànaichidh is fòrmataidh seo CDan is DVDan"
+
+#: ../plugins/cdrkit/burn-wodim.c:1413
+msgid "Enable the \"-immed\" flag (see wodim manual)"
+msgstr ""
+"Cuir an comas a' bhratach \"-immed\" (seall air an leabhar-mhìneachaidhean "
+"aig wodim)"
+
+#: ../plugins/cdrkit/burn-wodim.c:1416
+msgid "Minimum drive buffer fill ratio (in %) (see wodim manual):"
+msgstr ""
+"An co-mheas lionaidh as lugha aig bufair an draibh (ann an %) (seall air an "
+"leabhar-mhìneachaidhean aig wodim)"
+
+#: ../plugins/cdrtools/burn-cdda2wav.c:206
+#: ../plugins/cdrtools/burn-cdda2wav.c:216
+#, c-format
+msgid "Copying audio track %02d"
+msgstr "A' dèanamh lethbhreac dhen traca fuaime %02d"
+
+#: ../plugins/cdrtools/burn-cdda2wav.c:267
+msgid "Preparing to copy audio disc"
+msgstr "Ag ullachadh gus lethbhreac a dhèanamh dhen diosga fuaime"
+
+#: ../plugins/cdrtools/burn-cdda2wav.c:411
+msgid "Copy tracks from an audio CD with all associated information"
+msgstr ""
+"Dèan lethbhreac dhe na tracaichean o CD fuaime leis a h-uile fiosrachaidh a "
+"tha nan cois"
+
+#: ../plugins/cdrtools/burn-cdrecord.c:1203
+#: ../plugins/libburnia/burn-libburn.c:975
+msgid "Burns, blanks and formats CDs, DVDs and BDs"
+msgstr "Losgaidh, bànaichidh is fòrmataidh seo CDan, DVDan is BDan"
+
+#: ../plugins/cdrtools/burn-cdrecord.c:1416
+msgid "Enable the \"-immed\" flag (see cdrecord manual)"
+msgstr ""
+"Cuir an comas a' bhratach \"-immed\" (seall air an leabhar-mhìneachaidhean "
+"aig cdrecord)"
+
+#: ../plugins/cdrtools/burn-cdrecord.c:1419
+#, c-format
+msgid "Minimum drive buffer fill ratio (in %%) (see cdrecord manual):"
+msgstr ""
+"An co-mheas lionaidh as lugha aig bufair an draibh (ann an %%) (seall air an "
+"leabhar-mhìneachaidhean aig cdrecord)"
+
+#: ../plugins/cdrtools/burn-cdrtools.h:38
+msgid "cdrtools burning suite"
+msgstr "Sreath losgaidh cdrtools"
+
+#: ../plugins/cdrtools/burn-mkisofs.c:138
+msgid "This version of mkisofs is not supported"
+msgstr "Cha chuirear taic ris an tionndadh seo de mkisofs"
+
+#: ../plugins/checksum/burn-checksum-files.c:131
+#: ../plugins/checksum/burn-checksum-files.c:589
+#, c-format
+msgid "File \"%s\" could not be opened (%s)"
+msgstr "Cha b' urrainn dhuinn am faidhle \"%s\" fhosgladh (%s)"
+
+#: ../plugins/checksum/burn-checksum-files.c:617
+msgid "Creating checksum for image files"
+msgstr "A' cruthachadh àireamh-dearbhaidh airson nam faidhlichean ìomhaighe"
+
+#: ../plugins/checksum/burn-checksum-files.c:859
+#, c-format
+msgid "No checksum file could be found on the disc"
+msgstr "Cha do lorg sinn faidhle àireamh-dearbhaidh air an diosga"
+
+#: ../plugins/checksum/burn-checksum-files.c:893
+msgid "Checking file integrity"
+msgstr "A' sgrùdadh a bheil na faidhlichean mar bu chòir"
+
+#: ../plugins/checksum/burn-checksum-files.c:987
+#: ../plugins/checksum/burn-checksum-files.c:1012
+#, c-format
+msgid "File \"%s\" could not be opened"
+msgstr "Cha b' urrainn dhuinn am faidhle \"%s\"  fhosgladh"
+
+#: ../plugins/checksum/burn-checksum-files.c:1085
+#: ../plugins/checksum/burn-checksum-files.c:1206
+#: ../plugins/checksum/burn-checksum-image.c:550
+#, c-format
+msgid "Some files may be corrupted on the disc"
+msgstr "Dh'fhaoidte gu bheil cuid a dh'faidhlichean coirbte air an diosga"
+
+#. Translators: this is the name of the plugin
+#. * which will be translated only when it needs
+#. * displaying.
+#: ../plugins/checksum/burn-checksum-files.c:1465
+msgid "File Checksum"
+msgstr "Àireamh-dearbhaidh fhaidhlichean"
+
+#: ../plugins/checksum/burn-checksum-files.c:1466
+msgid "Checks file integrities on a disc"
+msgstr ""
+"Nì seo sgrùdadh co-dhiù a bheil na faidhlichean air an diosga mar bu chòir "
+"gus nach eil"
+
+#: ../plugins/checksum/burn-checksum-files.c:1504
+#: ../plugins/checksum/burn-checksum-image.c:856
+msgid "Hashing algorithm to be used:"
+msgstr "An algairim hais ri cleachdadh:"
+
+#: ../plugins/checksum/burn-checksum-files.c:1507
+#: ../plugins/checksum/burn-checksum-image.c:859
+msgid "MD5"
+msgstr "MD5"
+
+#: ../plugins/checksum/burn-checksum-files.c:1509
+#: ../plugins/checksum/burn-checksum-image.c:861
+msgid "SHA1"
+msgstr "SHA1"
+
+#: ../plugins/checksum/burn-checksum-files.c:1511
+#: ../plugins/checksum/burn-checksum-image.c:863
+msgid "SHA256"
+msgstr "SHA256"
+
+#. Translators: first %s is the filename, second %s
+#. * is the error generated from errno
+#. Translators: first %s is the filename, second %s is the error
+#. * generated from errno
+#: ../plugins/checksum/burn-checksum-image.c:313
+#: ../plugins/libburnia/burn-libburn.c:679
+#, c-format
+msgid "\"%s\" could not be opened (%s)"
+msgstr "Cha b' urrainn dhuinn \"%s\" fhosgladh  (%s)"
+
+#: ../plugins/checksum/burn-checksum-image.c:359
+#: ../plugins/checksum/burn-checksum-image.c:456
+msgid "Creating image checksum"
+msgstr "A' cruthachadh àireamh-dearbhaidh na h-ìomhaighe"
+
+#. Translators: this is the name of the plugin
+#. * which will be translated only when it needs
+#. * displaying.
+#: ../plugins/checksum/burn-checksum-image.c:831
+msgid "Image Checksum"
+msgstr "Àireamh-dearbhaidh na h-ìomhaighe"
+
+#: ../plugins/checksum/burn-checksum-image.c:832
+msgid "Checks disc integrity after it is burnt"
+msgstr ""
+"Nì seo sgrùdadh air an diosga às dèidh a losgaidh co-dhiù a bheil e mar bu "
+"chòir gus nach eil"
+
+#: ../plugins/dvdauthor/burn-dvdauthor.c:313
+#: ../plugins/vcdimager/burn-vcdimager.c:438
+msgid "Creating file layout"
+msgstr "A' cruthachadh co-dhealbhachd nam faidhlichean"
+
+#: ../plugins/dvdauthor/burn-dvdauthor.c:371
+msgid "Creates disc images suitable for video DVDs"
+msgstr "Cruthaichidh seo ìomhaighean diosga a bhios freagarrach do DVDan video"
+
+#. Translators: %s is the path to a drive. "regionset %s"
+#. * should be left as is just like "DVDCSS_METHOD=title
+#. * parrillada --no-existing-session"
+#: ../plugins/dvdcss/burn-dvdcss.c:294
+#, c-format
+msgid ""
+"Error while retrieving a key used for encryption. You may solve such a "
+"problem with one of the following methods: in a terminal either set the "
+"proper DVD region code for your CD/DVD player with the \"regionset %s\" "
+"command or run the \"DVDCSS_METHOD=title parrillada --no-existing-session\" "
+"command"
+msgstr ""
+"Thachair mearachd a' faighinn iuchair airson a' chrioptachaidh. Dh'fhaoidte "
+"gum fuasgail thu an seòrsa seo de dhuilgheadas le aon dhe na dhòighean seo "
+"ann an tèirmineal: suidhich an DVD region code airson a' chluicheadair CDan/"
+"DVDan agad mar bu chòir leis an àithne \"regionset %s\" no ruith an àithne  "
+"\"DVDCSS_METHOD=title parrillada --no-existing-session\""
+
+#: ../plugins/dvdcss/burn-dvdcss.c:339
+msgid "Retrieving DVD keys"
+msgstr "A' faighinn iuchraichean DVD"
+
+#: ../plugins/dvdcss/burn-dvdcss.c:374
+#, c-format
+msgid "Video DVD could not be opened"
+msgstr "Cha b' urrainn dhuinn an DVD video fhosgladh"
+
+#: ../plugins/dvdcss/burn-dvdcss.c:395 ../plugins/dvdcss/burn-dvdcss.c:460
+#: ../plugins/dvdcss/burn-dvdcss.c:483
+#, c-format
+msgid "Error while reading video DVD (%s)"
+msgstr "Mearachd le leughadh an DVD video (%s)"
+
+#: ../plugins/dvdcss/burn-dvdcss.c:402
+msgid "Copying video DVD"
+msgstr "A' dèanamh lethbhreac dhen DVD video"
+
+#: ../plugins/dvdcss/burn-dvdcss.c:695
+msgid "Copies CSS encrypted video DVDs to a disc image"
+msgstr ""
+"Cuiridh seo lethbhreac de DVD video le crioptachadh CSS air gu ìomhaigh "
+"diosga"
+
+#: ../plugins/growisofs/burn-dvd-rw-format.c:190
+msgid "Blanks and formats rewritable DVDs and BDs"
+msgstr "Bànaichidh is fòrmataidh seo DVDan is BDan a ghabhas ath-sgrìobhadh"
+
+#: ../plugins/growisofs/burn-growisofs.c:753
+msgid "Burns and blanks DVDs and BDs"
+msgstr "Losgaidh is bànaichidh seo DVDan is BDan"
+
+#: ../plugins/growisofs/burn-growisofs.c:924
+msgid "Allow DAO use"
+msgstr "Ceadaich gun cleachdar DAO"
+
+#: ../plugins/growisofs/burn-growisofs-common.h:38
+msgid "growisofs burning suite"
+msgstr "Sreath losgaidh growisofs"
+
+#: ../plugins/libburnia/burn-libburn.c:242
+#: ../plugins/libburnia/burn-libburn.c:250
+#, c-format
+msgid "libburn track could not be created"
+msgstr "Cha b' urrainn dhuinn an traca libburn a chruthachadh"
+
+#: ../plugins/libburnia/burn-libburn-common.c:158
+#, c-format
+msgid "libburn library could not be initialized"
+msgstr "Cha b' urrainn dhuinn an leabhar-lann libburn a thòiseachadh"
+
+#: ../plugins/libburnia/burn-libburn-common.c:173
+#, c-format
+msgid "The drive address could not be retrieved"
+msgstr "Cha b'urrainn dhuinn seòladh an draibh fhaighinn"
+
+#: ../plugins/libburnia/burn-libburn-common.c:418
+#, c-format
+msgid "Writing track %02i"
+msgstr "A' sgrìobhadh traca %02i"
+
+#: ../plugins/libburnia/burn-libburnia.h:38
+msgid "libburnia burning suite"
+msgstr "Sreath losgaidh libburnia"
+
+#: ../plugins/libburnia/burn-libisofs.c:222
+#: ../plugins/libburnia/burn-libisofs.c:291
+#: ../plugins/libburnia/burn-libisofs.c:571
+#, c-format
+msgid "Volume could not be created"
+msgstr "Cha b' urrainn dhuinn an draibh a chruthachadh"
+
+#: ../plugins/libburnia/burn-libisofs.c:345
+#: ../plugins/libburnia/burn-libisofs.c:893
+#, c-format
+msgid "libisofs could not be initialized."
+msgstr "Cha b' urrainn dhuinn libisofs a thòiseachadh."
+
+#: ../plugins/libburnia/burn-libisofs.c:485
+#, c-format
+msgid "Read options could not be created"
+msgstr "Cha b' urrainn dhuinn na roghainnean leughaidh a chruthachadh"
+
+#. Translators: %s is the path
+#: ../plugins/libburnia/burn-libisofs.c:684
+#, c-format
+msgid "No parent could be found in the tree for the path \"%s\""
+msgstr "Cha deach pàrant a lorg sa chraobh airson na slighe \"%s\""
+
+#: ../plugins/libburnia/burn-libisofs.c:744
+#: ../plugins/libburnia/burn-libisofs.c:811
+#, c-format
+msgid "libisofs reported an error while creating directory \"%s\""
+msgstr "Dh'aithris libisofs mearachd le cruthachadh a' phasgain \"%s\""
+
+#: ../plugins/libburnia/burn-libisofs.c:759
+#, c-format
+msgid ""
+"libisofs reported an error while adding contents to directory \"%s\" (%x)"
+msgstr ""
+"Dh'aithris libisofs mearachd a' cur susbaint ris a' phasgan \"%s\" (%x)"
+
+#: ../plugins/libburnia/burn-libisofs.c:782
+#: ../plugins/libburnia/burn-libisofs.c:798
+#, c-format
+msgid "libisofs reported an error while adding file at path \"%s\""
+msgstr "Dh'aithris libisofs mearachd a' cur faidhle ris aig an t-slighe \"%s\""
+
+#: ../plugins/local-track/burn-local-image.c:260
+msgid "Copying checksum file"
+msgstr "A' dèanamh lethbhreac de dh'fhaidhle àireimh-dearbhaidh"
+
+#: ../plugins/local-track/burn-local-image.c:527
+#: ../plugins/local-track/burn-uri.c:326
+msgid "Copying files locally"
+msgstr "A' dèanamh lethbhreach ionadail de dh'fhaidhlichean"
+
+#. Translators: this is the name of the plugin
+#. * which will be translated only when it needs
+#. * displaying.
+#: ../plugins/local-track/burn-local-image.c:909
+msgid "File Downloader"
+msgstr "Luchdaichear a-nuas nam faidhle"
+
+#: ../plugins/local-track/burn-local-image.c:910
+msgid "Allows files not stored locally to be burned"
+msgstr ""
+"Ceadaichidh seo nach tèid faidhlichean ri an losgadh a chumail gu h-ionadail"
+
+#: ../plugins/local-track/burn-uri.c:207 ../plugins/local-track/burn-uri.c:297
+#: ../plugins/local-track/burn-uri.c:472
+#, c-format
+msgid "Impossible to retrieve local file path"
+msgstr "Cha ghabh slighe ionadail an fhaidhle faighinn"
+
+#: ../plugins/local-track/burn-uri.c:748
+msgid ""
+"Allows files added to the \"CD/DVD Creator Folder\" in Caja to be burned"
+msgstr ""
+"Ceadaichidh seo gun tèid faidhlichean a losgadh a chaidh a chur gu \"Pasgan "
+"a' chruthadair CDan/DVDan\" aig Caja"
+
+#. Translators: This message is sent
+#. * when parrillada could not link together
+#. * two gstreamer plugins so that one
+#. * sends its data to the second for further
+#. * processing. This data transmission is
+#. * done through a pad. Maybe this is a bit
+#. * too technical and should be removed?
+#: ../plugins/transcode/burn-normalize.c:199
+#: ../plugins/transcode/burn-normalize.c:260
+#: ../plugins/transcode/burn-transcode.c:316
+#: ../plugins/transcode/burn-transcode.c:354
+#: ../plugins/transcode/burn-transcode.c:523
+#: ../plugins/transcode/burn-transcode.c:626
+#: ../plugins/transcode/burn-transcode.c:657
+#: ../plugins/transcode/burn-transcode.c:679
+#: ../plugins/transcode/burn-vob.c:189 ../plugins/transcode/burn-vob.c:392
+#: ../plugins/transcode/burn-vob.c:545 ../plugins/transcode/burn-vob.c:675
+#: ../plugins/transcode/burn-vob.c:1039 ../plugins/transcode/burn-vob.c:1115
+#: ../plugins/transcode/burn-vob.c:1166
+#, c-format
+msgid "Impossible to link plugin pads"
+msgstr "Cha ghabh padaichean an dà phlugain a cheangal"
+
+#: ../plugins/transcode/burn-normalize.c:554
+msgid "Normalizing tracks"
+msgstr "Ag àbhaisteachadh na tracaichean"
+
+#: ../plugins/transcode/burn-normalize.c:643
+msgid "Normalization"
+msgstr "Àbhaisteachadh"
+
+#: ../plugins/transcode/burn-normalize.c:644
+msgid "Sets consistent sound levels between tracks"
+msgstr "Suidhichidh seo ìrean fuaime co-chòrdail eadar nan tracaichean"
+
+#. Translators: %s is the string error from errno
+#: ../plugins/transcode/burn-transcode.c:1050
+#: ../plugins/transcode/burn-transcode.c:1238
+#, c-format
+msgid "Error while padding file (%s)"
+msgstr "Mearachd le padadh an fhaidhle (%s)"
+
+#: ../plugins/transcode/burn-transcode.c:1313
+msgid "Error while getting duration"
+msgstr "Merachd a' faighinn na faide"
+
+#: ../plugins/transcode/burn-transcode.c:1462
+#, c-format
+msgid "Analysing \"%s\""
+msgstr "A' sgrùdadh \"%s\""
+
+#: ../plugins/transcode/burn-transcode.c:1499
+#, c-format
+msgid "Transcoding \"%s\""
+msgstr "A' tar-chòdachadh \"%s\""
+
+#: ../plugins/transcode/burn-transcode.c:1736
+msgid "Converts any song file into a format suitable for audio CDs"
+msgstr ""
+"Nì seo fòrmat a bhios freagarrach airson CDan fuaime de dh'fhaidhle òrain "
+"sam bith"
+
+#: ../plugins/transcode/burn-vob.c:1251
+msgid "Converting video file to MPEG2"
+msgstr "Ag iompachadh faidhle video gu MPEG2"
+
+#: ../plugins/transcode/burn-vob.c:1353
+msgid "Converts any video file into a format suitable for video DVDs"
+msgstr ""
+"Nì seo fòrmat a bhios freagarrach airson DVDan video de dh'fhaidhle video "
+"sam bith"
+
+#: ../plugins/vcdimager/burn-vcdimager.c:478
+msgid "Creates disc images suitable for SVCDs"
+msgstr "Cruthaichidh seo ìomhaighean diosga a bhios freagarrach airson SVCDan"
+
+#: ../src/parrillada-app.c:123
+msgid "_Project"
+msgstr "_Pròiseact"
+
+#: ../src/parrillada-app.c:124
+msgid "_View"
+msgstr "_Sealladh"
+
+#: ../src/parrillada-app.c:125
+msgid "_Edit"
+msgstr "D_easaich"
+
+#: ../src/parrillada-app.c:126
+msgid "_Tools"
+msgstr "_Innealan"
+
+#: ../src/parrillada-app.c:128
+msgid "_Help"
+msgstr "Cob_hair"
+
+#: ../src/parrillada-app.c:130
+msgid "P_lugins"
+msgstr "P_lugain"
+
+#: ../src/parrillada-app.c:131
+msgid "Choose plugins for Parrillada"
+msgstr "Tagh plugain airson Parrillada"
+
+#: ../src/parrillada-app.c:133
+msgid "E_ject"
+msgstr "G_luais a-mach"
+
+#: ../src/parrillada-app.c:134
+msgid "Eject a disc"
+msgstr "Gluais diosga a-mach"
+
+#: ../src/parrillada-app.c:136
+msgid "_Blank…"
+msgstr "_Bànaich..."
+
+#: ../src/parrillada-app.c:137
+msgid "Blank a disc"
+msgstr "Bànaich diosga"
+
+#: ../src/parrillada-app.c:139
+msgid "_Check Integrity…"
+msgstr "_Sgrùd an treibhdhireas..."
+
+#: ../src/parrillada-app.c:140
+msgid "Check data integrity of disc"
+msgstr "Sgrùd an treibhdhireas aig an dàta air an diosga"
+
+#: ../src/parrillada-app.c:143
+msgid "Quit Parrillada"
+msgstr "Fàg Parrillada"
+
+#: ../src/parrillada-app.c:145
+msgid "_Contents"
+msgstr "_Clàr-innse"
+
+#: ../src/parrillada-app.c:145
+msgid "Display help"
+msgstr "Seall a' chobhair"
+
+#: ../src/parrillada-app.c:148
+msgid "About"
+msgstr "Mu dhèidhinn"
+
+#: ../src/parrillada-app.c:420 ../src/parrillada-app.c:2069
+msgid "Disc Burner"
+msgstr "Loisgeadair diosgan"
+
+#: ../src/parrillada-app.c:789 ../src/parrillada-app.c:822 ../src/parrillada-app.c:1451
+msgid "Error while loading the project"
+msgstr "Mearachd le luchdadh a' phròiseict"
+
+#: ../src/parrillada-app.c:831 ../src/parrillada-app.c:860 ../src/parrillada-app.c:920
+#: ../src/parrillada-project.c:1276
+msgid "Please add files to the project."
+msgstr "An cuir thu faidhle no dhà ris a' phròiseact?"
+
+#: ../src/parrillada-app.c:832 ../src/parrillada-app.c:861 ../src/parrillada-app.c:921
+msgid "The project is empty"
+msgstr "Tha am pròiseact falamh"
+
+#: ../src/parrillada-app.c:1176
+msgid ""
+"Parrillada is free software; you can redistribute it and/or modify it under the "
+"terms of the GNU General Public License as published by the Free Software "
+"Foundation; either version 2 of the License, or (at your option) any later "
+"version."
+msgstr ""
+"'S e bathar-bog saor a th' anns an Parrillada; faodaidh tu a sgaoileadh is/no "
+"atharrachadh fo cheadachas GNU General Public License mar a chaidh "
+"fhoillseachadh le Free Software Foundation; tionndadh 2 dhen cheadachas no "
+"(ma thogras tu) tionndadh sam bith nas àirde."
+
+#: ../src/parrillada-app.c:1181
+msgid ""
+"Parrillada is distributed in the hope that it will be useful, but WITHOUT ANY "
+"WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
+"FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
+"details."
+msgstr ""
+"Tha sinn a' sgaoileadh Parrillada an dòchas gum bi e feumail ach GUN BHARANTAS "
+"SAM BITH; chan toir sinn eadhon barantas GUN GABH A REIC no gu bheil e "
+"FREAGARRACH AIRSON AMAIS SHÒNRAICHTE. Thoir sùil air GNU General Public "
+"License airson barrachd fiosrachaidh."
+
+#: ../src/parrillada-app.c:1186
+msgid ""
+"You should have received a copy of the GNU General Public License along with "
+"Parrillada; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+"Street, Fifth Floor, Boston, MA 02110-1301, USA"
+msgstr ""
+"Bu chòir do lethbhreac dhe GNU General Public License a bhith an cois "
+"Parrillada; mur eil, sgrìobh gun Free Software Foundation, Inc., 51 Franklin "
+"Street, Fifth Floor, Boston, MA 02110-1301, USA"
+
+#: ../src/parrillada-app.c:1198
+msgid "A simple to use CD/DVD burning application for MATE"
+msgstr "Prògram losgaidh CDan/DVDan airson MATE a tha furasta cleachadh"
+
+#: ../src/parrillada-app.c:1215
+msgid "Parrillada Homepage"
+msgstr "Duilleag-dhachaigh Parrillada"
+
+#. Translators: This is a special message that shouldn't be translated
+#. * literally. It is used in the about box to give credits to
+#. * the translators.
+#. * Thus, you should translate it to your name and email address.
+#. * You should also include other translators who have contributed to
+#. * this translation; in that case, please write each of them on a separate
+#. * line seperated by newlines (\n).
+#.
+#: ../src/parrillada-app.c:1227
+msgid "translator-credits"
+msgstr ""
+"Launchpad Contributions:\n"
+"  Akerbeltz https://launchpad.net/~fios\n"
+"  GunChleoc https://launchpad.net/~gunchleoc\n"
+"  alasdair caimbeul https://launchpad.net/~alexd-deactivatedaccount"
+
+#: ../src/parrillada-app.c:1449
+#, c-format
+msgid "The project \"%s\" does not exist"
+msgstr "Chan eil am pròiseact \"%s\" ann"
+
+#: ../src/parrillada-app.c:1733 ../src/parrillada-app.c:1739
+msgid "_Recent Projects"
+msgstr "Pròiseactan o chionn ghoi_rid"
+
+#: ../src/parrillada-app.c:1734
+msgid "Display the projects recently opened"
+msgstr "Seall na pròiseactan a chaidh fhosgladh o chionn ghoirid"
+
+#: ../src/parrillada-audio-disc.c:155 ../src/parrillada-data-disc.c:122
+#: ../src/parrillada-video-disc.c:100
+msgid "Menu"
+msgstr "Clàr-taice"
+
+#: ../src/parrillada-audio-disc.c:156 ../src/parrillada-data-disc.c:123
+msgid "Open the selected files"
+msgstr "Fosgail na faidhlichean a thagh thu"
+
+#: ../src/parrillada-audio-disc.c:158 ../src/parrillada-video-disc.c:103
+msgid "_Edit Information…"
+msgstr "D_easaich am fiosrachadh..."
+
+#: ../src/parrillada-audio-disc.c:158
+msgid "Edit the track information (start, end, author, etc.)"
+msgstr "Deasaich fiosrachadh an traca (tòiseach, crìoch, ùghdar, agus msaa.)"
+
+#: ../src/parrillada-audio-disc.c:160 ../src/parrillada-data-disc.c:127
+#: ../src/parrillada-project.c:202
+msgid "Remove the selected files from the project"
+msgstr "Thoir na faidhlichean a thagh thu far a' phròiseict"
+
+#: ../src/parrillada-audio-disc.c:162 ../src/parrillada-data-disc.c:129
+#: ../src/parrillada-video-disc.c:107
+msgid "Paste files"
+msgstr "Cuir ann faidhlichean"
+
+#: ../src/parrillada-audio-disc.c:162 ../src/parrillada-data-disc.c:129
+#: ../src/parrillada-video-disc.c:107
+msgid "Add the files stored in the clipboard"
+msgstr "Cuir ris na faidhlichean a tha san stòr-bhòrd"
+
+#: ../src/parrillada-audio-disc.c:164
+msgid "I_nsert a Pause"
+msgstr "Cu_ir stad a-steach"
+
+#: ../src/parrillada-audio-disc.c:164
+msgid "Add a 2 second pause after the track"
+msgstr "Cuir stad de dhà dhiog an-steach às dèidh an traca"
+
+#: ../src/parrillada-audio-disc.c:166
+msgid "_Split Track…"
+msgstr "_Sgoilt an traca..."
+
+#: ../src/parrillada-audio-disc.c:166
+msgid "Split the selected track"
+msgstr "Sgoilt an traca a thagh thu"
+
+#: ../src/parrillada-audio-disc.c:343 ../src/parrillada-video-tree-model.c:187
+msgid "Pause"
+msgstr "Cuir 'na stad"
+
+#: ../src/parrillada-audio-disc.c:349
+msgid "Split"
+msgstr "Sgoilt"
+
+#: ../src/parrillada-audio-disc.c:418
+msgid "Track"
+msgstr "Traca"
+
+#: ../src/parrillada-audio-disc.c:458 ../src/parrillada-video-disc.c:1209
+msgid "Title"
+msgstr "Tiotal"
+
+#: ../src/parrillada-audio-disc.c:480
+msgid "Artist"
+msgstr "Neach-ciùil"
+
+#: ../src/parrillada-audio-disc.c:488 ../src/parrillada-playlist.c:772
+#: ../src/parrillada-split-dialog.c:1225
+msgid "Length"
+msgstr "Faid"
+
+#: ../src/parrillada-audio-disc.c:585
+msgid "The track will be padded at its end."
+msgstr "Thèid an traca a phadadh aig an deireadh."
+
+#: ../src/parrillada-audio-disc.c:586
+msgid "The track is shorter than 6 seconds"
+msgstr "Tha an traca nas giorra na 6 diogan"
+
+#: ../src/parrillada-audio-disc.c:646
+msgid "Make sure the appropriate codec is installed"
+msgstr "Dèan cinnteach gu bheil an codec freagarrach stàlaichte"
+
+#: ../src/parrillada-audio-disc.c:662
+#, c-format
+msgid "Do you want to add \"%s\", which is a video file?"
+msgstr "A bheil thu airson \"%s\" a chur ris a tha na fhaidhle video?"
+
+#: ../src/parrillada-audio-disc.c:671
+msgid ""
+"This file is a video and therefore only the audio part can be written to the "
+"disc."
+msgstr ""
+"Seo faidhle video 's mar sin cha ghabh ach an fhuaim aige a sgrìobhadh gun "
+"diosga."
+
+#: ../src/parrillada-audio-disc.c:674
+msgid "_Discard File"
+msgstr "Leig seacha_d am faidhle"
+
+#: ../src/parrillada-audio-disc.c:677
+msgid "_Add File"
+msgstr "_Cuir am faidhle ris"
+
+#: ../src/parrillada-audio-disc.c:748
+msgid "Do you want to search for audio files inside the directory?"
+msgstr "A bheil thu airson faidhlichean fuaime a lorg sa phasgan?"
+
+#: ../src/parrillada-audio-disc.c:758
+msgid "Search _Directory"
+msgstr "_Lorg sa phasgan"
+
+#: ../src/parrillada-audio-disc.c:812 ../src/parrillada-video-disc.c:395
+#, c-format
+msgid "\"%s\" could not be opened."
+msgstr "Cha b' urrainn dhuinn \"%s\" fhosgladh."
+
+#: ../src/parrillada-audio-disc.c:857
+msgid "Do you want to create an audio CD with DTS tracks?"
+msgstr "A bheil thu airson CD fuaime a chruthachadh le tracaichean DTS?"
+
+#: ../src/parrillada-audio-disc.c:858
+msgid ""
+"Some of the selected songs are suitable for creating DTS tracks.\n"
+"This type of audio CD track provides a higher quality of sound but can only "
+"be played by specific digital players.\n"
+"Note: if you agree, normalization will not be applied to these tracks."
+msgstr ""
+"Gabhaidh tracaichean DTS a chruthachadh à cuid dhe na h-òrain a thagh thu.\n"
+"Bheir an seòrsa seo de thraca CD fuaim le càileachd as àirde dhut ach cha "
+"ghabh a chluich ach le cluicheadairean digiteach sònraichte.\n"
+"An aire: ma ghabhas tu ris, cha tèid àbhaisteachadh a chur an sàs air na "
+"tracaichean seo."
+
+#: ../src/parrillada-audio-disc.c:867
+msgid "Create _Regular Tracks"
+msgstr "Cruthaich t_racaichean àbhaisteach"
+
+#: ../src/parrillada-audio-disc.c:869
+msgid "Click here to burn all songs as regular tracks"
+msgstr "Briog an-seo gus a h-uile traca a losgadh mar thraca àbhaisteach"
+
+#: ../src/parrillada-audio-disc.c:872
+msgid "Create _DTS Tracks"
+msgstr "Cruthaich tracaichean _DTS"
+
+#: ../src/parrillada-audio-disc.c:874
+msgid "Click here to burn all suitable songs as DTS tracks"
+msgstr ""
+"Briog an-seo gus a h-uile òran freagarrach a losgadh mar thracaichean DTS"
+
+#: ../src/parrillada-audio-disc.c:1290
+msgid "Select one song only please."
+msgstr "Na tagh barrachd air aon òran."
+
+#: ../src/parrillada-audio-disc.c:1291
+msgid "Impossible to split more than one song at a time"
+msgstr "Chan urrainn dhuinn barrachd air aon òran a sgoilteadh aig an aon àm"
+
+#: ../src/parrillada-cli.c:70
+msgid "Open the specified project"
+msgstr "Fosgail am pròiseact sònraichte"
+
+#: ../src/parrillada-cli.c:71
+msgid "PROJECT"
+msgstr "PRÒISEACT"
+
+#: ../src/parrillada-cli.c:76
+msgid "Open the specified playlist as an audio project"
+msgstr "Fosgail an liosta-chluiche shònraichte mar phròiseact fuaime"
+
+#: ../src/parrillada-cli.c:77
+msgid "PLAYLIST"
+msgstr "LIOSTA-CHLUICHE"
+
+#: ../src/parrillada-cli.c:82
+msgid "Set the drive to be used for burning"
+msgstr "Suidhich ach an tèid an draibh a chleachdadh airson losgadh"
+
+#: ../src/parrillada-cli.c:83
+msgid "DEVICE PATH"
+msgstr "SLIGHE AN UIDHEIM"
+
+#: ../src/parrillada-cli.c:86
+msgid "Create an image file instead of burning"
+msgstr "Cruthaich faidhle ìomhaighe an àite a bhith 'ga losgadh"
+
+#: ../src/parrillada-cli.c:90
+msgid "Open an audio project adding the URIs given on the command line"
+msgstr ""
+"Fosgail pròiseact fuaime a' cur nan URIean ris a chaidh a thoirt seachad air "
+"an loidhne-àithne"
+
+#: ../src/parrillada-cli.c:94
+msgid "Open a data project adding the URIs given on the command line"
+msgstr ""
+"Fosgail pròiseact dàta a' cur nan URIean ris a chaidh a thoirt seachad air "
+"an loidhne-àithne"
+
+#: ../src/parrillada-cli.c:98
+msgid "Copy a disc"
+msgstr "Dèan lethbhreac de dhiosga"
+
+#: ../src/parrillada-cli.c:99 ../src/parrillada-cli.c:119 ../src/parrillada-cli.c:123
+msgid "PATH TO DEVICE"
+msgstr "SLIGHE DHAN UIDHEAM"
+
+#: ../src/parrillada-cli.c:102
+msgid "Cover to use"
+msgstr "An còmhdach ri chleachdadh"
+
+#: ../src/parrillada-cli.c:103
+msgid "PATH TO COVER"
+msgstr "SLIGHE DHAN CHÒMHDACH"
+
+#: ../src/parrillada-cli.c:106
+msgid "Open a video project adding the URIs given on the command line"
+msgstr ""
+"Fosgail pròiseact video a' cur nan URIean ris a chaidh a thoirt seachad air "
+"an loidhne-àithne"
+
+#: ../src/parrillada-cli.c:110
+msgid "URI of an image file to burn (autodetected)"
+msgstr "URI aig faidhle ìomhaighe ri losgadh (air fhèin-mhothachadh)"
+
+#: ../src/parrillada-cli.c:111
+msgid "PATH TO IMAGE"
+msgstr "SLIGHE DHAN ÌOMHAIGH"
+
+#: ../src/parrillada-cli.c:114
+msgid "Force Parrillada to display the project selection page"
+msgstr "Thoir air Parrillada gun seall e duilleag taghadh nam pròiseatan"
+
+#: ../src/parrillada-cli.c:118
+msgid "Open the blank disc dialog"
+msgstr "Fosgail còmhradh bànachadh an diosga"
+
+#: ../src/parrillada-cli.c:122
+msgid "Open the check disc dialog"
+msgstr "Fosgail còmhradh sgrùdadh an diosga"
+
+#: ../src/parrillada-cli.c:126
+msgid "Burn the contents of the burn:// URI"
+msgstr "Losg susbaint an URI burn://"
+
+#: ../src/parrillada-cli.c:130
+msgid "Start burning immediately."
+msgstr "Tòisich air an losgadh sa bhad."
+
+#: ../src/parrillada-cli.c:134
+msgid "Don't connect to an already-running instance"
+msgstr "Na dèan ceangal gu ionstans a tha a' ruith mar-thà"
+
+#: ../src/parrillada-cli.c:138
+msgid ""
+"Burn the specified project and remove it.\n"
+"This option is mainly useful for integration with other applications."
+msgstr ""
+"Loisg am pròiseact sònraichte is thoir air falbh e.\n"
+"Tha an roghainn seo feumail gu h-àraidh airson a chur am broinn aplacaid "
+"eile."
+
+#: ../src/parrillada-cli.c:139
+msgid "PATH"
+msgstr "SLIGHE"
+
+#. Translators: the xid is a number identifying each window in the X11
+#. * world (not Windows, MacOS X). The following sentence says that
+#. * parrillada will be set to be always on top of the window identified by
+#. * xid. In other words, the window with the given xid will become parrillada
+#. * parent as if parrillada was a dialog for the parent application
+#: ../src/parrillada-cli.c:147
+msgid "The XID of the parent window"
+msgstr "An XID aig an uinneag pàraint"
+
+#. Translators: %s is the path of drive
+#: ../src/parrillada-cli.c:204
+#, c-format
+msgid "\"%s\" cannot write."
+msgstr "Chan urrainn do \"%s\" sgrìobhadh."
+
+#: ../src/parrillada-cli.c:206 ../src/parrillada-cli.c:220
+msgid "Wrong command line option."
+msgstr "Tha roghainn loidhne-àithne cheàrr ann."
+
+#: ../src/parrillada-cli.c:297
+msgid "Incompatible command line options used."
+msgstr "Chaidh roghainnean loidhne-àithne a chleachdadh nach eil co-chòrdail."
+
+#: ../src/parrillada-cli.c:298
+msgid "Only one option can be given at a time"
+msgstr "Chan urrainn dhut ach aon roghainn a thoirt seachad aig an aon àm"
+
+#: ../src/parrillada-data-disc.c:125
+msgid "R_ename…"
+msgstr "Thoir _ainm ùr air"
+
+#: ../src/parrillada-data-disc.c:125
+msgid "Rename the selected file"
+msgstr "Thoir ainm ùr air an fhaidhle a thagh thu"
+
+#: ../src/parrillada-data-disc.c:131 ../src/parrillada-data-disc.c:1758
+msgid "New _Folder"
+msgstr "_Pasgan ùr"
+
+#: ../src/parrillada-data-disc.c:131
+msgid "Create a new empty folder"
+msgstr "Cruthaich pasgan falamh ùr"
+
+#: ../src/parrillada-data-disc.c:213
+msgid "The session could not be imported."
+msgstr "Cha b' urrainn dhuinn an seisean ion-phortadh."
+
+#: ../src/parrillada-data-disc.c:559
+msgid "The contents of the project changed since it was saved."
+msgstr ""
+"Chaidh susbaint a' phròiseict atharrachadh on turas mu dheireadh a chaidh a "
+"shàbhaladh."
+
+#: ../src/parrillada-data-disc.c:561
+msgid "Discard the current modified project ?"
+msgstr ""
+"A bheil thu airson am pròiseact làithreach air atharrachadh a thilgeil air "
+"falbh?"
+
+#: ../src/parrillada-data-disc.c:567
+msgid "_Discard"
+msgstr "_Tilg air falbh"
+
+#: ../src/parrillada-data-disc.c:569
+msgid "Discard the current modified project"
+msgstr "Tilg air falbh am pròiseact làithreach air atharrachadh"
+
+#: ../src/parrillada-data-disc.c:574
+msgid "Continue with the current modified project"
+msgstr "Lean air adhart leis a' phròiseact làithreach air atharrachadh"
+
+#. Translators: %s is the name of the image
+#: ../src/parrillada-data-disc.c:619
+#, c-format
+msgid ""
+"There is only one selected file (\"%s\"). It is the image of a disc and its "
+"contents can be burned"
+msgstr ""
+"Chan eil ach aon fhaidhle air a thaghadh ann (\"%s\"). Seo ìomhaigh diosga "
+"is gabhaidh a shusbaint losgadh"
+
+#: ../src/parrillada-data-disc.c:625
+msgid "Burn as _Data"
+msgstr "Loisg mar _dàta"
+
+#: ../src/parrillada-data-disc.c:627
+msgid "Burn as _Image"
+msgstr "Loisg mar ìomha_igh"
+
+#: ../src/parrillada-data-disc.c:673 ../src/parrillada-data-disc.c:691
+#: ../src/parrillada-data-disc.c:709
+#, c-format
+msgid "\"%s\" cannot be added to the selection."
+msgstr "Chan urrainn dhuinn \"%s\" a chur ris an taghadh."
+
+#: ../src/parrillada-data-disc.c:694
+msgid "It is a recursive symlink"
+msgstr "'S e ceangal samhlachail ath-chùrsach th' ann"
+
+#: ../src/parrillada-data-disc.c:712
+msgid "It does not exist at the specified location"
+msgstr "Chan eil e san ionad shònraichte"
+
+#. Translators: %s is the name of the file
+#: ../src/parrillada-data-disc.c:771
+#, c-format
+msgid "Do you want to replace \"%s\"?"
+msgstr "A bheil thu airson rud a chur an àite \"%s\"?"
+
+#: ../src/parrillada-data-disc.c:779
+msgid ""
+"A file with this name already exists in the folder.  Replacing it will "
+"overwrite its contents on the disc to be burnt."
+msgstr ""
+"Tha faidhle air a bheil an t-ainm seo sa phasgan mar-thà. Ma chuireas tu rud "
+"'na àite, thèid sgrìobhadh thairis air a shusbaint air an diosga ri losgadh."
+
+#. Translators: Keep means we're keeping the files that already existed
+#. * in the project.
+#. * Keep is a verb
+#: ../src/parrillada-data-disc.c:784
+msgid "Always K_eep"
+msgstr "C_um e an-còmhnaidh"
+
+#. Translators: Keep means we're keeping the files that already existed
+#. * in the project.
+#. * Keep is a verb
+#: ../src/parrillada-data-disc.c:788
+msgid "_Keep"
+msgstr "_Cum e"
+
+#. Translators: Replace means we're replacing the file that already
+#. * existed in the project with a new one with the same name.
+#. * Replace is a verb
+#. Translators: this is a verb
+#: ../src/parrillada-data-disc.c:792 ../src/parrillada-rename.c:385
+msgid "_Replace"
+msgstr "_Cuir am fear ùr 'na àite"
+
+#. Translators: Replace means we're replacing the file that already
+#. * existed in the project with a new one with the same name.
+#. * Replace is a verb
+#: ../src/parrillada-data-disc.c:796
+msgid "Al_ways Replace"
+msgstr "Cuir am fear ùr 'na àite an-còmh_naidh"
+
+#. Translators: %s is a string describing the type of medium and the
+#. * drive it is in. It's a tooltip.
+#: ../src/parrillada-data-disc.c:979
+#, c-format
+msgid "Import %s"
+msgstr "Ion-phortaich %s"
+
+#. Translators: %s is the name of the volume to import. It's a menu
+#. * entry and toolbar button (text added later).
+#: ../src/parrillada-data-disc.c:986
+#, c-format
+msgid "I_mport %s"
+msgstr "I_on-phortaich %s"
+
+#. Translators: This is a verb. It's a toolbar button.
+#: ../src/parrillada-data-disc.c:1016
+msgid "I_mport"
+msgstr "I_on-phortaich"
+
+#. Translators: %s is the name of the volume to import
+#: ../src/parrillada-data-disc.c:1098
+#, c-format
+msgid "Do you want to import the session from \"%s\"?"
+msgstr "A bheil thu airson an seisean ion-phortadh o \"%s\"?"
+
+#: ../src/parrillada-data-disc.c:1101
+msgid ""
+"That way, old files from previous sessions will be usable after burning."
+msgstr ""
+"San dòigh sin, gabhaidh seann fhaidhlichean o sheiseanan roimhe a "
+"chleachdadh às dèidh an losgaidh."
+
+#: ../src/parrillada-data-disc.c:1109
+msgid "I_mport Session"
+msgstr "I_on-phortaich an seisean"
+
+#: ../src/parrillada-data-disc.c:1111
+msgid "Click here to import its contents"
+msgstr "Briog an-seo gus a shusbaint ion-phortadh"
+
+#: ../src/parrillada-data-disc.c:1490
+msgid "Please wait while the project is loading."
+msgstr "Fuirich greis fhad 's a tha am pròiseact 'ga luchdadh."
+
+#: ../src/parrillada-data-disc.c:1500
+msgid "_Cancel Loading"
+msgstr "_Sguir dhen luchdadh"
+
+#: ../src/parrillada-data-disc.c:1502
+msgid "Cancel loading current project"
+msgstr "Sguir dhe luchdadh a' phròiseict làithrich"
+
+#: ../src/parrillada-data-disc.c:1903
+msgid "File Renaming"
+msgstr "A' toirt ainm ùr air faidhle"
+
+#: ../src/parrillada-data-disc.c:1907
+msgid "_Rename"
+msgstr "Thoi_r ainm ùr air"
+
+#: ../src/parrillada-data-disc.c:1913
+msgid "Renaming mode"
+msgstr "Modh toirt ainm ùr air"
+
+#: ../src/parrillada-data-disc.c:2336 ../src/parrillada-file-filtered.c:256
+msgid "Files"
+msgstr "Faidhlichean"
+
+#: ../src/parrillada-data-disc.c:2350 ../src/parrillada-video-disc.c:1227
+msgid "Size"
+msgstr "Meud"
+
+#: ../src/parrillada-data-disc.c:2364
+msgid "Description"
+msgstr "Tuairisgeul"
+
+#: ../src/parrillada-data-disc.c:2380
+msgid "Space"
+msgstr "Spàs"
+
+#: ../src/parrillada-eject-dialog.c:97
+#, c-format
+msgid "The disc in \"%s\" cannot be ejected"
+msgstr "Chan urrainn dhuinn an diosga ann an \"%s\" a ghluasad a-mach"
+
+#: ../src/parrillada-eject-dialog.c:193
+msgid "_Eject"
+msgstr "_Gluais a-mach"
+
+#: ../src/parrillada-eject-dialog.c:208
+msgid "Eject Disc"
+msgstr "Gluais an diosga a-mach"
+
+#: ../src/parrillada-file-chooser.c:357 ../src/parrillada-project.c:2230
+msgid "Audio files"
+msgstr "Faidhlichean fuaime"
+
+#: ../src/parrillada-file-chooser.c:365 ../src/parrillada-project.c:2239
+msgid "Movies"
+msgstr "Filmichean"
+
+#: ../src/parrillada-file-filtered.c:75 ../src/parrillada-file-filtered.c:81
+msgid "No file filtered"
+msgstr "Cha deach faidhle a chriathradh"
+
+#: ../src/parrillada-file-filtered.c:77
+#, c-format
+msgid "Hide the _filtered file list (%d file)"
+msgid_plural "Hide the _filtered file list (%d files)"
+msgstr[0] "Falaich liosta nam _faidhlichean criathraichte (%d fhaidhle)"
+msgstr[1] "Falaich liosta nam _faidhlichean criathraichte (%d fhaidhle)"
+msgstr[2] "Falaich liosta nam _faidhlichean criathraichte (%d faidhlichean)"
+msgstr[3] "Falaich liosta nam _faidhlichean criathraichte (%d faidhle)"
+
+#: ../src/parrillada-file-filtered.c:83
+#, c-format
+msgid "Show the _filtered file list (%d file)"
+msgid_plural "Show the _filtered file list (%d files)"
+msgstr[0] "Seall liosta nam _faidhlichean criathraichte (%d fhaidhle)"
+msgstr[1] "Seall liosta nam _faidhlichean criathraichte (%d fhaidhle)"
+msgstr[2] "Seall liosta nam _faidhlichean criathraichte (%d faidhlichean)"
+msgstr[3] "Seall liosta nam _faidhlichean criathraichte (%d faidhle)"
+
+#: ../src/parrillada-file-filtered.c:135
+msgid "Filter Options"
+msgstr "Roghainnean na criathraig"
+
+#: ../src/parrillada-file-filtered.c:218
+msgid ""
+"Select the files you want to restore and click on the \"Restore\" button"
+msgstr ""
+"Tagh na faidhlichean a tha thu airson aiseag is briog air a' phutan \"Aisig\""
+
+#: ../src/parrillada-file-filtered.c:265
+msgid "Type"
+msgstr "Seòrsa"
+
+#: ../src/parrillada-file-filtered.c:292
+msgid "_Restore"
+msgstr "_Aisig"
+
+#: ../src/parrillada-file-filtered.c:301
+msgid "Restore the selected files"
+msgstr "Aisig na faidhlichean a thagh thu"
+
+#: ../src/parrillada-file-filtered.c:303
+msgid "_Options…"
+msgstr "R_oghainnean..."
+
+#: ../src/parrillada-file-filtered.c:311
+msgid "Set the options for file filtering"
+msgstr "Suidhich na roghainnean airson criathradh nam faidhlichean"
+
+#. filter hidden files
+#: ../src/parrillada-filter-option.c:65
+msgid "Filter _hidden files"
+msgstr "Criathraich faidhlichean _falaichte"
+
+#. replace symlink
+#: ../src/parrillada-filter-option.c:72
+msgid "Re_place symbolic links"
+msgstr "Cuir rud an àite nan ceanglaichean samhlachail"
+
+#. filter broken symlink button
+#: ../src/parrillada-filter-option.c:79
+msgid "Filter _broken symbolic links"
+msgstr "Criathraich ceanglaichean samhlachail _briste"
+
+#: ../src/parrillada-filter-option.c:85
+msgid "Filtering options"
+msgstr "Roghainnean criathrachaidh"
+
+#: ../src/parrillada-layout.c:104
+msgid "P_review"
+msgstr "_Ro-shealladh"
+
+#. Translators: this is an image, a picture, not a "Disc Image"
+#: ../src/parrillada-layout.c:106
+msgid "Display video, audio and image preview"
+msgstr "Seall ro-shealladh air video, fuaim is dealbh"
+
+#: ../src/parrillada-layout.c:110
+msgid "_Show Side Panel"
+msgstr "_Seall a' phanail-taoibh"
+
+#: ../src/parrillada-layout.c:111
+msgid "Show a side pane along the project"
+msgstr "Seall a' phanail-taoibh air fhad a' phròiseict"
+
+#: ../src/parrillada-layout.c:125
+msgid "_Horizontal Layout"
+msgstr "Co-dhealbhachd c_hòmhnard"
+
+#: ../src/parrillada-layout.c:126
+msgid "Set a horizontal layout"
+msgstr "Suidhich co-dhealbhachd chòmhnard"
+
+#: ../src/parrillada-layout.c:128
+msgid "_Vertical Layout"
+msgstr "Co-dhealbhachd _inghearach"
+
+#: ../src/parrillada-layout.c:129
+msgid "Set a vertical layout"
+msgstr "Suidhich co-dhealbhachd inghearach"
+
+#: ../src/parrillada-layout.c:1193
+msgid "Click to close the side pane"
+msgstr "Briog gus a' phanail-taoibh a dhùnadh"
+
+#: ../src/parrillada-multi-song-props.c:89 ../src/parrillada-multi-song-props.c:97
+#: ../src/parrillada-multi-song-props.c:105 ../src/parrillada-multi-song-props.c:123
+#: ../src/parrillada-multi-song-props.c:139 ../src/parrillada-multi-song-props.c:160
+#: ../src/parrillada-multi-song-props.c:173 ../src/parrillada-multi-song-props.c:249
+#: ../src/parrillada-multi-song-props.c:270 ../src/parrillada-multi-song-props.c:291
+#: ../src/parrillada-rename.c:90 ../src/parrillada-rename.c:321
+msgid "<Keep current values>"
+msgstr "<Cum na luachan làithreach>"
+
+#: ../src/parrillada-multi-song-props.c:126 ../src/parrillada-multi-song-props.c:143
+msgid "Remove silences"
+msgstr "Thoir gach sàmhchair air falbh"
+
+#: ../src/parrillada-multi-song-props.c:211 ../src/parrillada-multi-song-props.c:252
+#: ../src/parrillada-multi-song-props.c:273 ../src/parrillada-song-properties.c:187
+#: ../src/parrillada-song-properties.c:199 ../src/parrillada-song-properties.c:211
+msgid ""
+"This information will be written to the disc using CD-Text technology. It "
+"can be read and displayed by some audio CD players."
+msgstr ""
+"Thèid am fiosrachadh seo a sgrìobhadh air an diosga le taic teicneolais CD-"
+"Text. Gabhaidh a leughadh is a shealltainn le cuid a chluicheadairean CD."
+
+#: ../src/parrillada-multi-song-props.c:213
+msgid "Song titles"
+msgstr "Tiotalan nan òran"
+
+#: ../src/parrillada-multi-song-props.c:230
+msgid "Additional song information"
+msgstr "Barrachd fiosrachaidh air an òran"
+
+#: ../src/parrillada-multi-song-props.c:242 ../src/parrillada-song-properties.c:189
+msgid "Artist:"
+msgstr "Neach-ciùil:"
+
+#: ../src/parrillada-multi-song-props.c:263 ../src/parrillada-song-properties.c:201
+msgid "Composer:"
+msgstr "Sgrìobhaiche-ciùil:"
+
+#: ../src/parrillada-multi-song-props.c:317 ../src/parrillada-song-properties.c:247
+msgid "Pause length:"
+msgstr "Faid an stada:"
+
+#: ../src/parrillada-multi-song-props.c:328 ../src/parrillada-song-properties.c:256
+msgid "Gives the length of the pause that should follow the track"
+msgstr "Bheir seo faid an stada a bu chòir leantainn às dèidh an traca"
+
+#: ../src/parrillada-multi-song-props.c:345 ../src/parrillada-song-properties.c:287
+msgid "Song Information"
+msgstr "Fiosrachadh an òrain"
+
+#: ../src/parrillada-player.c:540
+#, c-format
+msgid "%i × %i pixels"
+msgstr "%i × %i piogsail(ean)"
+
+#. No Preview view
+#: ../src/parrillada-player.c:845
+msgid "No preview"
+msgstr "Gun ro-shealladh"
+
+#: ../src/parrillada-playlist.c:390
+#, c-format
+msgid "Error parsing playlist \"%s\"."
+msgstr "Mearachd a' parsadh na liosta-cluiche \"%s\"."
+
+#. Translators: %d is the number of songs
+#: ../src/parrillada-playlist.c:499
+#, c-format
+msgid "%d song"
+msgid_plural "%d songs"
+msgstr[0] "%d òran"
+msgstr[1] "%d òran"
+msgstr[2] "%d òrain"
+msgstr[3] "%d òran"
+
+#: ../src/parrillada-playlist.c:584
+msgid "Select Playlist"
+msgstr "Tagh liosta-chluiche"
+
+#: ../src/parrillada-playlist.c:751
+msgid "Playlists"
+msgstr "Liostaichean-cluiche"
+
+#: ../src/parrillada-playlist.c:762
+msgid "Number of Songs"
+msgstr "Uiread nan òran"
+
+#: ../src/parrillada-playlist.c:782
+msgid "Genre"
+msgstr "Gnè"
+
+#: ../src/parrillada-plugin-manager-ui.c:62
+msgid "Plugin"
+msgstr "Plugan"
+
+#: ../src/parrillada-plugin-manager-ui.c:63
+msgid "Enabled"
+msgstr "An comas"
+
+#: ../src/parrillada-plugin-manager-ui.c:143
+#, c-format
+msgid "Copyright %s"
+msgstr "Còir-lethbhreac %s"
+
+#: ../src/parrillada-plugin-manager-ui.c:579
+#: ../src/parrillada-plugin-manager-ui.c:967
+msgid "_About"
+msgstr "_Mu dhèidhinn"
+
+#: ../src/parrillada-plugin-manager-ui.c:587
+#: ../src/parrillada-plugin-manager-ui.c:973
+msgid "C_onfigure"
+msgstr "_Rèitich"
+
+#: ../src/parrillada-plugin-manager-ui.c:597
+msgid "A_ctivate"
+msgstr "_Gnìomhaich"
+
+#: ../src/parrillada-plugin-manager-ui.c:609
+msgid "Ac_tivate All"
+msgstr "Gnìomhaich na h-_uile"
+
+#: ../src/parrillada-plugin-manager-ui.c:614
+msgid "_Deactivate All"
+msgstr "Cuir na h-uile à g_nìomh"
+
+#. Use the translated name for the plugin.
+#: ../src/parrillada-plugin-option.c:258
+#, c-format
+msgid "Options for plugin %s"
+msgstr "Roghainnean airson plugan %s"
+
+#: ../src/parrillada-pref.c:61
+msgid "Parrillada Plugins"
+msgstr "Plugain Parrillada"
+
+#: ../src/parrillada-project.c:196
+msgid "Save current project"
+msgstr "Sàbhail am pròiseact làithreach"
+
+#: ../src/parrillada-project.c:197
+msgid "Save _As…"
+msgstr "Sàbhail m_ar..."
+
+#: ../src/parrillada-project.c:198
+msgid "Save current project to a different location"
+msgstr "Sàbhail am pròiseact làithreach gu ionad eile"
+
+#: ../src/parrillada-project.c:199
+msgid "_Add Files"
+msgstr "Cuir f_aidhlichean ris"
+
+#: ../src/parrillada-project.c:200
+msgid "Add files to the project"
+msgstr "Cuir faidhlichean ris a' phròiseact"
+
+#: ../src/parrillada-project.c:201
+msgid "_Remove Files"
+msgstr "_Thoir na faidhlichean air falbh"
+
+#. Translators: "empty" is a verb here
+#: ../src/parrillada-project.c:204 ../src/parrillada-project.c:2312
+msgid "E_mpty Project"
+msgstr "F_alamhaich am pròiseact"
+
+#: ../src/parrillada-project.c:205
+msgid "Remove all files from the project"
+msgstr "Thoir na h-uile faidhle air falbh on phròiseact"
+
+#: ../src/parrillada-project.c:206 ../src/parrillada-project.c:1086
+msgid "_Burn…"
+msgstr "_Loisg..."
+
+#: ../src/parrillada-project.c:207
+msgid "Burn the disc"
+msgstr "Loisg an diosga"
+
+#: ../src/parrillada-project.c:695
+msgid ""
+"To add files to this project click the \"Add\" button or drag files to this "
+"area"
+msgstr ""
+"Briog air a' phutan \"Cuir ris\" no slaod faidhlichean dhan raon seo gus "
+"faidhlichean a chur ris a' phròiseact seo"
+
+#: ../src/parrillada-project.c:697
+msgid ""
+"To remove files select them then click on the \"Remove\" button or press "
+"\"Delete\" key"
+msgstr ""
+"Tagh faidhlichean is an uairsin briog air a' phutan \"Thoir air falbh\" no "
+"brùth air an iuchair \"Delete\" gus an toirt air falbh"
+
+#: ../src/parrillada-project.c:804
+#, c-format
+msgid "Estimated project size: %s"
+msgstr "Tuairmse air meud a' phròiseict: %s"
+
+#: ../src/parrillada-project.c:950 ../src/parrillada-project.c:966
+msgid "The project is too large for the disc even with the overburn option."
+msgstr ""
+"Tha am pròiseact ro mhòr airson an diosga fiù 's le losgadh anabarrach air a "
+"chur air."
+
+#: ../src/parrillada-project.c:977
+msgid ""
+"The project is too large for the disc and you must remove files from it.\n"
+"You may want to use this option if you're using 90 or 100 min CD-R(W) which "
+"cannot be properly recognized and therefore needs the overburn option.\n"
+"Note: This option might cause failure."
+msgstr ""
+"Tha am pròiseact ro mhòr airson an diosga is feumaidh tu faidhle no dhà a "
+"thoirt air falbh.\n"
+"Dh'fhaoidte gu bheil thu airson an roghainn seo a chleachdadh le CD-R(W) de "
+"90 no 10 mionaid nach gabh aithneachadh mar bu chòir is a tha feumach air "
+"roghainn an losgaidh anabarraich.\n"
+"An aire: Dh'fhaoidte gun adhbharaich an roghainn seo fàilligeadh."
+
+#: ../src/parrillada-project.c:1098
+msgid "Start to burn the contents of the selection"
+msgstr "Tòisich air susbaint de na thagh thu a losgadh"
+
+#: ../src/parrillada-project.c:1267
+msgid "Please add songs to the project."
+msgstr "An cuir thu òran no dhà ris a' phròiseact?"
+
+#: ../src/parrillada-project.c:1904 ../src/parrillada-project.c:1939
+msgid "Do you really want to create a new project and discard the current one?"
+msgstr ""
+"A bheil thu cinnteach gu bheil thu airson pròiseact ùr a chruthachadh is am "
+"fear làithreach a thilgeil air falbh?"
+
+#: ../src/parrillada-project.c:1909
+msgid "If you choose to create a new empty project, all changes will be lost."
+msgstr ""
+"Ma chuireas tu romhad pròiseact falamh ùr a chruthachadh, thèid a h-uile "
+"atharrachadh air chall."
+
+#: ../src/parrillada-project.c:1912
+msgid "_Discard Changes"
+msgstr "_Tilg na h-atharraichean air falbh"
+
+#: ../src/parrillada-project.c:1920
+msgid "Do you want to discard the file selection or add it to the new project?"
+msgstr ""
+"A bheil thu airson na thagh thu a dh'fhaidhlichean a thilgeil air falbh no a "
+"chur ris a' phròiseact ùr?"
+
+#: ../src/parrillada-project.c:1925 ../src/parrillada-project.c:1944
+msgid ""
+"If you choose to create a new empty project, the file selection will be "
+"discarded."
+msgstr ""
+"Ma chuireas tu romhad pròiseact falamh ùr a chruthachadh, thèid an taghadh a "
+"rinn thu air faidhlichean a thilgeil air falbh."
+
+#: ../src/parrillada-project.c:1927
+msgid "_Discard File Selection"
+msgstr "_Tilg taghadh nam faichlichean air falbh"
+
+#: ../src/parrillada-project.c:1931
+msgid "_Keep File Selection"
+msgstr "_Cum taghadh nam faichlichean"
+
+#: ../src/parrillada-project.c:1946
+msgid "_Discard Project"
+msgstr "_Tilg am pròiseact air falbh"
+
+#: ../src/parrillada-project.c:2188
+msgid "Select Files"
+msgstr "Tagh faidhlichean"
+
+#: ../src/parrillada-project.c:2301
+msgid "Do you really want to empty the current project?"
+msgstr ""
+"A bheil thu cinnteach gu bheil thu airson am pròiseact làithreach "
+"fhalamhachadh?"
+
+#: ../src/parrillada-project.c:2306
+msgid ""
+"Emptying a project will remove all files already added. All the work will be "
+"lost. Note that files will not be deleted from their own location, just no "
+"longer listed here."
+msgstr ""
+"Ma fhalamhaicheas tu pròiseact, thèid a h-uile faidhle air a chur ris a "
+"thoirt air falbh is an obair gu lèir air chall. Thoir an aire nach tèid na "
+"faidhlichean fhèin a sguabadh às o na h-ionadan aca fhèin ach chan fhaic thu "
+"iad an-seo tuilleadh."
+
+#: ../src/parrillada-project.c:2368
+msgid "_Save"
+msgstr "_Sàbhail"
+
+#: ../src/parrillada-project.c:2379
+msgid "_Add"
+msgstr "_Cuir ris"
+
+#: ../src/parrillada-project.c:2384 ../src/parrillada-split-dialog.c:1255
+msgid "_Remove"
+msgstr "_Thoir air falbh"
+
+#. Translators: %s is the name of the project
+#: ../src/parrillada-project.c:2448
+#, c-format
+msgid "Parrillada — %s (Data Disc)"
+msgstr "Parrillada — %s (Diosga dàta)"
+
+#. Translators: %s is the name of the project
+#: ../src/parrillada-project.c:2451
+#, c-format
+msgid "Parrillada — %s (Audio Disc)"
+msgstr "Parrillada — %s (Diosga fuaime)"
+
+#. Translators: %s is the name of the project
+#: ../src/parrillada-project.c:2454
+#, c-format
+msgid "Parrillada — %s (Video Disc)"
+msgstr "Parrillada — %s (Diosga video)"
+
+#: ../src/parrillada-project.c:2624 ../src/parrillada-project.c:2927
+msgid "Your project has not been saved."
+msgstr "Cha deach am pròiseact agad a shàbhaladh."
+
+#: ../src/parrillada-project.c:2638
+msgid "Save the changes of current project before closing?"
+msgstr ""
+"A bheil thu airson na h-atharraichean air a' phròiseact làithreach a "
+"shàbhaladh mus dùin thu e?"
+
+#: ../src/parrillada-project.c:2643 ../src/parrillada-project.c:2932
+msgid "If you don't save, changes will be permanently lost."
+msgstr ""
+"Mur an sàbhail thu e, thèid atharrachadh sam bith a rinn thu air chall."
+
+#: ../src/parrillada-project.c:2647 ../src/parrillada-project.c:2653
+#: ../src/parrillada-project.c:2935
+msgid "Cl_ose Without Saving"
+msgstr "Dùin g_un a shàbhaladh"
+
+#: ../src/parrillada-project.c:2735
+msgid "Save Current Project"
+msgstr "Sàbhail am pròiseact làithreach"
+
+#: ../src/parrillada-project.c:2753
+msgid "Save project as a Parrillada audio project"
+msgstr "Sàbhail am pròiseact mar phròiseact fuaime Parrillada"
+
+#: ../src/parrillada-project.c:2754
+msgid "Save project as a plain text list"
+msgstr "Sàbhail am pròiseact mar liosta teacsa lom"
+
+#: ../src/parrillada-project.c:2758
+msgid "Save project as a PLS playlist"
+msgstr "Sàbhail am pròiseact mar liosta-chluiche PLS"
+
+#: ../src/parrillada-project.c:2759
+msgid "Save project as an M3U playlist"
+msgstr "Sàbhail am pròiseact mar liosta-chluiche M3U"
+
+#: ../src/parrillada-project.c:2760
+msgid "Save project as an XSPF playlist"
+msgstr "Sàbhail am pròiseact mar liosta-chluiche XSPF"
+
+#: ../src/parrillada-project.c:2761
+msgid "Save project as an iriver playlist"
+msgstr "Sàbhail am pròiseact mar liosta-chluiche iriver"
+
+#: ../src/parrillada-project-manager.c:95
+msgid "_Cover Editor"
+msgstr "Deasaiche _chòmhdaichean"
+
+#: ../src/parrillada-project-manager.c:96
+msgid "Design and print covers for CDs"
+msgstr "Dealbhaich agus clò-bhuail còmhdaichean airson CDan"
+
+#: ../src/parrillada-project-manager.c:97
+msgid "_New Project"
+msgstr "Pròiseact ù_r"
+
+#: ../src/parrillada-project-manager.c:98
+msgid "Create a new project"
+msgstr "Cruthaich pròiseact ùr"
+
+#: ../src/parrillada-project-manager.c:99
+msgid "_Empty Project"
+msgstr "Pròiseact _falamh"
+
+#: ../src/parrillada-project-manager.c:100
+msgid "Let you choose your new project"
+msgstr "Leigidh seo leat am pròiseact ùr agad a thaghadh"
+
+#: ../src/parrillada-project-manager.c:101
+msgid "New _Audio Project"
+msgstr "Pròiseact fu_aime ùr"
+
+#: ../src/parrillada-project-manager.c:102
+#: ../src/parrillada-project-type-chooser.c:76
+msgid ""
+"Create a traditional audio CD that will be playable on computers and stereos"
+msgstr ""
+"Cruthaich CD fuaime tradaiseanta a ghabhas cluich air coimpiutairean is "
+"stereothan"
+
+#: ../src/parrillada-project-manager.c:103
+msgid "New _Data Project"
+msgstr "Pròiseact _dàta ùr"
+
+#: ../src/parrillada-project-manager.c:104
+#: ../src/parrillada-project-type-chooser.c:81
+msgid ""
+"Create a CD/DVD containing any type of data that can only be read on a "
+"computer"
+msgstr ""
+"Cruthaich CD/DVD sa bheil seòrsa sam bith de dhàta nach gabh leughadh ach le "
+"coimpiutair"
+
+#: ../src/parrillada-project-manager.c:105
+msgid "New _Video Project"
+msgstr "Pròiseact _video ùr"
+
+#: ../src/parrillada-project-manager.c:106
+#: ../src/parrillada-project-type-chooser.c:86
+msgid "Create a video DVD or an SVCD that is readable on TV readers"
+msgstr "Cruthaich DVD video no SVCD a ghabhas leughadh le leughadairean TBh"
+
+#: ../src/parrillada-project-manager.c:107
+msgid "Copy _Disc…"
+msgstr "Dèan lethbhreac de _dhiosga..."
+
+#: ../src/parrillada-project-manager.c:108
+#: ../src/parrillada-project-type-chooser.c:91
+msgid ""
+"Create a 1:1 copy of an audio CD or a data CD/DVD on your hard disk or on "
+"another CD/DVD"
+msgstr ""
+"Cruthaich lethbhreac 1:1 de CD fuaime no CD/DVD dàta air an diosga-cruaidh "
+"agad no air CD/DVD eile"
+
+#: ../src/parrillada-project-manager.c:109
+msgid "_Burn Image…"
+msgstr "_Loisg ìomhaigh..."
+
+#: ../src/parrillada-project-manager.c:110
+#: ../src/parrillada-project-type-chooser.c:95
+#: ../src/parrillada-project-type-chooser.c:96
+msgid "Burn an existing CD/DVD image to disc"
+msgstr "Loisg ìomhaigh CD/DVD a tha ann mar-thà gu diosga"
+
+#: ../src/parrillada-project-manager.c:112
+msgid "_Open…"
+msgstr "F_osgail..."
+
+#: ../src/parrillada-project-manager.c:113
+msgid "Open a project"
+msgstr "Fosgail pròiseact"
+
+#. Translators: the %s is a string representing the total size
+#. * of the file selection
+#: ../src/parrillada-project-manager.c:259
+#, c-format
+msgid "%d file selected (%s)"
+msgid_plural "%d files selected (%s)"
+msgstr[0] "%d fhaidhle air a thaghadh(%s)"
+msgstr[1] "%d fhaidhle air a thaghadh(%s)"
+msgstr[2] "%d faidhlichean air an taghadh(%s)"
+msgstr[3] "%d faidhle air an taghadh(%s)"
+
+#: ../src/parrillada-project-manager.c:270
+#, c-format
+msgid "%d file is supported (%s)"
+msgid_plural "%d files are supported (%s)"
+msgstr[0] "Cuirear taic ri %d fhaidhle (%s)"
+msgstr[1] "Cuirear taic ri %d fhaidhle (%s)"
+msgstr[2] "Cuirear taic ri %d faidhlichean (%s)"
+msgstr[3] "Cuirear taic ri %d faidhle (%s)"
+
+#: ../src/parrillada-project-manager.c:276
+#, c-format
+msgid "%d file can be added (%s)"
+msgid_plural "%d selected files can be added (%s)"
+msgstr[0] "Gabhaidh %d fhaidhle cur ris (%s)"
+msgstr[1] "Gabhaidh %d fhaidhle cur ris (%s)"
+msgstr[2] "Gabhaidh %d faidhlichean cur ris (%s)"
+msgstr[3] "Gabhaidh %d faidhle cur ris (%s)"
+
+#: ../src/parrillada-project-manager.c:287
+#, c-format
+msgid "No file can be added (%i selected file)"
+msgid_plural "No file can be added (%i selected files)"
+msgstr[0] "Cha ghabh faidhle a chur ris (%i fhaidhle air a thaghadh)"
+msgstr[1] "Cha ghabh faidhle a chur ris (%i fhaidhle air a thaghadh)"
+msgstr[2] "Cha ghabh faidhle a chur ris (%i faidhlichean air an taghadh)"
+msgstr[3] "Cha ghabh faidhle a chur ris (%i faidhle air an taghadh)"
+
+#: ../src/parrillada-project-manager.c:293
+#, c-format
+msgid "No file is supported (%i selected file)"
+msgid_plural "No file is supported (%i selected files)"
+msgstr[0] "Cha chuirear taic ri faidhle (%i fhaidhle air a thaghadh)"
+msgstr[1] "Cha chuirear taic ri faidhle (%i fhaidhle air a thaghadh)"
+msgstr[2] "Cha chuirear taic ri faidhle (%i faidhlichean air an taghadh)"
+msgstr[3] "Cha chuirear taic ri faidhle (%i faidhle air an taghadh)"
+
+#: ../src/parrillada-project-manager.c:299 ../src/parrillada-project-manager.c:453
+msgid "No file selected"
+msgstr "Cha deach faidhle a thaghadh"
+
+#: ../src/parrillada-project-manager.c:590
+msgid "Parrillada — New Audio Disc Project"
+msgstr "Parrillada — Pròiseact diosga fuaime ùr"
+
+#: ../src/parrillada-project-manager.c:604
+msgid "Parrillada — New Data Disc Project"
+msgstr "Parrillada — Pròiseact diosga dàta ùr"
+
+#: ../src/parrillada-project-manager.c:618
+msgid "Parrillada — New Video Disc Project"
+msgstr "Parrillada — Pròiseact diosga video ùr"
+
+#: ../src/parrillada-project-manager.c:628
+msgid "Parrillada — New Image File"
+msgstr "Parrillada — Faidhle ìomhaighe ùr"
+
+#: ../src/parrillada-project-manager.c:643
+msgid "Parrillada — Disc Copy"
+msgstr "Parrillada — Lethbhreac de dhiosga"
+
+#: ../src/parrillada-project-manager.c:727
+msgid "Open Project"
+msgstr "Fosgail pròiseact"
+
+#: ../src/parrillada-project-manager.c:830
+msgid "_New"
+msgstr "Ù_r"
+
+#: ../src/parrillada-project-manager.c:834
+msgid "_Open"
+msgstr "F_osgail"
+
+#: ../src/parrillada-project-manager.c:885
+msgid "Browse the file system"
+msgstr "Brabhsaich an t-siostam faidhle"
+
+#: ../src/parrillada-project-manager.c:907
+msgid "Display playlists and their contents"
+msgstr "Seall liostaichean-cluiche is an susbaint"
+
+#. Translators: this is a picture not
+#. * a disc image
+#: ../src/parrillada-project-name.c:83
+msgctxt "picture"
+msgid "Please select another image."
+msgstr "An tagh thu dealbh eile?"
+
+#. NOTE to translators: the final string must not be over
+#. * 32 _bytes_.
+#. * The %s is the date
+#: ../src/parrillada-project-name.c:269
+#, c-format
+msgid "Video disc (%s)"
+msgstr "Diosga video (%s)"
+
+#: ../src/parrillada-project-parse.c:62
+msgid "Error while loading the project."
+msgstr "Mearachd le luchdadh a' phròiseict"
+
+#: ../src/parrillada-project-parse.c:458
+msgid "The project could not be opened"
+msgstr "Cha b' urrainn dhuinn am pròiseact fhosgladh"
+
+#: ../src/parrillada-project-parse.c:467
+msgid "The file is empty"
+msgstr "Tha am faidhle falamh"
+
+#: ../src/parrillada-project-parse.c:546 ../src/parrillada-project-parse.c:611
+msgid "It does not seem to be a valid Parrillada project"
+msgstr "Chan e pròiseact Parrillada dligheach a th' ann a-rèir coltais"
+
+#: ../src/parrillada-project-type-chooser.c:74
+msgid "Audi_o project"
+msgstr "Pròiseact f_uaime"
+
+#: ../src/parrillada-project-type-chooser.c:75
+msgid "Create a traditional audio CD"
+msgstr "Cruthaich CD fuaime tradaiseanta"
+
+#: ../src/parrillada-project-type-chooser.c:79
+msgid "D_ata project"
+msgstr "Pròiseact dàt_a"
+
+#: ../src/parrillada-project-type-chooser.c:80
+msgid "Create a data CD/DVD"
+msgstr "Cruthaich CD/DVD dàta"
+
+#: ../src/parrillada-project-type-chooser.c:84
+msgid "_Video project"
+msgstr "Pròiseact _video"
+
+#: ../src/parrillada-project-type-chooser.c:85
+msgid "Create a video DVD or an SVCD"
+msgstr "Cruthaich DVD video no SVCD"
+
+#: ../src/parrillada-project-type-chooser.c:89
+msgid "Disc _copy"
+msgstr "Dèan lethbhrea_c de dhiosga"
+
+#: ../src/parrillada-project-type-chooser.c:90
+msgid "Create 1:1 copy of a CD/DVD"
+msgstr "Cruthaich lethbhreac 1:1 de CD/DVD"
+
+#: ../src/parrillada-project-type-chooser.c:94
+msgid "Burn _image"
+msgstr "Loisg ìomha_igh"
+
+#: ../src/parrillada-project-type-chooser.c:292
+msgid "Last _Unsaved Project"
+msgstr "Am pròiseact g_un sàbhaladh mu deireadh"
+
+#: ../src/parrillada-project-type-chooser.c:308
+msgid "Load the last project that was not burned and not saved"
+msgstr ""
+"Luchdaich am pròiseact mu dheireadh nach deach a losgadh no a shàbhaladh"
+
+#: ../src/parrillada-project-type-chooser.c:414
+msgid "No recently used project"
+msgstr "Chan eil pròiseact o chionn ghoirid ann"
+
+#: ../src/parrillada-project-type-chooser.c:463
+msgid "Create a new project:"
+msgstr "Cruthaich pròiseact ùr:"
+
+#: ../src/parrillada-project-type-chooser.c:510
+msgid "Recent projects:"
+msgstr "Pròiseactan o chionn ghoirid:"
+
+#: ../src/parrillada-rename.c:322
+msgid "Insert text"
+msgstr "Cuir a-steach teacsa"
+
+#: ../src/parrillada-rename.c:323
+msgid "Delete text"
+msgstr "Sguab às an teacsa"
+
+#: ../src/parrillada-rename.c:324
+msgid "Substitute text"
+msgstr "Cuir teacsa 'na àite"
+
+#: ../src/parrillada-rename.c:325
+msgid "Number files according to a pattern"
+msgstr "An uiread a dh'fhaidhlichean a-rèir pàtrain"
+
+#: ../src/parrillada-rename.c:326
+msgid "Insert number sequence at beginning"
+msgstr "Cuir sreath-àireamhan a-steach aig an toiseach"
+
+#. Translators: This is a verb. This is completed later
+#: ../src/parrillada-rename.c:341
+msgid "Insert"
+msgstr "Cuir a-steach"
+
+#. Translators: This finishes previous action "Insert". It goes like
+#. * this: "Insert" [Entry] "at the beginning".
+#: ../src/parrillada-rename.c:355
+msgid "at the beginning"
+msgstr "aig an toiseach"
+
+#. Translators: This finishes previous action "Insert". It goes like
+#. * this: "Insert" [Entry] "at the end".
+#: ../src/parrillada-rename.c:359
+msgid "at the end"
+msgstr "aig an deireadh"
+
+#: ../src/parrillada-rename.c:370
+msgid "Delete every occurrence of"
+msgstr "Sguab às a h-uile fear de"
+
+#. Reminder: if this string happens to be used somewhere else in parrillada
+#. * we'll need a context with C_() macro
+#. Translators: this goes with above verb to say "_Replace" [Entry]
+#. * "with" [Entry].
+#: ../src/parrillada-rename.c:400
+msgid "with"
+msgstr "le"
+
+#: ../src/parrillada-rename.c:414
+msgid "Rename to"
+msgstr "Thoir ainm ùr air:"
+
+#: ../src/parrillada-rename.c:423
+msgid "{number}"
+msgstr "{àireamh}"
+
+#. *
+#. * Translators: this is the position being played in a stream. The
+#. * first %s is the position and the second %s is the whole length of
+#. * the stream. I chose to make that translatable in case some languages
+#. * don't allow the "/"
+#: ../src/parrillada-song-control.c:99
+#, c-format
+msgid "%s / %s"
+msgstr "%s / %s"
+
+#: ../src/parrillada-song-control.c:527
+msgid "No file"
+msgstr "Chan eil faidhle ann"
+
+#: ../src/parrillada-song-control.c:562
+msgid "Start and stop playing"
+msgstr "Tòisich agus sguir a' cluich"
+
+#: ../src/parrillada-song-properties.c:177
+msgid "Title:"
+msgstr "Tiotal:"
+
+#: ../src/parrillada-song-properties.c:235
+msgid "Song start:"
+msgstr "Toiseach an òrain:"
+
+#: ../src/parrillada-song-properties.c:241
+msgid "Song end:"
+msgstr "Deireadh an òrain:"
+
+#: ../src/parrillada-song-properties.c:258
+msgid "Track length:"
+msgstr "Faid an traca:"
+
+#: ../src/parrillada-song-properties.c:365
+#, c-format
+msgid "Song information for track %02i"
+msgstr "Fiosrachadh an òrain airson an traca %02i"
+
+#: ../src/parrillada-split-dialog.c:172
+msgid "Do you really want to split the track?"
+msgstr "A bheil thu cinnteach gu bheil thu airson an traca a sgoilteadh?"
+
+#: ../src/parrillada-split-dialog.c:175
+msgid ""
+"If you split the track, the size of the new track will be shorter than 6 "
+"seconds and will be padded."
+msgstr ""
+"Ma sgoilteas tu an traca, bidh an traca ùr nas giorra na 6 diogan is thèid a "
+"phadadh."
+
+#: ../src/parrillada-split-dialog.c:181 ../src/parrillada-split-dialog.c:752
+msgid "_Split"
+msgstr "_Sgoilt"
+
+#: ../src/parrillada-split-dialog.c:609
+msgid "The track wasn't split."
+msgstr "Cha deach an traca a sgaoilteadh."
+
+#: ../src/parrillada-split-dialog.c:610
+msgid "No silence could be detected"
+msgstr "Cha b' urrainn dhuinn sàmhchair a mhothachadh"
+
+#: ../src/parrillada-split-dialog.c:633
+msgid "An error occurred while detecting silences."
+msgstr "Tachair mearachd le mothachadh na sàmhchair"
+
+#: ../src/parrillada-split-dialog.c:712
+msgid "This will remove all previous results."
+msgstr "Bheir seo a h-uile toradh roimhe air falbh."
+
+#: ../src/parrillada-split-dialog.c:750
+msgid "Do you really want to carry on with automatic splitting?"
+msgstr ""
+"A bheil thu cinnteach gu bheil thu airson leantainn air adhart leis an "
+"sgoilteadh fèin-obrachail?"
+
+#: ../src/parrillada-split-dialog.c:751
+msgid "_Don't split"
+msgstr "_Na sgoilt"
+
+#: ../src/parrillada-split-dialog.c:968
+msgid "Do you really want to empty the slices preview?"
+msgstr ""
+"A bheil thu cinnteach gu bheil thu airson ro-shealladh na sàmhchair "
+"fhalamhachadh?"
+
+#: ../src/parrillada-split-dialog.c:970 ../src/parrillada-split-dialog.c:1269
+msgid "Re_move All"
+msgstr "Thoir na h-uile air _falbh"
+
+#: ../src/parrillada-split-dialog.c:1055
+msgid "Split Track"
+msgstr "Sgoilt an traca"
+
+#: ../src/parrillada-split-dialog.c:1072
+msgid "M_ethod:"
+msgstr "_Dòigh:"
+
+#: ../src/parrillada-split-dialog.c:1078
+msgid "Method to be used to split the track"
+msgstr "An dòigh a thèid a chleachdadh gus an traca a sgaoilteadh"
+
+#: ../src/parrillada-split-dialog.c:1081
+msgid "Split track manually"
+msgstr "Sgoilt an traca a làimh"
+
+#: ../src/parrillada-split-dialog.c:1082
+msgid "Split track in parts with a fixed length"
+msgstr "Sgaoilt an traca na phàirtean a dh'fhaide socraichte"
+
+#: ../src/parrillada-split-dialog.c:1083
+msgid "Split track in a fixed number of parts"
+msgstr "Sgaoilt an traca na àireamh de phàirtean socraichte"
+
+#: ../src/parrillada-split-dialog.c:1084
+msgid "Split track for each silence"
+msgstr "Sgoilt an traca le gach sàmhchair"
+
+#: ../src/parrillada-split-dialog.c:1090
+msgid "_Slice"
+msgstr "_Slis"
+
+#: ../src/parrillada-split-dialog.c:1101
+msgid "Add a splitting point"
+msgstr "Cuir puing sgaoiltidh ris"
+
+#. Translators: this goes with the next (= "seconds")
+#: ../src/parrillada-split-dialog.c:1118
+msgid "Split this track every"
+msgstr "Sgoilt an traca seo gach"
+
+#. Translators: this goes with the previous (= "Split track every")
+#: ../src/parrillada-split-dialog.c:1127
+msgid "seconds"
+msgstr "diog(an)"
+
+#. Translators: this goes with the next (= "parts")
+#: ../src/parrillada-split-dialog.c:1136
+msgid "Split this track in"
+msgstr "Sgoilt an traca seo na"
+
+#. Translators: this goes with the previous (= "Split this track in")
+#: ../src/parrillada-split-dialog.c:1145
+msgid "parts"
+msgstr "pàirt(ean)"
+
+#: ../src/parrillada-split-dialog.c:1153
+msgid "Slicing Method"
+msgstr "Dòigh an t-slisidh"
+
+#: ../src/parrillada-split-dialog.c:1211
+msgid "Start"
+msgstr "Toiseach"
+
+#: ../src/parrillada-split-dialog.c:1218
+msgid "End"
+msgstr "Deireadh"
+
+#: ../src/parrillada-split-dialog.c:1241
+msgid "Mer_ge"
+msgstr "Co-a_onaich"
+
+#: ../src/parrillada-split-dialog.c:1252
+msgid "Merge a selected slice with the next selected one"
+msgstr "Co-aonaich an t-slis a thagh thu leis an ath tè a thaghas tu"
+
+#: ../src/parrillada-split-dialog.c:1266
+msgid "Remove the selected slices"
+msgstr "Thoir na slisean a thagh thu air falbh"
+
+#: ../src/parrillada-split-dialog.c:1280
+msgid "Clear the slices preview"
+msgstr "Falamhaich ro-shealladh nan slisean"
+
+#: ../src/parrillada-split-dialog.c:1290
+msgid "_List of slices that are to be created:"
+msgstr "_Liosta dhe na slisean ri an cruthachadh:"
+
+#: ../src/parrillada-split-dialog.c:1298
+msgid "Slices Preview"
+msgstr "Ro-shealladh nan slisean"
+
+#: ../src/parrillada-time-button.c:287
+msgid "Hours"
+msgstr "Uairean"
+
+#. Translators: separating hours and minutes
+#. Translators: separating minutes and seconds
+#. Translators: separating seconds and frames
+#: ../src/parrillada-time-button.c:292 ../src/parrillada-time-button.c:302
+#: ../src/parrillada-time-button.c:312
+msgid ":"
+msgstr ":"
+
+#: ../src/parrillada-time-button.c:297
+msgid "Minutes"
+msgstr "Mionaidean"
+
+#: ../src/parrillada-time-button.c:307
+msgid "Seconds"
+msgstr "Diogan"
+
+#: ../src/parrillada-time-button.c:317
+msgid "Frames (1 second = 75 frames)"
+msgstr "Frèaman (1 diog = 75 frèam)"
+
+#: ../src/parrillada-video-disc.c:101
+msgid "Open the selected video"
+msgstr "Fosgail a' video a thagh thu"
+
+#: ../src/parrillada-video-disc.c:103
+msgid "Edit the video information (start, end, author, etc.)"
+msgstr "Deasaich fiosrachadh a' video (toiseach, deireadh, ùghdar, agus msaa.)"
+
+#: ../src/parrillada-video-disc.c:105
+msgid "Remove the selected videos from the project"
+msgstr "Thoir na videothan a thagh thu air falbh on phròiseact"
+
+#: ../src/parrillada-video-disc.c:359
+msgid "Do you want to search for video files inside the directory?"
+msgstr "A bheil thu airson faidhlichean video a lorg sa phasgan?"
+
+#: ../src/parrillada-video-disc.c:369
+msgid "_Search Directory"
+msgstr "_Lorg sa phasgan"
+
+#: ../src/parrillada-video-disc.c:412
+#, c-format
+msgid "\"%s\" does not have a suitable type for video projects."
+msgstr "Chan eil seòrsa freagarrach aig \"%s\" airson pròiseactan video."
+
+#: ../src/parrillada-video-disc.c:415
+msgid "Please only add files with video content"
+msgstr "Na cuir ris ach faidhlichean le susbaint video"
+
+#: ../src/main.c:84
+msgid "[URI] [URI] …"
+msgstr "[URI] [URI] …"
+
+#: ../src/main.c:96
+#, c-format
+msgid "Please type \"%s --help\" to see all available options\n"
+msgstr ""
+"Sgrìobh \"%s --help\" gus na h-uile roghainn a shealltainn a tha ri làimh\n"
+
+#~ msgid "File is not a valid .desktop file"
+#~ msgstr "Chan eil am faidhle seo na fhaidhle .desktop dligheach"
+
+#~ msgid "Unrecognized desktop file Version '%s'"
+#~ msgstr "Faidhle desktop tionndadh \"%s\" neo-aithnichte"
+
+#~ msgid "Starting %s"
+#~ msgstr "A' tòiseachadh %s"
+
+#~ msgid "Application does not accept documents on command line"
+#~ msgstr "Cha ghabh am prògram ri sgrìobhainnean air an loidhne-àithne"
+
+#~ msgid "Unrecognized launch option: %d"
+#~ msgstr "Roghainn tòiseachaidh neo-aithnichte: %d"
+
+#~ msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
+#~ msgstr "Cha ghabh URI sgrìobhainn a chur gu innteart desktop \"Type=Link\""
+
+#~ msgid "Not a launchable item"
+#~ msgstr "Chan e nì a ghabhas tòiseachadh a th' ann"
+
+#~ msgid "Disable connection to session manager"
+#~ msgstr "Chur à comas an ceangal ri manaidsear nan seisean"
+
+#~ msgid "Specify file containing saved configuration"
+#~ msgstr "Sònraich am faidhle sa deach an rèiteachadh a shàbhaladh"
+
+#~ msgid "FILE"
+#~ msgstr "FAIDHLE"
+
+#~ msgid "Specify session management ID"
+#~ msgstr "Sònraich ID stiùireadh nan seisean"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Session management options:"
+#~ msgstr "Roghainnean stiùireadh nan seisean:"
+
+#~ msgid "Show session management options"
+#~ msgstr "Seall roghainnean stiùireadh nan seisean"
+
+#~ msgid "Cancel ongoing burning"
+#~ msgstr "Sguir dhen losgadh a tha a' dol"
+
+#~ msgid "Show _Dialog"
+#~ msgstr "Seall còmhra_dh"
+
+#~ msgid "Show dialog"
+#~ msgstr "Seall còmhradh"
+
+#~ msgid "%s, %d%% done, %s remaining"
+#~ msgstr "%s, %d%% dèanta, %s air fhàgail"
+
+#~ msgid "%s, %d%% done"
+#~ msgstr "%s, %d%% dèanta"
+
+#~ msgid "Parrillada Disc Burner: %s"
+#~ msgstr "Loisgeadair diosga Basero: %s"
+
+#~ msgid "_Create Cover"
+#~ msgstr "_Cruthaich còmhdach"

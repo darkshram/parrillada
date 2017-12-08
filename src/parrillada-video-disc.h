@@ -41,12 +41,12 @@ typedef struct _ParrilladaVideoDisc ParrilladaVideoDisc;
 
 struct _ParrilladaVideoDiscClass
 {
-	GtkVBoxClass parent_class;
+	GtkBoxClass parent_class;
 };
 
 struct _ParrilladaVideoDisc
 {
-	GtkVBox parent_instance;
+	GtkBox parent_instance;
 };
 
 GType parrillada_video_disc_get_type (void) G_GNUC_CONST;

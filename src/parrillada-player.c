@@ -5,7 +5,7 @@
 *
 *  lun mai 30 08:15:01 2005
 *  Copyright  2005  Philippe Rouquier
-*  brasero-app@wanadoo.fr
+*  parrillada-app@wanadoo.fr
 ****************************************************************************/
 
 /*
@@ -681,7 +681,7 @@ parrillada_player_state_changed_cb (ParrilladaPlayerBacon *bacon,
 }
 
 static void
-parrillada_player_destroy (GtkObject *obj)
+parrillada_player_destroy (GtkWidget *obj)
 {
 	ParrilladaPlayer *player;
 
@@ -716,8 +716,8 @@ parrillada_player_destroy (GtkObject *obj)
 		player->priv->meta_task = 0;
 	}
 
-	if (GTK_OBJECT_CLASS (parent_class)->destroy)
-		GTK_OBJECT_CLASS (parent_class)->destroy (obj);
+	if (GTK_WIDGET_CLASS (parent_class)->destroy)
+		GTK_WIDGET_CLASS (parent_class)->destroy (obj);
 }
 
 static void
@@ -735,12 +735,12 @@ static void
 parrillada_player_class_init (ParrilladaPlayerClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
-	GtkObjectClass *gtk_object_class = GTK_OBJECT_CLASS (klass);
+	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
 	parent_class = g_type_class_peek_parent (klass);
 	object_class->finalize = parrillada_player_finalize;
 
-	gtk_object_class->destroy = parrillada_player_destroy;
+	widget_class->destroy = parrillada_player_destroy;
 
 	parrillada_player_signals [ERROR_SIGNAL] = 
 			g_signal_new ("error",
@@ -785,7 +785,7 @@ parrillada_player_init (ParrilladaPlayer *obj)
 
 	gtk_alignment_set (GTK_ALIGNMENT (obj), 0.5, 0.5, 0.0, 0.0);
 
-	vbox = gtk_vbox_new (FALSE, 2);
+	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 2);
 	gtk_widget_show (vbox);
 	gtk_container_add (GTK_CONTAINER (obj), vbox);
 	
@@ -910,7 +910,7 @@ parrillada_player_init (ParrilladaPlayer *obj)
 				     obj->priv->video_height);
 
 	/* A few controls */
-	hbox = gtk_hbox_new (FALSE, 0);
+	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
 	gtk_widget_show (hbox);
 	gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, FALSE, 0);
 
@@ -975,4 +975,5 @@ parrillada_player_new ()
 	obj = PARRILLADA_PLAYER (g_object_new (PARRILLADA_TYPE_PLAYER, NULL));
 
 	return GTK_WIDGET (obj);
+
 }

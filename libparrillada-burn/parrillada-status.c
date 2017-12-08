@@ -65,22 +65,6 @@ parrillada_status_new (void)
 }
 
 /**
- * parrillada_status_free:
- * @status: a #ParrilladaStatus.
- *
- * Frees #ParrilladaStatus structure.
- *
- * Deprecated since 2.29.2.
- *
- **/
-
-G_GNUC_DEPRECATED void
-parrillada_status_free (ParrilladaStatus *status)
-{
-	g_object_unref (status);
-}
-
-/**
  * parrillada_status_get_result:
  * @status: a #ParrilladaStatus.
  *

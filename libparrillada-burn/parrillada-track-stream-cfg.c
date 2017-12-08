@@ -299,11 +299,11 @@ parrillada_track_stream_cfg_results_cb (GObject *obj,
 		parrillada_track_tag_add_string (PARRILLADA_TRACK (obj),
 					      PARRILLADA_TRACK_STREAM_COMPOSER_TAG,
 					      g_file_info_get_attribute_string (info, PARRILLADA_IO_COMPOSER));
-	if (g_file_info_get_attribute_int32 (info, PARRILLADA_IO_ISRC)
-	&& !parrillada_track_tag_lookup_int (PARRILLADA_TRACK (obj), PARRILLADA_TRACK_STREAM_ISRC_TAG))
-		parrillada_track_tag_add_int (PARRILLADA_TRACK (obj),
-					   PARRILLADA_TRACK_STREAM_ISRC_TAG,
-					   g_file_info_get_attribute_int32 (info, PARRILLADA_IO_ISRC));
+	if (g_file_info_get_attribute_string (info, PARRILLADA_IO_ISRC)
+	&& !parrillada_track_tag_lookup_string (PARRILLADA_TRACK (obj), PARRILLADA_TRACK_STREAM_ISRC_TAG))
+		parrillada_track_tag_add_string (PARRILLADA_TRACK (obj),
+					      PARRILLADA_TRACK_STREAM_ISRC_TAG,
+					      g_file_info_get_attribute_string (info, PARRILLADA_IO_ISRC));
 
 	/* Start monitoring it */
 	file = g_file_new_for_uri (uri);

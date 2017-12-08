@@ -102,11 +102,8 @@ parrillada_mkisofs_read_stderr (ParrilladaProcess *process, const gchar *line)
 {
 	gchar fraction_str [7] = { 0, };
 	ParrilladaMkisofs *mkisofs;
-	ParrilladaMkisofsPrivate *priv;
 
 	mkisofs = PARRILLADA_MKISOFS (process);
-	priv = PARRILLADA_MKISOFS_PRIVATE (process);
-
 	if (strstr (line, "estimate finish")
 	&&  sscanf (line, "%6c%% done, estimate finish", fraction_str) == 1) {
 		gdouble fraction;

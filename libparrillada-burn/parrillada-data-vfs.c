@@ -299,12 +299,9 @@ parrillada_data_vfs_directory_check_symlink_loop (ParrilladaDataVFS *self,
 					       const gchar *uri,
 					       GFileInfo *info)
 {
-	ParrilladaDataVFSPrivate *priv;
 	const gchar *target_uri;
 	guint target_len;
 	guint uri_len;
-
-	priv = PARRILLADA_DATA_VFS_PRIVATE (self);
 
 	/* Of course for a loop to exist, it must be a directory */
 	if (g_file_info_get_file_type (info) != G_FILE_TYPE_DIRECTORY)
@@ -919,11 +916,9 @@ parrillada_data_vfs_node_added (ParrilladaDataProject *project,
 			     ParrilladaFileNode *node,
 			     const gchar *uri)
 {
-	ParrilladaDataVFSPrivate *priv;
 	ParrilladaDataVFS *self;
 
 	self = PARRILLADA_DATA_VFS (project);
-	priv = PARRILLADA_DATA_VFS_PRIVATE (self);
 
 	/* URI can be NULL if it's a created directory or if the node
 	 * has just been moved to another location in the tree. */

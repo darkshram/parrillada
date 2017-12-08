@@ -14,7 +14,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  * Authors: William Jon McCann <mccann@jhu.edu>
  *
@@ -38,16 +38,17 @@ typedef struct CajaDiscBurnBarPrivate CajaDiscBurnBarPrivate;
 
 typedef struct
 {
-        GtkHBox                 box;
-
+        GtkBox                     box;
         CajaDiscBurnBarPrivate *priv;
 } CajaDiscBurnBar;
 
 typedef struct
 {
-        GtkHBoxClass            parent_class;
+        GtkBoxClass          parent_class;
 
-	void (* activate) (CajaDiscBurnBar *bar);
+	void (* title_changed) (CajaDiscBurnBar *bar);
+	void (* icon_changed)  (CajaDiscBurnBar *bar);
+	void (* activate)      (CajaDiscBurnBar *bar);
 
 } CajaDiscBurnBarClass;
 
@@ -55,6 +56,20 @@ GType       caja_disc_burn_bar_get_type          (void);
 GtkWidget  *caja_disc_burn_bar_new               (void);
 
 GtkWidget  *caja_disc_burn_bar_get_button        (CajaDiscBurnBar *bar);
+
+const gchar *
+caja_disc_burn_bar_get_icon (CajaDiscBurnBar *bar);
+
+void
+caja_disc_burn_bar_set_icon (CajaDiscBurnBar *bar,
+                                 const gchar *icon_path);
+
+void
+caja_disc_burn_bar_set_title (CajaDiscBurnBar *bar,
+                                  const gchar *title);
+
+const gchar *
+caja_disc_burn_bar_get_title (CajaDiscBurnBar *bar);
 
 G_END_DECLS
 

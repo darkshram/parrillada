@@ -20,7 +20,7 @@ local_trackdir = $(PARRILLADA_PLUGIN_DIRECTORY)
 local_track_LTLIBRARIES = libparrillada-local-track.la
 
 libparrillada_local_track_la_SOURCES = burn-local-image.c 
-libparrillada_local_track_la_LIBADD = ../../libparrillada-burn/libparrillada-burn@PARRILLADA_LIBRARY_SUFFIX@.la $(PARRILLADA_GLIB_LIBS) $(PARRILLADA_GIO_LIBS)
+libparrillada_local_track_la_LIBADD = ../../libparrillada-burn/libparrillada-burn3.la $(PARRILLADA_GLIB_LIBS) $(PARRILLADA_GIO_LIBS)
 libparrillada_local_track_la_LDFLAGS = -module -avoid-version
 
 #burn-uri
@@ -28,7 +28,7 @@ burn_uridir = $(PARRILLADA_PLUGIN_DIRECTORY)
 burn_uri_LTLIBRARIES = libparrillada-burn-uri.la
 
 libparrillada_burn_uri_la_SOURCES = burn-uri.c 
-libparrillada_burn_uri_la_LIBADD = ../../libparrillada-burn/libparrillada-burn@PARRILLADA_LIBRARY_SUFFIX@.la $(PARRILLADA_GLIB_LIBS) $(PARRILLADA_GIO_LIBS)
+libparrillada_burn_uri_la_LIBADD = ../../libparrillada-burn/libparrillada-burn3.la $(PARRILLADA_GLIB_LIBS) $(PARRILLADA_GIO_LIBS)
 libparrillada_burn_uri_la_LDFLAGS = -module -avoid-version
 
 -include $(top_srcdir)/git.mk

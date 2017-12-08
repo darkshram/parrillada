@@ -97,29 +97,26 @@ parrillada_tool_color_picker_set_color (ParrilladaToolColorPicker *self,
 }
 
 static gboolean
-parrillada_tool_color_picker_expose (GtkWidget *widget,
-				  GdkEventExpose *event,
-				  ParrilladaToolColorPicker *self)
+parrillada_tool_color_picker_draw (GtkWidget *widget,
+				cairo_t *ctx,
+				ParrilladaToolColorPicker *self)
 {
 	ParrilladaToolColorPickerPrivate *priv;
 	GtkAllocation allocation;
-	cairo_t *ctx;
 
 	priv = PARRILLADA_TOOL_COLOR_PICKER_PRIVATE (self);
 
-	ctx = gdk_cairo_create (GDK_DRAWABLE (gtk_widget_get_window (widget)));
 	gdk_cairo_set_source_color (ctx, &priv->color);
 	gtk_widget_get_allocation (widget, &allocation);
 	cairo_rectangle (ctx,
-			 allocation.x,
-			 allocation.y,
+			 0,
+			 0,
 			 allocation.width,
 			 allocation.height);
 	cairo_fill (ctx);
 	cairo_stroke (ctx);
-	cairo_destroy (ctx);
 
-	return FALSE;
+	return TRUE;
 }
 
 static void
@@ -209,8 +206,8 @@ parrillada_tool_color_picker_init (ParrilladaToolColorPicker *object)
 	priv->icon = gtk_image_new ();
 	gtk_widget_show (priv->icon);
 	g_signal_connect (priv->icon,
-			  "expose-event",
-			  G_CALLBACK (parrillada_tool_color_picker_expose),
+			  "draw",
+			  G_CALLBACK (parrillada_tool_color_picker_draw),
 			  object);
 
 	/* This function expects a GtkMisc object!! */

@@ -564,6 +564,7 @@ parrillada_libburn_start_record (ParrilladaLibburn *self,
 		g_set_error (error,
 			     PARRILLADA_BURN_ERROR,
 			     PARRILLADA_BURN_ERROR_GENERAL,
+			     "%s",
 			     reason);
 		return PARRILLADA_BURN_ERR;
 	}

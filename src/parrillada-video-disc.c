@@ -74,7 +74,7 @@ parrillada_video_disc_iface_disc_init (ParrilladaDiscIface *iface);
 
 G_DEFINE_TYPE_WITH_CODE (ParrilladaVideoDisc,
 			 parrillada_video_disc,
-			 GTK_TYPE_VBOX,
+			 GTK_TYPE_BOX,
 			 G_IMPLEMENT_INTERFACE (PARRILLADA_TYPE_DISC,
 					        parrillada_video_disc_iface_disc_init));
 
@@ -424,17 +424,12 @@ parrillada_video_disc_session_changed (ParrilladaSessionCfg *session,
 {
 	GSList *next;
 	GSList *tracks;
-	gboolean notready;
 	ParrilladaStatus *status;
-	ParrilladaVideoDiscPrivate *priv;
-
-	priv = PARRILLADA_VIDEO_DISC_PRIVATE (self);
 
 	if (!gtk_widget_get_window (GTK_WIDGET (self)))
 		return;
 
 	/* make sure all tracks have video */
-	notready = FALSE;
 	status = parrillada_status_new ();
 	tracks = parrillada_burn_session_get_tracks (PARRILLADA_BURN_SESSION (session));
 	for (; tracks; tracks = next) {
@@ -481,10 +476,8 @@ parrillada_video_disc_session_changed (ParrilladaSessionCfg *session,
 			continue;
 		}
 
-		if (result == PARRILLADA_BURN_NOT_READY || result == PARRILLADA_BURN_RUNNING) {
-			notready = TRUE;
+		if (result == PARRILLADA_BURN_NOT_READY || result == PARRILLADA_BURN_RUNNING)
 			continue;
-		}
 
 		if (result != PARRILLADA_BURN_OK)
 			continue;
@@ -588,12 +581,12 @@ parrillada_video_disc_selection_function (GtkTreeSelection *selection,
 				       gboolean path_currently_selected,
 				       gpointer NULL_data)
 {
-	ParrilladaTrack *track;
+/*	ParrilladaTrack *track;
 
 	track = parrillada_video_tree_model_path_to_track (PARRILLADA_VIDEO_TREE_MODEL (model), treepath);
 
-	/* FIXME: add a tag?? */
-/*	if (track)
+	FIXME: add a tag??
+	if (track)
 		file->editable = !path_currently_selected;
 */
 	return TRUE;
@@ -630,7 +623,6 @@ static void
 parrillada_video_disc_edit_song_properties_list (ParrilladaVideoDisc *self,
 					      GList *list)
 {
-	gint isrc;
 	GList *item;
 	GList *copy;
 	GtkWidget *props;
@@ -638,6 +630,7 @@ parrillada_video_disc_edit_song_properties_list (ParrilladaVideoDisc *self,
 	GtkTreeModel *model;
 	gchar *artist = NULL;
 	gchar *composer = NULL;
+	gchar *isrc = NULL;
 	GtkResponseType result;
 	ParrilladaVideoDiscPrivate *priv;
 
@@ -695,14 +688,15 @@ parrillada_video_disc_edit_song_properties_list (ParrilladaVideoDisc *self,
 					      PARRILLADA_TRACK_STREAM_COMPOSER_TAG,
 					      composer);
 
-		parrillada_track_tag_add_int (track,
-					   PARRILLADA_TRACK_STREAM_ISRC_TAG,
-					   isrc);
+		parrillada_track_tag_add_string (track,
+					      PARRILLADA_TRACK_STREAM_ISRC_TAG,
+					      isrc);
 	}
 
 	g_list_free (copy);
 	g_free (artist);
 	g_free (composer);
+	g_free (isrc);
 end:
 
 	gtk_widget_destroy (props);
@@ -712,22 +706,17 @@ static void
 parrillada_video_disc_edit_song_properties_file (ParrilladaVideoDisc *self,
 					      ParrilladaTrack *track)
 {
-	gint isrc;
 	gint64 end;
 	gint64 start;
 	gchar *title;
 	gchar *artist;
 	gchar *composer;
+	gchar *isrc;
 	GtkWidget *props;
 	guint64 length = 0;
 	GtkWidget *toplevel;
-	GtkTreeModel *model;
 	GtkResponseType result;
-	ParrilladaVideoDiscPrivate *priv;
 
-	priv = PARRILLADA_VIDEO_DISC_PRIVATE (self);
-
-	model = gtk_tree_view_get_model (GTK_TREE_VIEW (priv->tree));
 	toplevel = gtk_widget_get_toplevel (GTK_WIDGET (self));
 
 	parrillada_track_stream_get_length (PARRILLADA_TRACK_STREAM (track), &length);
@@ -738,7 +727,7 @@ parrillada_video_disc_edit_song_properties_file (ParrilladaVideoDisc *self,
 					   parrillada_track_tag_lookup_string (track, PARRILLADA_TRACK_STREAM_ARTIST_TAG),
 					   parrillada_track_tag_lookup_string (track, PARRILLADA_TRACK_STREAM_TITLE_TAG),
 					   parrillada_track_tag_lookup_string (track, PARRILLADA_TRACK_STREAM_COMPOSER_TAG),
-					   parrillada_track_tag_lookup_int (track, PARRILLADA_TRACK_STREAM_ISRC_TAG),
+					   parrillada_track_tag_lookup_string (track, PARRILLADA_TRACK_STREAM_ISRC_TAG),
 					   length,
 					   parrillada_track_stream_get_start (PARRILLADA_TRACK_STREAM (track)),
 					   parrillada_track_stream_get_end (PARRILLADA_TRACK_STREAM (track)),
@@ -786,10 +775,12 @@ parrillada_video_disc_edit_song_properties_file (ParrilladaVideoDisc *self,
 		g_free (composer);
 	}
 
-	if (isrc)
-		parrillada_track_tag_add_int (track,
-					   PARRILLADA_TRACK_STREAM_ISRC_TAG,
-					   isrc);
+	if (isrc) {
+		parrillada_track_tag_add_string (track,
+					      PARRILLADA_TRACK_STREAM_ISRC_TAG,
+					      isrc);
+		g_free (isrc);
+	}
 
 	parrillada_track_stream_set_boundaries (PARRILLADA_TRACK_STREAM (track),
 					     start,
@@ -1164,7 +1155,9 @@ parrillada_video_disc_init (ParrilladaVideoDisc *object)
 
 	priv = PARRILLADA_VIDEO_DISC_PRIVATE (object);
 
-	mainbox = gtk_vbox_new (FALSE, 0);
+	gtk_orientable_set_orientation (GTK_ORIENTABLE (object), GTK_ORIENTATION_VERTICAL);
+
+	mainbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
 	gtk_widget_show (mainbox);
 	gtk_box_pack_start (GTK_BOX (object), mainbox, TRUE, TRUE, 0);
 

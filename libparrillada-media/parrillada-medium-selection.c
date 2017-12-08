@@ -89,7 +89,10 @@ parrillada_medium_selection_buildable_init (GtkBuildableIface *iface)
 	parent_buildable_iface = g_type_interface_peek_parent (iface);
 } 
 
-G_DEFINE_TYPE_WITH_CODE (ParrilladaMediumSelection, parrillada_medium_selection, GTK_TYPE_COMBO_BOX, G_IMPLEMENT_INTERFACE (GTK_TYPE_BUILDABLE, parrillada_medium_selection_buildable_init));
+G_DEFINE_TYPE_WITH_CODE (ParrilladaMediumSelection,
+                         parrillada_medium_selection,
+                         GTK_TYPE_COMBO_BOX,
+                         G_IMPLEMENT_INTERFACE (GTK_TYPE_BUILDABLE, parrillada_medium_selection_buildable_init));
 
 void
 parrillada_medium_selection_foreach (ParrilladaMediumSelection *selection,
@@ -164,7 +167,7 @@ parrillada_medium_selection_get_medium_string (ParrilladaMediumSelection *self,
 
 	/* format the size */
 	if (media & PARRILLADA_MEDIUM_HAS_DATA) {
-		size_string = g_format_size_for_display (size);
+		size_string = g_format_size (size);
 		/* NOTE for translators: the first %s is the medium name, the
 		 * second %s is the space (kio, gio) used by data on the disc.
 		 */
@@ -196,11 +199,8 @@ parrillada_medium_selection_update_used_space (ParrilladaMediumSelection *select
 					    ParrilladaMedium *medium_arg,
 					    guint used_space)
 {
-	ParrilladaMediumSelectionPrivate *priv;
 	GtkTreeModel *model;
 	GtkTreeIter iter;
-
-	priv = PARRILLADA_MEDIUM_SELECTION_PRIVATE (selector);
 
 	model = gtk_combo_box_get_model (GTK_COMBO_BOX (selector));
 	if (!gtk_tree_model_get_iter_first (model, &iter))
@@ -233,9 +233,6 @@ static void
 parrillada_medium_selection_set_show_used_space (ParrilladaMediumSelection *selector)
 {
 	GtkCellRenderer *renderer;
-	ParrilladaMediumSelectionPrivate *priv;
-
-	priv = PARRILLADA_MEDIUM_SELECTION_PRIVATE (selector);
 
 	gtk_cell_layout_clear (GTK_CELL_LAYOUT (selector));
 
@@ -269,9 +266,7 @@ parrillada_medium_selection_update_media_string (ParrilladaMediumSelection *self
 {
 	GtkTreeModel *model;
 	GtkTreeIter iter;
-	gboolean valid;
 
-	valid = FALSE;
 	model = gtk_combo_box_get_model (GTK_COMBO_BOX (self));
 	if (!gtk_tree_model_get_iter_first (model, &iter))
 		return;
@@ -338,11 +333,8 @@ parrillada_medium_selection_set_current_medium (ParrilladaMediumSelection *self,
 static void
 parrillada_drive_selection_set_tooltip (ParrilladaMediumSelection *self)
 {
-	ParrilladaMediumSelectionPrivate *priv;
 	ParrilladaMedium *medium;
 	gchar *tooltip;
-
-	priv = PARRILLADA_MEDIUM_SELECTION_PRIVATE (self);
 
 	medium = parrillada_medium_selection_get_active (self);
 	if (medium) {
@@ -359,10 +351,8 @@ parrillada_drive_selection_set_tooltip (ParrilladaMediumSelection *self)
 static void
 parrillada_medium_selection_changed (GtkComboBox *combo)
 {
-	GtkTreeModel *model;
 	GtkTreeIter iter;
 
-	model = gtk_combo_box_get_model (combo);
 	if (!gtk_combo_box_get_active_iter (combo, &iter))
 		return;
 
@@ -392,7 +382,6 @@ parrillada_medium_selection_set_active (ParrilladaMediumSelection *selector,
 	g_return_val_if_fail (PARRILLADA_IS_MEDIUM_SELECTION (selector), FALSE);
 
 	priv = PARRILLADA_MEDIUM_SELECTION_PRIVATE (selector);
-
 	if (priv->active == medium)
 		return TRUE;
 
@@ -436,7 +425,7 @@ ParrilladaMedium *
 parrillada_medium_selection_get_active (ParrilladaMediumSelection *selector)
 {
 	ParrilladaMediumSelectionPrivate *priv;
-
+	
 	g_return_val_if_fail (selector != NULL, NULL);
 	g_return_val_if_fail (PARRILLADA_IS_MEDIUM_SELECTION (selector), NULL);
 
@@ -487,9 +476,6 @@ parrillada_medium_selection_add_no_disc_entry (ParrilladaMediumSelection *self)
 {
 	GtkTreeIter iter;
 	GtkTreeModel *model;
-	ParrilladaMediumSelectionPrivate *priv;
-
-	priv = PARRILLADA_MEDIUM_SELECTION_PRIVATE (self);
 
 	/* Nothing's available. Say it. Two cases here, either we're
 	 * still probing drives or there isn't actually any available
@@ -575,6 +561,8 @@ parrillada_medium_selection_show_media_type (ParrilladaMediumSelection *selector
 			                                   -1,
 			                                   MEDIUM_COL, medium,
 			                                   -1);
+
+			gtk_combo_box_set_active_iter (GTK_COMBO_BOX (selector), &iter);
 
 			medium_name = parrillada_medium_selection_get_medium_string (selector, medium);
 			medium_icon = parrillada_volume_get_icon (PARRILLADA_VOLUME (medium));
@@ -833,6 +821,14 @@ parrillada_medium_selection_medium_removed_cb (ParrilladaMediumMonitor *monitor,
 }
 
 static void
+parrillada_medium_selection_constructed (GObject *object)
+{
+	G_OBJECT_CLASS (parrillada_medium_selection_parent_class)->constructed (object);
+
+	parrillada_medium_selection_set_show_used_space (PARRILLADA_MEDIUM_SELECTION (object));
+}
+
+static void
 parrillada_medium_selection_init (ParrilladaMediumSelection *object)
 {
 	GtkListStore *model;
@@ -863,8 +859,6 @@ parrillada_medium_selection_init (ParrilladaMediumSelection *object)
 
 	gtk_combo_box_set_model (GTK_COMBO_BOX (object), GTK_TREE_MODEL (model));
 	g_object_unref (model);
-
-	parrillada_medium_selection_set_show_used_space (object);
 }
 
 static void
@@ -893,11 +887,7 @@ parrillada_medium_selection_set_property (GObject *object,
 				       const GValue *value,
 				       GParamSpec *pspec)
 {
-	ParrilladaMediumSelectionPrivate *priv;
-
 	g_return_if_fail (PARRILLADA_IS_MEDIUM_SELECTION (object));
-
-	priv = PARRILLADA_MEDIUM_SELECTION_PRIVATE (object);
 
 	switch (prop_id)
 	{
@@ -949,6 +939,7 @@ parrillada_medium_selection_class_init (ParrilladaMediumSelectionClass *klass)
 
 	g_type_class_add_private (klass, sizeof (ParrilladaMediumSelectionPrivate));
 
+	object_class->constructed = parrillada_medium_selection_constructed;
 	object_class->finalize = parrillada_medium_selection_finalize;
 	object_class->set_property = parrillada_medium_selection_set_property;
 	object_class->get_property = parrillada_medium_selection_get_property;

@@ -368,9 +368,6 @@ ParrilladaBurnResult
 parrillada_task_cancel (ParrilladaTask *task,
 		     gboolean protect)
 {
-	ParrilladaTaskPrivate *priv;
-
-	priv = PARRILLADA_TASK_PRIVATE (task);
 	if (protect && parrillada_task_ctx_get_dangerous (PARRILLADA_TASK_CTX (task)))
 		return PARRILLADA_BURN_DANGEROUS;
 

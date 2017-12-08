@@ -52,11 +52,8 @@ parrillada_pref_new (void)
 static void
 parrillada_pref_init (ParrilladaPref *object)
 {
-	ParrilladaPrefPrivate *priv;
 	GtkWidget *notebook;
 	GtkWidget *plugins;
-
-	priv = PARRILLADA_PREF_PRIVATE (object);
 
 	gtk_dialog_add_button (GTK_DIALOG (object), GTK_STOCK_CLOSE, GTK_RESPONSE_CLOSE);
 

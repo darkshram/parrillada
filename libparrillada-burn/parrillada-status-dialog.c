@@ -140,7 +140,7 @@ parrillada_status_dialog_update (ParrilladaStatusDialog *self,
 	else if (parrillada_track_type_get_medium_type (type) & PARRILLADA_MEDIUM_HAS_AUDIO)
 		size_str = parrillada_units_get_time_string (session_bytes, TRUE, FALSE);
 	else
-		size_str = g_format_size_for_display (session_bytes);
+		size_str = g_format_size (session_bytes);
 
 	parrillada_track_type_free (type);
 
@@ -154,9 +154,6 @@ parrillada_status_dialog_update (ParrilladaStatusDialog *self,
 static void
 parrillada_status_dialog_session_ready (ParrilladaStatusDialog *dialog)
 {
-	ParrilladaStatusDialogPrivate *priv;
-
-	priv = PARRILLADA_STATUS_DIALOG_PRIVATE (dialog);
 	gtk_dialog_response (GTK_DIALOG (dialog), GTK_RESPONSE_OK);
 }
 
@@ -430,7 +427,7 @@ parrillada_status_dialog_init (ParrilladaStatusDialog *object)
 			       GTK_STOCK_CANCEL,
 			       GTK_RESPONSE_CANCEL);
 
-	box = gtk_vbox_new (FALSE, 4);
+	box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 4);
 	gtk_widget_show (box);
 	main_box = gtk_dialog_get_content_area (GTK_DIALOG (object));
 	gtk_box_pack_end (GTK_BOX (main_box),

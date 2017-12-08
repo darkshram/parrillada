@@ -5,7 +5,7 @@
  *
  *  mer mai 24 15:14:42 2006
  *  Copyright  2006  Rouquier Philippe
- *  brasero-app@wanadoo.fr
+ *  parrillada-app@wanadoo.fr
  ***************************************************************************/
 
 /*
@@ -39,12 +39,16 @@
 
 #include "parrillada-setting.h"
 #include "parrillada-layout.h"
+
+#ifdef BUILD_PREVIEW
 #include "parrillada-preview.h"
+#endif
+
 #include "parrillada-project.h"
 #include "parrillada-uri-container.h"
 #include "parrillada-layout-object.h"
 
-G_DEFINE_TYPE (ParrilladaLayout, parrillada_layout, GTK_TYPE_VBOX);
+G_DEFINE_TYPE (ParrilladaLayout, parrillada_layout, GTK_TYPE_BOX);
 
 enum {
 	TEXT_COL,
@@ -100,7 +104,7 @@ static GObjectClass *parent_class = NULL;
 #define PARRILLADA_LAYOUT_PREVIEW_MENU	N_("P_review")
 /* Translators: this is an image, a picture, not a "Disc Image" */
 #define PARRILLADA_LAYOUT_PREVIEW_TOOLTIP	N_("Display video, audio and image preview")
-#define PARRILLADA_LAYOUT_PREVIEW_ICON	GTK_STOCK_FILE
+#define PARRILLADA_LAYOUT_PREVIEW_ICON	NULL
 
 #define PARRILLADA_LAYOUT_NONE_ID		"EmptyView"
 #define PARRILLADA_LAYOUT_NONE_MENU	N_("_Show Side Panel")
@@ -318,6 +322,7 @@ parrillada_layout_add_project (ParrilladaLayout *layout,
 	layout->priv->project = project;
 }
 
+#ifdef BUILD_PREVIEW
 static void
 parrillada_layout_preview_toggled_cb (GtkToggleAction *action, ParrilladaLayout *layout)
 {
@@ -334,11 +339,13 @@ parrillada_layout_preview_toggled_cb (GtkToggleAction *action, ParrilladaLayout 
 	                           PARRILLADA_SETTING_SHOW_PREVIEW,
 	                           GINT_TO_POINTER (active));
 }
+#endif
 
 void
 parrillada_layout_add_preview (ParrilladaLayout *layout,
 			    GtkWidget *preview)
 {
+#ifdef BUILD_PREVIEW
 	gpointer value;
 	gboolean active;
 	gchar *accelerator;
@@ -376,6 +383,7 @@ parrillada_layout_add_preview (ParrilladaLayout *layout,
 		gtk_widget_hide (layout->priv->preview_pane);
 
 	parrillada_preview_set_enabled (PARRILLADA_PREVIEW (layout->priv->preview_pane), active);
+#endif
 }
 
 /**************************** for the source panes *****************************/
@@ -514,7 +522,7 @@ parrillada_layout_add_source (ParrilladaLayout *layout,
 	GtkTreeModel *model;
 	ParrilladaLayoutItem *item;
 
-	pane = gtk_vbox_new (FALSE, 1);
+	pane = gtk_box_new (GTK_ORIENTATION_VERTICAL, 1);
 	gtk_widget_hide (pane);
 	gtk_box_pack_end (GTK_BOX (pane), source, TRUE, TRUE, 0);
 	g_signal_connect (pane,
@@ -660,8 +668,10 @@ parrillada_layout_load (ParrilladaLayout *layout,
 	GtkTreeIter iter;
 	gpointer value;
 
+#ifdef BUILD_PREVIEW
 	if (layout->priv->preview_pane)
 		parrillada_preview_hide (PARRILLADA_PREVIEW (layout->priv->preview_pane));
+#endif
 
 	if (type == PARRILLADA_LAYOUT_NONE) {
 		gtk_widget_hide (GTK_WIDGET (layout));
@@ -843,12 +853,12 @@ parrillada_layout_change_type (ParrilladaLayout *layout,
 	switch (layout_type) {
 		case PARRILLADA_LAYOUT_TOP:
 		case PARRILLADA_LAYOUT_BOTTOM:
-			layout->priv->pane = gtk_vpaned_new ();
+			layout->priv->pane = gtk_paned_new (GTK_ORIENTATION_VERTICAL);
 			break;
 
 		case PARRILLADA_LAYOUT_RIGHT:
 		case PARRILLADA_LAYOUT_LEFT:
-			layout->priv->pane = gtk_hpaned_new ();
+			layout->priv->pane = gtk_paned_new (GTK_ORIENTATION_HORIZONTAL);
 			break;
 
 		default:
@@ -985,23 +995,20 @@ parrillada_layout_foreach_item_cb (GtkTreeModel *model,
 }
 
 static void
-parrillada_layout_combo_destroy_cb (GtkObject *object,
+parrillada_layout_combo_destroy_cb (GtkWidget *object,
                                  gpointer NULL_data)
 {
 	GtkTreeModel *model;
 
 	/* empty tree */
 	model = gtk_combo_box_get_model (GTK_COMBO_BOX (object));
-	model = gtk_tree_model_filter_get_model (GTK_TREE_MODEL_FILTER (model));
-	gtk_tree_model_foreach (model,
-				parrillada_layout_foreach_item_cb,
-				NULL);
-}
+	if (model)
+		model = gtk_tree_model_filter_get_model (GTK_TREE_MODEL_FILTER (model));
 
-static void
-parrillada_layout_destroy (GtkObject *object)
-{
-	GTK_OBJECT_CLASS (parent_class)->destroy (object);
+	if (model)
+		gtk_tree_model_foreach (model,
+					parrillada_layout_foreach_item_cb,
+					NULL);
 }
 
 static void
@@ -1019,7 +1026,6 @@ static void
 parrillada_layout_class_init (ParrilladaLayoutClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
-	GtkObjectClass *gtk_object_class = GTK_OBJECT_CLASS (klass);
 	GtkWidgetClass *gtk_widget_class = GTK_WIDGET_CLASS (klass);
 
 	parent_class = g_type_class_peek_parent (klass);
@@ -1027,8 +1033,6 @@ parrillada_layout_class_init (ParrilladaLayoutClass *klass)
 
 	gtk_widget_class->hide = parrillada_layout_hide;
 	gtk_widget_class->show = parrillada_layout_show;
-
-	gtk_object_class->destroy = parrillada_layout_destroy;
 
 	parrillada_layout_signals[SIDEPANE_SIGNAL] =
 	    g_signal_new ("sidepane", G_OBJECT_CLASS_TYPE (object_class),
@@ -1054,6 +1058,8 @@ parrillada_layout_init (ParrilladaLayout *obj)
 
 	obj->priv = g_new0 (ParrilladaLayoutPrivate, 1);
 
+	gtk_orientable_set_orientation (GTK_ORIENTABLE (obj), GTK_ORIENTATION_VERTICAL);
+
 	/* menu */
 	obj->priv->action_group = gtk_action_group_new ("ParrilladaLayoutActions");
 	gtk_action_group_set_translation_domain (obj->priv->action_group, 
@@ -1077,12 +1083,12 @@ parrillada_layout_init (ParrilladaLayout *obj)
 	switch (obj->priv->layout_type) {
 		case PARRILLADA_LAYOUT_TOP:
 		case PARRILLADA_LAYOUT_BOTTOM:
-			obj->priv->pane = gtk_vpaned_new ();
+			obj->priv->pane = gtk_paned_new (GTK_ORIENTATION_VERTICAL);
 			break;
 
 		case PARRILLADA_LAYOUT_RIGHT:
 		case PARRILLADA_LAYOUT_LEFT:
-			obj->priv->pane = gtk_hpaned_new ();
+			obj->priv->pane = gtk_paned_new (GTK_ORIENTATION_HORIZONTAL);
 			break;
 
 		default:
@@ -1102,12 +1108,13 @@ parrillada_layout_init (ParrilladaLayout *obj)
 	gtk_action_group_add_radio_actions (obj->priv->action_group,
 					    radio_entries,
 					    sizeof (radio_entries) / sizeof (GtkRadioActionEntry),
-					    GTK_IS_VPANED (obj->priv->pane),
+					    GTK_IS_PANED (obj->priv->pane) && 
+					    (gtk_orientable_get_orientation (GTK_ORIENTABLE (obj->priv->pane)) == GTK_ORIENTATION_VERTICAL),
 					    G_CALLBACK (parrillada_layout_HV_radio_button_toggled_cb),
 					    obj);
 
 	/* set up pane for project */
-	box = gtk_vbox_new (FALSE, 0);
+	box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
 	gtk_widget_show (box);
 
 	if (obj->priv->layout_type == PARRILLADA_LAYOUT_TOP
@@ -1126,12 +1133,12 @@ parrillada_layout_init (ParrilladaLayout *obj)
 	else
 		gtk_paned_pack1 (GTK_PANED (obj->priv->pane), alignment, TRUE, TRUE);
 
-	obj->priv->main_box = gtk_vbox_new (FALSE, 0);
+	obj->priv->main_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
 	gtk_container_add (GTK_CONTAINER (alignment), obj->priv->main_box);
 	gtk_widget_show (obj->priv->main_box);
 
 	/* close button and combo. Don't show it now. */
-	box = gtk_hbox_new (FALSE, 6);
+	box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
 	obj->priv->top_box = box;
 	gtk_box_pack_start (GTK_BOX (obj->priv->main_box),
 			    box,

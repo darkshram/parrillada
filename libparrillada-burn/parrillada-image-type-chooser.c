@@ -43,7 +43,7 @@
 
 #define PARRILLADA_IMAGE_TYPE_CHOOSER_PRIVATE(o)  (G_TYPE_INSTANCE_GET_PRIVATE ((o), PARRILLADA_TYPE_IMAGE_TYPE_CHOOSER, ParrilladaImageTypeChooserPrivate))
 
-G_DEFINE_TYPE (ParrilladaImageTypeChooser, parrillada_image_type_chooser, GTK_TYPE_HBOX);
+G_DEFINE_TYPE (ParrilladaImageTypeChooser, parrillada_image_type_chooser, GTK_TYPE_BOX);
 
 enum {
 	FORMAT_TEXT,
@@ -67,7 +67,7 @@ struct _ParrilladaImageTypeChooserPrivate {
 	guint updating:1;
 };
 
-static GtkHBoxClass *parent_class = NULL;
+static GtkBoxClass *parent_class = NULL;
 
 guint
 parrillada_image_type_chooser_set_formats (ParrilladaImageTypeChooser *self,
@@ -342,10 +342,6 @@ parrillada_image_type_chooser_init (ParrilladaImageTypeChooser *obj)
 static void
 parrillada_image_type_chooser_finalize (GObject *object)
 {
-	ParrilladaImageTypeChooserPrivate *priv;
-
-	priv = PARRILLADA_IMAGE_TYPE_CHOOSER_PRIVATE (object);
-
 	G_OBJECT_CLASS (parent_class)->finalize (object);
 }
 

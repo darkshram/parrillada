@@ -1,11 +1,11 @@
 # This GPL license have a exception clause added, see at the bottom of file
-# for details. This licence only applies to libparrillada-media at the moment.
+# for details. This licence only applies to libbrasero-media at the moment.
 
 		    GNU GENERAL PUBLIC LICENSE
 		       Version 2, June 1991
 
  Copyright (C) 1989, 1991 Free Software Foundation, Inc.
-     59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+     51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  Everyone is permitted to copy and distribute verbatim copies
  of this license document, but changing it is not allowed.
 
@@ -296,19 +296,19 @@ the "copyright" line and a pointer to where the full notice is found.
     <one line to give the program's name and a brief idea of what it does.>
     Copyright (C) <year>  <name of author>
 
-    Libparrillada-media is free software; you can redistribute it and/or modify
+    Libbrasero-media is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 2 of the License, or
     (at your option) any later version.
 
-    Libparrillada-media is distributed in the hope that it will be useful,
+    Libbrasero-media is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
-    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
 
 Also add information on how to contact you by electronic and paper mail.
@@ -342,10 +342,10 @@ consider it more useful to permit linking proprietary applications with the
 library.  If this is what you want to do, use the GNU Library General
 Public License instead of this License.
 
-The Libparrillada-media authors hereby grant permission for non-GPL compatible
+The Libbrasero-media authors hereby grant permission for non-GPL compatible
 GStreamer plugins to be used and distributed together with GStreamer
-and Libparrillada-media. This permission is above and beyond the permissions granted
-by the GPL license by which Libparrillada-media is covered. If you modify this code
+and Libbrasero-media. This permission is above and beyond the permissions granted
+by the GPL license by which Libbrasero-media is covered. If you modify this code
 you may extend this exception to your version of the code, but you are not
 obligated to do so. If you do not wish to do so, delete this exception
 statement from your version.

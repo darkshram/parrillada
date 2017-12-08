@@ -1,0 +1,718 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>parrillada-media: Libparrillada-media Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="Libparrillada-media Reference Manual">
+<link rel="up" href="ch01.html" title="API Reference for Libparrillada-media">
+<link rel="prev" href="ch01.html" title="API Reference for Libparrillada-media">
+<link rel="next" href="libparrillada-media-parrillada-units.html" title="parrillada-units">
+<meta name="generator" content="GTK-Doc V1.21.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#libparrillada-media-parrillada-media.description" class="shortcut">Description</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="ch01.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="libparrillada-media-parrillada-units.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="libparrillada-media-parrillada-media"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libparrillada-media-parrillada-media.top_of_page"></a>parrillada-media</span></h2>
+<p>parrillada-media</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="libparrillada-media-parrillada-media.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_return">
+<col class="functions_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libparrillada-media-parrillada-media.html#parrillada-media-library-start" title="parrillada_media_library_start ()">parrillada_media_library_start</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libparrillada-media-parrillada-media.html#parrillada-media-library-stop" title="parrillada_media_library_stop ()">parrillada_media_library_stop</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Commandline-option-parser.html#GOptionGroup"><span class="returnvalue">GOptionGroup</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="libparrillada-media-parrillada-media.html#parrillada-media-get-option-group" title="parrillada_media_get_option_group ()">parrillada_media_get_option_group</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libparrillada-media-parrillada-media.html#parrillada-media-quark" title="parrillada_media_quark ()">parrillada_media_quark</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name">
+<a class="link" href="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-VALID:CAPS" title="PARRILLADA_MEDIUM_VALID()">PARRILLADA_MEDIUM_VALID</a><span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name">
+<a class="link" href="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-TYPE:CAPS" title="PARRILLADA_MEDIUM_TYPE()">PARRILLADA_MEDIUM_TYPE</a><span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name">
+<a class="link" href="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-ATTR:CAPS" title="PARRILLADA_MEDIUM_ATTR()">PARRILLADA_MEDIUM_ATTR</a><span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name">
+<a class="link" href="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-STATUS:CAPS" title="PARRILLADA_MEDIUM_STATUS()">PARRILLADA_MEDIUM_STATUS</a><span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name">
+<a class="link" href="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-SUBTYPE:CAPS" title="PARRILLADA_MEDIUM_SUBTYPE()">PARRILLADA_MEDIUM_SUBTYPE</a><span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name">
+<a class="link" href="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-INFO:CAPS" title="PARRILLADA_MEDIUM_INFO()">PARRILLADA_MEDIUM_INFO</a><span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name">
+<a class="link" href="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-IS:CAPS" title="PARRILLADA_MEDIUM_IS()">PARRILLADA_MEDIUM_IS</a><span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name">
+<a class="link" href="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-RANDOM-WRITABLE:CAPS" title="PARRILLADA_MEDIUM_RANDOM_WRITABLE()">PARRILLADA_MEDIUM_RANDOM_WRITABLE</a><span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="libparrillada-media-parrillada-media.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="name">
+<col class="description">
+</colgroup>
+<tbody>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libparrillada-media-parrillada-media.html#LIBPARRILLADA-MEDIA-VERSION-MAJOR:CAPS" title="LIBPARRILLADA_MEDIA_VERSION_MAJOR">LIBPARRILLADA_MEDIA_VERSION_MAJOR</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libparrillada-media-parrillada-media.html#LIBPARRILLADA-MEDIA-VERSION-MINOR:CAPS" title="LIBPARRILLADA_MEDIA_VERSION_MINOR">LIBPARRILLADA_MEDIA_VERSION_MINOR</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libparrillada-media-parrillada-media.html#LIBPARRILLADA-MEDIA-VERSION-MICRO:CAPS" title="LIBPARRILLADA_MEDIA_VERSION_MICRO">LIBPARRILLADA_MEDIA_VERSION_MICRO</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libparrillada-media-parrillada-media.html#LIBPARRILLADA-MEDIA-AGE:CAPS" title="LIBPARRILLADA_MEDIA_AGE">LIBPARRILLADA_MEDIA_AGE</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libparrillada-media-parrillada-media.html#LIBPARRILLADA-MEDIA-INSTALL:CAPS" title="LIBPARRILLADA_MEDIA_INSTALL">LIBPARRILLADA_MEDIA_INSTALL</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIA-ERROR:CAPS" title="PARRILLADA_MEDIA_ERROR">PARRILLADA_MEDIA_ERROR</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="libparrillada-media-parrillada-media.html#ParrilladaMediaError" title="enum ParrilladaMediaError">ParrilladaMediaError</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="libparrillada-media-parrillada-media.html#ParrilladaMedia" title="enum ParrilladaMedia">ParrilladaMedia</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-CDROM:CAPS" title="PARRILLADA_MEDIUM_CDROM">PARRILLADA_MEDIUM_CDROM</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-CDR:CAPS" title="PARRILLADA_MEDIUM_CDR">PARRILLADA_MEDIUM_CDR</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-CDRW:CAPS" title="PARRILLADA_MEDIUM_CDRW">PARRILLADA_MEDIUM_CDRW</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-DVD-ROM:CAPS" title="PARRILLADA_MEDIUM_DVD_ROM">PARRILLADA_MEDIUM_DVD_ROM</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-DVDR:CAPS" title="PARRILLADA_MEDIUM_DVDR">PARRILLADA_MEDIUM_DVDR</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-DVDRW:CAPS" title="PARRILLADA_MEDIUM_DVDRW">PARRILLADA_MEDIUM_DVDRW</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-DVDRW-RESTRICTED:CAPS" title="PARRILLADA_MEDIUM_DVDRW_RESTRICTED">PARRILLADA_MEDIUM_DVDRW_RESTRICTED</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-DVDR-DL:CAPS" title="PARRILLADA_MEDIUM_DVDR_DL">PARRILLADA_MEDIUM_DVDR_DL</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-DVDR-JUMP-DL:CAPS" title="PARRILLADA_MEDIUM_DVDR_JUMP_DL">PARRILLADA_MEDIUM_DVDR_JUMP_DL</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-DVDR-PLUS:CAPS" title="PARRILLADA_MEDIUM_DVDR_PLUS">PARRILLADA_MEDIUM_DVDR_PLUS</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-DVDRW-PLUS:CAPS" title="PARRILLADA_MEDIUM_DVDRW_PLUS">PARRILLADA_MEDIUM_DVDRW_PLUS</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-DVDR-PLUS-DL:CAPS" title="PARRILLADA_MEDIUM_DVDR_PLUS_DL">PARRILLADA_MEDIUM_DVDR_PLUS_DL</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-DVDRW-PLUS-DL:CAPS" title="PARRILLADA_MEDIUM_DVDRW_PLUS_DL">PARRILLADA_MEDIUM_DVDRW_PLUS_DL</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-DVD-RAM:CAPS" title="PARRILLADA_MEDIUM_DVD_RAM">PARRILLADA_MEDIUM_DVD_RAM</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-BD-ROM:CAPS" title="PARRILLADA_MEDIUM_BD_ROM">PARRILLADA_MEDIUM_BD_ROM</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-BDR-SRM:CAPS" title="PARRILLADA_MEDIUM_BDR_SRM">PARRILLADA_MEDIUM_BDR_SRM</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-BDR-SRM-POW:CAPS" title="PARRILLADA_MEDIUM_BDR_SRM_POW">PARRILLADA_MEDIUM_BDR_SRM_POW</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-BDR-RANDOM:CAPS" title="PARRILLADA_MEDIUM_BDR_RANDOM">PARRILLADA_MEDIUM_BDR_RANDOM</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libparrillada-media-parrillada-media.html#PARRILLADA-MEDIUM-BDRE:CAPS" title="PARRILLADA_MEDIUM_BDRE">PARRILLADA_MEDIUM_BDRE</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="libparrillada-media-parrillada-media.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="libparrillada-media-parrillada-media.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="parrillada-media-library-start"></a><h3>parrillada_media_library_start ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+parrillada_media_library_start (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>Initialize the library.</p>
+<p>You should call this function before using any other from the library.</p>
+<p>Rename to: init</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="parrillada-media-library-stop"></a><h3>parrillada_media_library_stop ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+parrillada_media_library_stop (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>De-initialize the library once you do not need the library anymore.</p>
+<p>Rename to: deinit</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="parrillada-media-get-option-group"></a><h3>parrillada_media_get_option_group ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Commandline-option-parser.html#GOptionGroup"><span class="returnvalue">GOptionGroup</span></a> *
+parrillada_media_get_option_group (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>Returns a GOptionGroup for the commandline arguments recognized by libparrillada-media.
+You should add this to your GOptionContext if your are using <a href="https://developer.gnome.org/glib/unstable/glib-Commandline-option-parser.html#g-option-context-parse"><code class="function">g_option_context_parse()</code></a>
+to parse your commandline arguments.</p>
+<div class="refsect3">
+<a name="id-1.2.2.6.4.5"></a><h4>Returns</h4>
+<p> a <a href="https://developer.gnome.org/glib/unstable/glib-Commandline-option-parser.html#GOptionGroup"><span class="type">GOptionGroup</span></a> *</p>
+<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="parrillada-media-quark"></a><h3>parrillada_media_quark ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>
+parrillada_media_quark (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="refsect3">
+<a name="id-1.2.2.6.5.5"></a><h4>Returns</h4>
+<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PARRILLADA-MEDIUM-VALID:CAPS"></a><h3>PARRILLADA_MEDIUM_VALID()</h3>
+<pre class="programlisting">#define             PARRILLADA_MEDIUM_VALID(media)</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PARRILLADA-MEDIUM-TYPE:CAPS"></a><h3>PARRILLADA_MEDIUM_TYPE()</h3>
+<pre class="programlisting">#define PARRILLADA_MEDIUM_TYPE(media) ((media) &amp; 0x003F)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PARRILLADA-MEDIUM-ATTR:CAPS"></a><h3>PARRILLADA_MEDIUM_ATTR()</h3>
+<pre class="programlisting">#define PARRILLADA_MEDIUM_ATTR(media) ((media) &amp; 0x1C000)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PARRILLADA-MEDIUM-STATUS:CAPS"></a><h3>PARRILLADA_MEDIUM_STATUS()</h3>
+<pre class="programlisting">#define PARRILLADA_MEDIUM_STATUS(media) ((media) &amp; 0xE0000)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PARRILLADA-MEDIUM-SUBTYPE:CAPS"></a><h3>PARRILLADA_MEDIUM_SUBTYPE()</h3>
+<pre class="programlisting">#define PARRILLADA_MEDIUM_SUBTYPE(media) ((media) &amp; 0x1FC0)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PARRILLADA-MEDIUM-INFO:CAPS"></a><h3>PARRILLADA_MEDIUM_INFO()</h3>
+<pre class="programlisting">#define PARRILLADA_MEDIUM_INFO(media) ((media) &amp; 0xFE0000)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PARRILLADA-MEDIUM-IS:CAPS"></a><h3>PARRILLADA_MEDIUM_IS()</h3>
+<pre class="programlisting">#define PARRILLADA_MEDIUM_IS(media, type) (((media)&amp;(type))==(type))
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PARRILLADA-MEDIUM-RANDOM-WRITABLE:CAPS"></a><h3>PARRILLADA_MEDIUM_RANDOM_WRITABLE()</h3>
+<pre class="programlisting">#define             PARRILLADA_MEDIUM_RANDOM_WRITABLE(media)</pre>
+<p>
+</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="libparrillada-media-parrillada-media.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="LIBPARRILLADA-MEDIA-VERSION-MAJOR:CAPS"></a><h3>LIBPARRILLADA_MEDIA_VERSION_MAJOR</h3>
+<pre class="programlisting">#define             LIBPARRILLADA_MEDIA_VERSION_MAJOR</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="LIBPARRILLADA-MEDIA-VERSION-MINOR:CAPS"></a><h3>LIBPARRILLADA_MEDIA_VERSION_MINOR</h3>
+<pre class="programlisting">#define             LIBPARRILLADA_MEDIA_VERSION_MINOR</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="LIBPARRILLADA-MEDIA-VERSION-MICRO:CAPS"></a><h3>LIBPARRILLADA_MEDIA_VERSION_MICRO</h3>
+<pre class="programlisting">#define             LIBPARRILLADA_MEDIA_VERSION_MICRO</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="LIBPARRILLADA-MEDIA-AGE:CAPS"></a><h3>LIBPARRILLADA_MEDIA_AGE</h3>
+<pre class="programlisting">#define             LIBPARRILLADA_MEDIA_AGE</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="LIBPARRILLADA-MEDIA-INSTALL:CAPS"></a><h3>LIBPARRILLADA_MEDIA_INSTALL</h3>
+<pre class="programlisting">#define             LIBPARRILLADA_MEDIA_INSTALL</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PARRILLADA-MEDIA-ERROR:CAPS"></a><h3>PARRILLADA_MEDIA_ERROR</h3>
+<pre class="programlisting">#define PARRILLADA_MEDIA_ERROR parrillada_media_quark()
+</pre>
+<p>The GQuark used for ParrilladaMediaError</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ParrilladaMediaError"></a><h3>enum ParrilladaMediaError</h3>
+<p>Error codes returned by libparrillada-media</p>
+<div class="refsect3">
+<a name="id-1.2.2.7.8.4"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-MEDIA-ERROR-NONE:CAPS"></a>PARRILLADA_MEDIA_ERROR_NONE</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-MEDIA-ERROR-GENERAL:CAPS"></a>PARRILLADA_MEDIA_ERROR_GENERAL</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-MEDIA-ERROR-IMAGE-INVALID:CAPS"></a>PARRILLADA_MEDIA_ERROR_IMAGE_INVALID</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ParrilladaMedia"></a><h3>enum ParrilladaMedia</h3>
+<p>This enum allows to define all characteristics for a media (closed, writable, ...)
+and identify all types of optical media.</p>
+<div class="refsect3">
+<a name="id-1.2.2.7.9.4"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-MEDIUM-UNSUPPORTED:CAPS"></a>PARRILLADA_MEDIUM_UNSUPPORTED</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-MEDIUM-BUSY:CAPS"></a>PARRILLADA_MEDIUM_BUSY</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-MEDIUM-NONE:CAPS"></a>PARRILLADA_MEDIUM_NONE</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-MEDIUM-FILE:CAPS"></a>PARRILLADA_MEDIUM_FILE</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-MEDIUM-CD:CAPS"></a>PARRILLADA_MEDIUM_CD</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-MEDIUM-DVD:CAPS"></a>PARRILLADA_MEDIUM_DVD</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-MEDIUM-BD:CAPS"></a>PARRILLADA_MEDIUM_BD</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-MEDIUM-DUAL-L:CAPS"></a>PARRILLADA_MEDIUM_DUAL_L</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-MEDIUM-RAM:CAPS"></a>PARRILLADA_MEDIUM_RAM</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-MEDIUM-PLUS:CAPS"></a>PARRILLADA_MEDIUM_PLUS</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-MEDIUM-SEQUENTIAL:CAPS"></a>PARRILLADA_MEDIUM_SEQUENTIAL</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-MEDIUM-RESTRICTED:CAPS"></a>PARRILLADA_MEDIUM_RESTRICTED</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-MEDIUM-JUMP:CAPS"></a>PARRILLADA_MEDIUM_JUMP</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-MEDIUM-RANDOM:CAPS"></a>PARRILLADA_MEDIUM_RANDOM</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-MEDIUM-SRM:CAPS"></a>PARRILLADA_MEDIUM_SRM</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-MEDIUM-POW:CAPS"></a>PARRILLADA_MEDIUM_POW</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-MEDIUM-REWRITABLE:CAPS"></a>PARRILLADA_MEDIUM_REWRITABLE</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-MEDIUM-WRITABLE:CAPS"></a>PARRILLADA_MEDIUM_WRITABLE</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-MEDIUM-ROM:CAPS"></a>PARRILLADA_MEDIUM_ROM</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-MEDIUM-BLANK:CAPS"></a>PARRILLADA_MEDIUM_BLANK</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-MEDIUM-CLOSED:CAPS"></a>PARRILLADA_MEDIUM_CLOSED</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-MEDIUM-APPENDABLE:CAPS"></a>PARRILLADA_MEDIUM_APPENDABLE</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-MEDIUM-UNFORMATTED:CAPS"></a>PARRILLADA_MEDIUM_UNFORMATTED</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-MEDIUM-PROTECTED:CAPS"></a>PARRILLADA_MEDIUM_PROTECTED</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-MEDIUM-HAS-DATA:CAPS"></a>PARRILLADA_MEDIUM_HAS_DATA</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-MEDIUM-HAS-AUDIO:CAPS"></a>PARRILLADA_MEDIUM_HAS_AUDIO</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PARRILLADA-MEDIUM-CDROM:CAPS"></a><h3>PARRILLADA_MEDIUM_CDROM</h3>
+<pre class="programlisting">#define             PARRILLADA_MEDIUM_CDROM</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PARRILLADA-MEDIUM-CDR:CAPS"></a><h3>PARRILLADA_MEDIUM_CDR</h3>
+<pre class="programlisting">#define             PARRILLADA_MEDIUM_CDR</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PARRILLADA-MEDIUM-CDRW:CAPS"></a><h3>PARRILLADA_MEDIUM_CDRW</h3>
+<pre class="programlisting">#define             PARRILLADA_MEDIUM_CDRW</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PARRILLADA-MEDIUM-DVD-ROM:CAPS"></a><h3>PARRILLADA_MEDIUM_DVD_ROM</h3>
+<pre class="programlisting">#define             PARRILLADA_MEDIUM_DVD_ROM</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PARRILLADA-MEDIUM-DVDR:CAPS"></a><h3>PARRILLADA_MEDIUM_DVDR</h3>
+<pre class="programlisting">#define             PARRILLADA_MEDIUM_DVDR</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PARRILLADA-MEDIUM-DVDRW:CAPS"></a><h3>PARRILLADA_MEDIUM_DVDRW</h3>
+<pre class="programlisting">#define             PARRILLADA_MEDIUM_DVDRW</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PARRILLADA-MEDIUM-DVDRW-RESTRICTED:CAPS"></a><h3>PARRILLADA_MEDIUM_DVDRW_RESTRICTED</h3>
+<pre class="programlisting">#define             PARRILLADA_MEDIUM_DVDRW_RESTRICTED</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PARRILLADA-MEDIUM-DVDR-DL:CAPS"></a><h3>PARRILLADA_MEDIUM_DVDR_DL</h3>
+<pre class="programlisting">#define             PARRILLADA_MEDIUM_DVDR_DL</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PARRILLADA-MEDIUM-DVDR-JUMP-DL:CAPS"></a><h3>PARRILLADA_MEDIUM_DVDR_JUMP_DL</h3>
+<pre class="programlisting">#define             PARRILLADA_MEDIUM_DVDR_JUMP_DL</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PARRILLADA-MEDIUM-DVDR-PLUS:CAPS"></a><h3>PARRILLADA_MEDIUM_DVDR_PLUS</h3>
+<pre class="programlisting">#define             PARRILLADA_MEDIUM_DVDR_PLUS</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PARRILLADA-MEDIUM-DVDRW-PLUS:CAPS"></a><h3>PARRILLADA_MEDIUM_DVDRW_PLUS</h3>
+<pre class="programlisting">#define             PARRILLADA_MEDIUM_DVDRW_PLUS</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PARRILLADA-MEDIUM-DVDR-PLUS-DL:CAPS"></a><h3>PARRILLADA_MEDIUM_DVDR_PLUS_DL</h3>
+<pre class="programlisting">#define             PARRILLADA_MEDIUM_DVDR_PLUS_DL</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PARRILLADA-MEDIUM-DVDRW-PLUS-DL:CAPS"></a><h3>PARRILLADA_MEDIUM_DVDRW_PLUS_DL</h3>
+<pre class="programlisting">#define             PARRILLADA_MEDIUM_DVDRW_PLUS_DL</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PARRILLADA-MEDIUM-DVD-RAM:CAPS"></a><h3>PARRILLADA_MEDIUM_DVD_RAM</h3>
+<pre class="programlisting">#define             PARRILLADA_MEDIUM_DVD_RAM</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PARRILLADA-MEDIUM-BD-ROM:CAPS"></a><h3>PARRILLADA_MEDIUM_BD_ROM</h3>
+<pre class="programlisting">#define             PARRILLADA_MEDIUM_BD_ROM</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PARRILLADA-MEDIUM-BDR-SRM:CAPS"></a><h3>PARRILLADA_MEDIUM_BDR_SRM</h3>
+<pre class="programlisting">#define             PARRILLADA_MEDIUM_BDR_SRM</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PARRILLADA-MEDIUM-BDR-SRM-POW:CAPS"></a><h3>PARRILLADA_MEDIUM_BDR_SRM_POW</h3>
+<pre class="programlisting">#define             PARRILLADA_MEDIUM_BDR_SRM_POW</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PARRILLADA-MEDIUM-BDR-RANDOM:CAPS"></a><h3>PARRILLADA_MEDIUM_BDR_RANDOM</h3>
+<pre class="programlisting">#define             PARRILLADA_MEDIUM_BDR_RANDOM</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PARRILLADA-MEDIUM-BDRE:CAPS"></a><h3>PARRILLADA_MEDIUM_BDRE</h3>
+<pre class="programlisting">#define             PARRILLADA_MEDIUM_BDRE</pre>
+<p>
+</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.21.1</div>
+</body>
+</html>

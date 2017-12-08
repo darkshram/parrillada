@@ -69,15 +69,35 @@ parrillada_utils_error_quark (void)
 
 static gboolean use_debug = FALSE;
 
+static const GOptionEntry options [] = {
+	{ "parrillada-utils-debug", 'g', 0, G_OPTION_ARG_NONE, &use_debug,
+	  N_("Display debug statements on stdout for Parrillada utilities library"),
+	  NULL },
+	{ NULL }
+};
+
 void
 parrillada_utils_set_use_debug (gboolean active)
 {
 	use_debug = active;
 }
 
+GOptionGroup *
+parrillada_utils_get_option_group (void)
+{
+	GOptionGroup *group;
+
+	group = g_option_group_new ("parrillada-utils",
+				    N_("Parrillada utilities library"),
+				    N_("Display options for Parrillada-utils library"),
+				    NULL,
+				    NULL);
+	g_option_group_add_entries (group, options);
+	return group;
+}
+
 void
-parrillada_utils_debug_message (const gchar *domain,
-			     const gchar *location,
+parrillada_utils_debug_message (const gchar *location,
 			     const gchar *format,
 			     ...)
 {
@@ -87,15 +107,12 @@ parrillada_utils_debug_message (const gchar *domain,
 	if (!use_debug)
 		return;
 
-	format_real = g_strdup_printf ("At %s: %s",
+	format_real = g_strdup_printf ("ParrilladaUtils: (at %s) %s\n",
 				       location,
 				       format);
 
 	va_start (arg_list, format);
-	g_logv (domain,
-		G_LOG_LEVEL_DEBUG,
-		format_real,
-		arg_list);
+	vprintf (format_real, arg_list);
 	va_end (arg_list);
 
 	g_free (format_real);
@@ -298,10 +315,10 @@ parrillada_utils_pack_properties_list (const gchar *title, GSList *list)
 	GtkWidget *label;
 	GSList *iter;
 
-	vbox_main = gtk_vbox_new (FALSE, 0);
+	vbox_main = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
 	gtk_widget_show (vbox_main);
 
-	hbox = gtk_hbox_new (FALSE, 0);
+	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
 	gtk_widget_show (hbox);
 	gtk_box_pack_end (GTK_BOX (vbox_main),
 			  hbox,
@@ -317,7 +334,7 @@ parrillada_utils_pack_properties_list (const gchar *title, GSList *list)
 			    TRUE,
 			    0);
 
-	vbox_prop = gtk_vbox_new (FALSE, 6);
+	vbox_prop = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
 	gtk_widget_show (vbox_prop);
 	gtk_box_pack_start (GTK_BOX (hbox),
 			    vbox_prop,
@@ -336,7 +353,7 @@ parrillada_utils_pack_properties_list (const gchar *title, GSList *list)
 		GtkWidget *vbox;
 		GtkWidget *label;
 
-		vbox = gtk_vbox_new (FALSE, 0);
+		vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
 
 		label = gtk_label_new (title);
 		gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);

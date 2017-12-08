@@ -127,7 +127,7 @@ parrillada_burn_options_add_source (ParrilladaBurnOptions *self,
 		GtkWidget *hbox;
 		GtkWidget *alignment;
 
-		hbox = gtk_hbox_new (FALSE, 12);
+		hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
 		gtk_widget_show (hbox);
 
 		gtk_box_pack_start (GTK_BOX (hbox), child, TRUE, TRUE, 0);
@@ -349,6 +349,7 @@ parrillada_burn_options_update_valid (ParrilladaBurnOptions *self)
 {
 	ParrilladaBurnOptionsPrivate *priv;
 	ParrilladaSessionError valid;
+	ParrilladaDrive *drive;
 
 	priv = PARRILLADA_BURN_OPTIONS_PRIVATE (self);
 
@@ -358,7 +359,13 @@ parrillada_burn_options_update_valid (ParrilladaBurnOptions *self)
 	parrillada_burn_options_setup_buttons (self);
 
 	gtk_widget_set_sensitive (priv->options, priv->is_valid);
-	gtk_widget_set_sensitive (priv->properties, priv->is_valid);
+	/* Ensure the user can always change the properties (i.e. file location)
+	 * the target is a fake drive */
+	drive = parrillada_burn_session_get_burner (PARRILLADA_BURN_SESSION (priv->session));
+	if (drive && parrillada_drive_is_fake (drive))
+		gtk_widget_set_sensitive (priv->properties, TRUE);
+	else
+		gtk_widget_set_sensitive (priv->properties, priv->is_valid);
 
 	if (priv->message_input) {
 		gtk_widget_hide (priv->message_input);
@@ -488,52 +495,44 @@ parrillada_burn_options_update_valid (ParrilladaBurnOptions *self)
 		return;		      
 	}
 	else if (valid == PARRILLADA_SESSION_NO_INPUT_MEDIUM) {
-		GtkWidget *message;
-
 		if (priv->message_input) {
 			gtk_widget_show (priv->message_input);
-			message = parrillada_notify_message_add (priv->message_input,
-							      _("Please insert a disc holding data."),
-							      _("There is no inserted disc to copy."),
-							      -1,
-							      PARRILLADA_NOTIFY_CONTEXT_SIZE);
+			parrillada_notify_message_add (priv->message_input,
+			                            _("Please insert a disc holding data."),
+			                            _("There is no inserted disc to copy."),
+			                            -1,
+			                            PARRILLADA_NOTIFY_CONTEXT_SIZE);
 		}
 	}
 	else if (valid == PARRILLADA_SESSION_NO_INPUT_IMAGE) {
-		GtkWidget *message;
-
 		if (priv->message_input) {
 			gtk_widget_show (priv->message_input);
-			message = parrillada_notify_message_add (priv->message_input,
-							      _("Please select a disc image."),
-							      _("There is no selected disc image."),
-							      -1,
-							      PARRILLADA_NOTIFY_CONTEXT_SIZE);
+			parrillada_notify_message_add (priv->message_input,
+			                            _("Please select a disc image."),
+			                            _("There is no selected disc image."),
+			                            -1,
+			                            PARRILLADA_NOTIFY_CONTEXT_SIZE);
 		}
 	}
 	else if (valid == PARRILLADA_SESSION_UNKNOWN_IMAGE) {
-		GtkWidget *message;
-
 		if (priv->message_input) {
 			gtk_widget_show (priv->message_input);
-			message = parrillada_notify_message_add (priv->message_input,
-							      /* Translators: this is a disc image not a picture */
-							      C_("disc", "Please select another image."),
-							      _("It doesn't appear to be a valid disc image or a valid cue file."),
-							      -1,
-							      PARRILLADA_NOTIFY_CONTEXT_SIZE);
+			parrillada_notify_message_add (priv->message_input,
+			                            /* Translators: this is a disc image not a picture */
+			                            C_("disc", "Please select another image."),
+			                            _("It doesn't appear to be a valid disc image or a valid cue file."),
+			                            -1,
+			                            PARRILLADA_NOTIFY_CONTEXT_SIZE);
 		}
 	}
 	else if (valid == PARRILLADA_SESSION_DISC_PROTECTED) {
-		GtkWidget *message;
-
 		if (priv->message_input) {
 			gtk_widget_show (priv->message_input);
-			message = parrillada_notify_message_add (priv->message_input,
-							      _("Please insert a disc that is not copy protected."),
-							      _("All required applications and libraries are not installed."),
-							      -1,
-							      PARRILLADA_NOTIFY_CONTEXT_SIZE);
+			parrillada_notify_message_add (priv->message_input,
+			                            _("Please insert a disc that is not copy protected."),
+			                            _("All required applications and libraries are not installed."),
+			                            -1,
+			                            PARRILLADA_NOTIFY_CONTEXT_SIZE);
 		}
 	}
 	else if (valid == PARRILLADA_SESSION_NOT_SUPPORTED) {
@@ -545,7 +544,7 @@ parrillada_burn_options_update_valid (ParrilladaBurnOptions *self)
 	}
 	else if (valid == PARRILLADA_SESSION_OVERBURN_NECESSARY) {
 		GtkWidget *message;
-
+		
 		message = parrillada_notify_message_add (priv->message_output,
 						      _("Would you like to burn beyond the disc's reported capacity?"),
 						      _("The data size is too large for the disc and you must remove files from the selection otherwise."
@@ -627,7 +626,7 @@ parrillada_burn_options_build_contents (ParrilladaBurnOptions *object)
 			    0);
 
 	/* Medium selection box */
-	selection = gtk_hbox_new (FALSE, 12);
+	selection = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
 	gtk_widget_show (selection);
 
 	alignment = gtk_alignment_new (0.0, 0.5, 1.0, 1.0);
@@ -679,7 +678,7 @@ parrillada_burn_options_build_contents (ParrilladaBurnOptions *object)
 			    0);
 	priv->options_placeholder = alignment;
 
-	priv->options = gtk_vbox_new (FALSE, 0);
+	priv->options = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
 	gtk_container_add (GTK_CONTAINER (alignment), priv->options);
 
 	g_signal_connect (priv->session,
@@ -714,7 +713,7 @@ parrillada_burn_options_reset (ParrilladaBurnOptions *self)
 		priv->options = NULL;
 	}
 
-	priv->options = gtk_vbox_new (FALSE, 0);
+	priv->options = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
 	gtk_container_add (GTK_CONTAINER (priv->options_placeholder), priv->options);
 
 	if (priv->source) {
@@ -1131,7 +1130,7 @@ parrillada_burn_options_install_missing (ParrilladaPluginErrorType type,
 	int xid = 0;
 
 	/* Get the xid */
-	xid = gdk_x11_drawable_get_xid (GDK_DRAWABLE (gtk_widget_get_window (GTK_WIDGET (user_data))));
+	xid = gdk_x11_window_get_xid (gtk_widget_get_window (GTK_WIDGET (user_data)));
 
 	package = parrillada_pk_new ();
 	cancel = g_cancellable_new ();

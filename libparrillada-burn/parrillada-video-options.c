@@ -385,11 +385,7 @@ parrillada_video_options_set_property (GObject *object,
 				    const GValue *value,
 				    GParamSpec *pspec)
 {
-	ParrilladaVideoOptionsPrivate *priv;
-
 	g_return_if_fail (PARRILLADA_IS_VIDEO_OPTIONS (object));
-
-	priv = PARRILLADA_VIDEO_OPTIONS_PRIVATE (object);
 
 	switch (prop_id)
 	{
@@ -441,7 +437,7 @@ parrillada_video_options_init (ParrilladaVideoOptions *object)
 	priv = PARRILLADA_VIDEO_OPTIONS_PRIVATE (object);
 
 	gtk_container_set_border_width (GTK_CONTAINER (object), 6);
-	widget = gtk_vbox_new (FALSE, 0);
+	widget = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
 
 	table = gtk_table_new (3, 4, FALSE);
 	gtk_table_set_col_spacings (GTK_TABLE (table), 8);

@@ -3,7 +3,7 @@
 *
 *  ven mai 27 17:33:12 2005
 *  Copyright  2005  Philippe Rouquier
-*  brasero-app@wanadoo.fr
+*  parrillada-app@wanadoo.fr
 ****************************************************************************/
 
 /*
@@ -46,12 +46,12 @@ G_BEGIN_DECLS
 typedef struct ParrilladaProjectTypeChooserPrivate ParrilladaProjectTypeChooserPrivate;
 
 typedef struct {
-	GtkEventBox parent;
+	GtkBox parent;
 	ParrilladaProjectTypeChooserPrivate *priv;
 } ParrilladaProjectTypeChooser;
 
 typedef struct {
-	GtkEventBoxClass parent_class;
+	GtkBoxClass parent_class;
 
 	void	(*last_saved_clicked)	(ParrilladaProjectTypeChooser *chooser,
 					 const gchar *path);

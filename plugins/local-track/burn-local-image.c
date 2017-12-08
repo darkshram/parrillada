@@ -531,7 +531,6 @@ parrillada_local_track_thread (gpointer data)
 	     src && dest;
 	     src = src->next, dest = dest->next) {
 		gchar *name;
-		gchar *string;
 		GFile *src_file;
 		GFile *dest_file;
 		ParrilladaBurnResult result;
@@ -541,7 +540,6 @@ parrillada_local_track_thread (gpointer data)
 
 		name = g_file_get_basename (src_file);
 		PARRILLADA_JOB_LOG (self, "Downloading %s", name);
-		string = g_strdup_printf (_("Copying `%s` locally"), name);
 		g_free (name);
 
 		result = parrillada_xfer_start (priv->xfer_ctx,

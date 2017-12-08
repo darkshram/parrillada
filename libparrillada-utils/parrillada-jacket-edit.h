@@ -51,12 +51,12 @@ typedef struct _ParrilladaJacketEdit ParrilladaJacketEdit;
 
 struct _ParrilladaJacketEditClass
 {
-	GtkVBoxClass parent_class;
+	GtkBoxClass parent_class;
 };
 
 struct _ParrilladaJacketEdit
 {
-	GtkVBox parent_instance;
+	GtkBox parent_instance;
 };
 
 GType parrillada_jacket_edit_get_type (void) G_GNUC_CONST;

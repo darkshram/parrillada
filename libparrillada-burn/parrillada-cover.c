@@ -188,8 +188,7 @@ parrillada_jacket_edit_set_audio_tracks_front (ParrilladaJacketView *front,
 		if (!path)
 			path = g_strdup (cover);
 
-		parrillada_jacket_view_set_image_style (front, PARRILLADA_JACKET_IMAGE_STRETCH);
-		parrillada_jacket_view_set_image (front, path);
+		parrillada_jacket_view_set_image (front, PARRILLADA_JACKET_IMAGE_STRETCH, path);
 		g_free (path);
 	}
 

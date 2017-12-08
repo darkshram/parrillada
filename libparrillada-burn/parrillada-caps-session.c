@@ -373,7 +373,6 @@ parrillada_caps_link_get_data_flags (ParrilladaCapsLink *link,
 
 	/* Go through all plugins the get the supported/... data flags for link */
 	for (iter = link->plugins; iter; iter = iter->next) {
-		gboolean result;
 		ParrilladaPlugin *plugin;
 		ParrilladaBurnFlag plugin_supported;
 		ParrilladaBurnFlag plugin_compulsory;
@@ -382,11 +381,11 @@ parrillada_caps_link_get_data_flags (ParrilladaCapsLink *link,
 		if (!parrillada_plugin_get_active (plugin, ignore_plugin_errors))
 			continue;
 
-		result = parrillada_plugin_get_image_flags (plugin,
-							 media,
-							 session_flags,
-							 &plugin_supported,
-							 &plugin_compulsory);
+		parrillada_plugin_get_image_flags (plugin,
+		                                media,
+		                                session_flags,
+		                                &plugin_supported,
+		                                &plugin_compulsory);
 		*supported |= plugin_supported;
 	}
 }

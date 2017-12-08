@@ -9,7 +9,6 @@ AM_CPPFLAGS =					\
 	-I$(top_builddir)/libparrillada-burn/	\
 	-I$(top_srcdir)/src/			\
 	-I$(top_builddir)/src/			\
-	$(CAJA_EXTENSION_CFLAGS)		\
 	$(WARN_CFLAGS)							\
 	$(WERROR)				\
 	-D_FILE_OFFSET_BITS=64			\
@@ -22,6 +21,7 @@ AM_CPPFLAGS =					\
 	-DLIBEXECDIR=\""$(libexecdir)"\"	\
 	-DSHAREDIR=\""$(datadir)"\"		\
 	-DDATADIR=\""$(datadir)/parrillada"\"	\
+	$(CAJA_EXTENSION_CFLAGS)		\
 	$(DISABLE_DEPRECATED)
 
 @INTLTOOL_DESKTOP_RULE@
@@ -42,17 +42,13 @@ caja_extension_LTLIBRARIES = libcaja-parrillada-extension.la
 libcaja_parrillada_extension_la_SOURCES = 	\
 	caja-burn-bar.c			\
 	caja-burn-bar.h			\
-	caja-burn-extension.c			\
-	$(top_srcdir)/src/parrillada-project-name.c                       \
-	$(top_srcdir)/src/parrillada-project-name.h	\
-	$(top_srcdir)/src/parrillada-drive-settings.h	\
-	$(top_srcdir)/src/parrillada-drive-settings.c
+	caja-burn-extension.c
 
 libcaja_parrillada_extension_la_LIBADD =	\
-	../libparrillada-utils/libparrillada-utils@PARRILLADA_LIBRARY_SUFFIX@.la	\
-	../libparrillada-media/libparrillada-media@PARRILLADA_LIBRARY_SUFFIX@.la	\
-	../libparrillada-burn/libparrillada-burn@PARRILLADA_LIBRARY_SUFFIX@.la	\
-	$(CAJA_EXTENSION_LIBS)		
+	$(CAJA_EXTENSION_LIBS)		\
+	../libparrillada-utils/libparrillada-utils3.la	\
+	../libparrillada-media/libparrillada-media3.la	\
+	../libparrillada-burn/libparrillada-burn3.la
 	
 libcaja_parrillada_extension_la_LDFLAGS = $(module_flags)
 

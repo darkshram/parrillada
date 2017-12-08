@@ -20,7 +20,7 @@
 *
 *  mer mai 25 22:22:53 2005
 *  Copyright  2005  Philippe Rouquier
-*  brasero-app@wanadoo.fr
+*  parrillada-app@wanadoo.fr
 ****************************************************************************/
 
 #ifdef HAVE_CONFIG_H
@@ -47,12 +47,12 @@ G_BEGIN_DECLS
 typedef struct ParrilladaPlaylistPrivate ParrilladaPlaylistPrivate;
 
 typedef struct {
-	GtkVBox parent;
+	GtkBox parent;
 	ParrilladaPlaylistPrivate *priv;
 } ParrilladaPlaylist;
 
 typedef struct {
-	GtkVBoxClass parent_class;
+	GtkBoxClass parent_class;
 } ParrilladaPlaylistClass;
 
 GType parrillada_playlist_get_type (void);

@@ -81,13 +81,11 @@ static void
 parrillada_song_control_update_position (ParrilladaSongControl *player)
 {
 	gdouble value;
-	GtkAdjustment *adjustment;
 	ParrilladaSongControlPrivate *priv;
 	gchar *pos_string, *len_string, *result;
 
 	priv = PARRILLADA_SONG_CONTROL_PRIVATE (player);
 
-	adjustment = gtk_range_get_adjustment (GTK_RANGE (priv->progress));
 	len_string = parrillada_units_get_time_string (priv->end - priv->start, FALSE, FALSE);
 
 	value = gtk_range_get_value (GTK_RANGE (priv->progress));
@@ -160,14 +158,12 @@ static gboolean
 parrillada_song_control_update_progress_cb (ParrilladaSongControl *player)
 {
 	gint64 pos;
-	gboolean result;
 	ParrilladaSongControlPrivate *priv;
-	GstFormat format = GST_FORMAT_TIME;
 
 	priv = PARRILLADA_SONG_CONTROL_PRIVATE (player);
-	result = gst_element_query_position (priv->pipe,
-					     &format,
-					     &pos);
+	gst_element_query_position (priv->pipe,
+	                            GST_FORMAT_TIME,
+	                            &pos);
 
 	if (pos >= 0) {
 		gtk_range_set_value (GTK_RANGE (priv->progress), (gsize) (pos - priv->start));
@@ -444,7 +440,7 @@ parrillada_song_control_bus_messages (GstBus *bus,
 }
 
 static void
-parrillada_song_control_destroy (GtkObject *obj)
+parrillada_song_control_destroy (GtkWidget *obj)
 {
 	ParrilladaSongControlPrivate *priv;
 
@@ -475,7 +471,7 @@ parrillada_song_control_destroy (GtkObject *obj)
 		priv->uri = NULL;
 	}
 
-	GTK_OBJECT_CLASS (parrillada_song_control_parent_class)->destroy (obj);
+	GTK_WIDGET_CLASS (parrillada_song_control_parent_class)->destroy (obj);
 }
 
 static void
@@ -514,13 +510,13 @@ parrillada_song_control_init (ParrilladaSongControl *object)
 	gst_object_unref (bus);
 
 	/* Widget itself */
-	vbox = gtk_vbox_new (FALSE, 0);
+	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
 	gtk_widget_show (vbox);
 	gtk_container_set_border_width (GTK_CONTAINER (vbox), 0);
 	gtk_container_add (GTK_CONTAINER (object), vbox);
 
 	/* first line title */
-	hbox = gtk_hbox_new (FALSE, 12);
+	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
 	gtk_widget_show (hbox);
 	gtk_box_pack_start (GTK_BOX (vbox),
 			    hbox,
@@ -550,7 +546,7 @@ parrillada_song_control_init (ParrilladaSongControl *object)
 	                  0);
 	
 	/* second line : play, progress, volume button */
-	hbox = gtk_hbox_new (FALSE, 12);
+	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
 	gtk_widget_show (hbox);
 	gtk_box_pack_start (GTK_BOX (vbox),
 			    hbox,
@@ -578,12 +574,11 @@ parrillada_song_control_init (ParrilladaSongControl *object)
 			  G_CALLBACK (parrillada_song_control_button_clicked_cb),
 			  object);
 
-	priv->progress = gtk_hscale_new_with_range (0, 1, 500000000);
+	priv->progress = gtk_scale_new_with_range (GTK_ORIENTATION_HORIZONTAL, 0, 1, 500000000);
 	gtk_widget_show (priv->progress);
 	gtk_scale_set_digits (GTK_SCALE (priv->progress), 0);
 	gtk_scale_set_draw_value (GTK_SCALE (priv->progress), FALSE);
 	gtk_widget_set_size_request (priv->progress, 80, -1);
-	gtk_range_set_update_policy (GTK_RANGE (priv->progress), GTK_UPDATE_CONTINUOUS);
 	gtk_box_pack_start (GTK_BOX (hbox),
 	                    priv->progress,
 	                    TRUE,
@@ -638,12 +633,12 @@ static void
 parrillada_song_control_class_init (ParrilladaSongControlClass *klass)
 {
 	GObjectClass* object_class = G_OBJECT_CLASS (klass);
-	GtkObjectClass* gtk_object_class = GTK_OBJECT_CLASS (klass);
+	GtkWidgetClass* gtk_widget_class = GTK_WIDGET_CLASS (klass);
 
 	g_type_class_add_private (klass, sizeof (ParrilladaSongControlPrivate));
 
 	object_class->finalize = parrillada_song_control_finalize;
-	gtk_object_class->destroy = parrillada_song_control_destroy;
+	gtk_widget_class->destroy = parrillada_song_control_destroy;
 }
 
 GtkWidget *

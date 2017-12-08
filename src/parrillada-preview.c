@@ -216,4 +216,4 @@ parrillada_preview_new (void)
 	return g_object_new (PARRILLADA_TYPE_PREVIEW, NULL);
 }
 
-#endif
+#endif /* BUILD_PREVIEW */

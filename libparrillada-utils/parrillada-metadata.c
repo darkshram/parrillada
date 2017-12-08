@@ -186,6 +186,9 @@ parrillada_metadata_info_clear (ParrilladaMetadataInfo *info)
 	if (info->musicbrainz_id)
 		g_free (info->musicbrainz_id);
 
+	if (info->isrc)
+		g_free (info->isrc);
+
 	if (info->silences) {
 		g_slist_foreach (info->silences, (GFunc) g_free, NULL);
 		g_slist_free (info->silences);
@@ -216,7 +219,6 @@ parrillada_metadata_info_copy (ParrilladaMetadataInfo *dest,
 	dest->has_dts = src->has_dts;
 	dest->rate = src->rate;
 	dest->channels = src->channels;
-	dest->isrc = src->isrc;
 	dest->len = src->len;
 	dest->is_seekable = src->is_seekable;
 	dest->has_audio = src->has_audio;
@@ -242,6 +244,9 @@ parrillada_metadata_info_copy (ParrilladaMetadataInfo *dest,
 
 	if (src->musicbrainz_id)
 		dest->musicbrainz_id = g_strdup (src->musicbrainz_id);
+
+	if (src->isrc)
+		dest->isrc = g_strdup (src->isrc);
 
 	if (src->snapshot) {
 		dest->snapshot = src->snapshot;
@@ -783,13 +788,13 @@ end:
 	gst_query_unref (query);
 }
 
+/* FIXME: use GstDiscoverer ? */
 static gboolean
 parrillada_metadata_get_mime_type (ParrilladaMetadata *self)
 {
 	ParrilladaMetadataPrivate *priv;
 	GstElement *typefind;
 	GstCaps *caps = NULL;
-	GstElement *decode;
 	const gchar *mime;
 
 	priv = PARRILLADA_METADATA_PRIVATE (self);
@@ -800,8 +805,6 @@ parrillada_metadata_get_mime_type (ParrilladaMetadata *self)
 	}
 
 	/* find the type of the file */
-	decode = gst_bin_get_by_name (GST_BIN (priv->pipeline),
-				      "decode");
 	typefind = gst_bin_get_by_name (GST_BIN (priv->decode),
 					"typefind");
 
@@ -828,72 +831,56 @@ parrillada_metadata_get_mime_type (ParrilladaMetadata *self)
 		priv->info->type = g_strdup ("audio/mpeg");
 	else if (!strcmp (mime, "audio/x-wav")) {
 		GstElement *wavparse = NULL;
-		gpointer element = NULL;
 		GstIteratorResult res;
 		GstIterator *iter;
+		GValue value = { 0, };
 
 		priv->info->type = g_strdup (mime);
 
 		/* make sure it doesn't have dts inside */
 		iter = gst_bin_iterate_recurse (GST_BIN (priv->decode));
 
-		res = gst_iterator_next (iter, &element);
+		res = gst_iterator_next (iter, &value);
 		while (res == GST_ITERATOR_OK) {
+			GstElement *element;
 			gchar *name;
 
+			element = GST_ELEMENT (g_value_get_object (&value));
 			name = gst_object_get_name (GST_OBJECT (element));
 			if (name) {
 				if (!strncmp (name, "wavparse", 8)) {
-					wavparse = element;
+					wavparse = gst_object_ref (element);
+					g_value_unset (&value);
 					g_free (name);
 					break;
 				}
 				g_free (name);
 			}
 
-			gst_object_unref (element);
+			g_value_unset (&value);
 			element = NULL;
 
-			res = gst_iterator_next (iter, &element);
+			res = gst_iterator_next (iter, &value);
 		}
 		gst_iterator_free (iter);
 
 		if (wavparse) {
+			GstCaps *src_caps;
 			GstPad *src_pad;
 
-			iter = gst_element_iterate_src_pads (wavparse);
+			src_pad = gst_element_get_static_pad (wavparse, "src");
+			src_caps = gst_pad_get_current_caps (src_pad);
+			gst_object_unref (src_pad);
+			src_pad = NULL;
 
-			res = gst_iterator_next (iter, (gpointer *) &src_pad);
-			while (res == GST_ITERATOR_OK) {
-				GstCaps *src_caps;
+			if (src_caps) {
+				GstStructure *structure;
 
-				src_caps = gst_pad_get_caps (src_pad);
-				if (src_caps) {
-					GstStructure *structure;
-
-					structure = gst_caps_get_structure (src_caps, 0);
-					if (structure) {
-						const gchar *name;
-
-						name = gst_structure_get_name (structure);
-						priv->info->has_dts = (g_strrstr (name, "audio/x-dts") != NULL);
-						if (priv->info->has_dts) {
-							gst_object_unref (src_pad);
-							gst_caps_unref (src_caps);
-							src_pad = NULL;
-							break;
-						}
-					}
-					gst_caps_unref (src_caps);
-				}
-
-				gst_object_unref (src_pad);
-				src_pad = NULL;
-
-				res = gst_iterator_next (iter,  (gpointer *) &src_pad);
+				/* negotiated caps will always have one structure */
+				structure = gst_caps_get_structure (src_caps, 0);
+				priv->info->has_dts = gst_structure_has_name (structure, "audio/x-dts");
+				gst_caps_unref (src_caps);
 			}
-
-			gst_iterator_free (iter);
 			gst_object_unref (wavparse);
 		}
 
@@ -961,11 +948,10 @@ foreach_tag (const GstTagList *list,
 		gst_tag_list_get_string (list, tag, &(self->composer));
 	}
 */	else if (!strcmp (tag, GST_TAG_ISRC)) {
-		gchar *isrc = NULL;
-		gst_tag_list_get_string (list, tag, &isrc);
+		if (priv->info->isrc)
+			g_free (priv->info->isrc);
 
-		if (isrc)
-			priv->info->isrc = (int) g_ascii_strtoull (isrc, NULL, 10);
+		gst_tag_list_get_string (list, tag, &(priv->info->isrc));
 	}
 	else if (!strcmp (tag, GST_TAG_MUSICBRAINZ_TRACKID)) {
 		gst_tag_list_get_string (list, tag, &(priv->info->musicbrainz_id));
@@ -977,15 +963,18 @@ parrillada_metadata_process_element_messages (ParrilladaMetadata *self,
 					   GstMessage *msg)
 {
 	ParrilladaMetadataPrivate *priv;
+	const GstStructure *s;
 
 	priv = PARRILLADA_METADATA_PRIVATE (self);
 
+	s = gst_message_get_structure (msg);
+
 	/* This is for snapshot function */
-	if (!strcmp (gst_structure_get_name (msg->structure), "preroll-pixbuf")
-	||  !strcmp (gst_structure_get_name (msg->structure), "pixbuf")) {
+	if (gst_message_has_name (msg, "preroll-pixbuf")
+	||  gst_message_has_name (msg, "pixbuf")) {
 		const GValue *value;
 
-		value = gst_structure_get_value (msg->structure, "pixbuf");
+		value = gst_structure_get_value (s, "pixbuf");
 		priv->info->snapshot = g_value_get_object (value);
 		g_object_ref (priv->info->snapshot);
 
@@ -1000,25 +989,25 @@ parrillada_metadata_process_element_messages (ParrilladaMetadata *self,
 	&&   gst_is_missing_plugin_message (msg)) {
 		priv->missing_plugins = g_slist_prepend (priv->missing_plugins, gst_message_ref (msg));
 	}
-	else if (!strcmp (gst_structure_get_name (msg->structure), "level")
-	&&   gst_structure_has_field (msg->structure, "peak")) {
+	else if (gst_message_has_name (msg, "level")
+	&&   gst_structure_has_field (s, "peak")) {
 		const GValue *value;
 		const GValue *list;
 		gdouble peak;
 
-		list = gst_structure_get_value (msg->structure, "peak");
+		/* FIXME: this might still be changed to GValueArray before 1.0 release */
+		list = gst_structure_get_value (s, "peak");
 		value = gst_value_list_get_value (list, 0);
 		peak = g_value_get_double (value);
 
 		/* detection of silence */
 		if (peak < -50.0) {
 			gint64 pos = -1;
-			GstFormat format = GST_FORMAT_TIME;
 
 			/* was there a silence last time we check ?
 			 * NOTE: if that's the first signal we receive
 			 * then consider that silence started from 0 */
-			gst_element_query_position (priv->pipeline, &format, &pos);
+			gst_element_query_position (priv->pipeline, GST_FORMAT_TIME, &pos);
 			if (pos == -1) {
 				PARRILLADA_UTILS_LOG ("impossible to retrieve position");
 				return TRUE;
@@ -1113,7 +1102,6 @@ parrillada_metadata_get_duration (ParrilladaMetadata *self,
 			       GstElement *pipeline,
 			       gboolean use_duration)
 {
-	GstFormat format = GST_FORMAT_TIME;
 	ParrilladaMetadataPrivate *priv;
 	gint64 duration = -1;
 
@@ -1121,11 +1109,11 @@ parrillada_metadata_get_duration (ParrilladaMetadata *self,
 
 	if (!use_duration)
 		gst_element_query_position (GST_ELEMENT (pipeline),
-					    &format,
+					    GST_FORMAT_TIME,
 					    &duration);
 	else
 		gst_element_query_duration (GST_ELEMENT (pipeline),
-					    &format,
+					    GST_FORMAT_TIME,
 					    &duration);
 
 	if (duration == -1) {
@@ -1203,7 +1191,7 @@ parrillada_metadata_create_mp3_pipeline (ParrilladaMetadata *self)
 
 	source = gst_element_make_from_uri (GST_URI_SRC,
 					    priv->info->uri,
-					    NULL);
+					    NULL, NULL);
 	if (!source) {
 		priv->error = g_error_new (PARRILLADA_UTILS_ERROR,
 					   PARRILLADA_UTILS_ERROR_GENERAL,
@@ -1216,12 +1204,12 @@ parrillada_metadata_create_mp3_pipeline (ParrilladaMetadata *self)
 	}
 	gst_bin_add (GST_BIN (priv->pipeline_mp3), source);
 
-	parse = gst_element_factory_make ("mp3parse", NULL);
+	parse = gst_element_factory_make ("mpegaudioparse", NULL);
 	if (!parse) {
 		priv->error = g_error_new (PARRILLADA_UTILS_ERROR,
 					   PARRILLADA_UTILS_ERROR_GENERAL,
 					   _("%s element could not be created"),
-					   "\"mp3parse\"");
+					   "\"mpegaudioparse\"");
 
 		g_object_unref (priv->pipeline_mp3);
 		priv->pipeline_mp3 = NULL;
@@ -1488,12 +1476,12 @@ parrillada_metadata_create_video_pipeline (ParrilladaMetadata *self)
 		      "max-lateness", (gint64) - 1,
 		      NULL);
 
-	colorspace = gst_element_factory_make ("ffmpegcolorspace", NULL);
+	colorspace = gst_element_factory_make ("videoconvert", NULL);
 	if (!colorspace) {
 		gst_object_unref (priv->video);
 		priv->video = NULL;
 
-		PARRILLADA_UTILS_LOG ("ffmpegcolorspace is not installed");
+		PARRILLADA_UTILS_LOG ("videoconvert is not installed");
 		return FALSE;
 	}
 	gst_bin_add (GST_BIN (priv->video), colorspace);
@@ -1645,7 +1633,6 @@ parrillada_metadata_audio_caps (ParrilladaMetadata *self,
 static void
 parrillada_metadata_new_decoded_pad_cb (GstElement *decode,
 				     GstPad *pad,
-				     gboolean is_lastpad, /* deprecated */
 				     ParrilladaMetadata *self)
 {
 	GstPad *sink;
@@ -1664,11 +1651,13 @@ parrillada_metadata_new_decoded_pad_cb (GstElement *decode,
 	PARRILLADA_UTILS_LOG ("New pad for %s", priv->info->uri);
 
 	/* make sure that this is audio / video */
-	caps = gst_pad_get_caps (pad);
-	structure = gst_caps_get_structure (caps, 0);
-	if (!structure)
+	/* FIXME: get_current_caps() doesn't always seem to work yet here */
+	caps = gst_pad_query_caps (pad, NULL);
+	if (!caps) {
+		g_warning ("Expected caps on decodebin pad %s", GST_PAD_NAME (pad));
 		return;
-
+	}
+	structure = gst_caps_get_structure (caps, 0);
 	name = gst_structure_get_name (structure);
 
 	has_audio = (g_strrstr (name, "audio") != NULL);
@@ -1690,7 +1679,7 @@ parrillada_metadata_new_decoded_pad_cb (GstElement *decode,
 		}
 	}
 
-	if (g_strrstr (name, "video/x-raw-") && !priv->video_linked) {
+	if (!strcmp (name, "video/x-raw") && !priv->video_linked) {
 		PARRILLADA_UTILS_LOG ("RAW video stream found");
 
 		if (!priv->video && (priv->flags & PARRILLADA_METADATA_FLAG_THUMBNAIL)) {
@@ -1750,7 +1739,7 @@ parrillada_metadata_create_pipeline (ParrilladaMetadata *self)
 					   "\"Decodebin\"");
 		return FALSE;
 	}
-	g_signal_connect (G_OBJECT (priv->decode), "new-decoded-pad",
+	g_signal_connect (G_OBJECT (priv->decode), "pad-added",
 			  G_CALLBACK (parrillada_metadata_new_decoded_pad_cb),
 			  self);
 
@@ -1836,7 +1825,7 @@ parrillada_metadata_set_new_uri (ParrilladaMetadata *self,
 	/* create a necessary source */
 	priv->source = gst_element_make_from_uri (GST_URI_SRC,
 						  uri,
-						  NULL);
+						  NULL, NULL);
 	if (!priv->source) {
 		priv->error = g_error_new (PARRILLADA_UTILS_ERROR,
 					   PARRILLADA_UTILS_ERROR_GENERAL,

@@ -1,0 +1,422 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ParrilladaSessionCfg: Libparrillada-burn Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="Libparrillada-burn Reference Manual">
+<link rel="up" href="ch01.html" title="API Reference for Libparrillada-burn">
+<link rel="prev" href="libparrillada-burn-ParrilladaSessionSpan.html" title="ParrilladaSessionSpan">
+<link rel="next" href="libparrillada-burn-ParrilladaBurnOptions.html" title="ParrilladaBurnOptions">
+<meta name="generator" content="GTK-Doc V1.21.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#libparrillada-burn-ParrilladaSessionCfg.description" class="shortcut">Description</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="libparrillada-burn-ParrilladaSessionSpan.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="libparrillada-burn-ParrilladaBurnOptions.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="libparrillada-burn-ParrilladaSessionCfg"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libparrillada-burn-ParrilladaSessionCfg.top_of_page"></a>ParrilladaSessionCfg</span></h2>
+<p>ParrilladaSessionCfg — Configure automatically a <a class="link" href="libparrillada-burn-ParrilladaBurnSession.html#ParrilladaBurnSession" title="struct ParrilladaBurnSession"><span class="type">ParrilladaBurnSession</span></a> object</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="libparrillada-burn-ParrilladaSessionCfg.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_return">
+<col class="functions_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name">
+<a class="link" href="libparrillada-burn-ParrilladaSessionCfg.html#PARRILLADA-SESSION-IS-VALID:CAPS" title="PARRILLADA_SESSION_IS_VALID()">PARRILLADA_SESSION_IS_VALID</a><span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libparrillada-burn-ParrilladaSessionCfg.html#ParrilladaSessionCfg" title="struct ParrilladaSessionCfg"><span class="returnvalue">ParrilladaSessionCfg</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="libparrillada-burn-ParrilladaSessionCfg.html#parrillada-session-cfg-new" title="parrillada_session_cfg_new ()">parrillada_session_cfg_new</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libparrillada-burn-ParrilladaSessionCfg.html#ParrilladaSessionError" title="enum ParrilladaSessionError"><span class="returnvalue">ParrilladaSessionError</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libparrillada-burn-ParrilladaSessionCfg.html#parrillada-session-cfg-get-error" title="parrillada_session_cfg_get_error ()">parrillada_session_cfg_get_error</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libparrillada-burn-ParrilladaSessionCfg.html#parrillada-session-cfg-add-flags" title="parrillada_session_cfg_add_flags ()">parrillada_session_cfg_add_flags</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libparrillada-burn-ParrilladaSessionCfg.html#parrillada-session-cfg-remove-flags" title="parrillada_session_cfg_remove_flags ()">parrillada_session_cfg_remove_flags</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libparrillada-burn-ParrilladaSessionCfg.html#parrillada-session-cfg-is-supported" title="parrillada_session_cfg_is_supported ()">parrillada_session_cfg_is_supported</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libparrillada-burn-ParrilladaSessionCfg.html#parrillada-session-cfg-is-compulsory" title="parrillada_session_cfg_is_compulsory ()">parrillada_session_cfg_is_compulsory</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libparrillada-burn-ParrilladaSessionCfg.html#parrillada-session-cfg-has-default-output-path" title="parrillada_session_cfg_has_default_output_path ()">parrillada_session_cfg_has_default_output_path</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libparrillada-burn-ParrilladaSessionCfg.html#parrillada-session-cfg-enable" title="parrillada_session_cfg_enable ()">parrillada_session_cfg_enable</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libparrillada-burn-ParrilladaSessionCfg.html#parrillada-session-cfg-disable" title="parrillada_session_cfg_disable ()">parrillada_session_cfg_disable</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="libparrillada-burn-ParrilladaSessionCfg.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="name">
+<col class="description">
+</colgroup>
+<tbody>
+<tr>
+<td class="datatype_keyword">struct</td>
+<td class="function_name"><a class="link" href="libparrillada-burn-ParrilladaSessionCfg.html#ParrilladaSessionCfg" title="struct ParrilladaSessionCfg">ParrilladaSessionCfg</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="libparrillada-burn-ParrilladaSessionCfg.html#ParrilladaSessionError" title="enum ParrilladaSessionError">ParrilladaSessionError</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="libparrillada-burn-ParrilladaSessionCfg.includes"></a><h2>Includes</h2>
+<pre class="synopsis">#include &lt;parrillada-session-cfg.h&gt;
+</pre>
+</div>
+<div class="refsect1">
+<a name="libparrillada-burn-ParrilladaSessionCfg.description"></a><h2>Description</h2>
+<p>This object configures automatically a session reacting to any change
+made to the various parameters.</p>
+</div>
+<div class="refsect1">
+<a name="libparrillada-burn-ParrilladaSessionCfg.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="PARRILLADA-SESSION-IS-VALID:CAPS"></a><h3>PARRILLADA_SESSION_IS_VALID()</h3>
+<pre class="programlisting">#define             PARRILLADA_SESSION_IS_VALID(result_MACRO)</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="parrillada-session-cfg-new"></a><h3>parrillada_session_cfg_new ()</h3>
+<pre class="programlisting"><a class="link" href="libparrillada-burn-ParrilladaSessionCfg.html#ParrilladaSessionCfg" title="struct ParrilladaSessionCfg"><span class="returnvalue">ParrilladaSessionCfg</span></a> *
+parrillada_session_cfg_new (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>Creates a new <a class="link" href="libparrillada-burn-ParrilladaSessionCfg.html#ParrilladaSessionCfg" title="struct ParrilladaSessionCfg"><span class="type">ParrilladaSessionCfg</span></a> object.</p>
+<div class="refsect3">
+<a name="id-1.2.18.7.3.5"></a><h4>Returns</h4>
+<p> a <a class="link" href="libparrillada-burn-ParrilladaSessionCfg.html#ParrilladaSessionCfg" title="struct ParrilladaSessionCfg"><span class="type">ParrilladaSessionCfg</span></a> object.</p>
+<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="parrillada-session-cfg-get-error"></a><h3>parrillada_session_cfg_get_error ()</h3>
+<pre class="programlisting"><a class="link" href="libparrillada-burn-ParrilladaSessionCfg.html#ParrilladaSessionError" title="enum ParrilladaSessionError"><span class="returnvalue">ParrilladaSessionError</span></a>
+parrillada_session_cfg_get_error (<em class="parameter"><code><a class="link" href="libparrillada-burn-ParrilladaSessionCfg.html#ParrilladaSessionCfg" title="struct ParrilladaSessionCfg"><span class="type">ParrilladaSessionCfg</span></a> *cfg</code></em>);</pre>
+<p>This function returns the current status and if
+autoconfiguration is/was successful.</p>
+<div class="refsect3">
+<a name="id-1.2.18.7.4.5"></a><h4>Returns</h4>
+<p> a <a class="link" href="libparrillada-burn-ParrilladaSessionCfg.html#ParrilladaSessionError" title="enum ParrilladaSessionError"><span class="type">ParrilladaSessionError</span></a>.</p>
+<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="parrillada-session-cfg-add-flags"></a><h3>parrillada_session_cfg_add_flags ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+parrillada_session_cfg_add_flags (<em class="parameter"><code><a class="link" href="libparrillada-burn-ParrilladaSessionCfg.html#ParrilladaSessionCfg" title="struct ParrilladaSessionCfg"><span class="type">ParrilladaSessionCfg</span></a> *cfg</code></em>,
+                               <em class="parameter"><code><a class="link" href="libparrillada-burn-parrillada-enums.html#ParrilladaBurnFlag" title="enum ParrilladaBurnFlag"><span class="type">ParrilladaBurnFlag</span></a> flags</code></em>);</pre>
+<p>Adds all flags from <em class="parameter"><code>flags</code></em>
+ that are supported.</p>
+<div class="refsect3">
+<a name="id-1.2.18.7.5.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>flags</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libparrillada-burn-parrillada-enums.html#ParrilladaBurnFlag" title="enum ParrilladaBurnFlag"><span class="type">ParrilladaBurnFlag</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="parrillada-session-cfg-remove-flags"></a><h3>parrillada_session_cfg_remove_flags ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+parrillada_session_cfg_remove_flags (<em class="parameter"><code><a class="link" href="libparrillada-burn-ParrilladaSessionCfg.html#ParrilladaSessionCfg" title="struct ParrilladaSessionCfg"><span class="type">ParrilladaSessionCfg</span></a> *cfg</code></em>,
+                                  <em class="parameter"><code><a class="link" href="libparrillada-burn-parrillada-enums.html#ParrilladaBurnFlag" title="enum ParrilladaBurnFlag"><span class="type">ParrilladaBurnFlag</span></a> flags</code></em>);</pre>
+<p>Removes all flags that are not compulsory.</p>
+<div class="refsect3">
+<a name="id-1.2.18.7.6.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>flags</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libparrillada-burn-parrillada-enums.html#ParrilladaBurnFlag" title="enum ParrilladaBurnFlag"><span class="type">ParrilladaBurnFlag</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="parrillada-session-cfg-is-supported"></a><h3>parrillada_session_cfg_is_supported ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+parrillada_session_cfg_is_supported (<em class="parameter"><code><a class="link" href="libparrillada-burn-ParrilladaSessionCfg.html#ParrilladaSessionCfg" title="struct ParrilladaSessionCfg"><span class="type">ParrilladaSessionCfg</span></a> *cfg</code></em>,
+                                  <em class="parameter"><code><a class="link" href="libparrillada-burn-parrillada-enums.html#ParrilladaBurnFlag" title="enum ParrilladaBurnFlag"><span class="type">ParrilladaBurnFlag</span></a> flag</code></em>);</pre>
+<p>Checks whether a particular flag is supported.</p>
+<div class="refsect3">
+<a name="id-1.2.18.7.7.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>flag</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libparrillada-burn-parrillada-enums.html#ParrilladaBurnFlag" title="enum ParrilladaBurnFlag"><span class="type">ParrilladaBurnFlag</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.18.7.7.6"></a><h4>Returns</h4>
+<p> a <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>. TRUE if it is supported;
+FALSE otherwise.</p>
+<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="parrillada-session-cfg-is-compulsory"></a><h3>parrillada_session_cfg_is_compulsory ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+parrillada_session_cfg_is_compulsory (<em class="parameter"><code><a class="link" href="libparrillada-burn-ParrilladaSessionCfg.html#ParrilladaSessionCfg" title="struct ParrilladaSessionCfg"><span class="type">ParrilladaSessionCfg</span></a> *cfg</code></em>,
+                                   <em class="parameter"><code><a class="link" href="libparrillada-burn-parrillada-enums.html#ParrilladaBurnFlag" title="enum ParrilladaBurnFlag"><span class="type">ParrilladaBurnFlag</span></a> flag</code></em>);</pre>
+<p>Checks whether a particular flag is compulsory.</p>
+<div class="refsect3">
+<a name="id-1.2.18.7.8.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>flag</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libparrillada-burn-parrillada-enums.html#ParrilladaBurnFlag" title="enum ParrilladaBurnFlag"><span class="type">ParrilladaBurnFlag</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.18.7.8.6"></a><h4>Returns</h4>
+<p> a <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>. TRUE if it is compulsory;
+FALSE otherwise.</p>
+<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="parrillada-session-cfg-has-default-output-path"></a><h3>parrillada_session_cfg_has_default_output_path ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+parrillada_session_cfg_has_default_output_path
+                               (<em class="parameter"><code><a class="link" href="libparrillada-burn-ParrilladaSessionCfg.html#ParrilladaSessionCfg" title="struct ParrilladaSessionCfg"><span class="type">ParrilladaSessionCfg</span></a> *cfg</code></em>);</pre>
+<p>This function returns whether the path returned
+by <a class="link" href="libparrillada-burn-ParrilladaBurnSession.html#parrillada-burn-session-get-output" title="parrillada_burn_session_get_output ()"><code class="function">parrillada_burn_session_get_output()</code></a> is an 
+automatically created one.</p>
+<div class="refsect3">
+<a name="id-1.2.18.7.9.5"></a><h4>Returns</h4>
+<p> a <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>. TRUE if the path(s)
+creation is handled by <em class="parameter"><code>session</code></em>
+, FALSE if it was
+set.</p>
+<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="parrillada-session-cfg-enable"></a><h3>parrillada_session_cfg_enable ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+parrillada_session_cfg_enable (<em class="parameter"><code><a class="link" href="libparrillada-burn-ParrilladaSessionCfg.html#ParrilladaSessionCfg" title="struct ParrilladaSessionCfg"><span class="type">ParrilladaSessionCfg</span></a> *cfg</code></em>);</pre>
+<p>This function (re)-enables autoconfiguration</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="parrillada-session-cfg-disable"></a><h3>parrillada_session_cfg_disable ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+parrillada_session_cfg_disable (<em class="parameter"><code><a class="link" href="libparrillada-burn-ParrilladaSessionCfg.html#ParrilladaSessionCfg" title="struct ParrilladaSessionCfg"><span class="type">ParrilladaSessionCfg</span></a> *cfg</code></em>);</pre>
+<p>This function disables autoconfiguration</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="libparrillada-burn-ParrilladaSessionCfg.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="ParrilladaSessionCfg"></a><h3>struct ParrilladaSessionCfg</h3>
+<pre class="programlisting">struct ParrilladaSessionCfg {
+	ParrilladaSessionSpan parent_instance;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ParrilladaSessionError"></a><h3>enum ParrilladaSessionError</h3>
+<p>
+</p>
+<div class="refsect3">
+<a name="id-1.2.18.8.3.4"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-SESSION-VALID:CAPS"></a>PARRILLADA_SESSION_VALID</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-SESSION-NO-CD-TEXT:CAPS"></a>PARRILLADA_SESSION_NO_CD_TEXT</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-SESSION-NOT-READY:CAPS"></a>PARRILLADA_SESSION_NOT_READY</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-SESSION-EMPTY:CAPS"></a>PARRILLADA_SESSION_EMPTY</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-SESSION-NO-INPUT-IMAGE:CAPS"></a>PARRILLADA_SESSION_NO_INPUT_IMAGE</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-SESSION-UNKNOWN-IMAGE:CAPS"></a>PARRILLADA_SESSION_UNKNOWN_IMAGE</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-SESSION-NO-INPUT-MEDIUM:CAPS"></a>PARRILLADA_SESSION_NO_INPUT_MEDIUM</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-SESSION-NO-OUTPUT:CAPS"></a>PARRILLADA_SESSION_NO_OUTPUT</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-SESSION-INSUFFICIENT-SPACE:CAPS"></a>PARRILLADA_SESSION_INSUFFICIENT_SPACE</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-SESSION-OVERBURN-NECESSARY:CAPS"></a>PARRILLADA_SESSION_OVERBURN_NECESSARY</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-SESSION-NOT-SUPPORTED:CAPS"></a>PARRILLADA_SESSION_NOT_SUPPORTED</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="PARRILLADA-SESSION-DISC-PROTECTED:CAPS"></a>PARRILLADA_SESSION_DISC_PROTECTED</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="libparrillada-burn-ParrilladaSessionCfg.see-also"></a><h2>See Also</h2>
+<p><a class="link" href="libparrillada-burn-ParrilladaBurn.html#ParrilladaBurn" title="ParrilladaBurn"><span class="type">ParrilladaBurn</span></a>, <a class="link" href="libparrillada-burn-ParrilladaBurnSession.html#ParrilladaBurnSession" title="struct ParrilladaBurnSession"><span class="type">ParrilladaBurnSession</span></a></p>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.21.1</div>
+</body>
+</html>

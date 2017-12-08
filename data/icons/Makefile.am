@@ -13,7 +13,8 @@ public_icons = \
 	hicolor_apps_24x24_parrillada.png \
 	hicolor_apps_32x32_parrillada.png \
 	hicolor_apps_48x48_parrillada.png \
-	hicolor_apps_scalable_parrillada.svg \
+	hicolor_apps_256x256_parrillada.png \
+	hicolor_apps_scalable_parrillada-symbolic.svg \
 	$(NULL)
 
 private_icons = \
@@ -202,9 +203,7 @@ noinst_DATA = \
 	hicolor_actions_32x32_media-optical-copy.svg \
 	hicolor_actions_32x32_media-optical-data-new.svg \
 	hicolor_actions_32x32_transform-crop-and-resize.svg \
-	hicolor_apps_16x16_parrillada.svg \
-	hicolor_apps_22x22_parrillada.svg \
-	hicolor_apps_32x32_parrillada.svg \
+	hicolor_apps_src_parrillada.svg \
 	hicolor_status_16x16_parrillada-disc-00.svg \
 	hicolor_status_16x16_parrillada-disc-05.svg \
 	hicolor_status_16x16_parrillada-disc-10.svg \

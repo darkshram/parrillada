@@ -72,6 +72,6 @@ parrillada_preview_set_enabled (ParrilladaPreview *self,
 
 G_END_DECLS
 
-#endif				/* PLAYER_H */
-
 #endif /* _PARRILLADA_PREVIEW_H_ */
+
+#endif /* BUILD_PREVIEW */

@@ -19,14 +19,14 @@ growisofsdir = $(PARRILLADA_PLUGIN_DIRECTORY)
 growisofs_LTLIBRARIES = libparrillada-growisofs.la
 libparrillada_growisofs_la_SOURCES = burn-growisofs.c \
 	burn-growisofs-common.h 
-libparrillada_growisofs_la_LIBADD = ../../libparrillada-burn/libparrillada-burn@PARRILLADA_LIBRARY_SUFFIX@.la $(PARRILLADA_GLIB_LIBS)
+libparrillada_growisofs_la_LIBADD = ../../libparrillada-burn/libparrillada-burn3.la $(PARRILLADA_GLIB_LIBS)
 libparrillada_growisofs_la_LDFLAGS = -module -avoid-version
 
 #dvdrwformat
 dvdrwformatdir = $(PARRILLADA_PLUGIN_DIRECTORY)
 dvdrwformat_LTLIBRARIES = libparrillada-dvdrwformat.la
 libparrillada_dvdrwformat_la_SOURCES = burn-dvd-rw-format.c 
-libparrillada_dvdrwformat_la_LIBADD = ../../libparrillada-burn/libparrillada-burn@PARRILLADA_LIBRARY_SUFFIX@.la $(PARRILLADA_GLIB_LIBS)
+libparrillada_dvdrwformat_la_LIBADD = ../../libparrillada-burn/libparrillada-burn3.la $(PARRILLADA_GLIB_LIBS)
 libparrillada_dvdrwformat_la_LDFLAGS = -module -avoid-version
 
 -include $(top_srcdir)/git.mk

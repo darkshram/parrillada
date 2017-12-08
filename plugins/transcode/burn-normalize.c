@@ -103,7 +103,6 @@ parrillada_normalize_stop_pipeline (ParrilladaNormalize *normalize)
 static void
 parrillada_normalize_new_decoded_pad_cb (GstElement *decode,
 				      GstPad *pad,
-				      gboolean arg2,
 				      ParrilladaNormalize *normalize)
 {
 	GstPad *sink;
@@ -113,14 +112,15 @@ parrillada_normalize_new_decoded_pad_cb (GstElement *decode,
 
 	priv = PARRILLADA_NORMALIZE_PRIVATE (normalize);
 
-	sink = gst_element_get_pad (priv->resample, "sink");
+	sink = gst_element_get_static_pad (priv->resample, "sink");
 	if (GST_PAD_IS_LINKED (sink)) {
 		PARRILLADA_JOB_LOG (normalize, "New decoded pad already linked");
 		return;
 	}
 
 	/* make sure we only have audio */
-	caps = gst_pad_get_caps (pad);
+	/* FIXME: get_current_caps() doesn't always seem to work yet here */
+	caps = gst_pad_query_caps (pad, NULL);
 	if (!caps)
 		return;
 
@@ -164,7 +164,7 @@ parrillada_normalize_build_pipeline (ParrilladaNormalize *normalize,
 	priv->pipeline = pipeline;
 
 	/* a new source is created */
-	source = gst_element_make_from_uri (GST_URI_SRC, uri, NULL);
+	source = gst_element_make_from_uri (GST_URI_SRC, uri, NULL, NULL);
 	if (source == NULL) {
 		g_set_error (error,
 			     PARRILLADA_BURN_ERROR,
@@ -246,7 +246,7 @@ parrillada_normalize_build_pipeline (ParrilladaNormalize *normalize,
 
 	/* link everything */
 	g_signal_connect (G_OBJECT (decode),
-	                  "new-decoded-pad",
+	                  "pad-added",
 	                  G_CALLBACK (parrillada_normalize_new_decoded_pad_cb),
 	                  normalize);
 	if (!gst_element_link_many (resample,
@@ -487,12 +487,10 @@ parrillada_normalize_bus_messages (GstBus *bus,
 				GstMessage *msg,
 				ParrilladaNormalize *normalize)
 {
-	ParrilladaNormalizePrivate *priv;
 	GstTagList *tags = NULL;
 	GError *error = NULL;
 	gchar *debug;
 
-	priv = PARRILLADA_NORMALIZE_PRIVATE (normalize);
 	switch (GST_MESSAGE_TYPE (msg)) {
 	case GST_MESSAGE_TAG:
 		/* This is the information we've been waiting for.
@@ -584,12 +582,11 @@ parrillada_normalize_clock_tick (ParrilladaJob *job)
 	gint64 position = 0.0;
 	gint64 duration = 0.0;
 	ParrilladaNormalizePrivate *priv;
-	GstFormat format = GST_FORMAT_TIME;
 
 	priv = PARRILLADA_NORMALIZE_PRIVATE (job);
 
-	gst_element_query_duration (priv->pipeline, &format, &duration);
-	gst_element_query_position (priv->pipeline, &format, &position);
+	gst_element_query_duration (priv->pipeline, GST_FORMAT_TIME, &duration);
+	gst_element_query_position (priv->pipeline, GST_FORMAT_TIME, &position);
 
 	if (duration > 0) {
 		GSList *tracks;
@@ -665,8 +662,12 @@ parrillada_normalize_export_caps (ParrilladaPlugin *plugin)
 	parrillada_plugin_process_caps (plugin, input);
 	g_slist_free (input);
 
-	/* We should run first */
-	parrillada_plugin_set_process_flags (plugin, PARRILLADA_PLUGIN_RUN_PREPROCESSING);
+	/* We should run first... unfortunately since the gstreamer-1 port
+	 * we're unable to process more than a single track with rganalysis
+	 * and the GStreamer pipeline becomes stopped indefinitely.
+	 * Disable normalisation until this is resolved.
+	 * See https://bugzilla.gnome.org/show_bug.cgi?id=699599 */
+	parrillada_plugin_set_process_flags (plugin, PARRILLADA_PLUGIN_RUN_NEVER);
 
 	parrillada_plugin_set_compulsory (plugin, FALSE);
 }

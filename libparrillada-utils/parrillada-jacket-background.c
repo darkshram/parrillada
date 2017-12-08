@@ -42,6 +42,9 @@
 typedef struct _ParrilladaJacketBackgroundPrivate ParrilladaJacketBackgroundPrivate;
 struct _ParrilladaJacketBackgroundPrivate
 {
+	GtkWidget *color_radio;
+	GtkWidget *image_radio;
+
 	gchar *path;
 
 	GtkWidget *image;
@@ -54,8 +57,6 @@ struct _ParrilladaJacketBackgroundPrivate
 
 #define PARRILLADA_JACKET_BACKGROUND_PRIVATE(o)  (G_TYPE_INSTANCE_GET_PRIVATE ((o), PARRILLADA_TYPE_JACKET_BACKGROUND, ParrilladaJacketBackgroundPrivate))
 
-
-
 G_DEFINE_TYPE (ParrilladaJacketBackground, parrillada_jacket_background, GTK_TYPE_DIALOG);
 
 ParrilladaJacketColorStyle
@@ -64,35 +65,10 @@ parrillada_jacket_background_get_color_style (ParrilladaJacketBackground *self)
 	ParrilladaJacketBackgroundPrivate *priv;
 
 	priv = PARRILLADA_JACKET_BACKGROUND_PRIVATE (self);
-	return gtk_combo_box_get_active (GTK_COMBO_BOX (priv->color_style));
-}
+	if (!gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (priv->color_radio)))
+		return PARRILLADA_JACKET_COLOR_NONE;
 
-ParrilladaJacketImageStyle
-parrillada_jacket_background_get_image_style (ParrilladaJacketBackground *self)
-{
-	ParrilladaJacketBackgroundPrivate *priv;
-
-	priv = PARRILLADA_JACKET_BACKGROUND_PRIVATE (self);
-	return gtk_combo_box_get_active (GTK_COMBO_BOX (priv->image_style));
-}
-
-gchar *
-parrillada_jacket_background_get_image_path (ParrilladaJacketBackground *self)
-{
-	ParrilladaJacketBackgroundPrivate *priv;
-
-	priv = PARRILLADA_JACKET_BACKGROUND_PRIVATE (self);
-	return gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (priv->image));
-}
-
-void
-parrillada_jacket_background_set_color_style (ParrilladaJacketBackground *self,
-					   ParrilladaJacketColorStyle style)
-{
-	ParrilladaJacketBackgroundPrivate *priv;
-
-	priv = PARRILLADA_JACKET_BACKGROUND_PRIVATE (self);
-	gtk_combo_box_set_active (GTK_COMBO_BOX (priv->color_style), style);
+	return gtk_combo_box_get_active (GTK_COMBO_BOX (priv->color_style)) + 1;
 }
 
 void
@@ -103,8 +79,49 @@ parrillada_jacket_background_get_color (ParrilladaJacketBackground *self,
 	ParrilladaJacketBackgroundPrivate *priv;
 
 	priv = PARRILLADA_JACKET_BACKGROUND_PRIVATE (self);
+	if (!gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (priv->color_radio)))
+		return;
+
 	gtk_color_button_get_color (GTK_COLOR_BUTTON (priv->color), color);
 	gtk_color_button_get_color (GTK_COLOR_BUTTON (priv->color2), color2);
+}
+
+ParrilladaJacketImageStyle
+parrillada_jacket_background_get_image_style (ParrilladaJacketBackground *self)
+{
+	ParrilladaJacketBackgroundPrivate *priv;
+
+	priv = PARRILLADA_JACKET_BACKGROUND_PRIVATE (self);
+	if (!gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (priv->image_radio)))
+		return PARRILLADA_JACKET_IMAGE_NONE;
+
+	return gtk_combo_box_get_active (GTK_COMBO_BOX (priv->image_style)) + 1;
+}
+
+gchar *
+parrillada_jacket_background_get_image_path (ParrilladaJacketBackground *self)
+{
+	ParrilladaJacketBackgroundPrivate *priv;
+
+	priv = PARRILLADA_JACKET_BACKGROUND_PRIVATE (self);
+	if (!gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (priv->image_radio)))
+		return NULL;
+
+	return gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (priv->image));
+}
+
+void
+parrillada_jacket_background_set_color_style (ParrilladaJacketBackground *self,
+					   ParrilladaJacketColorStyle style)
+{
+	ParrilladaJacketBackgroundPrivate *priv;
+
+	priv = PARRILLADA_JACKET_BACKGROUND_PRIVATE (self);
+	if (style == PARRILLADA_JACKET_COLOR_NONE)
+		return;
+		
+	gtk_combo_box_set_active (GTK_COMBO_BOX (priv->color_style), style - 1);
+	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (priv->color_radio), TRUE);
 }
 
 void
@@ -114,7 +131,11 @@ parrillada_jacket_background_set_image_style (ParrilladaJacketBackground *self,
 	ParrilladaJacketBackgroundPrivate *priv;
 
 	priv = PARRILLADA_JACKET_BACKGROUND_PRIVATE (self);
-	gtk_combo_box_set_active (GTK_COMBO_BOX (priv->image_style), style);
+	if (style == PARRILLADA_JACKET_IMAGE_NONE)
+		return;
+
+	gtk_combo_box_set_active (GTK_COMBO_BOX (priv->image_style), style - 1);
+	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (priv->image_radio), TRUE);
 }
 
 void
@@ -122,11 +143,13 @@ parrillada_jacket_background_set_image_path (ParrilladaJacketBackground *self,
 					  const gchar *path)
 {
 	ParrilladaJacketBackgroundPrivate *priv;
+	priv = PARRILLADA_JACKET_BACKGROUND_PRIVATE (self);
+	if (!gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (priv->image_radio)))
+		return;
 
 	if (!path)
 		return;
 
-	priv = PARRILLADA_JACKET_BACKGROUND_PRIVATE (self);
 	gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (priv->image), path);
 }
 
@@ -138,6 +161,9 @@ parrillada_jacket_background_set_color (ParrilladaJacketBackground *self,
 	ParrilladaJacketBackgroundPrivate *priv;
 
 	priv = PARRILLADA_JACKET_BACKGROUND_PRIVATE (self);
+	if (!gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (priv->color_radio)))
+		return;
+		
 	gtk_color_button_set_color (GTK_COLOR_BUTTON (priv->color), color);
 	gtk_color_button_set_color (GTK_COLOR_BUTTON (priv->color2), color2);
 }
@@ -150,7 +176,7 @@ parrillada_jacket_background_color_type_changed_cb (GtkComboBox *combo,
 
 	priv = PARRILLADA_JACKET_BACKGROUND_PRIVATE (self);
 
-	if (gtk_combo_box_get_active (combo) == PARRILLADA_JACKET_COLOR_SOLID) {
+	if (gtk_combo_box_get_active (combo) + 1 == PARRILLADA_JACKET_COLOR_SOLID) {
 		gtk_widget_hide (priv->color2);
 		return;
 	}
@@ -175,57 +201,66 @@ parrillada_jacket_background_add_filters (ParrilladaJacketBackground *self)
 }
 
 static void
+parrillada_jacket_background_state_changed (GtkToggleButton *button,
+					 GtkWidget *widget)
+{
+	gtk_widget_set_sensitive (widget, gtk_toggle_button_get_active (button));
+}
+
+static void
 parrillada_jacket_background_init (ParrilladaJacketBackground *object)
 {
 	ParrilladaJacketBackgroundPrivate *priv;
 	GtkWidget *table;
 	GtkWidget *combo;
+	GtkWidget *radio;
 	GtkWidget *hbox2;
 	GtkWidget *label;
 	GtkWidget *vbox2;
 	GtkWidget *vbox;
 	GtkWidget *hbox;
-	gchar *string;
 
 	priv = PARRILLADA_JACKET_BACKGROUND_PRIVATE (object);
 
-	vbox = gtk_vbox_new (FALSE, 12);
+	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 12);
 	gtk_container_set_border_width (GTK_CONTAINER (vbox), 12);
 	gtk_widget_show (vbox);
 	gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (object))), vbox, TRUE, TRUE, 0);
 
-	string = g_strdup_printf ("<b>%s</b>", _("_Color"));
-	label = gtk_label_new_with_mnemonic (string);
-	g_free (string);
+	radio = gtk_radio_button_new_with_mnemonic_from_widget (NULL, _("_Color"));
+	priv->color_radio = radio;
 
-	gtk_label_set_use_markup (GTK_LABEL (label), TRUE);
-	gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.0);
-	gtk_widget_show (label);
-	gtk_box_pack_start (GTK_BOX (vbox), label, FALSE, TRUE, 0);
+	gtk_widget_show (radio);
+	gtk_box_pack_start (GTK_BOX (vbox), radio, FALSE, TRUE, 0);
 
-	hbox = gtk_hbox_new (FALSE, 0);
+	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
 	gtk_widget_show (hbox);
 	gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, TRUE, 0);
+
+	g_signal_connect (radio,
+			  "toggled",
+			  G_CALLBACK (parrillada_jacket_background_state_changed),
+			  hbox);
 
 	label = gtk_label_new ("\t");
 	gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.0);
 	gtk_widget_show (label);
 	gtk_box_pack_start (GTK_BOX (hbox), label, FALSE, TRUE, 0);
 
-	vbox2 = gtk_vbox_new (FALSE, 6);
+	vbox2 = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
 	gtk_widget_show (vbox2);
 	gtk_box_pack_start (GTK_BOX (hbox), vbox2, FALSE, TRUE, 0);
 
-	hbox2 = gtk_hbox_new (FALSE, 12);
+	hbox2 = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
 	gtk_widget_show (hbox2);
 	gtk_box_pack_start (GTK_BOX (vbox2), hbox2, FALSE, TRUE, 0);
 
-	combo = gtk_combo_box_new_text ();
+	combo = gtk_combo_box_text_new ();
 	priv->color_style = combo;
 	gtk_widget_show (combo);
-	gtk_combo_box_append_text (GTK_COMBO_BOX (combo), _("Solid color"));
-	gtk_combo_box_append_text (GTK_COMBO_BOX (combo), _("Horizontal gradient"));
-	gtk_combo_box_append_text (GTK_COMBO_BOX (combo), _("Vertical gradient"));
+	gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combo), _("Solid color"));
+	gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combo), _("Horizontal gradient"));
+	gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combo), _("Vertical gradient"));
 	gtk_combo_box_set_active (GTK_COMBO_BOX (combo), 0);
 	gtk_box_pack_start (GTK_BOX (hbox2), combo, FALSE, TRUE, 0);
 	g_signal_connect (combo,
@@ -242,18 +277,21 @@ parrillada_jacket_background_init (ParrilladaJacketBackground *object)
 
 	/* second part */
 	/* Translators: This is an image, a picture, not a "Disc Image" */
-	string = g_strdup_printf ("<b>%s</b>", _("_Image"));
-	label = gtk_label_new_with_mnemonic (string);
-	g_free (string);
+	radio = gtk_radio_button_new_with_mnemonic_from_widget (GTK_RADIO_BUTTON (radio), _("_Image"));
+	priv->image_radio = radio;
 
-	gtk_label_set_use_markup (GTK_LABEL (label), TRUE);
-	gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
-	gtk_widget_show (label);
-	gtk_box_pack_start (GTK_BOX (vbox), label, FALSE, TRUE, 0);
+	gtk_widget_show (radio);
+	gtk_box_pack_start (GTK_BOX (vbox), radio, FALSE, TRUE, 0);
 
-	hbox = gtk_hbox_new (FALSE, 0);
+	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
 	gtk_widget_show (hbox);
+	gtk_widget_set_sensitive (hbox, FALSE);
 	gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, TRUE, 0);
+
+	g_signal_connect (radio,
+			  "toggled",
+			  G_CALLBACK (parrillada_jacket_background_state_changed),
+			  hbox);
 
 	label = gtk_label_new ("\t");
 	gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
@@ -301,12 +339,12 @@ parrillada_jacket_background_init (ParrilladaJacketBackground *object)
 			  GTK_FILL,
 			  0, 0);
 
-	combo = gtk_combo_box_new_text ();
+	combo = gtk_combo_box_text_new ();
 	priv->image_style = combo;
 	gtk_widget_show (combo);
-	gtk_combo_box_append_text (GTK_COMBO_BOX (combo), _("Centered"));
-	gtk_combo_box_append_text (GTK_COMBO_BOX (combo), _("Tiled"));
-	gtk_combo_box_append_text (GTK_COMBO_BOX (combo), _("Scaled"));
+	gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combo), _("Centered"));
+	gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combo), _("Tiled"));
+	gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combo), _("Scaled"));
 	gtk_combo_box_set_active (GTK_COMBO_BOX (combo), 0);
 	gtk_table_attach (GTK_TABLE (table),
 			  priv->image_style,

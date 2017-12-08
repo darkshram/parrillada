@@ -18,7 +18,7 @@ AM_CPPFLAGS = \
 audio2cuedir = $(PARRILLADA_PLUGIN_DIRECTORY)
 audio2cue_LTLIBRARIES = libparrillada-audio2cue.la
 libparrillada_audio2cue_la_SOURCES = burn-audio2cue.c
-libparrillada_audio2cue_la_LIBADD = ../../libparrillada-burn/libparrillada-burn@PARRILLADA_LIBRARY_SUFFIX@.la $(PARRILLADA_GLIB_LIBS)
+libparrillada_audio2cue_la_LIBADD = ../../libparrillada-burn/libparrillada-burn3.la $(PARRILLADA_GLIB_LIBS)
 libparrillada_audio2cue_la_LDFLAGS = -module -avoid-version
 
 -include $(top_srcdir)/git.mk

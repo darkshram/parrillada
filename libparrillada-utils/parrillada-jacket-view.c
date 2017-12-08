@@ -56,11 +56,8 @@ struct _ParrilladaJacketViewPrivate
 	GdkColor b_color2;
 	ParrilladaJacketColorStyle color_style;
 
-	cairo_pattern_t *pattern;
-
 	GdkPixbuf *image;
 	GdkPixbuf *scaled;
-
 	gchar *image_path;
 	ParrilladaJacketImageStyle image_style;
 };
@@ -135,12 +132,10 @@ parrillada_jacket_view_set_line_attributes (GtkTextView *view,
 	GtkTextAttributes *text_attr;
 	GSList *open_attr = NULL;
 	PangoAlignment alignment;
-	GtkTextBuffer *buffer;
 	GtkTextIter iter;
 
 	attributes = pango_attr_list_new ();
 
-	buffer = gtk_text_view_get_buffer (view);
 	iter = *start;
 
 	text_attr = gtk_text_view_get_default_attributes (view);
@@ -368,49 +363,19 @@ parrillada_jacket_view_render_body (ParrilladaJacketView *self,
 }
 
 static void
-parrillada_jacket_view_render (ParrilladaJacketView *self,
-			    cairo_t *ctx,
-			    PangoLayout *layout,
-			    GdkPixbuf *scaled,
-			    gdouble resolution_x,
-			    gdouble resolution_y,
-			    guint x,
-			    guint y,
-			    GdkRectangle *area,
-			    gboolean render_if_empty)
+parrillada_jacket_view_render_background (ParrilladaJacketView *self,
+				       cairo_t *ctx,
+				       GdkPixbuf *scaled,
+				       gint x,
+				       gint y,
+				       gint width,
+				       gint height)
 {
 	ParrilladaJacketViewPrivate *priv;
-	int height, width;
 
 	priv = PARRILLADA_JACKET_VIEW_PRIVATE (self);
 
-	if (priv->side == PARRILLADA_JACKET_BACK) {
-		width = COVER_WIDTH_BACK_INCH * resolution_x;
-		height = COVER_HEIGHT_BACK_INCH * resolution_y;
-	}
-	else {
-		width = COVER_WIDTH_FRONT_INCH * resolution_x;
-		height = COVER_HEIGHT_FRONT_INCH * resolution_y;
-	}
-
-	/* set clip */
-	cairo_reset_clip (ctx);
-	cairo_rectangle (ctx, area->x, area->y, area->width, area->height);
-	cairo_clip (ctx);
-
-	/* draw white surroundings */
-	cairo_set_source_rgb (ctx, 1.0, 1.0, 1.0);
-	cairo_paint (ctx);
-
-	/* draw background */
-	cairo_rectangle (ctx, x, y, width + 2.0, height + 2.0);
-	cairo_clip (ctx);
-
-	if (priv->pattern) {
-		cairo_set_source (ctx, priv->pattern);
-		cairo_paint (ctx);
-	}
-
+	/* draw background when it is a pattern */
 	if (scaled) {
 		/* The problem is the resolution here. The one for the screen
 		 * may not be the one for the printer. So do not use our private
@@ -430,8 +395,77 @@ parrillada_jacket_view_render (ParrilladaJacketView *self,
 			cairo_pattern_set_extend (pattern, CAIRO_EXTEND_REPEAT);
 		}
 
-		cairo_paint (ctx);
+		cairo_rectangle (ctx, x, y, width, height);
+		cairo_fill (ctx);
 	}
+	else if (priv->color_style != PARRILLADA_JACKET_COLOR_NONE) {
+		cairo_pattern_t *pattern;
+
+		if (priv->color_style == PARRILLADA_JACKET_COLOR_SOLID) {
+			pattern = cairo_pattern_create_rgb (priv->b_color.red/G_MAXINT16,
+							    priv->b_color.green/G_MAXINT16,
+							    priv->b_color.blue/G_MAXINT16);
+		}
+		else {
+			if (priv->color_style == PARRILLADA_JACKET_COLOR_HGRADIENT)
+				pattern = cairo_pattern_create_linear (x,
+								       y,
+								       width + x,
+								       y);
+			else /* if (priv->color_style == PARRILLADA_JACKET_COLOR_VGRADIENT) */
+				pattern = cairo_pattern_create_linear (x,
+								       y,
+								       x,
+								       height + y);
+
+			cairo_pattern_add_color_stop_rgb (pattern,
+							  0.0,
+							  priv->b_color.red/G_MAXINT16,
+							  priv->b_color.green/G_MAXINT16,
+							  priv->b_color.blue/G_MAXINT16);
+
+			cairo_pattern_add_color_stop_rgb (pattern,
+							  1.0,
+							  priv->b_color2.red/G_MAXINT16,
+							  priv->b_color2.green/G_MAXINT16,
+							  priv->b_color2.blue/G_MAXINT16);
+		}
+
+		cairo_pattern_set_extend (pattern, CAIRO_EXTEND_NONE);
+		cairo_rectangle (ctx, x, y, width, height);
+		cairo_set_source (ctx, pattern);
+		cairo_fill (ctx);
+
+		cairo_pattern_destroy (pattern);
+	}
+}
+
+static void
+parrillada_jacket_view_render (ParrilladaJacketView *self,
+			    cairo_t *ctx,
+			    PangoLayout *layout,
+			    GdkPixbuf *scaled,
+			    gdouble resolution_x,
+			    gdouble resolution_y,
+			    gint x,
+			    gint y,
+			    gboolean render_if_empty)
+{
+	ParrilladaJacketViewPrivate *priv;
+	int height, width;
+
+	priv = PARRILLADA_JACKET_VIEW_PRIVATE (self);
+
+	if (priv->side == PARRILLADA_JACKET_BACK) {
+		width = COVER_WIDTH_BACK_INCH * resolution_x;
+		height = COVER_HEIGHT_BACK_INCH * resolution_y;
+	}
+	else {
+		width = COVER_WIDTH_FRONT_INCH * resolution_x;
+		height = COVER_HEIGHT_FRONT_INCH * resolution_y;
+	}
+
+	parrillada_jacket_view_render_background (self, ctx, scaled, x, y, width, height);
 
 	if (priv->side == PARRILLADA_JACKET_BACK) {
 		gdouble line_x, line_y;
@@ -472,14 +506,12 @@ parrillada_jacket_view_render (ParrilladaJacketView *self,
 						      resolution_y,
 						      x,
 						      y);
-
 		cairo_restore (ctx);
 	}
 
 	/* Draw the rectangle */
 	cairo_set_source_rgb (ctx, 0.0, 0.0, 0.0);
 	cairo_set_line_width (ctx, 1.0);
-
 	cairo_rectangle (ctx,
 			 x + 0.5,
 			 y + 0.5,
@@ -519,8 +551,8 @@ parrillada_jacket_view_print (ParrilladaJacketView *self,
 			   gdouble x,
 			   gdouble y)
 {
+	guint height;
 	cairo_t *ctx;
-	GdkRectangle rect;
 	PangoLayout *layout;
 	gdouble resolution_x;
 	gdouble resolution_y;
@@ -534,17 +566,11 @@ parrillada_jacket_view_print (ParrilladaJacketView *self,
 	/* set clip */
 	resolution_x = gtk_print_context_get_dpi_x (context);
 	resolution_y = gtk_print_context_get_dpi_y (context);
-	rect.x = x;
-	rect.y = y;
 
-	if (priv->side == PARRILLADA_JACKET_BACK) {
-		rect.width = (resolution_x * COVER_WIDTH_BACK_INCH) + 1.0;
-		rect.height = (resolution_y * COVER_HEIGHT_BACK_INCH) + 1.0;
-	}
-	else {
-		rect.width = (resolution_x * COVER_WIDTH_FRONT_INCH) + 1.0;
-		rect.height = (resolution_y * COVER_HEIGHT_FRONT_INCH) + 1.0;
-	}
+	if (priv->side == PARRILLADA_JACKET_BACK)
+		height = (resolution_y * COVER_HEIGHT_BACK_INCH) + 1.0;
+	else
+		height = (resolution_y * COVER_HEIGHT_FRONT_INCH) + 1.0;
 
 	/* Make sure we scale the image with the correct resolution */
 	if (priv->image_style == PARRILLADA_JACKET_IMAGE_STRETCH)
@@ -563,7 +589,6 @@ parrillada_jacket_view_print (ParrilladaJacketView *self,
 				    resolution_y,
 				    x,
 				    y,
-				    &rect,
 				    FALSE);
 
 	/* Now let's render the text in main buffer */
@@ -581,7 +606,7 @@ parrillada_jacket_view_print (ParrilladaJacketView *self,
 	if (scaled)
 		g_object_unref (scaled);
 
-	return rect.height;
+	return height;
 }
 
 static void
@@ -589,9 +614,6 @@ parrillada_jacket_view_cursor_position_changed_cb (GObject *buffer,
 						GParamSpec *spec,
 						ParrilladaJacketView *self)
 {
-	ParrilladaJacketViewPrivate *priv;
-
-	priv = PARRILLADA_JACKET_VIEW_PRIVATE (self);
 	g_signal_emit (self,
 		       jacket_view_signals [TAGS_CHANGED],
 		       0);
@@ -669,7 +691,11 @@ parrillada_jacket_view_scrolled_cb (GtkAdjustment *adj,
 	gtk_text_buffer_get_end_iter (buffer, &end);
 
 	gtk_text_view_get_visible_rect (view, &rect);
-	gtk_text_view_get_iter_at_position (view, &start, &trailing, rect.x + rect.width, rect.y + rect.height - gtk_adjustment_get_value (adj));
+	gtk_text_view_get_iter_at_position (view,
+					    &start,
+					    &trailing,
+					    rect.x + rect.width,
+					    rect.y + rect.height - gtk_adjustment_get_value (adj));
 	gtk_text_buffer_delete (buffer, &start, &end);
 
 	gtk_adjustment_set_value (adj, 0.0);
@@ -690,26 +716,31 @@ parrillada_jacket_view_configure_background (ParrilladaJacketView *self)
 
 	dialog = parrillada_jacket_background_new ();
 
-	parrillada_jacket_background_set_image_path (PARRILLADA_JACKET_BACKGROUND (dialog), priv->image_path);
-	parrillada_jacket_background_set_image_style (PARRILLADA_JACKET_BACKGROUND (dialog), priv->image_style);
-	parrillada_jacket_background_set_color (PARRILLADA_JACKET_BACKGROUND (dialog),
-					     &priv->b_color,
-					     &priv->b_color2);
-	parrillada_jacket_background_set_color_style (PARRILLADA_JACKET_BACKGROUND (dialog), priv->color_style);
+	if (priv->image_style != PARRILLADA_JACKET_IMAGE_NONE) {
+		parrillada_jacket_background_set_image_style (PARRILLADA_JACKET_BACKGROUND (dialog), priv->image_style);
+		parrillada_jacket_background_set_image_path (PARRILLADA_JACKET_BACKGROUND (dialog), priv->image_path);
+	}
+	else if (priv->color_style != PARRILLADA_JACKET_COLOR_NONE) {
+		parrillada_jacket_background_set_color_style (PARRILLADA_JACKET_BACKGROUND (dialog), priv->color_style);
+		parrillada_jacket_background_set_color (PARRILLADA_JACKET_BACKGROUND (dialog),
+						     &priv->b_color,
+						     &priv->b_color2);
+	}
 
 	gtk_dialog_run (GTK_DIALOG (dialog));
 
 	image_style = parrillada_jacket_background_get_image_style (PARRILLADA_JACKET_BACKGROUND (dialog));
-	path = parrillada_jacket_background_get_image_path (PARRILLADA_JACKET_BACKGROUND (dialog));
-	parrillada_jacket_view_set_image_style (self, image_style);
-	parrillada_jacket_view_set_image (self, path);
-	g_free (path);
-
-	parrillada_jacket_background_get_color (PARRILLADA_JACKET_BACKGROUND (dialog), &color, &color2);
-	parrillada_jacket_view_set_color_background (self, &color, &color2);
+	if (image_style != PARRILLADA_JACKET_IMAGE_NONE) {
+		path = parrillada_jacket_background_get_image_path (PARRILLADA_JACKET_BACKGROUND (dialog));
+		parrillada_jacket_view_set_image (self, image_style, path);
+		g_free (path);
+	}
 
 	color_style = parrillada_jacket_background_get_color_style (PARRILLADA_JACKET_BACKGROUND (dialog));
-	parrillada_jacket_view_set_color_style (self, color_style);
+	if (color_style != PARRILLADA_JACKET_COLOR_NONE) {
+		parrillada_jacket_background_get_color (PARRILLADA_JACKET_BACKGROUND (dialog), &color, &color2);
+		parrillada_jacket_view_set_color (self, color_style, &color, &color2);
+	}
 
 	gtk_widget_destroy (dialog);
 }
@@ -757,8 +788,8 @@ parrillada_jacket_view_set_side (ParrilladaJacketView *self,
 
 	if (priv->side == PARRILLADA_JACKET_BACK) {
 		GtkTextBuffer *sides_buffer;
-		GtkObject *vadj;
-		GtkObject *hadj;
+		GtkAdjustment *vadj;
+		GtkAdjustment *hadj;
 
 		sides_buffer = GTK_TEXT_BUFFER (parrillada_jacket_buffer_new ());
 		g_signal_connect (sides_buffer,
@@ -803,91 +834,79 @@ parrillada_jacket_view_set_side (ParrilladaJacketView *self,
 				  G_CALLBACK (parrillada_jacket_view_scrolled_cb),
 				  priv->sides);
 
-		gtk_widget_set_scroll_adjustments (priv->sides, GTK_ADJUSTMENT (hadj), GTK_ADJUSTMENT (vadj));
+		gtk_scrollable_set_hadjustment (GTK_SCROLLABLE (priv->sides), hadj);
+		gtk_scrollable_set_vadjustment (GTK_SCROLLABLE (priv->sides), vadj);
 	}
 	else
 		parrillada_jacket_buffer_set_default_text (PARRILLADA_JACKET_BUFFER (buffer), _("FRONT COVER"));
 }
 
 static void
-parrillada_jacket_view_update_edit_image (ParrilladaJacketView *self)
+parrillada_jacket_view_set_textview_background (ParrilladaJacketView *self)
 {
-	cairo_t *ctx;
+	cairo_t *cr;
 	guint resolution;
 	GdkWindow *window;
-	GdkPixmap *pixmap;
 	GtkWidget *toplevel;
+	cairo_surface_t *surface;
 	GtkAllocation allocation;
-	gint width, height, x, y;
+	guint x, y, width, height;
+	cairo_surface_t *subsurface;
 	ParrilladaJacketViewPrivate *priv;
+	cairo_pattern_t *pattern = NULL;
 
 	priv = PARRILLADA_JACKET_VIEW_PRIVATE (self);
 
-	if (!priv->pattern && !priv->scaled)
+	if (priv->image_style == PARRILLADA_JACKET_IMAGE_NONE
+	&&  priv->color_style == PARRILLADA_JACKET_COLOR_NONE)
 		return;
 
 	toplevel = gtk_widget_get_toplevel (GTK_WIDGET (self));
 	if (!GTK_IS_WINDOW (toplevel))
 		return;
 
-	resolution = gdk_screen_get_resolution (gtk_window_get_screen (GTK_WINDOW (toplevel)));
 	window = gtk_text_view_get_window (GTK_TEXT_VIEW (priv->edit), GTK_TEXT_WINDOW_TEXT);
-
 	if (!window)
 		return;
 
-	x = COVER_TEXT_MARGIN * resolution;
-	y = COVER_TEXT_MARGIN * resolution;
-	gtk_widget_get_allocation (priv->edit, &allocation);
-	width = allocation.width;
-	height = allocation.height;
-
-	if (priv->side == PARRILLADA_JACKET_BACK)
-		x += COVER_WIDTH_SIDE_INCH * resolution;
-
-	pixmap = gdk_pixmap_new (GDK_DRAWABLE (window),
-				 width,
-				 height,
-				 -1);
-
-	ctx = gdk_cairo_create (GDK_DRAWABLE (pixmap));
-
-	cairo_rectangle (ctx,
-			 0,
-			 0,
-			 width,
-			 height);
-
-	if (priv->pattern)
-		cairo_set_source (ctx, priv->pattern);
-
-	cairo_clip (ctx);
-	cairo_paint (ctx);
-
-	if (priv->scaled) {
-		if (priv->image_style == PARRILLADA_JACKET_IMAGE_CENTER) {
-			gdk_cairo_set_source_pixbuf (ctx,
-			                             priv->scaled,
-			                             (width - gdk_pixbuf_get_width (priv->scaled)) / 2,
-			                             (height - gdk_pixbuf_get_height (priv->scaled)) / 2);
-		}
-		else if (priv->image_style == PARRILLADA_JACKET_IMAGE_TILE) {
-			cairo_pattern_t *pattern;
-
-			gdk_cairo_set_source_pixbuf (ctx, priv->scaled, 0, 0);
-			pattern = cairo_get_source (ctx);
-			cairo_pattern_set_extend (pattern, CAIRO_EXTEND_REPEAT);
-		}
-		else
-			gdk_cairo_set_source_pixbuf (ctx, priv->scaled, x, y);
-
-		cairo_paint (ctx);
+	resolution = gdk_screen_get_resolution (gtk_window_get_screen (GTK_WINDOW (toplevel)));
+	if (priv->side == PARRILLADA_JACKET_BACK) {
+		width = COVER_WIDTH_BACK_INCH * resolution;
+		height = COVER_HEIGHT_BACK_INCH * resolution;
+	}
+	else {
+		width = COVER_WIDTH_FRONT_INCH * resolution;
+		height = COVER_HEIGHT_FRONT_INCH * resolution;
 	}
 
-	cairo_destroy (ctx);
+	surface = gdk_window_create_similar_surface (window,
+						     CAIRO_CONTENT_COLOR_ALPHA,
+						     width,
+						     height);
+	cr = cairo_create (surface);
 
-	gdk_window_set_back_pixmap (window, pixmap, FALSE);
-	g_object_unref (pixmap);
+	cairo_set_source_rgb (cr, 1.0, 1.0, 1.0);
+	cairo_paint (cr);
+
+	x = COVER_TEXT_MARGIN * resolution;
+       	y = COVER_TEXT_MARGIN * resolution;
+       	gtk_widget_get_allocation (priv->edit, &allocation);
+
+       	if (priv->side == PARRILLADA_JACKET_BACK)
+        	x += COVER_WIDTH_SIDE_INCH * resolution;
+
+	parrillada_jacket_view_render_background (self, cr, priv->scaled, 0, 0, width, height);
+	subsurface = cairo_surface_create_for_rectangle (surface,
+							 x,
+							 y,
+							 allocation.width,
+							 allocation.height);
+	pattern = cairo_pattern_create_for_surface (subsurface);
+	gdk_window_set_background_pattern (window, pattern);
+	cairo_pattern_destroy (pattern);
+	cairo_surface_destroy (subsurface);
+	cairo_surface_destroy (surface);
+	cairo_destroy (cr);
 }
 
 static GdkPixbuf *
@@ -928,6 +947,11 @@ parrillada_jacket_view_update_image (ParrilladaJacketView *self)
 
 	priv = PARRILLADA_JACKET_VIEW_PRIVATE (self);
 
+	if (priv->scaled) {
+		g_object_unref (priv->scaled);
+		priv->scaled = NULL;
+	}
+
 	if (!priv->image)
 		return;
 
@@ -957,90 +981,8 @@ parrillada_jacket_view_update_image (ParrilladaJacketView *self)
 	else if (priv->image_style == PARRILLADA_JACKET_IMAGE_TILE)
 		priv->scaled = g_object_ref (priv->image);
 
-	parrillada_jacket_view_update_edit_image (self);
-	gtk_widget_queue_draw (GTK_WIDGET (self));
-}
-
-void
-parrillada_jacket_view_set_image_style (ParrilladaJacketView *self,
-				     ParrilladaJacketImageStyle style)
-{
-	ParrilladaJacketViewPrivate *priv;
-
-	priv = PARRILLADA_JACKET_VIEW_PRIVATE (self);
-
-	if (priv->scaled) {
-		g_object_unref (priv->scaled);
-		priv->scaled = NULL;
-	}
-
-	priv->image_style = style;
-	parrillada_jacket_view_update_image (self);
-}
-
-static void
-parrillada_jacket_view_update_color (ParrilladaJacketView *self)
-{
-	guint resolution;
-	GtkWidget *toplevel;
-	guint width, height;
-	cairo_pattern_t *pattern;
-	ParrilladaJacketViewPrivate *priv;
-
-	priv = PARRILLADA_JACKET_VIEW_PRIVATE (self);
-
-	if (priv->pattern) {
-		cairo_pattern_destroy (priv->pattern);
-		priv->pattern = NULL;
-	}
-
-	toplevel = gtk_widget_get_toplevel (GTK_WIDGET (self));
-	if (!GTK_IS_WINDOW (toplevel))
-		return;
-
-	resolution = gdk_screen_get_resolution (gtk_window_get_screen (GTK_WINDOW (toplevel)));
-	if (priv->side == PARRILLADA_JACKET_BACK) {
-		height = resolution * COVER_HEIGHT_BACK_INCH;
-		width = resolution * COVER_WIDTH_BACK_INCH;
-	}
-	else {
-		height = resolution * COVER_HEIGHT_FRONT_INCH;
-		width = resolution * COVER_WIDTH_FRONT_INCH;
-	}
-
-	if (priv->color_style == PARRILLADA_JACKET_COLOR_SOLID) {
-		pattern = cairo_pattern_create_rgb (priv->b_color.red/G_MAXINT16,
-						    priv->b_color.green/G_MAXINT16,
-						    priv->b_color.blue/G_MAXINT16);
-	}
-	else {
-		if (priv->color_style == PARRILLADA_JACKET_COLOR_HGRADIENT)
-			pattern = cairo_pattern_create_linear (0.0,
-							       0.0,
-							       width,
-							       0.0);
-		else /* if (priv->color_style == PARRILLADA_JACKET_COLOR_VGRADIENT) */
-			pattern = cairo_pattern_create_linear (0.0,
-							       0.0,
-							       0.0,
-							       height);
-
-		cairo_pattern_add_color_stop_rgb (pattern,
-						  0.0,
-						  priv->b_color.red/G_MAXINT16,
-						  priv->b_color.green/G_MAXINT16,
-						  priv->b_color.blue/G_MAXINT16);
-
-		cairo_pattern_add_color_stop_rgb (pattern,
-						  1.0,
-						  priv->b_color2.red/G_MAXINT16,
-						  priv->b_color2.green/G_MAXINT16,
-						  priv->b_color2.blue/G_MAXINT16);
-	}
-
-	priv->pattern = pattern;
-
-	parrillada_jacket_view_update_edit_image (self);
+	/* Create a pattern out of the image */
+	parrillada_jacket_view_set_textview_background (self);
 	gtk_widget_queue_draw (GTK_WIDGET (self));
 }
 
@@ -1055,10 +997,10 @@ parrillada_jacket_view_get_image (ParrilladaJacketView *self)
 
 const gchar *
 parrillada_jacket_view_set_image (ParrilladaJacketView *self,
+			       ParrilladaJacketImageStyle style,
 			       const gchar *path)
 {
 	ParrilladaJacketViewPrivate *priv;
-	GdkPixbuf *image = NULL;
 	GError *error = NULL;
 
 	priv = PARRILLADA_JACKET_VIEW_PRIVATE (self);
@@ -1066,18 +1008,56 @@ parrillada_jacket_view_set_image (ParrilladaJacketView *self,
 	if (!path)
 		return priv->image_path;
 
-	image = gdk_pixbuf_new_from_file (path, &error);
-	if (error) {
-		parrillada_utils_message_dialog (gtk_widget_get_toplevel (GTK_WIDGET (self)),
-					      /* Translators: This is an image,
-					       * a picture, not a "Disc Image" */
-					      _("The image could not be loaded."),
-					      error->message,
-					      GTK_MESSAGE_ERROR);
-		g_error_free (error);
-		return priv->image_path;
+	priv->color_style = PARRILLADA_JACKET_COLOR_NONE;
+
+	if (g_strcmp0 (path, priv->image_path)) {
+		GdkPixbuf *image = NULL;
+	
+		image = gdk_pixbuf_new_from_file (path, &error);
+		if (error) {
+			parrillada_utils_message_dialog (gtk_widget_get_toplevel (GTK_WIDGET (self)),
+						      /* Translators: This is an image,
+						       * a picture, not a "Disc Image" */
+						      _("The image could not be loaded."),
+						      error->message,
+						      GTK_MESSAGE_ERROR);
+			g_error_free (error);
+			return priv->image_path;
+		}
+
+		if (priv->image_path) {
+			g_free (priv->image_path);
+			priv->image_path = NULL;
+		}
+		priv->image_path = g_strdup (path);
+
+		if (priv->image) {
+			g_object_unref (priv->image);
+			priv->image = NULL;
+		}
+		priv->image = image;
 	}
 
+	priv->image_style = style;
+	parrillada_jacket_view_update_image (self);
+	return priv->image_path;
+}
+
+void
+parrillada_jacket_view_set_color (ParrilladaJacketView *self,
+			       ParrilladaJacketColorStyle style,
+			       GdkColor *color,
+			       GdkColor *color2)
+{
+	ParrilladaJacketViewPrivate *priv;
+
+	priv = PARRILLADA_JACKET_VIEW_PRIVATE (self);
+
+	priv->b_color = *color;
+	priv->b_color2 = *color2;
+	priv->color_style = style;
+
+	priv->image_style = PARRILLADA_JACKET_IMAGE_NONE;
 	if (priv->image_path) {
 		g_free (priv->image_path);
 		priv->image_path = NULL;
@@ -1093,35 +1073,8 @@ parrillada_jacket_view_set_image (ParrilladaJacketView *self,
 		priv->image = NULL;
 	}
 
-	priv->image_path = g_strdup (path);
-	priv->image = image;
-
-	parrillada_jacket_view_update_image (self);
-	return priv->image_path;
-}
-
-void
-parrillada_jacket_view_set_color_background (ParrilladaJacketView *self,
-					  GdkColor *color,
-					  GdkColor *color2)
-{
-	ParrilladaJacketViewPrivate *priv;
-
-	priv = PARRILLADA_JACKET_VIEW_PRIVATE (self);
-	priv->b_color = *color;
-	priv->b_color2 = *color2;
-	parrillada_jacket_view_update_color (self);
-}
-
-void
-parrillada_jacket_view_set_color_style (ParrilladaJacketView *self,
-				     ParrilladaJacketColorStyle style)
-{
-	ParrilladaJacketViewPrivate *priv;
-
-	priv = PARRILLADA_JACKET_VIEW_PRIVATE (self);
-	priv->color_style = style;
-	parrillada_jacket_view_update_color (self);
+	parrillada_jacket_view_set_textview_background (self);
+	gtk_widget_queue_draw (GTK_WIDGET (self));
 }
 
 GtkTextAttributes *
@@ -1190,34 +1143,28 @@ parrillada_jacket_view_get_side_buffer (ParrilladaJacketView *self)
 }
 
 static void
-parrillada_jacket_expose_textview (GtkWidget *widget,
-                                GtkWidget *textview,
-                                GdkEventExpose *event)
+parrillada_jacket_draw_textview (GtkWidget *widget,
+                              GtkWidget *textview)
 {
-	GdkRectangle child_area;
+	GdkWindow *window;
 
-	if (gtk_widget_intersect (textview, &event->area, &child_area)) {
-		GdkWindow *window;
+	window = gtk_text_view_get_window (GTK_TEXT_VIEW (textview), GTK_TEXT_WINDOW_WIDGET);
 
-		window = gtk_text_view_get_window (GTK_TEXT_VIEW (textview), GTK_TEXT_WINDOW_WIDGET);
+	g_object_ref (window);
+	gdk_window_invalidate_rect (window, NULL, TRUE);
+	gdk_window_process_updates (window, TRUE);
+	g_object_unref (window);
 
-		g_object_ref (window);
-		gdk_window_invalidate_rect (window, &child_area, TRUE);
-		gdk_window_process_updates (window, TRUE);
-		g_object_unref (window);
-
-		/* Reminder: the following would not work...
-		 * gtk_container_propagate_expose (GTK_CONTAINER (widget), textview, &child_event); */
-	}
+	/* Reminder: the following would not work...
+	 * gtk_container_propagate_expose (GTK_CONTAINER (widget), textview, &child_event); */
 }
 
 static gboolean
-parrillada_jacket_view_expose (GtkWidget *widget,
-			    GdkEventExpose *event)
+parrillada_jacket_view_draw (GtkWidget *widget,
+			  cairo_t *ctx)
 {
 	guint x;
 	guint y;
-	cairo_t *ctx;
 	gdouble resolution;
 	GtkWidget *toplevel;
 	PangoLayout *layout;
@@ -1226,10 +1173,13 @@ parrillada_jacket_view_expose (GtkWidget *widget,
 
 	priv = PARRILLADA_JACKET_VIEW_PRIVATE (widget);
 
-	ctx = gdk_cairo_create (GDK_DRAWABLE (gtk_widget_get_window (widget)));
 	toplevel = gtk_widget_get_toplevel (widget);
 	if (!GTK_IS_WINDOW (toplevel))
 		return FALSE;
+
+	/* draw white surroundings (for widget only) */
+	cairo_set_source_rgb (ctx, 1.0, 1.0, 1.0);
+	cairo_paint (ctx);
 
 	resolution = gdk_screen_get_resolution (gtk_window_get_screen (GTK_WINDOW (toplevel)));
 	layout = gtk_widget_create_pango_layout (widget, NULL);
@@ -1246,16 +1196,9 @@ parrillada_jacket_view_expose (GtkWidget *widget,
 					    resolution,
 					    x,
 					    y,
-					    &event->area,
 					    TRUE);
 
-		/* rectangle for side text */
-
-		/* set clip */
-		cairo_reset_clip (ctx);
-		cairo_rectangle (ctx, event->area.x, event->area.y, event->area.width, event->area.height);
-		cairo_clip (ctx);
-
+		/* top rectangle for side text */
 		cairo_move_to (ctx, 0., 0.);
 
 		cairo_set_antialias (ctx, CAIRO_ANTIALIAS_DEFAULT);
@@ -1283,31 +1226,25 @@ parrillada_jacket_view_expose (GtkWidget *widget,
 					    resolution,
 					    x,
 					    y,
-					    &event->area,
 					    TRUE);
 	}
 
 	if (priv->sides)
-		parrillada_jacket_expose_textview (widget, priv->sides, event);
+		parrillada_jacket_draw_textview (widget, priv->sides);
 
-	parrillada_jacket_expose_textview (widget, priv->edit, event);
+	parrillada_jacket_draw_textview (widget, priv->edit);
 	
 	g_object_unref (layout);
-	cairo_destroy (ctx);
-
 	return FALSE;
 }
 
 static void
 parrillada_jacket_view_realize (GtkWidget *widget)
 {
-	ParrilladaJacketViewPrivate *priv;
 	GtkAllocation allocation;
-	GdkWindow *window;
 	GdkWindowAttr attributes;
 	gint attributes_mask;
-
-	priv = PARRILLADA_JACKET_VIEW_PRIVATE (widget);
+	GdkWindow *window;
 
 	attributes.window_type = GDK_WINDOW_CHILD;
 	gtk_widget_get_allocation (widget, &allocation);
@@ -1317,10 +1254,9 @@ parrillada_jacket_view_realize (GtkWidget *widget)
 	attributes.height = allocation.height;
 	attributes.wclass = GDK_INPUT_OUTPUT;
 	attributes.visual = gtk_widget_get_visual (widget);
-	attributes.colormap = gtk_widget_get_colormap (widget);
 	attributes.event_mask = gtk_widget_get_events (widget);
 	attributes.event_mask |= GDK_EXPOSURE_MASK|GDK_BUTTON_PRESS_MASK|GDK_LEAVE_NOTIFY_MASK;
-	attributes_mask = GDK_WA_X | GDK_WA_Y | GDK_WA_COLORMAP;
+	attributes_mask = GDK_WA_X | GDK_WA_Y | GDK_WA_VISUAL;
 
 	gtk_widget_set_window (widget, gdk_window_new (gtk_widget_get_parent_window (widget),
 						       &attributes,
@@ -1329,19 +1265,18 @@ parrillada_jacket_view_realize (GtkWidget *widget)
 	gdk_window_set_user_data (window, widget);
 
 	gtk_widget_set_realized (widget, TRUE);
-
-	gtk_widget_style_attach (widget);
-
 	gdk_window_show (gtk_widget_get_window (widget));
 }
 
 static void
-parrillada_jacket_view_size_request (GtkWidget *widget,
-				  GtkRequisition *request)
+parrillada_jacket_view_get_preferred_width (GtkWidget *widget,
+                                         gint      *minimum,
+                                         gint      *natural)
 {
 	ParrilladaJacketViewPrivate *priv;
 	GtkWidget *toplevel;
 	gdouble resolution;
+        gint width;
 
 	priv = PARRILLADA_JACKET_VIEW_PRIVATE (widget);
 
@@ -1355,16 +1290,47 @@ parrillada_jacket_view_size_request (GtkWidget *widget,
 	resolution = gdk_screen_get_resolution (gtk_window_get_screen (GTK_WINDOW (toplevel)));
 
 	if (priv->side == PARRILLADA_JACKET_FRONT) {
-		request->width = COVER_WIDTH_FRONT_INCH * resolution + PARRILLADA_JACKET_VIEW_MARGIN * 2.0;
-		request->height = COVER_HEIGHT_FRONT_INCH * resolution + PARRILLADA_JACKET_VIEW_MARGIN * 2.0;
+		width = COVER_WIDTH_FRONT_INCH * resolution + PARRILLADA_JACKET_VIEW_MARGIN * 2.0;
 	}
-	else if (priv->side == PARRILLADA_JACKET_BACK) {
-		request->width = COVER_WIDTH_BACK_INCH * resolution +
+	else {
+		width = COVER_WIDTH_BACK_INCH * resolution +
 				 PARRILLADA_JACKET_VIEW_MARGIN * 2.0;
-		request->height = COVER_HEIGHT_BACK_INCH * resolution +
-				  COVER_WIDTH_SIDE_INCH * resolution +
-				  PARRILLADA_JACKET_VIEW_MARGIN * 3.0;
 	}
+
+        *minimum = *natural = width;
+}
+
+static void
+parrillada_jacket_view_get_preferred_height (GtkWidget *widget,
+                                          gint      *minimum,
+                                          gint      *natural)
+{
+	ParrilladaJacketViewPrivate *priv;
+	GtkWidget *toplevel;
+	gdouble resolution;
+        gint height;
+
+	priv = PARRILLADA_JACKET_VIEW_PRIVATE (widget);
+
+	if (!gtk_widget_get_parent (widget))
+		return;
+
+	toplevel = gtk_widget_get_toplevel (widget);
+	if (!GTK_IS_WINDOW (toplevel))
+		return;
+
+	resolution = gdk_screen_get_resolution (gtk_window_get_screen (GTK_WINDOW (toplevel)));
+
+	if (priv->side == PARRILLADA_JACKET_FRONT) {
+		height = COVER_HEIGHT_FRONT_INCH * resolution + PARRILLADA_JACKET_VIEW_MARGIN * 2.0;
+	}
+	else {
+		height = COVER_HEIGHT_BACK_INCH * resolution +
+			 COVER_WIDTH_SIDE_INCH * resolution +
+			 PARRILLADA_JACKET_VIEW_MARGIN * 3.0;
+	}
+
+        *minimum = *natural = height;
 }
 
 static void
@@ -1424,7 +1390,7 @@ parrillada_jacket_view_size_allocate (GtkWidget *widget,
 		view_alloc.height = (gdouble) (COVER_HEIGHT_FRONT_INCH - COVER_TEXT_MARGIN * 2.0) * resolution;
 	}
 
-	parrillada_jacket_view_update_edit_image (PARRILLADA_JACKET_VIEW (widget));
+	parrillada_jacket_view_set_textview_background (PARRILLADA_JACKET_VIEW (widget));
 	gtk_widget_size_allocate (priv->edit, &view_alloc);
 
 	gtk_widget_set_allocation (widget, allocation);
@@ -1471,8 +1437,8 @@ parrillada_jacket_view_init (ParrilladaJacketView *object)
 {
 	ParrilladaJacketViewPrivate *priv;
 	GtkTextBuffer *buffer;
-	GtkObject *vadj;
-	GtkObject *hadj;
+	GtkAdjustment *vadj;
+	GtkAdjustment *hadj;
 
 	priv = PARRILLADA_JACKET_VIEW_PRIVATE (object);
 
@@ -1489,7 +1455,7 @@ parrillada_jacket_view_init (ParrilladaJacketView *object)
 	priv->edit = gtk_text_view_new_with_buffer (buffer);
 	g_object_unref (buffer);
 
-	priv->b_color = gtk_widget_get_style (priv->edit)->bg [0];
+	gdk_color_parse ("white", &priv->b_color);
 	priv->color_style = PARRILLADA_JACKET_COLOR_SOLID;
 
 	gtk_text_view_set_wrap_mode (GTK_TEXT_VIEW (priv->edit), GTK_WRAP_CHAR);
@@ -1521,9 +1487,8 @@ parrillada_jacket_view_init (ParrilladaJacketView *object)
 			  priv->edit);
 
 	gtk_container_set_focus_child (GTK_CONTAINER (object), priv->edit);
-	gtk_widget_set_scroll_adjustments (priv->edit,
-					   GTK_ADJUSTMENT (hadj),
-					   GTK_ADJUSTMENT (vadj));
+	gtk_scrollable_set_hadjustment (GTK_SCROLLABLE (priv->edit), hadj);
+	gtk_scrollable_set_vadjustment (GTK_SCROLLABLE (priv->edit), vadj);
 }
 
 static void
@@ -1540,11 +1505,6 @@ parrillada_jacket_view_finalize (GObject *object)
 	if (priv->scaled) {
 		g_object_unref (priv->scaled);
 		priv->scaled = NULL;
-	}
-
-	if (priv->pattern) {
-		cairo_pattern_destroy (priv->pattern);
-		priv->pattern = NULL;
 	}
 
 	if (priv->image_path) {
@@ -1566,10 +1526,11 @@ parrillada_jacket_view_class_init (ParrilladaJacketViewClass *klass)
 
 	object_class->finalize = parrillada_jacket_view_finalize;
 
-	widget_class->expose_event = parrillada_jacket_view_expose;
+	widget_class->draw = parrillada_jacket_view_draw;
 	widget_class->realize = parrillada_jacket_view_realize;
 	widget_class->size_allocate = parrillada_jacket_view_size_allocate;
-	widget_class->size_request = parrillada_jacket_view_size_request;
+	widget_class->get_preferred_width = parrillada_jacket_view_get_preferred_width;
+	widget_class->get_preferred_height = parrillada_jacket_view_get_preferred_height;
 
 	container_class->forall = parrillada_jacket_view_container_forall;
 	container_class->remove = parrillada_jacket_view_container_remove;

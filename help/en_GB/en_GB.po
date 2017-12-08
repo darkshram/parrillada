@@ -1,10 +1,10 @@
 # Copyright (C) 2009 THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the brasero package.
+# This file is distributed under the same license as the parrillada package.
 #
 # Philip Withnall <philip@tecnocode.co.uk>, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: brasero\n"
+"Project-Id-Version: parrillada\n"
 "POT-Creation-Date: 2009-03-16 07:30+0000\n"
 "PO-Revision-Date: 2009-03-01 17:13+0000\n"
 "Last-Translator: Philip Withnall <philip@tecnocode.co.uk>\n"
@@ -23,12 +23,12 @@ msgstr ""
 "@@image: 'figures/parrillada_main.png'; md5=dfc32ea3caef05364043a4529125d2e2"
 
 #: C/parrillada.xml:26(title)
-msgid "<application>Brasero</application> Manual V2.2"
-msgstr "<application>Brasero</application> Manual V2.2"
+msgid "<application>Parrillada</application> Manual V2.2"
+msgstr "<application>Parrillada</application> Manual V2.2"
 
 #: C/parrillada.xml:28(para)
-msgid "Brasero is an application for burning CDs and DVDs."
-msgstr "Brasero is an application for burning CDs and DVDs."
+msgid "Parrillada is an application for burning CDs and DVDs."
+msgstr "Parrillada is an application for burning CDs and DVDs."
 
 #: C/parrillada.xml:32(year)
 msgid "2008"
@@ -51,24 +51,24 @@ msgid ""
 "the terms of the GNU Free Documentation License (GFDL), Version 1.1 or any "
 "later version published by the Free Software Foundation with no Invariant "
 "Sections, no Front-Cover Texts, and no Back-Cover Texts. You can find a copy "
-"of the GFDL at this <ulink type=\"help\" url=\"help:fdl\">link</ulink> or "
+"of the GFDL at this <ulink type=\"help\" url=\"ghelp:fdl\">link</ulink> or "
 "in the file COPYING-DOCS distributed with this manual."
 msgstr ""
 "Permission is granted to copy, distribute and/or modify this document under "
 "the terms of the GNU Free Documentation Licence (GFDL), Version 1.1 or any "
 "later version published by the Free Software Foundation with no Invariant "
 "Sections, no Front-Cover Texts, and no Back-Cover Texts. You can find a copy "
-"of the GFDL at this <ulink type=\"help\" url=\"help:fdl\">link</ulink> or "
+"of the GFDL at this <ulink type=\"help\" url=\"ghelp:fdl\">link</ulink> or "
 "in the file COPYING-DOCS distributed with this manual."
 
 #: C/parrillada.xml:12(para)
 msgid ""
-"This manual is part of a collection of GNOME manuals distributed under the "
+"This manual is part of a collection of MATE manuals distributed under the "
 "GFDL. If you want to distribute this manual separately from the collection, "
 "you can do so by adding a copy of the license to the manual, as described in "
 "section 6 of the license."
 msgstr ""
-"This manual is part of a collection of GNOME manuals distributed under the "
+"This manual is part of a collection of MATE manuals distributed under the "
 "GFDL. If you want to distribute this manual separately from the collection, "
 "you can do so by adding a copy of the licence to the manual, as described in "
 "section 6 of the licence."
@@ -76,14 +76,14 @@ msgstr ""
 #: C/parrillada.xml:19(para)
 msgid ""
 "Many of the names used by companies to distinguish their products and "
-"services are claimed as trademarks. Where those names appear in any GNOME "
-"documentation, and the members of the GNOME Documentation Project are made "
+"services are claimed as trademarks. Where those names appear in any MATE "
+"documentation, and the members of the MATE Documentation Project are made "
 "aware of those trademarks, then the names are in capital letters or initial "
 "capital letters."
 msgstr ""
 "Many of the names used by companies to distinguish their products and "
-"services are claimed as trademarks. Where those names appear in any GNOME "
-"documentation, and the members of the GNOME Documentation Project are made "
+"services are claimed as trademarks. Where those names appear in any MATE "
+"documentation, and the members of the MATE Documentation Project are made "
 "aware of those trademarks, then the names are in capital letters or initial "
 "capital letters."
 
@@ -184,8 +184,8 @@ msgid "philbull@gmail.com"
 msgstr "philbull@gmail.com"
 
 #: C/parrillada.xml:99(revnumber)
-msgid "Brasero Manual V2.2"
-msgstr "Brasero Manual V2.2"
+msgid "Parrillada Manual V2.2"
+msgstr "Parrillada Manual V2.2"
 
 #: C/parrillada.xml:100(date)
 msgid "January 2009"
@@ -196,16 +196,16 @@ msgid "Milo Casagrande <email>milo@ubuntu.com</email>"
 msgstr "Milo Casagrande <email>milo@ubuntu.com</email>"
 
 #: C/parrillada.xml:109(revnumber)
-msgid "Brasero Manual V2.1"
-msgstr "Brasero Manual V2.1"
+msgid "Parrillada Manual V2.1"
+msgstr "Parrillada Manual V2.1"
 
 #: C/parrillada.xml:110(date)
 msgid "August 2008"
 msgstr "August 2008"
 
 #: C/parrillada.xml:119(revnumber)
-msgid "Brasero Manual V2.0"
-msgstr "Brasero Manual V2.0"
+msgid "Parrillada Manual V2.0"
+msgstr "Parrillada Manual V2.0"
 
 #: C/parrillada.xml:120(date)
 msgid "February 2008"
@@ -220,8 +220,8 @@ msgid "Phil Bull <email>philbull@gmail.com</email>"
 msgstr "Phil Bull <email>philbull@gmail.com</email>"
 
 #: C/parrillada.xml:136(releaseinfo)
-msgid "This manual describes version 2.26 of Brasero."
-msgstr "This manual describes version 2.26 of Brasero."
+msgid "This manual describes version 2.26 of Parrillada."
+msgstr "This manual describes version 2.26 of Parrillada."
 
 #: C/parrillada.xml:140(title)
 msgid "Feedback"
@@ -229,21 +229,21 @@ msgstr "Feedback"
 
 #: C/parrillada.xml:141(para)
 msgid ""
-"To report a bug or make a suggestion regarding the <application>Brasero</"
+"To report a bug or make a suggestion regarding the <application>Parrillada</"
 "application> application or this manual, follow the directions in the <ulink "
-"url=\"help:gnome-feedback\" type=\"help\">GNOME Feedback Page</ulink>."
+"url=\"ghelp:gnome-feedback\" type=\"help\">MATE Feedback Page</ulink>."
 msgstr ""
-"To report a bug or make a suggestion regarding the <application>Brasero</"
+"To report a bug or make a suggestion regarding the <application>Parrillada</"
 "application> application or this manual, follow the directions in the <ulink "
-"url=\"help:gnome-feedback\" type=\"help\">GNOME Feedback Page</ulink>."
+"url=\"ghelp:gnome-feedback\" type=\"help\">MATE Feedback Page</ulink>."
 
 #: C/parrillada.xml:150(primary) C/parrillada.xml:0(application)
-msgid "Brasero"
-msgstr "Brasero"
+msgid "Parrillada"
+msgstr "Parrillada"
 
 #: C/parrillada.xml:153(primary)
-msgid "brasero"
-msgstr "brasero"
+msgid "parrillada"
+msgstr "parrillada"
 
 #: C/parrillada.xml:154(secondary)
 msgid "burn"
@@ -259,17 +259,17 @@ msgstr "Introduction"
 
 #: C/parrillada.xml:163(para)
 msgid ""
-"<application>Brasero</application> is an application for burning CD-R/Ws and "
+"<application>Parrillada</application> is an application for burning CD-R/Ws and "
 "DVD-R/Ws, designed to be easy to use, while providing all the tools "
 "necessary for burning."
 msgstr ""
-"<application>Brasero</application> is an application for burning CD-R/Ws and "
+"<application>Parrillada</application> is an application for burning CD-R/Ws and "
 "DVD-R/Ws, designed to be easy-to-use, while providing all the tools "
 "necessary for burning."
 
 #: C/parrillada.xml:168(para)
-msgid "With <application>Brasero</application> you can:"
-msgstr "With <application>Brasero</application> you can:"
+msgid "With <application>Parrillada</application> you can:"
+msgstr "With <application>Parrillada</application> you can:"
 
 #: C/parrillada.xml:171(para)
 msgid "Burn data to CD-R/Ws and DVD-R/Ws"
@@ -304,13 +304,13 @@ msgid "Getting Started"
 msgstr "Getting Started"
 
 #: C/parrillada.xml:213(title)
-msgid "Starting Brasero"
-msgstr "Starting Brasero"
+msgid "Starting Parrillada"
+msgstr "Starting Parrillada"
 
 #: C/parrillada.xml:214(para)
-msgid "You can start <application>Brasero</application> in the following ways:"
+msgid "You can start <application>Parrillada</application> in the following ways:"
 msgstr ""
-"You can start <application>Brasero</application> in the following ways:"
+"You can start <application>Parrillada</application> in the following ways:"
 
 #: C/parrillada.xml:218(term)
 msgid "<guimenu>Applications</guimenu> menu"
@@ -319,52 +319,52 @@ msgstr "<guimenu>Applications</guimenu> menu"
 #: C/parrillada.xml:220(para)
 msgid ""
 "Choose <menuchoice><guisubmenu>Sound &amp; Video</"
-"guisubmenu><guimenuitem>Brasero Disc Burning</guimenuitem></menuchoice>."
+"guisubmenu><guimenuitem>Parrillada Disc Burning</guimenuitem></menuchoice>."
 msgstr ""
 "Choose <menuchoice><guisubmenu>Sound &amp; Video</"
-"guisubmenu><guimenuitem>Brasero Disc Burning</guimenuitem></menuchoice>."
+"guisubmenu><guimenuitem>Parrillada Disc Burning</guimenuitem></menuchoice>."
 
 #: C/parrillada.xml:227(term)
 msgid "Command line"
 msgstr "Command line"
 
 #: C/parrillada.xml:229(para)
-msgid "Type <command>brasero</command> and then press <keycap>Return</keycap>."
+msgid "Type <command>parrillada</command> and then press <keycap>Return</keycap>."
 msgstr ""
-"Type <command>brasero</command> and then press <keycap>Return</keycap>."
+"Type <command>parrillada</command> and then press <keycap>Return</keycap>."
 
 #: C/parrillada.xml:238(para)
 msgid ""
-"If <application>Brasero</application> is set as your default disc burning "
+"If <application>Parrillada</application> is set as your default disc burning "
 "application, it will automatically start when you insert a blank CD-R/W or "
 "DVD-R/W in your drive."
 msgstr ""
-"If <application>Brasero</application> is set as your default disc burning "
+"If <application>Parrillada</application> is set as your default disc burning "
 "application, it will automatically start when you insert a blank CD-R/W or "
 "DVD-R/W in your drive."
 
 #: C/parrillada.xml:248(title)
-msgid "When You Start Brasero"
-msgstr "When You Start Brasero"
+msgid "When You Start Parrillada"
+msgstr "When You Start Parrillada"
 
 #: C/parrillada.xml:249(para)
 msgid ""
-"When you start <application>Brasero</application> the following window will "
+"When you start <application>Parrillada</application> the following window will "
 "be shown."
 msgstr ""
-"When you start <application>Brasero</application> the following window will "
+"When you start <application>Parrillada</application> the following window will "
 "be shown."
 
 #: C/parrillada.xml:253(title)
-msgid "Brasero Main Window"
-msgstr "Brasero Main Window"
+msgid "Parrillada Main Window"
+msgstr "Parrillada Main Window"
 
 #: C/parrillada.xml:260(phrase)
 msgid ""
-"The Brasero main window. Shows the menu bar and the five types of project to "
+"The Parrillada main window. Shows the menu bar and the five types of project to "
 "choose from."
 msgstr ""
-"The Brasero main window. Shows the menu bar and the five types of project to "
+"The Parrillada main window. Shows the menu bar and the five types of project to "
 "choose from."
 
 #. ==== End of Figure ====
@@ -372,15 +372,15 @@ msgstr ""
 msgid ""
 "This window is the starting point for all of your projects. You can click on "
 "the project type you wish to start from here. If you have created other "
-"projects with <application>Brasero</application>, you will be able to select "
+"projects with <application>Parrillada</application>, you will be able to select "
 "them from the <guilabel>Choose a recently opened project</guilabel> (see "
-"<xref linkend=\"brasero-open-recent-project\"/> for more information)."
+"<xref linkend=\"parrillada-open-recent-project\"/> for more information)."
 msgstr ""
 "This window is the starting point for all of your projects. You can click on "
 "the project type you wish to start from here. If you have created other "
-"projects with <application>Brasero</application>, you will be able to select "
+"projects with <application>Parrillada</application>, you will be able to select "
 "them from the <guilabel>Choose a recently opened project</guilabel> (see "
-"<xref linkend=\"brasero-open-recent-project\"/> for more information)."
+"<xref linkend=\"parrillada-open-recent-project\"/> for more information)."
 
 #: C/parrillada.xml:284(title)
 msgid "Creating a New Project"
@@ -389,10 +389,10 @@ msgstr "Creating a New Project"
 #: C/parrillada.xml:285(para)
 msgid ""
 "The following section explains the five types of project that you can create "
-"with <application>Brasero</application>."
+"with <application>Parrillada</application>."
 msgstr ""
 "The following section explains the five types of project that you can create "
-"with <application>Brasero</application>."
+"with <application>Parrillada</application>."
 
 #: C/parrillada.xml:292(title)
 msgid "Audio Project"
@@ -466,12 +466,12 @@ msgstr ""
 
 #: C/parrillada.xml:351(para)
 msgid ""
-"It is possible now to <link linkend=\"brasero-audio-pause\">insert a pause</"
-"link> after each of the tracks or <link linkend=\"brasero-audio-split\">to "
+"It is possible now to <link linkend=\"parrillada-audio-pause\">insert a pause</"
+"link> after each of the tracks or <link linkend=\"parrillada-audio-split\">to "
 "split</link> the tracks."
 msgstr ""
-"It is possible now to <link linkend=\"brasero-audio-pause\">insert a pause</"
-"link> after each of the tracks or <link linkend=\"brasero-audio-split\">to "
+"It is possible now to <link linkend=\"parrillada-audio-pause\">insert a pause</"
+"link> after each of the tracks or <link linkend=\"parrillada-audio-split\">to "
 "split</link> the tracks."
 
 #: C/parrillada.xml:359(para)
@@ -491,11 +491,11 @@ msgstr ""
 #: C/parrillada.xml:372(para)
 msgid ""
 "The <guilabel>Disc burning setup</guilabel> dialog will be shown; make any "
-"desired modifications (see <xref linkend=\"brasero-audio-project-options\"/"
+"desired modifications (see <xref linkend=\"parrillada-audio-project-options\"/"
 ">)."
 msgstr ""
 "The <guilabel>Disc burning setup</guilabel> dialogue will be shown; make any "
-"desired modifications (see <xref linkend=\"brasero-audio-project-options\"/"
+"desired modifications (see <xref linkend=\"parrillada-audio-project-options\"/"
 ">)."
 
 #: C/parrillada.xml:379(para) C/parrillada.xml:641(para) C/parrillada.xml:827(para)
@@ -672,11 +672,11 @@ msgstr "Section <guilabel>Select a disc to write to</guilabel>:"
 #: C/parrillada.xml:1062(para) C/parrillada.xml:1169(para)
 msgid ""
 "Click on <guibutton>Properties</guibutton> to open the properties dialog for "
-"the burning device. See <xref linkend=\"brasero-burning-device-properties\"/"
+"the burning device. See <xref linkend=\"parrillada-burning-device-properties\"/"
 "> for more information."
 msgstr ""
 "Click on <guibutton>Properties</guibutton> to open the properties dialogue "
-"for the burning device. See <xref linkend=\"brasero-burning-device-properties"
+"for the burning device. See <xref linkend=\"parrillada-burning-device-properties"
 "\"/> for more information."
 
 #: C/parrillada.xml:545(term) C/parrillada.xml:693(term) C/parrillada.xml:1357(term)
@@ -744,10 +744,10 @@ msgstr ""
 #: C/parrillada.xml:634(para)
 msgid ""
 "The <guilabel>Disc burning setup</guilabel> dialog will be shown; make any "
-"desired modifications (see <xref linkend=\"brasero-data-project-options\"/>)."
+"desired modifications (see <xref linkend=\"parrillada-data-project-options\"/>)."
 msgstr ""
 "The <guilabel>Disc burning setup</guilabel> dialogue will be shown; make any "
-"desired modifications (see <xref linkend=\"brasero-data-project-options\"/>)."
+"desired modifications (see <xref linkend=\"parrillada-data-project-options\"/>)."
 
 #: C/parrillada.xml:577(para)
 msgid "To burn a data CD, proceed as follows: <placeholder-1/>"
@@ -834,11 +834,11 @@ msgstr ""
 #: C/parrillada.xml:820(para)
 msgid ""
 "The <guilabel>Disc burning setup</guilabel> dialog will be shown; make any "
-"desired modifications (see <xref linkend=\"brasero-video-project-options\"/"
+"desired modifications (see <xref linkend=\"parrillada-video-project-options\"/"
 ">)."
 msgstr ""
 "The <guilabel>Disc burning setup</guilabel> dialogue will be shown; make any "
-"desired modifications (see <xref linkend=\"brasero-video-project-options\"/"
+"desired modifications (see <xref linkend=\"parrillada-video-project-options\"/"
 ">)."
 
 #: C/parrillada.xml:766(para)
@@ -958,11 +958,11 @@ msgstr ""
 #: C/parrillada.xml:1006(para)
 msgid ""
 "The <guilabel>CD/DVD copy options</guilabel> dialog will be shown; make the "
-"desired modifications (see <xref linkend=\"brasero-disc-copy-options\"/> for "
+"desired modifications (see <xref linkend=\"parrillada-disc-copy-options\"/> for "
 "more information)."
 msgstr ""
 "The <guilabel>CD/DVD copy options</guilabel> dialogue will be shown; make "
-"the desired modifications (see <xref linkend=\"brasero-disc-copy-options\"/> "
+"the desired modifications (see <xref linkend=\"parrillada-disc-copy-options\"/> "
 "for more information)."
 
 #: C/parrillada.xml:1013(para)
@@ -1042,11 +1042,11 @@ msgstr ".toc"
 #: C/parrillada.xml:1091(para)
 msgid ""
 "This project takes an existing file image and burns it to a CD-R/W or DVD-R/"
-"W. <application>Brasero</application> supports the following types of image "
+"W. <application>Parrillada</application> supports the following types of image "
 "file: <placeholder-1/>"
 msgstr ""
 "This project takes an existing file image and burns it to a CD-R/W or DVD-R/"
-"W. <application>Brasero</application> supports the following types of image "
+"W. <application>Parrillada</application> supports the following types of image "
 "file: <placeholder-1/>"
 
 #: C/parrillada.xml:1128(para)
@@ -1062,10 +1062,10 @@ msgstr ""
 #: C/parrillada.xml:1139(para)
 msgid ""
 "The <guilabel>Image burning setup</guilabel> dialog will be shown; make the "
-"desired modifications (see <xref linkend=\"brasero-burn-image-options\"/>)."
+"desired modifications (see <xref linkend=\"parrillada-burn-image-options\"/>)."
 msgstr ""
 "The <guilabel>Image burning setup</guilabel> dialogue will be shown; make "
-"the desired modifications (see <xref linkend=\"brasero-burn-image-options\"/"
+"the desired modifications (see <xref linkend=\"parrillada-burn-image-options\"/"
 ">)."
 
 #: C/parrillada.xml:1119(para)
@@ -1093,12 +1093,12 @@ msgid ""
 "Click on the button to open the <guilabel>Select Image File</guilabel> "
 "dialog and select the image file to burn. From the drop-down list at the "
 "bottom, you can select the type of the image to burn. If unsure, select "
-"<guilabel>Let brasero choose (safest)</guilabel>."
+"<guilabel>Let parrillada choose (safest)</guilabel>."
 msgstr ""
 "Click on the button to open the <guilabel>Select Image File</guilabel> "
 "dialogue and select the image file to burn. From the drop-down list at the "
 "bottom, you can select the type of the image to burn. If unsure, select "
-"<guilabel>Let Brasero choose (safest)</guilabel>."
+"<guilabel>Let Parrillada choose (safest)</guilabel>."
 
 #: C/parrillada.xml:1204(title)
 msgid "Burning Device Properties"
@@ -1179,13 +1179,13 @@ msgstr "Simulate the burning"
 #: C/parrillada.xml:1278(para)
 msgid ""
 "Select this option to simulate the burning process; no real burn is "
-"performed. If this operation is successful, brasero will actually burn the "
+"performed. If this operation is successful, parrillada will actually burn the "
 "disc after pausing for 10 seconds. During this pause it will show a dialog "
 "in which you can cancel the actual burning. This is useful for testing, if "
 "you are having problems burning discs."
 msgstr ""
 "Select this option to simulate the burning process; no real burn is "
-"performed. If this operation is successful, <application>Brasero</"
+"performed. If this operation is successful, <application>Parrillada</"
 "application> will actually burn the disc after pausing for 10 seconds. "
 "During this pause it will show a dialogue in which you can cancel the actual "
 "burning. This is useful for testing, if you are having problems burning "
@@ -1227,11 +1227,11 @@ msgstr "Burning Properties with No Disc"
 #: C/parrillada.xml:1327(para)
 msgid ""
 "If you start the burning process without a CD or DVD in the burning device, "
-"<application>Brasero</application> will create a image file on the hard disk "
+"<application>Parrillada</application> will create a image file on the hard disk "
 "that you can lately burn."
 msgstr ""
 "If you start the burning process without a CD or DVD in the burning device, "
-"<application>Brasero</application> will create a image file on the hard disk "
+"<application>Parrillada</application> will create a image file on the hard disk "
 "that you can later burn."
 
 #: C/parrillada.xml:1339(para)
@@ -1329,19 +1329,19 @@ msgstr "DVD+RW (single or dual layer)"
 #: C/parrillada.xml:1438(para)
 msgid ""
 "Erasing or blanking a CD or DVD means to delete all the data that the CD or "
-"the DVD contains. <application>Brasero</application> is able to erase the "
+"the DVD contains. <application>Parrillada</application> is able to erase the "
 "following CD and DVD formats: <placeholder-1/>"
 msgstr ""
 "Erasing or blanking a CD or DVD mean deleting all the data that the CD or "
-"the DVD contains. <application>Brasero</application> is able to erase the "
+"the DVD contains. <application>Parrillada</application> is able to erase the "
 "following CD and DVD formats: <placeholder-1/>"
 
 #: C/parrillada.xml:1460(para)
 msgid ""
-"In general, <application>Brasero</application> can support all of the media "
+"In general, <application>Parrillada</application> can support all of the media "
 "formats supported by your own CD/DVD recorder."
 msgstr ""
-"In general, <application>Brasero</application> can support all of the media "
+"In general, <application>Parrillada</application> can support all of the media "
 "formats supported by your CD/DVD recorder."
 
 #: C/parrillada.xml:1465(para)
@@ -1377,11 +1377,11 @@ msgstr ""
 #: C/parrillada.xml:1494(para)
 msgid ""
 "If you want to quickly erase the disc, select the <guilabel>fast blanking</"
-"guilabel> option (for more information, see <xref linkend=\"brasero-fast-"
+"guilabel> option (for more information, see <xref linkend=\"parrillada-fast-"
 "blanking\"/>)."
 msgstr ""
 "If you want to quickly erase the disc, select the <guilabel>fast blanking</"
-"guilabel> option (for more information, see <xref linkend=\"brasero-fast-"
+"guilabel> option (for more information, see <xref linkend=\"parrillada-fast-"
 "blanking\"/>)."
 
 #: C/parrillada.xml:1501(para)
@@ -1439,24 +1439,24 @@ msgid ""
 "The integrity check is done using the <quote>MD5 digest</quote> algorithm, "
 "which creates a <quote>fingerprint</quote> of the data on the media. Each "
 "time you burn a CD or DVD, and the <emphasis role=\"strong\">Image checksum</"
-"emphasis> plugin is enabled (see <xref linkend=\"brasero-plugins\"/> for "
-"more information), <application>Brasero</application> adds a MD5 file to the "
+"emphasis> plugin is enabled (see <xref linkend=\"parrillada-plugins\"/> for "
+"more information), <application>Parrillada</application> adds a MD5 file to the "
 "disc in order to perform integrity checks at a later date."
 msgstr ""
 "The integrity check is done using the <quote>MD5 digest</quote> algorithm, "
 "which creates a <quote>fingerprint</quote> of the data on the media. Each "
 "time you burn a CD or DVD, and the <emphasis role=\"strong\">Image checksum</"
-"emphasis> plugin is enabled (see <xref linkend=\"brasero-plugins\"/> for "
-"more information), <application>Brasero</application> adds a MD5 file to the "
+"emphasis> plugin is enabled (see <xref linkend=\"parrillada-plugins\"/> for "
+"more information), <application>Parrillada</application> adds a MD5 file to the "
 "disc in order to perform integrity checks at a later date."
 
 #: C/parrillada.xml:1545(para)
 msgid ""
-"<application>Brasero</application> performs an integrity check after each "
+"<application>Parrillada</application> performs an integrity check after each "
 "burning session, checking the automatically generated file. Usually this "
 "process is longer than using an external MD5 file."
 msgstr ""
-"<application>Brasero</application> performs an integrity check after each "
+"<application>Parrillada</application> performs an integrity check after each "
 "burning session, checking the automatically generated file. Usually this "
 "process is longer than using an external MD5 file."
 
@@ -1495,11 +1495,11 @@ msgstr ""
 #: C/parrillada.xml:1570(para)
 msgid ""
 "You can check the integrity by using a MD5 file or by letting "
-"<application>Brasero</application> automatically perform a check on the "
+"<application>Parrillada</application> automatically perform a check on the "
 "media. <placeholder-1/>"
 msgstr ""
 "You can check the integrity by using a MD5 file or by letting "
-"<application>Brasero</application> automatically perform a check on the "
+"<application>Parrillada</application> automatically perform a check on the "
 "media. <placeholder-1/>"
 
 #: C/parrillada.xml:1592(para)
@@ -1516,12 +1516,12 @@ msgstr "To check the integrity of a disc: <placeholder-1/>"
 
 #: C/parrillada.xml:1599(para)
 msgid ""
-"If the integrity check is successful, <application>Brasero</application> "
+"If the integrity check is successful, <application>Parrillada</application> "
 "will notify you with a <guilabel>File integrity check success</guilabel> "
 "dialog; otherwise, the <guilabel>File integrity check error</guilabel> "
 "dialog will be displayed."
 msgstr ""
-"If the integrity check is successful, <application>Brasero</application> "
+"If the integrity check is successful, <application>Parrillada</application> "
 "will notify you with a <guilabel>File integrity check success</guilabel> "
 "dialogue; otherwise, the <guilabel>File integrity check error</guilabel> "
 "dialogue will be displayed."
@@ -1532,12 +1532,12 @@ msgstr "Cover Editor"
 
 #: C/parrillada.xml:1609(para)
 msgid ""
-"<application>Brasero</application> has a cover editor for creating covers "
+"<application>Parrillada</application> has a cover editor for creating covers "
 "for your CDs or DVDs. To open the cover editor, choose "
 "<menuchoice><guimenu>Tools</guimenu><guimenuitem>Cover Editor</guimenuitem></"
 "menuchoice>."
 msgstr ""
-"<application>Brasero</application> has a cover editor for creating covers "
+"<application>Parrillada</application> has a cover editor for creating covers "
 "for your CDs or DVDs. To open the cover editor, choose "
 "<menuchoice><guimenu>Tools</guimenu><guimenuitem>Cover Editor</guimenuitem></"
 "menuchoice>."
@@ -1626,10 +1626,10 @@ msgstr "Plugins"
 
 #: C/parrillada.xml:1676(para)
 msgid ""
-"<application>Brasero</application> can use different plugins to perform "
+"<application>Parrillada</application> can use different plugins to perform "
 "different tasks. There are several plugins you can choose from."
 msgstr ""
-"<application>Brasero</application> can use different plugins to perform "
+"<application>Parrillada</application> can use different plugins to perform "
 "different tasks. There are several plugins you can choose from."
 
 #: C/parrillada.xml:1680(para)
@@ -1659,8 +1659,8 @@ msgid "CD/DVD Creator"
 msgstr "CD/DVD Creator"
 
 #: C/parrillada.xml:1703(application)
-msgid "Nautilus"
-msgstr "Nautilus"
+msgid "Caja"
+msgstr "Caja"
 
 #: C/parrillada.xml:1701(entry)
 msgid ""

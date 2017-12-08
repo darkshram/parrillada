@@ -438,7 +438,6 @@ parrillada_wodim_write_inf (ParrilladaWodim *wodim,
 			 GError **error)
 {
 	gint fd;
-	int isrc;
 	gint size;
         int errsv;
 	gchar *path;
@@ -514,9 +513,9 @@ parrillada_wodim_write_inf (ParrilladaWodim *wodim,
 		goto error;
 
 	/* ISRC */
-	isrc = parrillada_track_tag_lookup_int (PARRILLADA_TRACK (track), PARRILLADA_TRACK_STREAM_ISRC_TAG);
-	if (isrc > 0)
-		string = g_strdup_printf ("ISRC=\t%i\n", isrc);
+	info = parrillada_track_tag_lookup_string (PARRILLADA_TRACK (track), PARRILLADA_TRACK_STREAM_ISRC_TAG);
+	if (info)
+		string = g_strdup_printf ("ISRC=\t%s\n", info);
 	else
 		string = g_strdup ("ISRC=\t\n");
 	size = strlen (string);
@@ -733,7 +732,6 @@ parrillada_wodim_write_infs (ParrilladaWodim *wodim,
 			   GPtrArray *argv,
 			   GError **error)
 {
-	ParrilladaWodimPrivate *priv;
 	ParrilladaBurnResult result;
 	gchar *tmpdir = NULL;
 	GSList *tracks;
@@ -741,8 +739,6 @@ parrillada_wodim_write_infs (ParrilladaWodim *wodim,
 	gchar *album;
 	gint index;
 	gint start;
-
-	priv = PARRILLADA_WODIM_PRIVATE (wodim);
 
 	parrillada_job_get_audio_title (PARRILLADA_JOB (wodim), &album);
 	parrillada_job_get_tracks (PARRILLADA_JOB (wodim), &tracks);
@@ -1114,16 +1110,14 @@ parrillada_wodim_set_argv (ParrilladaProcess *process,
 			 GPtrArray *argv,
 			 GError **error)
 {
-	ParrilladaWodimPrivate *priv;
 	ParrilladaBurnResult result;
 	ParrilladaJobAction action;
-	ParrilladaWodim *wodim;
 	ParrilladaBurnFlag flags;
+	ParrilladaWodim *wodim;
 	gchar *dev_str;
 	gchar *device;
 
 	wodim = PARRILLADA_WODIM (process);
-	priv = PARRILLADA_WODIM_PRIVATE (wodim);
 
 	parrillada_job_get_action (PARRILLADA_JOB (wodim), &action);
 	if (action == PARRILLADA_JOB_ACTION_SIZE)

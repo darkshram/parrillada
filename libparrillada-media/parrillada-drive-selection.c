@@ -127,10 +127,8 @@ parrillada_drive_selection_set_current_drive (ParrilladaDriveSelection *self,
 static void
 parrillada_drive_selection_changed (GtkComboBox *combo)
 {
-	GtkTreeModel *model;
 	GtkTreeIter iter;
   
-	model = gtk_combo_box_get_model (combo);
 	if (!gtk_combo_box_get_active_iter (combo, &iter))
 		return;
   
@@ -239,10 +237,7 @@ parrillada_drive_selection_add_no_disc_entry (ParrilladaDriveSelection *self)
 {
 	GtkTreeIter iter;
 	GtkTreeModel *model;
-	ParrilladaDriveSelectionPrivate *priv;
-  
-	priv = PARRILLADA_DRIVE_SELECTION_PRIVATE (self);
-  
+
 	/* Nothing's available. Say it. Two cases here, either we're
 	 * still probing drives or there isn't actually any available
 	 * drive. */
@@ -537,12 +532,17 @@ parrillada_drive_selection_init (ParrilladaDriveSelection *object)
 	gtk_cell_layout_set_attributes (GTK_CELL_LAYOUT (object), renderer,
 					"markup", NAME_COL,
 					NULL);
+}
+
+static void
+parrillada_drive_selection_constructed (GObject *object)
+{
+	G_OBJECT_CLASS (parrillada_drive_selection_parent_class)->constructed (object);
 
 	parrillada_drive_selection_show_type (PARRILLADA_DRIVE_SELECTION (object),
 					   PARRILLADA_DRIVE_TYPE_ALL_BUT_FILE);
-						 
 }
-  
+
 static void
 parrillada_drive_selection_finalize (GObject *object)
 {
@@ -569,11 +569,7 @@ parrillada_drive_selection_set_property (GObject *object,
 				       const GValue *value,
 				       GParamSpec *pspec)
 {
-	ParrilladaDriveSelectionPrivate *priv;
-  
 	g_return_if_fail (PARRILLADA_IS_DRIVE_SELECTION (object));
-  
-	priv = PARRILLADA_DRIVE_SELECTION_PRIVATE (object);
   
 	switch (prop_id)
 	{
@@ -628,6 +624,7 @@ parrillada_drive_selection_class_init (ParrilladaDriveSelectionClass *klass)
 	object_class->finalize = parrillada_drive_selection_finalize;
 	object_class->set_property = parrillada_drive_selection_set_property;
 	object_class->get_property = parrillada_drive_selection_get_property;
+	object_class->constructed = parrillada_drive_selection_constructed;
   
 	combo_class->changed = parrillada_drive_selection_changed;
 

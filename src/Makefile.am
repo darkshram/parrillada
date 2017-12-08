@@ -12,6 +12,7 @@ AM_CPPFLAGS = \
 	-DPARRILLADA_SYSCONFDIR=\"$(sysconfdir)\"   			\
 	-DPARRILLADA_DATADIR=\"$(datadir)/parrillada\"     	    		\
 	-DPARRILLADA_LIBDIR=\"$(libdir)\"  	         		\
+	-DEGG_SM_CLIENT_BACKEND_XSMP					\
 	$(WARN_CFLAGS)							\
 	$(DISABLE_DEPRECATED)						\
 	$(PARRILLADA_GLIB_CFLAGS)						\
@@ -21,11 +22,9 @@ AM_CPPFLAGS = \
 	$(PARRILLADA_GTK_CFLAGS)						\
 	$(PARRILLADA_DBUS_CFLAGS)						\
 	$(PARRILLADA_LIBXML_CFLAGS)					\
-	$(PARRILLADA_LIBUNIQUE_CFLAGS) 					\
 	$(PARRILLADA_SEARCH_CFLAGS)					\
 	$(PARRILLADA_PL_PARSER_CFLAGS)					\
-	$(PARRILLADA_SM_CFLAGS)						\
-	$(PARRILLADA_ICE_CFLAGS)
+	$(PARRILLADA_SM_CFLAGS)
 
 GLIB_GENMARSHAL=`pkg-config --variable=glib_genmarshal glib-2.0`
 RECMARSHALFILES = parrillada-marshal.h parrillada-marshal.c
@@ -107,14 +106,6 @@ parrillada_SOURCES = \
 	parrillada-project-name.h           \
 	parrillada-project-parse.c           \
 	parrillada-project-parse.h           \
-	parrillada-xsession.c           \
-	parrillada-xsession.h		\
-	eggdesktopfile.c        \
-	eggdesktopfile.h        \
-	eggsmclient.c        \
-	eggsmclient.h        \
-	eggsmclient-private.h        \
-	eggsmclient-xsmp.c        \
 	parrillada-setting.h        \
 	parrillada-setting.c        \
 	parrillada-search-engine.h        \
@@ -139,21 +130,10 @@ parrillada_SOURCES += \
 		   parrillada-search-tracker.c
 endif
 
-if BUILD_SEARCH
-
-parrillada_SOURCES += \
-		   parrillada-mime-filter.c         \
-		   parrillada-mime-filter.h         \
-		   parrillada-search-entry.c         \
-		   parrillada-search-entry.h         \
-		   parrillada-search.h		\
-		   parrillada-search.c
-endif
-
 parrillada_LDADD =						\
-	$(top_builddir)/libparrillada-media/libparrillada-media@PARRILLADA_LIBRARY_SUFFIX@.la	\
-	$(top_builddir)/libparrillada-burn/libparrillada-burn@PARRILLADA_LIBRARY_SUFFIX@.la	\
-	$(top_builddir)/libparrillada-utils/libparrillada-utils@PARRILLADA_LIBRARY_SUFFIX@.la	\
+	$(top_builddir)/libparrillada-media/libparrillada-media3.la	\
+	$(top_builddir)/libparrillada-burn/libparrillada-burn3.la	\
+	$(top_builddir)/libparrillada-utils/libparrillada-utils3.la	\
 	$(PARRILLADA_GLIB_LIBS)		\
 	$(PARRILLADA_GTHREAD_LIBS)				\
 	$(PARRILLADA_GIO_LIBS)		\
@@ -163,17 +143,14 @@ parrillada_LDADD =						\
 	$(PARRILLADA_GMODULE_LIBS)		\
 	$(PARRILLADA_DBUS_LIBS)		\
 	$(PARRILLADA_LIBXML_LIBS)		\
-	$(PARRILLADA_LIBUNIQUE_LIBS) 	\
 	$(PARRILLADA_SEARCH_LIBS)		\
 	$(PARRILLADA_PL_PARSER_LIBS)	\
-	$(PARRILLADA_SM_LIBS)		\
-	$(PARRILLADA_ICE_LIBS)
+	$(PARRILLADA_SM_LIBS)
 
 EXTRA_DIST =			\
 	parrillada-marshal.list
 
 CLEANFILES =			\
 	$(RECMARSHALFILES)
-
 
 -include $(top_srcdir)/git.mk

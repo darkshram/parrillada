@@ -527,49 +527,6 @@ parrillada_track_data_get_excluded_list (ParrilladaTrackData *track)
 	return klass->get_excluded (track);
 }
 
-/**
- * parrillada_track_data_get_excluded:
- * @track: a #ParrilladaTrackData.
- * @copy: a #gboolean.
- *
- * Returns a list of URIs which must not be included in
- * the image to be created.
- * If @copy is %TRUE then the @list is a copy and must
- * be freed once it is not needed anymore. If %FALSE,
- * do not free after usage as @track retains ownership.
- *
- * Deprecated since 2.29.2
- *
- * Return value: a #GSList of #gchar * or %NULL if no
- * URI should be excluded.
- **/
-
-G_GNUC_DEPRECATED GSList *
-parrillada_track_data_get_excluded (ParrilladaTrackData *track,
-				 gboolean copy)
-{
-	ParrilladaTrackDataClass *klass;
-	GSList *retval = NULL;
-	GSList *excluded;
-	GSList *iter;
-
-	g_return_val_if_fail (PARRILLADA_IS_TRACK_DATA (track), NULL);
-
-	klass = PARRILLADA_TRACK_DATA_GET_CLASS (track);
-	excluded = klass->get_excluded (track);
-	if (!copy)
-		return excluded;
-
-	for (iter = excluded; iter; iter = iter->next) {
-		gchar *uri;
-
-		uri = iter->data;
-		retval = g_slist_prepend (retval, g_strdup (uri));
-	}
-
-	return retval;
-}
-
 static GSList *
 parrillada_track_data_get_excluded_real (ParrilladaTrackData *track)
 {
@@ -577,63 +534,6 @@ parrillada_track_data_get_excluded_real (ParrilladaTrackData *track)
 
 	priv = PARRILLADA_TRACK_DATA_PRIVATE (track);
 	return priv->excluded;
-}
-
-/**
- * parrillada_track_data_get_paths:
- * @track: a #ParrilladaTrackData.
- * @use_joliet: a #gboolean.
- * @grafts_path: a #gchar.
- * @excluded_path: a #gchar.
- * @emptydir: a #gchar.
- * @videodir: (allow-none): a #gchar or %NULL.
- * @error: a #GError.
- *
- * Write in @grafts_path (a path to a file) the graft points,
- * in @excluded_path (a path to a file) the list of paths to
- * be excluded, @emptydir (a path to a file) an empty
- * directory to be used for created directories, @videodir
- * (a path to a file) for a directory to be used to build the
- * the video image.
- *
- * This is mostly for internal use by mkisofs and similar.
- *
- * This function takes care of mangling.
- *
- * Deprecated since 2.29.2
- *
- * Return value: a #ParrilladaBurnResult.
- **/
-
-G_GNUC_DEPRECATED ParrilladaBurnResult
-parrillada_track_data_get_paths (ParrilladaTrackData *track,
-			      gboolean use_joliet,
-			      const gchar *grafts_path,
-			      const gchar *excluded_path,
-			      const gchar *emptydir,
-			      const gchar *videodir,
-			      GError **error)
-{
-	GSList *grafts;
-	GSList *excluded;
-	ParrilladaBurnResult result;
-	ParrilladaTrackDataClass *klass;
-
-	g_return_val_if_fail (PARRILLADA_IS_TRACK_DATA (track), PARRILLADA_BURN_NOT_SUPPORTED);
-
-	klass = PARRILLADA_TRACK_DATA_GET_CLASS (track);
-	grafts = klass->get_grafts (track);
-	excluded = klass->get_excluded (track);
-
-	result = parrillada_mkisofs_base_write_to_files (grafts,
-						      excluded,
-						      use_joliet,
-						      emptydir,
-						      videodir,
-						      grafts_path,
-						      excluded_path,
-						      error);
-	return result;
 }
 
 /**

@@ -20,7 +20,7 @@ checksum_LTLIBRARIES = libparrillada-checksum.la
 libparrillada_checksum_la_SOURCES = burn-checksum-image.c	
 
 libparrillada_checksum_la_LDFLAGS = -module -avoid-version
-libparrillada_checksum_la_LIBADD = ../../libparrillada-media/libparrillada-media@PARRILLADA_LIBRARY_SUFFIX@.la ../../libparrillada-burn/libparrillada-burn@PARRILLADA_LIBRARY_SUFFIX@.la $(PARRILLADA_GLIB_LIBS)
+libparrillada_checksum_la_LIBADD = ../../libparrillada-media/libparrillada-media3.la ../../libparrillada-burn/libparrillada-burn3.la $(PARRILLADA_GLIB_LIBS)
 
 checksumfiledir = $(PARRILLADA_PLUGIN_DIRECTORY)
 checksumfile_LTLIBRARIES = libparrillada-checksum-file.la
@@ -29,6 +29,6 @@ libparrillada_checksum_file_la_SOURCES = burn-checksum-files.c	\
 				      burn-volume-read.h
 
 libparrillada_checksum_file_la_LDFLAGS = -module -avoid-version
-libparrillada_checksum_file_la_LIBADD = ../../libparrillada-media/libparrillada-media@PARRILLADA_LIBRARY_SUFFIX@.la ../../libparrillada-burn/libparrillada-burn@PARRILLADA_LIBRARY_SUFFIX@.la $(PARRILLADA_GLIB_LIBS) $(PARRILLADA_GTK_LIBS)
+libparrillada_checksum_file_la_LIBADD = ../../libparrillada-media/libparrillada-media3.la ../../libparrillada-burn/libparrillada-burn3.la $(PARRILLADA_GLIB_LIBS) $(PARRILLADA_GTK_LIBS)
 
 -include $(top_srcdir)/git.mk

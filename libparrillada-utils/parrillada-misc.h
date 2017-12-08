@@ -49,20 +49,16 @@ typedef enum {
 	PARRILLADA_UTILS_ERROR_SYMLINK_LOOP
 } ParrilladaUtilsErrors;
 
-#define PARRILLADA_UTILS_LOG_DOMAIN			"ParrilladaUtils"
-
 void
 parrillada_utils_set_use_debug (gboolean active);
 
 void
-parrillada_utils_debug_message (const gchar *domain,
-			     const gchar *location,
+parrillada_utils_debug_message (const gchar *location,
 			     const gchar *format,
 			     ...);
 
 #define PARRILLADA_UTILS_LOG(format, ...)						\
-	parrillada_utils_debug_message (PARRILLADA_UTILS_LOG_DOMAIN,			\
-				     G_STRLOC,					\
+	parrillada_utils_debug_message (G_STRLOC,					\
 				     format,					\
 				     ##__VA_ARGS__);
 
@@ -77,6 +73,9 @@ parrillada_utils_debug_message (const gchar *domain,
 
 void
 parrillada_utils_init (void);
+
+GOptionGroup *
+parrillada_utils_get_option_group (void);
 
 gchar *
 parrillada_utils_get_uri_name (const gchar *uri);

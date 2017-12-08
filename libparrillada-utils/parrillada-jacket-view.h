@@ -49,15 +49,15 @@ typedef enum {
 #define COVER_WIDTH_FRONT_INCH		4.724
 #define COVER_HEIGHT_FRONT_INCH		4.724
 
-#define COVER_HEIGHT_BACK_MM		117.5
-#define COVER_WIDTH_BACK_MM		152.0
+#define COVER_HEIGHT_BACK_MM		118.0
+#define COVER_WIDTH_BACK_MM		150.0
 #define COVER_HEIGHT_BACK_INCH		4.646
-#define COVER_WIDTH_BACK_INCH		5.984
+#define COVER_WIDTH_BACK_INCH		5.906
 
 #define COVER_HEIGHT_SIDE_MM		COVER_HEIGHT_BACK_MM
 #define COVER_WIDTH_SIDE_MM		6.0
 #define COVER_HEIGHT_SIDE_INCH		COVER_HEIGHT_BACK_INCH
-#define COVER_WIDTH_SIDE_INCH		0.235
+#define COVER_WIDTH_SIDE_INCH		0.236
 
 #define COVER_TEXT_MARGIN		/*1.*/0.03 //0.079
 
@@ -95,22 +95,17 @@ parrillada_jacket_view_set_side (ParrilladaJacketView *view,
 			      ParrilladaJacketSide side);
 
 void
-parrillada_jacket_view_set_image_style (ParrilladaJacketView *view,
-				     ParrilladaJacketImageStyle style);
-
-void
-parrillada_jacket_view_set_color_background (ParrilladaJacketView *view,
-					  GdkColor *color,
-					  GdkColor *color2);
-void
-parrillada_jacket_view_set_color_style (ParrilladaJacketView *view,
-				     ParrilladaJacketColorStyle style);
+parrillada_jacket_view_set_color (ParrilladaJacketView *view,
+			       ParrilladaJacketColorStyle style,
+			       GdkColor *color,
+			       GdkColor *color2);
 
 const gchar *
 parrillada_jacket_view_get_image (ParrilladaJacketView *self);
 
 const gchar *
 parrillada_jacket_view_set_image (ParrilladaJacketView *view,
+			       ParrilladaJacketImageStyle style,
 			       const gchar *path);
 
 void

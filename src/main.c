@@ -22,7 +22,7 @@
  *
  *  Sat Jun 11 12:00:29 2005
  *  Copyright  2005  Philippe Rouquier	
- *  <brasero-app@wanadoo.fr>
+ *  <parrillada-app@wanadoo.fr>
  ****************************************************************************/
 
 #ifdef HAVE_CONFIG_H
@@ -39,11 +39,9 @@
 
 #include <gst/gst.h>
 
-#include <unique/unique.h>
-
-#include "eggsmclient.h"
 
 #include "parrillada-burn-lib.h"
+#include "parrillada-misc.h"
 
 #include "parrillada-multi-dnd.h"
 #include "parrillada-app.h"
@@ -64,7 +62,7 @@ parrillada_app_get_default (void)
 int
 main (int argc, char **argv)
 {
-	UniqueApp *uapp = NULL;
+	GApplication *gapp = NULL;
 	GOptionContext *context;
 
 #ifdef ENABLE_NLS
@@ -89,10 +87,10 @@ main (int argc, char **argv)
 					   GETTEXT_PACKAGE);
 	g_option_context_set_translation_domain (context, GETTEXT_PACKAGE);
 
-	g_option_context_add_group (context, egg_sm_client_get_option_group ());
 	g_option_context_add_group (context, gtk_get_option_group (TRUE));
 	g_option_context_add_group (context, parrillada_media_get_option_group ());
 	g_option_context_add_group (context, parrillada_burn_library_get_option_group ());
+	g_option_context_add_group (context, parrillada_utils_get_option_group ());
 	g_option_context_add_group (context, gst_init_get_option_group ());
 	if (g_option_context_parse (context, &argc, &argv, NULL) == FALSE) {
 		g_print (_("Please type \"%s --help\" to see all available options\n"), argv [0]);
@@ -102,27 +100,26 @@ main (int argc, char **argv)
 	g_option_context_free (context);
 
 	if (cmd_line_options.not_unique == FALSE) {
-		/* Create UniqueApp and check if there is a process running already */
-		uapp = unique_app_new ("org.mate.Parrillada", NULL);
-		if (unique_app_is_running (uapp))
-		{
-			UniqueResponse response;
+		GError *error = NULL;
+		/* Create GApplication and check if there is a process running already */
+		gapp = g_application_new ("org.mate.Parrillada", G_APPLICATION_FLAGS_NONE);
 
-			response = unique_app_send_message (uapp, UNIQUE_ACTIVATE, NULL);
-			g_object_unref (uapp);
-			uapp = NULL;
+		if (!g_application_register (gapp, NULL, &error)) {
+			g_warning ("Parrillada registered");
+			g_error_free (error);
+			return 1;
+		}
 
-			/* FIXME: we should tell the user why it did not work. Or is it
-			* handled by libunique? */
-			return (response == UNIQUE_RESPONSE_OK);
+		if (g_application_get_is_remote (gapp)) {
+			g_warning ("An instance of Parrillada is already running, exiting");
+			return 0;
 		}
 	}
 
 	parrillada_burn_library_start (&argc, &argv);
 	parrillada_enable_multi_DND ();
 
-	current_app = parrillada_app_new (uapp);
-	g_object_unref (uapp);
+	current_app = parrillada_app_new (gapp);
 	if (current_app == NULL)
 		return 1;
 

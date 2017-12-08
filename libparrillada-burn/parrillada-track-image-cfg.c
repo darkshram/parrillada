@@ -418,6 +418,27 @@ parrillada_track_image_cfg_force_format (ParrilladaTrackImageCfg *track,
 }
 
 static ParrilladaBurnResult
+parrillada_track_image_cfg_get_size (ParrilladaTrack *track,
+                                  goffset *blocks,
+                                  goffset *block_size)
+{
+	ParrilladaTrackImageCfgPrivate *priv;
+
+	priv = PARRILLADA_TRACK_IMAGE_CFG_PRIVATE (track);
+
+	if (priv->cancel)
+		return PARRILLADA_BURN_NOT_READY;
+
+	if (priv->error)
+		return PARRILLADA_BURN_ERR;
+
+	if (parrillada_track_image_get_format (PARRILLADA_TRACK_IMAGE (track)) == PARRILLADA_IMAGE_FORMAT_NONE)
+		return PARRILLADA_BURN_ERR;
+
+	return PARRILLADA_TRACK_CLASS (parrillada_track_image_cfg_parent_class)->get_size (track, blocks, block_size);
+}
+
+static ParrilladaBurnResult
 parrillada_track_image_cfg_get_status (ParrilladaTrack *track,
 				    ParrilladaStatus *status)
 {
@@ -495,6 +516,7 @@ parrillada_track_image_cfg_class_init (ParrilladaTrackImageCfgClass *klass)
 	object_class->finalize = parrillada_track_image_cfg_finalize;
 
 	track_class->get_status = parrillada_track_image_cfg_get_status;
+	track_class->get_size = parrillada_track_image_cfg_get_size;
 }
 
 /**

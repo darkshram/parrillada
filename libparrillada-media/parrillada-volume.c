@@ -66,7 +66,6 @@ GVolume *
 parrillada_volume_get_gvolume (ParrilladaVolume *volume)
 {
 	const gchar *volume_path = NULL;
-	ParrilladaVolumePrivate *priv;
 	GVolumeMonitor *monitor;
 	GVolume *gvolume = NULL;
 	ParrilladaDrive *drive;
@@ -75,8 +74,6 @@ parrillada_volume_get_gvolume (ParrilladaVolume *volume)
 
 	g_return_val_if_fail (volume != NULL, NULL);
 	g_return_val_if_fail (PARRILLADA_IS_VOLUME (volume), NULL);
-
-	priv = PARRILLADA_VOLUME_PRIVATE (volume);
 
 	drive = parrillada_medium_get_drive (PARRILLADA_MEDIUM (volume));
 
@@ -161,7 +158,6 @@ gchar *
 parrillada_volume_get_mount_point (ParrilladaVolume *volume,
 				GError **error)
 {
-	ParrilladaVolumePrivate *priv;
 	gchar *local_path = NULL;
 	GVolume *gvolume;
 	GMount *mount;
@@ -169,8 +165,6 @@ parrillada_volume_get_mount_point (ParrilladaVolume *volume,
 
 	g_return_val_if_fail (volume != NULL, NULL);
 	g_return_val_if_fail (PARRILLADA_IS_VOLUME (volume), NULL);
-
-	priv = PARRILLADA_VOLUME_PRIVATE (volume);
 
 	gvolume = parrillada_volume_get_gvolume (volume);
 	if (!gvolume)
@@ -372,7 +366,6 @@ parrillada_volume_get_icon (ParrilladaVolume *volume)
 gchar *
 parrillada_volume_get_name (ParrilladaVolume *volume)
 {
-	ParrilladaVolumePrivate *priv;
 	ParrilladaMedia media;
 	const gchar *type;
 	GVolume *gvolume;
@@ -380,8 +373,6 @@ parrillada_volume_get_name (ParrilladaVolume *volume)
 
 	g_return_val_if_fail (volume != NULL, NULL);
 	g_return_val_if_fail (PARRILLADA_IS_VOLUME (volume), NULL);
-
-	priv = PARRILLADA_VOLUME_PRIVATE (volume);
 
 	media = parrillada_medium_get_status (PARRILLADA_MEDIUM (volume));
 	if (media & PARRILLADA_MEDIUM_FILE) {

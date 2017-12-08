@@ -73,7 +73,7 @@ static const guint16 font_sizes[] = {
 
 static guint jacket_font_signals[LAST_SIGNAL] = { 0 };
 
-G_DEFINE_TYPE (ParrilladaJacketFont, parrillada_jacket_font, GTK_TYPE_HBOX);
+G_DEFINE_TYPE (ParrilladaJacketFont, parrillada_jacket_font, GTK_TYPE_BOX);
 
 static void
 parrillada_jacket_font_family_changed_cb (GtkComboBox *combo,
@@ -232,10 +232,7 @@ static void
 parrillada_jacket_fill_sizes (ParrilladaJacketFont *self,
                            GtkListStore *store)
 {
-	ParrilladaJacketFontPrivate *priv;
 	gint i;
-
-	priv = PARRILLADA_JACKET_FONT_PRIVATE (self);
 
 	for (i = 0; i < G_N_ELEMENTS (font_sizes); i ++) {
 		GtkTreeIter iter;
@@ -255,12 +252,9 @@ static void
 parrillada_jacket_fill_families (ParrilladaJacketFont *self,
                               GtkListStore *store)
 {
-	ParrilladaJacketFontPrivate *priv;
 	PangoFontFamily **families;
 	gint num = 0;
 	gint i;
-
-	priv = PARRILLADA_JACKET_FONT_PRIVATE (self);
 
 	pango_context_list_families (gtk_widget_get_pango_context (GTK_WIDGET (self)),
 				     &families, &num);

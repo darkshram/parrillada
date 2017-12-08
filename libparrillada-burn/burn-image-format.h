@@ -43,7 +43,8 @@ parrillada_image_format_identify_cuesheet (const gchar *path,
 					GError **error);
 
 gchar *
-parrillada_image_format_get_default_path (ParrilladaImageFormat format);
+parrillada_image_format_get_default_path (ParrilladaImageFormat format,
+				       const gchar *name);
 
 gchar *
 parrillada_image_format_fix_path_extension (ParrilladaImageFormat format,

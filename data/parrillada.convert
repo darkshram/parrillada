@@ -1,15 +1,15 @@
-[org.mate.parrillada.config]
-tmpdir=/org/mate/parrillada/drives/tmpdir
-dao-flag=/org/mate/parrillada/config/dao_flag
-immed-flag=/org/mate/parrillada/config/immed_flag
-minbuf-value=/org/mate/parrillada/config/minbug_value
-raw-flag=/org/mate/parrillada/config/raw_flag
-checksum-files=/org/mate/parrillada/config/checksum_files
-checksum-image=/org/mate/parrillada/config/checksum_image
+[org.mate.brasero.config]
+tmpdir=/apps/parrillada/drives/tmpdir
+dao-flag=/apps/parrillada/config/dao_flag
+immed-flag=/apps/parrillada/config/immed_flag
+minbuf-value=/apps/parrillada/config/minbug_value
+raw-flag=/apps/parrillada/config/raw_flag
+checksum-files=/apps/parrillada/config/checksum_files
+checksum-image=/apps/parrillada/config/checksum_image
 
-[org.mate.parrillada.filter]
-broken-sym=/org/mate/parrillada/filter/broken_sym
-replace-sym=/org/mate/parrillada/filter/replace_sym
+[org.mate.brasero.filter]
+broken-sym=/apps/parrillada/filter/broken_sym
+replace-sym=/apps/parrillada/filter/replace_sym
 
-[org.mate.parrillada.display]
-iso-folder=/org/mate/parrillada/display/iso_folder
+[org.mate.brasero.display]
+iso-folder=/apps/parrillada/display/iso_folder

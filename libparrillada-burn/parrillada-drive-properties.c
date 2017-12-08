@@ -186,7 +186,7 @@ parrillada_drive_properties_set_tmpdir_info (ParrilladaDriveProperties *self,
 	vol_size = g_file_info_get_attribute_uint64 (info, G_FILE_ATTRIBUTE_FILESYSTEM_FREE);
 	g_object_unref (info);
 
-	string_size = g_format_size_for_display (vol_size);
+	string_size = g_format_size (vol_size);
 	/* Translators: the first %s is the path of the directory where parrillada
 	 * will store its temporary files; the second one is the size available */
 	string = g_strdup_printf (_("%s: %s free"), path, string_size);
@@ -204,9 +204,6 @@ parrillada_drive_properties_check_tmpdir (ParrilladaDriveProperties *self,
 	GFileInfo *info;
 	GError *error = NULL;
 	const gchar *filesystem;
-	ParrilladaDrivePropertiesPrivate *priv;
-
-	priv = PARRILLADA_DRIVE_PROPERTIES_PRIVATE (self);
 
 	file = g_file_new_for_commandline_arg (path);
 	if (!file)
@@ -399,10 +396,6 @@ static void
 parrillada_drive_properties_set_tmpdir (ParrilladaDriveProperties *self,
 				     const gchar *path)
 {
-	ParrilladaDrivePropertiesPrivate *priv;
-
-	priv = PARRILLADA_DRIVE_PROPERTIES_PRIVATE (self);
-
 	if (!path)
 		path = g_get_tmp_dir ();
 
@@ -704,7 +697,7 @@ parrillada_drive_properties_init (ParrilladaDriveProperties *object)
 
 	priv = PARRILLADA_DRIVE_PROPERTIES_PRIVATE (object);
 
-	vbox = gtk_vbox_new (FALSE, 0);
+	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
 	gtk_widget_show (vbox);
 	gtk_container_add (GTK_CONTAINER (object), vbox);
 
@@ -779,7 +772,7 @@ parrillada_drive_properties_init (ParrilladaDriveProperties *object)
 	image = gtk_image_new_from_icon_name ("folder", GTK_ICON_SIZE_BUTTON);
 	gtk_widget_show (image);
 
-	box = gtk_hbox_new (FALSE, 6);
+	box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
 	gtk_widget_show (box);
 	gtk_box_pack_start (GTK_BOX (box), image, FALSE, FALSE, 0);
 	gtk_box_pack_start (GTK_BOX (box), label, TRUE, TRUE, 0);
@@ -789,7 +782,7 @@ parrillada_drive_properties_init (ParrilladaDriveProperties *object)
 	gtk_container_add (GTK_CONTAINER (button), box);
 	gtk_widget_set_tooltip_text (button, _("Set the directory where to store temporary files"));
 
-	box = gtk_hbox_new (FALSE, 6);
+	box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
 	gtk_widget_show (box);
 
 	string = g_strdup_printf ("<b>%s</b>", _("Temporary files"));

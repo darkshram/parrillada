@@ -1,5 +1,5 @@
 ## Process this file with automake to produce Makefile.in.
-SUBDIRS = libparrillada-utils libparrillada-media libparrillada-burn plugins src po data
+SUBDIRS = libparrillada-utils libparrillada-media libparrillada-burn plugins src po data docs help
 
 if BUILD_CAJA
 SUBDIRS += caja
@@ -11,10 +11,10 @@ ACLOCAL_AMFLAGS = ${ACLOCAL_FLAGS}
 parrilladadocdir = ${prefix}/docs/parrillada
 
 EXTRA_DIST = 			\
-	AUTHORS			\
-	MAINTAINERS		\
-	NEWS			\
-	README			\
+	AUTHORS.md			\
+	MAINTAINERS.md		\
+	NEWS.md			\
+	README.md			\
 	intltool-extract.in	\
 	intltool-merge.in	\
 	intltool-update.in
@@ -32,11 +32,11 @@ DISTCLEANFILES = \
 	intltool-extract \
 	intltool-merge \
 	intltool-update	\
-	libparrillada-media@PARRILLADA_LIBRARY_SUFFIX@.pc	\
-	libparrillada-burn@PARRILLADA_LIBRARY_SUFFIX@.pc
+	libparrillada-media3.pc	\
+	libparrillada-burn3.pc
 
 pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = libparrillada-media@PARRILLADA_LIBRARY_SUFFIX@.pc libparrillada-burn@PARRILLADA_LIBRARY_SUFFIX@.pc
+pkgconfig_DATA = libparrillada-media3.pc libparrillada-burn3.pc
 
 dist-hook:
 	@if test -d "$(srcdir)/.git"; \

@@ -1,12 +1,12 @@
-# Bulgarian translation of brasero documentation.
+# Bulgarian translation of parrillada documentation.
 # Copyright (C) 2009  Krasimir Chonov <mk2616@abv.bg>
-# This file is distributed under the same license as the brasero package.
+# This file is distributed under the same license as the parrillada package.
 # Krasimir Chonov <mk2616@abv.bg>, 2009.
 # Alexander Shopov <ash@kambanaria.org>, 2009.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: brasero master\n"
+"Project-Id-Version: parrillada master\n"
 "POT-Creation-Date: 2010-01-16 20:09+0200\n"
 "PO-Revision-Date: 2010-01-16 20:09+0200\n"
 "Last-Translator: Krasimir Chonov <mk2616@abv.bg>\n"
@@ -22,7 +22,7 @@ msgid ""
 "the terms of the GNU Free Documentation License (GFDL), Version 1.1 or any "
 "later version published by the Free Software Foundation with no Invariant "
 "Sections, no Front-Cover Texts, and no Back-Cover Texts. You can find a copy "
-"of the GFDL at this <ulink type=\"help\" url=\"help:fdl\">link</ulink> or "
+"of the GFDL at this <ulink type=\"help\" url=\"ghelp:fdl\">link</ulink> or "
 "in the file COPYING-DOCS distributed with this manual."
 msgstr ""
 "Предоставя се разрешение за копиране, разпространение и/или промяна на този "
@@ -30,17 +30,17 @@ msgstr ""
 "версия 1.1 или всяка следваща версия, издадена от Фондация „Свободен "
 "софтуер“; без „Непроменливи раздели“, „Текстове на предната корица“, както и "
 "„Текстове на задната корица“. Копие на лиценза може да бъде намерено <ulink "
-"type=\"help\" url=\"help:fdl\">тук</ulink> или във файла COPYING-DOCS, "
+"type=\"help\" url=\"ghelp:fdl\">тук</ulink> или във файла COPYING-DOCS, "
 "разпространяван с това ръководство."
 
 #: ../C/legal.xml:12(para)
 msgid ""
-"This manual is part of a collection of GNOME manuals distributed under the "
+"This manual is part of a collection of MATE manuals distributed under the "
 "GFDL. If you want to distribute this manual separately from the collection, "
 "you can do so by adding a copy of the license to the manual, as described in "
 "section 6 of the license."
 msgstr ""
-"Това ръководство е част от колекцията ръководства за GNOME, разпространявани "
+"Това ръководство е част от колекцията ръководства за MATE, разпространявани "
 "под GFDL. Ако искате да разпространявате ръководство отделно от колекцията, "
 "можете да го направите като добавите копие на лиценза към ръководството, по "
 "начина описан в раздел 6 на лиценза."
@@ -48,15 +48,15 @@ msgstr ""
 #: ../C/legal.xml:19(para)
 msgid ""
 "Many of the names used by companies to distinguish their products and "
-"services are claimed as trademarks. Where those names appear in any GNOME "
-"documentation, and the members of the GNOME Documentation Project are made "
+"services are claimed as trademarks. Where those names appear in any MATE "
+"documentation, and the members of the MATE Documentation Project are made "
 "aware of those trademarks, then the names are in capital letters or initial "
 "capital letters."
 msgstr ""
 "Много от имената, използвани от компании, за да отличават собствените си "
 "продукти и услуги, са регистрирани търговски марки. Когато такива имена "
-"присъстват в която и да е документация за GNOME и членовете на проекта за "
-"документация на GNOME са осведомени за съответните търговски марки, тогава "
+"присъстват в която и да е документация за MATE и членовете на проекта за "
+"документация на MATE са осведомени за съответните търговски марки, тогава "
 "имената са с главни букви или начални главни букви."
 
 #: ../C/legal.xml:35(para)
@@ -129,12 +129,12 @@ msgstr ""
 "@@image: 'figures/parrillada_main.png'; md5=dfc32ea3caef05364043a4529125d2e2"
 
 #: ../C/parrillada.xml:26(title)
-msgid "<application>Brasero</application> Manual V2.2"
-msgstr "Ръководство за <application>Brasero</application> V2.2"
+msgid "<application>Parrillada</application> Manual V2.2"
+msgstr "Ръководство за <application>Parrillada</application> V2.2"
 
 #: ../C/parrillada.xml:28(para)
-msgid "Brasero is an application for burning CDs and DVDs."
-msgstr "Brasero е програма за запис на CD и DVD дискове."
+msgid "Parrillada is an application for burning CDs and DVDs."
+msgstr "Parrillada е програма за запис на CD и DVD дискове."
 
 #: ../C/parrillada.xml:32(year)
 msgid "2008"
@@ -188,8 +188,8 @@ msgid "philbull@gmail.com"
 msgstr "philbull@gmail.com"
 
 #: ../C/parrillada.xml:99(revnumber)
-msgid "Brasero Manual V2.2"
-msgstr "Ръководство за Brasero V2.2"
+msgid "Parrillada Manual V2.2"
+msgstr "Ръководство за Parrillada V2.2"
 
 #: ../C/parrillada.xml:102(para) ../C/parrillada.xml:112(para)
 #: ../C/parrillada.xml:122(para)
@@ -197,16 +197,16 @@ msgid "Milo Casagrande <email>milo@ubuntu.com</email>"
 msgstr "Milo Casagrande <email>milo@ubuntu.com</email>"
 
 #: ../C/parrillada.xml:109(revnumber)
-msgid "Brasero Manual V2.1"
-msgstr "Ръководство за Brasero V2.1"
+msgid "Parrillada Manual V2.1"
+msgstr "Ръководство за Parrillada V2.1"
 
 #: ../C/parrillada.xml:110(date)
 msgid "August 2008"
 msgstr "Август 2008"
 
 #: ../C/parrillada.xml:119(revnumber)
-msgid "Brasero Manual V2.0"
-msgstr "Ръководство за Brasero V2.0"
+msgid "Parrillada Manual V2.0"
+msgstr "Ръководство за Parrillada V2.0"
 
 #: ../C/parrillada.xml:120(date)
 msgid "February 2008"
@@ -221,8 +221,8 @@ msgid "Phil Bull <email>philbull@gmail.com</email>"
 msgstr "Phil Bull <email>philbull@gmail.com</email>"
 
 #: ../C/parrillada.xml:136(releaseinfo)
-msgid "This manual describes version 2.26 of Brasero."
-msgstr "Това ръководство описва Brasero версия 2.26. "
+msgid "This manual describes version 2.26 of Parrillada."
+msgstr "Това ръководство описва Parrillada версия 2.26. "
 
 #: ../C/parrillada.xml:140(title)
 msgid "Feedback"
@@ -230,22 +230,22 @@ msgstr "Обратна връзка"
 
 #: ../C/parrillada.xml:141(para)
 msgid ""
-"To report a bug or make a suggestion regarding the <application>Brasero</"
+"To report a bug or make a suggestion regarding the <application>Parrillada</"
 "application> application or this manual, follow the directions in the <ulink "
-"url=\"help:gnome-feedback\" type=\"help\">GNOME Feedback Page</ulink>."
+"url=\"ghelp:gnome-feedback\" type=\"help\">MATE Feedback Page</ulink>."
 msgstr ""
 "За да докладвате грешка или да направите предложение относно програмата "
-"<application>Brasero</application> или това ръководство, следвайте "
-"инструкциите на <ulink url=\"help:gnome-feedback\" type=\"help\">страницата "
-"за обратна връзка на проекта GNOME</ulink>."
+"<application>Parrillada</application> или това ръководство, следвайте "
+"инструкциите на <ulink url=\"ghelp:gnome-feedback\" type=\"help\">страницата "
+"за обратна връзка на проекта MATE</ulink>."
 
 #: ../C/parrillada.xml:150(primary)
-msgid "Brasero"
-msgstr "Brasero"
+msgid "Parrillada"
+msgstr "Parrillada"
 
 #: ../C/parrillada.xml:153(primary)
-msgid "brasero"
-msgstr "brasero"
+msgid "parrillada"
+msgstr "parrillada"
 
 #: ../C/parrillada.xml:154(secondary)
 msgid "burn"
@@ -261,17 +261,17 @@ msgstr "Въведение"
 
 #: ../C/parrillada.xml:163(para)
 msgid ""
-"<application>Brasero</application> is an application for burning CD-R/Ws and "
+"<application>Parrillada</application> is an application for burning CD-R/Ws and "
 "DVD-R/Ws, designed to be easy to use, while providing all the tools "
 "necessary for burning."
 msgstr ""
-"<application>Brasero</application> е програма за запис на CD-R/W и DVD-R/W "
+"<application>Parrillada</application> е програма за запис на CD-R/W и DVD-R/W "
 "дискове, проектирана за лесна работа, като в същото време предлага всички "
 "необходими инструменти за запис на дискове."
 
 #: ../C/parrillada.xml:168(para)
-msgid "With <application>Brasero</application> you can:"
-msgstr "С <application>Brasero</application> можете да:"
+msgid "With <application>Parrillada</application> you can:"
+msgstr "С <application>Parrillada</application> можете да:"
 
 #: ../C/parrillada.xml:171(para)
 msgid "Burn data to CD-R/Ws and DVD-R/Ws"
@@ -307,13 +307,13 @@ msgid "Getting Started"
 msgstr "Първи стъпки"
 
 #: ../C/parrillada.xml:213(title)
-msgid "Starting Brasero"
-msgstr "Стартиране на Brasero"
+msgid "Starting Parrillada"
+msgstr "Стартиране на Parrillada"
 
 #: ../C/parrillada.xml:214(para)
-msgid "You can start <application>Brasero</application> in the following ways:"
+msgid "You can start <application>Parrillada</application> in the following ways:"
 msgstr ""
-"Можете да стартирате <application>Brasero</application> по следните начини:"
+"Можете да стартирате <application>Parrillada</application> по следните начини:"
 
 #: ../C/parrillada.xml:218(term)
 msgid "<guimenu>Applications</guimenu> menu"
@@ -322,53 +322,53 @@ msgstr "Меню <guimenu>Програми</guimenu>"
 #: ../C/parrillada.xml:220(para)
 msgid ""
 "Choose <menuchoice><guisubmenu>Sound &amp; Video</"
-"guisubmenu><guimenuitem>Brasero Disc Burning</guimenuitem></menuchoice>."
+"guisubmenu><guimenuitem>Parrillada Disc Burning</guimenuitem></menuchoice>."
 msgstr ""
 "Изберете <menuchoice><guisubmenu>Звук и видео</guisubmenu><guimenuitem>Запис "
-"на диск (Brasero)</guimenuitem></menuchoice>."
+"на диск (Parrillada)</guimenuitem></menuchoice>."
 
 #: ../C/parrillada.xml:227(term)
 msgid "Command line"
 msgstr "Команден ред"
 
 #: ../C/parrillada.xml:229(para)
-msgid "Type <command>brasero</command> and then press <keycap>Return</keycap>."
+msgid "Type <command>parrillada</command> and then press <keycap>Return</keycap>."
 msgstr ""
-"Напишете <command>brasero</command> и натиснете клавиша <keycap>Return</"
+"Напишете <command>parrillada</command> и натиснете клавиша <keycap>Return</"
 "keycap>."
 
 #: ../C/parrillada.xml:238(para)
 msgid ""
-"If <application>Brasero</application> is set as your default disc burning "
+"If <application>Parrillada</application> is set as your default disc burning "
 "application, it will automatically start when you insert a blank CD-R/W or "
 "DVD-R/W in your drive."
 msgstr ""
-"Ако <application>Brasero</application> е подразбиращата се програма за запис "
+"Ако <application>Parrillada</application> е подразбиращата се програма за запис "
 "на дискове, тя ще се стартира автоматично, когато поставите празен CD-R/W "
 "или DVD-R/W диск във вашето записващо устройство."
 
 #: ../C/parrillada.xml:248(title)
-msgid "When You Start Brasero"
-msgstr "След като Brasero е стартирана"
+msgid "When You Start Parrillada"
+msgstr "След като Parrillada е стартирана"
 
 #: ../C/parrillada.xml:249(para)
 msgid ""
-"When you start <application>Brasero</application> the following window will "
+"When you start <application>Parrillada</application> the following window will "
 "be shown."
 msgstr ""
-"След като <application>Brasero</application> е стартирана, ще се отвори "
+"След като <application>Parrillada</application> е стартирана, ще се отвори "
 "следния прозорец."
 
 #: ../C/parrillada.xml:253(title)
-msgid "Brasero Main Window"
-msgstr "Главен прозорец на Brasero"
+msgid "Parrillada Main Window"
+msgstr "Главен прозорец на Parrillada"
 
 #: ../C/parrillada.xml:260(phrase)
 msgid ""
-"The Brasero main window. Shows the menu bar and the five types of project to "
+"The Parrillada main window. Shows the menu bar and the five types of project to "
 "choose from."
 msgstr ""
-"Главният прозорец на Brasero. Показва се лентата с менюта и петте вида "
+"Главният прозорец на Parrillada. Показва се лентата с менюта и петте вида "
 "проекти, които можете да започнете."
 
 #. ==== End of Figure ====
@@ -376,15 +376,15 @@ msgstr ""
 msgid ""
 "This window is the starting point for all of your projects. You can click on "
 "the project type you wish to start from here. If you have created other "
-"projects with <application>Brasero</application>, you will be able to select "
+"projects with <application>Parrillada</application>, you will be able to select "
 "them from the <guilabel>Choose a recently opened project</guilabel> (see "
-"<xref linkend=\"brasero-open-recent-project\"/> for more information)."
+"<xref linkend=\"parrillada-open-recent-project\"/> for more information)."
 msgstr ""
 "Този прозорец е началната точка за всички проекти. В него можете да щракнете "
 "върху вида проект, който искате да започнете. Ако сте създавали други "
-"проекти с <application>Brasero</application>, ще можете да изберете някой от "
+"проекти с <application>Parrillada</application>, ще можете да изберете някой от "
 "тях от <guilabel>Скоро отваряни проекти</guilabel> (за повече информация "
-"вижте <xref linkend=\"brasero-open-recent-project\"/>)."
+"вижте <xref linkend=\"parrillada-open-recent-project\"/>)."
 
 #: ../C/parrillada.xml:284(title)
 msgid "Creating a New Project"
@@ -393,10 +393,10 @@ msgstr "Създаване на нов проект"
 #: ../C/parrillada.xml:285(para)
 msgid ""
 "The following section explains the five types of project that you can create "
-"with <application>Brasero</application>."
+"with <application>Parrillada</application>."
 msgstr ""
 "Този раздел описва петте вида проекти, които можете да създадете с "
-"<application>Brasero</application>."
+"<application>Parrillada</application>."
 
 #: ../C/parrillada.xml:292(title)
 msgid "Audio Project"
@@ -473,12 +473,12 @@ msgstr ""
 
 #: ../C/parrillada.xml:351(para)
 msgid ""
-"It is possible now to <link linkend=\"brasero-audio-pause\">insert a pause</"
-"link> after each of the tracks or <link linkend=\"brasero-audio-split\">to "
+"It is possible now to <link linkend=\"parrillada-audio-pause\">insert a pause</"
+"link> after each of the tracks or <link linkend=\"parrillada-audio-split\">to "
 "split</link> the tracks."
 msgstr ""
-"Вече е възможно да се <link linkend=\"brasero-audio-pause\">вмъкне пауза</"
-"link> след всеки запис или <link linkend=\"brasero-audio-split\">да се "
+"Вече е възможно да се <link linkend=\"parrillada-audio-pause\">вмъкне пауза</"
+"link> след всеки запис или <link linkend=\"parrillada-audio-split\">да се "
 "разделят</link> песните."
 
 #: ../C/parrillada.xml:359(para)
@@ -499,11 +499,11 @@ msgstr ""
 #: ../C/parrillada.xml:372(para)
 msgid ""
 "The <guilabel>Disc burning setup</guilabel> dialog will be shown; make any "
-"desired modifications (see <xref linkend=\"brasero-audio-project-options\"/"
+"desired modifications (see <xref linkend=\"parrillada-audio-project-options\"/"
 ">)."
 msgstr ""
 "Ще се покаже прозореца <guilabel>Настройки на име_на_записващо_устройство</"
-"guilabel>. Направете желаните промени (вижте <xref linkend=\"brasero-audio-"
+"guilabel>. Направете желаните промени (вижте <xref linkend=\"parrillada-audio-"
 "project-options\"/>)."
 
 #: ../C/parrillada.xml:379(para) ../C/parrillada.xml:641(para)
@@ -690,12 +690,12 @@ msgstr "<guilabel>Избор на диск за запис</guilabel>:"
 #: ../C/parrillada.xml:1169(para)
 msgid ""
 "Click on <guibutton>Properties</guibutton> to open the properties dialog for "
-"the burning device. See <xref linkend=\"brasero-burning-device-properties\"/"
+"the burning device. See <xref linkend=\"parrillada-burning-device-properties\"/"
 "> for more information."
 msgstr ""
 "Натиснете <guibutton>Настройки</guibutton>, за да се отвори прозореца с "
 "настройки за запис на записващото устройство. За повече информация вижте "
-"<xref linkend=\"brasero-burning-device-properties\"/>."
+"<xref linkend=\"parrillada-burning-device-properties\"/>."
 
 #: ../C/parrillada.xml:545(term) ../C/parrillada.xml:693(term)
 #: ../C/parrillada.xml:1357(term)
@@ -765,10 +765,10 @@ msgstr ""
 #: ../C/parrillada.xml:634(para)
 msgid ""
 "The <guilabel>Disc burning setup</guilabel> dialog will be shown; make any "
-"desired modifications (see <xref linkend=\"brasero-data-project-options\"/>)."
+"desired modifications (see <xref linkend=\"parrillada-data-project-options\"/>)."
 msgstr ""
 "Ще се отвори прозорецът <guilabel>Настройки на име_на_записващо_устройство</"
-"guilabel>. Направете желаните промени (вижте <xref linkend=\"brasero-data-"
+"guilabel>. Направете желаните промени (вижте <xref linkend=\"parrillada-data-"
 "project-options\"/>)."
 
 #: ../C/parrillada.xml:577(para)
@@ -856,11 +856,11 @@ msgstr ""
 #: ../C/parrillada.xml:820(para)
 msgid ""
 "The <guilabel>Disc burning setup</guilabel> dialog will be shown; make any "
-"desired modifications (see <xref linkend=\"brasero-video-project-options\"/"
+"desired modifications (see <xref linkend=\"parrillada-video-project-options\"/"
 ">)."
 msgstr ""
 "Ще се отвори прозорецът <guilabel>Настройки на име_на_записващо_устройство</"
-"guilabel>. Направете желаните промени (вижте <xref linkend=\"brasero-video-"
+"guilabel>. Направете желаните промени (вижте <xref linkend=\"parrillada-video-"
 "project-options\"/>)."
 
 #: ../C/parrillada.xml:766(para)
@@ -982,12 +982,12 @@ msgstr ""
 #: ../C/parrillada.xml:1006(para)
 msgid ""
 "The <guilabel>CD/DVD copy options</guilabel> dialog will be shown; make the "
-"desired modifications (see <xref linkend=\"brasero-disc-copy-options\"/> for "
+"desired modifications (see <xref linkend=\"parrillada-disc-copy-options\"/> for "
 "more information)."
 msgstr ""
 "Ще се отвори прозорецът <guilabel>Настройки за копиране на CD/DVD диск</"
 "guilabel>. Направете желаните промени (за повече информация вижте <xref "
-"linkend=\"brasero-disc-copy-options\"/>)."
+"linkend=\"parrillada-disc-copy-options\"/>)."
 
 #: ../C/parrillada.xml:1013(para)
 msgid "Click on <guibutton>Copy</guibutton> to start the copying process."
@@ -1069,11 +1069,11 @@ msgstr ".toc"
 #: ../C/parrillada.xml:1091(para)
 msgid ""
 "This project takes an existing file image and burns it to a CD-R/W or DVD-R/"
-"W. <application>Brasero</application> supports the following types of image "
+"W. <application>Parrillada</application> supports the following types of image "
 "file: <placeholder-1/>"
 msgstr ""
 "Този проект използва съществуващ файл с образ и го записва върху CD-R/W или "
-"DVD-R/W диск. <application>Brasero</application> поддържа следните видове "
+"DVD-R/W диск. <application>Parrillada</application> поддържа следните видове "
 "файлове с образ: <placeholder-1/>"
 
 #: ../C/parrillada.xml:1128(para)
@@ -1089,10 +1089,10 @@ msgstr ""
 #: ../C/parrillada.xml:1139(para)
 msgid ""
 "The <guilabel>Image burning setup</guilabel> dialog will be shown; make the "
-"desired modifications (see <xref linkend=\"brasero-burn-image-options\"/>)."
+"desired modifications (see <xref linkend=\"parrillada-burn-image-options\"/>)."
 msgstr ""
 "Ще се отвори прозорецът <guilabel>Настройки на записа на образ</guilabel>. "
-"Направете желаните промени (вижте <xref linkend=\"brasero-burn-image-options"
+"Направете желаните промени (вижте <xref linkend=\"parrillada-burn-image-options"
 "\"/>)."
 
 #: ../C/parrillada.xml:1119(para)
@@ -1120,12 +1120,12 @@ msgid ""
 "Click on the button to open the <guilabel>Select Image File</guilabel> "
 "dialog and select the image file to burn. From the drop-down list at the "
 "bottom, you can select the type of the image to burn. If unsure, select "
-"<guilabel>Let brasero choose (safest)</guilabel>."
+"<guilabel>Let parrillada choose (safest)</guilabel>."
 msgstr ""
 "Натиснете бутона, за да се отвори прозореца <guilabel>Избор на файл с образ</"
 "guilabel> и изберете файла с образ, който искате да запишете. От падащия "
 "списък отдолу, можете да изберете вида на образа. Ако не сте сигурни, "
-"изберете <guilabel>Нека Brasero избере (най-сигурно)</guilabel>."
+"изберете <guilabel>Нека Parrillada избере (най-сигурно)</guilabel>."
 
 #: ../C/parrillada.xml:1204(title)
 msgid "Burning Device Properties"
@@ -1207,14 +1207,14 @@ msgstr "Симулация преди записа"
 #: ../C/parrillada.xml:1278(para)
 msgid ""
 "Select this option to simulate the burning process; no real burn is "
-"performed. If this operation is successful, brasero will actually burn the "
+"performed. If this operation is successful, parrillada will actually burn the "
 "disc after pausing for 10 seconds. During this pause it will show a dialog "
 "in which you can cancel the actual burning. This is useful for testing, if "
 "you are having problems burning discs."
 msgstr ""
 "Изберете тази опция, за да се симулира записа преди реалното записване. "
 "Реално не се записват никакви данни върху носителя. Ако симулацията завърши "
-"успешно, Brasero ще започне записа на диска след 10 секунди. Това е полезно "
+"успешно, Parrillada ще започне записа на диска след 10 секунди. Това е полезно "
 "за тестване, ако имате проблеми със записването на дискове."
 
 #: ../C/parrillada.xml:1294(guilabel)
@@ -1252,11 +1252,11 @@ msgstr "Настройки за запис при липса на диск"
 #: ../C/parrillada.xml:1327(para)
 msgid ""
 "If you start the burning process without a CD or DVD in the burning device, "
-"<application>Brasero</application> will create a image file on the hard disk "
+"<application>Parrillada</application> will create a image file on the hard disk "
 "that you can lately burn."
 msgstr ""
 "Ако записът започне без CD или DVD диск в записващото устройство, "
-"<application>Brasero</application> ще създаде файл с образ, който можете да "
+"<application>Parrillada</application> ще създаде файл с образ, който можете да "
 "запишете по-късно."
 
 #: ../C/parrillada.xml:1339(para)
@@ -1356,19 +1356,19 @@ msgstr "DVD+RW (един или два слоя)"
 #: ../C/parrillada.xml:1438(para)
 msgid ""
 "Erasing or blanking a CD or DVD means to delete all the data that the CD or "
-"the DVD contains. <application>Brasero</application> is able to erase the "
+"the DVD contains. <application>Parrillada</application> is able to erase the "
 "following CD and DVD formats: <placeholder-1/>"
 msgstr ""
 "Изтриването на CD или DVD диск представлява изтриване на всички данни, които "
-"CD или DVD диска съдържа. <application>Brasero</application> може да изтрива "
+"CD или DVD диска съдържа. <application>Parrillada</application> може да изтрива "
 "следните формати CD и DVD дискове: <placeholder-1/>"
 
 #: ../C/parrillada.xml:1460(para)
 msgid ""
-"In general, <application>Brasero</application> can support all of the media "
+"In general, <application>Parrillada</application> can support all of the media "
 "formats supported by your own CD/DVD recorder."
 msgstr ""
-"<application>Brasero</application> може да поддържа всички формати носители, "
+"<application>Parrillada</application> може да поддържа всички формати носители, "
 "които се поддържат от вашето записващо устройство."
 
 #: ../C/parrillada.xml:1465(para)
@@ -1404,11 +1404,11 @@ msgstr ""
 #: ../C/parrillada.xml:1494(para)
 msgid ""
 "If you want to quickly erase the disc, select the <guilabel>fast blanking</"
-"guilabel> option (for more information, see <xref linkend=\"brasero-fast-"
+"guilabel> option (for more information, see <xref linkend=\"parrillada-fast-"
 "blanking\"/>)."
 msgstr ""
 "Ако искате дискът да се изтрие бързо, изберете опцията <guilabel>Бързо "
-"изтриване</guilabel> (за повече информация вижте <xref linkend=\"brasero-"
+"изтриване</guilabel> (за повече информация вижте <xref linkend=\"parrillada-"
 "fast-blanking\"/>)."
 
 #: ../C/parrillada.xml:1501(para)
@@ -1466,24 +1466,24 @@ msgid ""
 "The integrity check is done using the <quote>MD5 digest</quote> algorithm, "
 "which creates a <quote>fingerprint</quote> of the data on the media. Each "
 "time you burn a CD or DVD, and the <emphasis role=\"strong\">Image checksum</"
-"emphasis> plugin is enabled (see <xref linkend=\"brasero-plugins\"/> for "
-"more information), <application>Brasero</application> adds a MD5 file to the "
+"emphasis> plugin is enabled (see <xref linkend=\"parrillada-plugins\"/> for "
+"more information), <application>Parrillada</application> adds a MD5 file to the "
 "disc in order to perform integrity checks at a later date."
 msgstr ""
 "Проверката за цялост се прави с алгоритъма <quote>MD5</quote>, който създава "
 "<quote>отпечатък</quote> на данните върху носителя. Всеки път, когато се "
 "записва диск и приставката <emphasis role=\"strong\">Контролна сума за "
 "файлове</emphasis> е включена (за повече информация вижте <xref linkend="
-"\"brasero-plugins\"/>), <application>Brasero</application> добавя файл със "
+"\"parrillada-plugins\"/>), <application>Parrillada</application> добавя файл със "
 "сума по MD5 в диска, за да могат да се извършват проверки за цялост."
 
 #: ../C/parrillada.xml:1545(para)
 msgid ""
-"<application>Brasero</application> performs an integrity check after each "
+"<application>Parrillada</application> performs an integrity check after each "
 "burning session, checking the automatically generated file. Usually this "
 "process is longer than using an external MD5 file."
 msgstr ""
-"<application>Brasero</application> прави проверка на цялостта на всеки "
+"<application>Parrillada</application> прави проверка на цялостта на всеки "
 "записан диск, като проверява автоматично създадения файл. Обикновено този "
 "процес отнема повече време отколкото използването на външен файл за MD5."
 
@@ -1522,11 +1522,11 @@ msgstr ""
 #: ../C/parrillada.xml:1570(para)
 msgid ""
 "You can check the integrity by using a MD5 file or by letting "
-"<application>Brasero</application> automatically perform a check on the "
+"<application>Parrillada</application> automatically perform a check on the "
 "media. <placeholder-1/>"
 msgstr ""
 "Дискът може да бъде проверен за грешки като се използва файл по MD5 или като "
-"позволите на <application>Brasero</application> автоматично да провери "
+"позволите на <application>Parrillada</application> автоматично да провери "
 "диска. <placeholder-1/>"
 
 #: ../C/parrillada.xml:1592(para)
@@ -1543,12 +1543,12 @@ msgstr "За проверка на диск за грешки: <placeholder-1/>"
 
 #: ../C/parrillada.xml:1599(para)
 msgid ""
-"If the integrity check is successful, <application>Brasero</application> "
+"If the integrity check is successful, <application>Parrillada</application> "
 "will notify you with a <guilabel>File integrity check success</guilabel> "
 "dialog; otherwise, the <guilabel>File integrity check error</guilabel> "
 "dialog will be displayed."
 msgstr ""
-"Ако проверката на диска е минала без грешки, <application>Brasero</"
+"Ако проверката на диска е минала без грешки, <application>Parrillada</"
 "application> ще изведе прозорец с текст <guilabel>Проверката за цялостта на "
 "диска беше извършена успешно</guilabel>, в противен случай, ще бъде изведен "
 "прозореца <guilabel>Грешка при проверката на цялостта на диска</guilabel>."
@@ -1559,12 +1559,12 @@ msgstr "Редактор на обложки"
 
 #: ../C/parrillada.xml:1609(para)
 msgid ""
-"<application>Brasero</application> has a cover editor for creating covers "
+"<application>Parrillada</application> has a cover editor for creating covers "
 "for your CDs or DVDs. To open the cover editor, choose "
 "<menuchoice><guimenu>Tools</guimenu><guimenuitem>Cover Editor</guimenuitem></"
 "menuchoice>."
 msgstr ""
-"<application>Brasero</application> съдържа редактор на обложки, с който "
+"<application>Parrillada</application> съдържа редактор на обложки, с който "
 "можете да създадете обложки за вашите дискове. За да го стартирате, изберете "
 "<menuchoice><guimenu>Инструменти</guimenu><guimenuitem>Редактор на обложки</"
 "guimenuitem></menuchoice>."
@@ -1652,10 +1652,10 @@ msgstr "Приставки"
 
 #: ../C/parrillada.xml:1676(para)
 msgid ""
-"<application>Brasero</application> can use different plugins to perform "
+"<application>Parrillada</application> can use different plugins to perform "
 "different tasks. There are several plugins you can choose from."
 msgstr ""
-"<application>Brasero</application> може да използва различни приставки за "
+"<application>Parrillada</application> може да използва различни приставки за "
 "изпълняването на различни задачи. Налични са няколко приставки."
 
 #: ../C/parrillada.xml:1680(para)
@@ -1685,15 +1685,15 @@ msgid "CD/DVD Creator"
 msgstr "Създаване на CD/DVD"
 
 #: ../C/parrillada.xml:1703(application)
-msgid "Nautilus"
-msgstr "Nautilus"
+msgid "Caja"
+msgstr "Caja"
 
 #: ../C/parrillada.xml:1701(entry)
 msgid ""
-"Enalbes <application>Brasero</application> to burn files stored in the "
+"Enalbes <application>Parrillada</application> to burn files stored in the "
 "<placeholder-1/> folder of <placeholder-2/>."
 msgstr ""
-"Позволява на <application>Brasero</application> да записва файлове, които се "
+"Позволява на <application>Parrillada</application> да записва файлове, които се "
 "намират в папката на <placeholder-2/> в <placeholder-3/>."
 
 #: ../C/parrillada.xml:1707(guilabel)
@@ -1702,9 +1702,9 @@ msgstr "Контролна сума за файлове"
 
 #: ../C/parrillada.xml:1708(entry)
 msgid ""
-"Enables <application>Brasero</application> to check the integrity of files."
+"Enables <application>Parrillada</application> to check the integrity of files."
 msgstr ""
-"Позволява на <application>Brasero</application> да провери цялостта на "
+"Позволява на <application>Parrillada</application> да провери цялостта на "
 "файловете."
 
 #: ../C/parrillada.xml:1713(guilabel)
@@ -1713,10 +1713,10 @@ msgstr "Изтегляне на файлове"
 
 #: ../C/parrillada.xml:1714(entry)
 msgid ""
-"Enables <application>Brasero</application> to burn files which are not "
+"Enables <application>Parrillada</application> to burn files which are not "
 "stored locally."
 msgstr ""
-"Позволява на <application>Brasero</application> да записва файлове, които се "
+"Позволява на <application>Parrillada</application> да записва файлове, които се "
 "намират на отдалечено място."
 
 #: ../C/parrillada.xml:1719(guilabel)
@@ -1725,11 +1725,11 @@ msgstr "Контролна сума за изображения"
 
 #: ../C/parrillada.xml:1720(entry)
 msgid ""
-"Enables <application>Brasero</application> to perform integrity checks on "
+"Enables <application>Parrillada</application> to perform integrity checks on "
 "discs after they have been burnt. Also enables the writing of a small file "
 "which holds the MD5 sum of all the files on the disc."
 msgstr ""
-"Позволява на <application>Brasero</application> да проверява дисковете след "
+"Позволява на <application>Parrillada</application> да проверява дисковете след "
 "като са били записани. Също позволява записването и на малък файл, който "
 "съдържа сумата по MD5 на всички файлове на диска."
 
@@ -1739,10 +1739,10 @@ msgstr "Нормализиране"
 
 #: ../C/parrillada.xml:1729(entry)
 msgid ""
-"Enables <application>Brasero</application> to set consistent sound levels "
+"Enables <application>Parrillada</application> to set consistent sound levels "
 "between tracks."
 msgstr ""
-"Позволява на <application>Brasero</application> да зададе постоянни нива на "
+"Позволява на <application>Parrillada</application> да зададе постоянни нива на "
 "звука между песните."
 
 #: ../C/parrillada.xml:1737(para)

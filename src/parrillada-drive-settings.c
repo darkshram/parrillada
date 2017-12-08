@@ -45,13 +45,13 @@ struct _ParrilladaDriveSettingsPrivate
 
 #define PARRILLADA_DRIVE_SETTINGS_PRIVATE(o)  (G_TYPE_INSTANCE_GET_PRIVATE ((o), PARRILLADA_TYPE_DRIVE_SETTINGS, ParrilladaDriveSettingsPrivate))
 
-#define PARRILLADA_SCHEMA_DRIVES		"org.mate.parrillada.drives"
-#define PARRILLADA_DRIVE_PROPERTIES_PATH	"/org/mate/parrillada/drives/"
+#define PARRILLADA_SCHEMA_DRIVES			"org.mate.parrillada.drives"
+#define PARRILLADA_DRIVE_PROPERTIES_PATH		"/org/mate/parrillada/drives/"
 #define PARRILLADA_PROPS_FLAGS			"flags"
 #define PARRILLADA_PROPS_SPEED			"speed"
 
-#define PARRILLADA_SCHEMA_CONFIG		"org.mate.parrillada.config"
-#define PARRILLADA_PROPS_TMP_DIR		"tmpdir"
+#define PARRILLADA_SCHEMA_CONFIG			"org.mate.parrillada.config"
+#define PARRILLADA_PROPS_TMP_DIR			"tmpdir"
 
 #define PARRILLADA_DEST_SAVED_FLAGS		(PARRILLADA_DRIVE_PROPERTIES_FLAGS|PARRILLADA_BURN_FLAG_MULTI)
 

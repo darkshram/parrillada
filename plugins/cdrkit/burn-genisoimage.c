@@ -101,10 +101,8 @@ parrillada_genisoimage_read_stderr (ParrilladaProcess *process, const gchar *lin
 {
 	gchar fraction_str [7] = { 0, };
 	ParrilladaGenisoimage *genisoimage;
-	ParrilladaGenisoimagePrivate *priv;
 
 	genisoimage = PARRILLADA_GENISOIMAGE (process);
-	priv = PARRILLADA_GENISOIMAGE_PRIVATE (process);
 
 	if (strstr (line, "estimate finish")
 	&&  sscanf (line, "%6c%% done, estimate finish", fraction_str) == 1) {

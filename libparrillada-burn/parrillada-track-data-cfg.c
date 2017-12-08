@@ -170,10 +170,7 @@ static GtkTreePath *
 parrillada_track_data_cfg_node_to_path (ParrilladaTrackDataCfg *self,
 				     ParrilladaFileNode *node)
 {
-	ParrilladaTrackDataCfgPrivate *priv;
 	GtkTreePath *path;
-
-	priv = PARRILLADA_TRACK_DATA_CFG_PRIVATE (self);
 
 	path = gtk_tree_path_new ();
 	for (; node->parent && !node->is_root; node = node->parent) {
@@ -597,15 +594,13 @@ parrillada_track_data_cfg_node_hidden (GtkTreeModel *model,
 
 static void
 parrillada_track_data_cfg_get_value (GtkTreeModel *model,
-				   GtkTreeIter *iter,
-				   gint column,
-				   GValue *value)
+				  GtkTreeIter *iter,
+				  gint column,
+				  GValue *value)
 {
 	ParrilladaTrackDataCfgPrivate *priv;
-	ParrilladaTrackDataCfg *self;
 	ParrilladaFileNode *node;
 
-	self = PARRILLADA_TRACK_DATA_CFG (model);
 	priv = PARRILLADA_TRACK_DATA_CFG_PRIVATE (model);
 
 	/* make sure that iter comes from us */
@@ -813,7 +808,7 @@ parrillada_track_data_cfg_get_value (GtkTreeModel *model,
 		else {
 			gchar *text;
 
-			text = g_format_size_for_display (PARRILLADA_FILE_NODE_SECTORS (node) * 2048);
+			text = g_format_size (PARRILLADA_FILE_NODE_SECTORS (node) * 2048);
 			g_value_set_string (value, text);
 			g_free (text);
 		}
@@ -1120,10 +1115,10 @@ parrillada_track_data_cfg_drag_data_received (GtkTreeDragDest *drag_dest,
 					   GtkTreePath *dest_path,
 					   GtkSelectionData *selection_data)
 {
+	GdkAtom target;
 	ParrilladaFileNode *node;
 	ParrilladaFileNode *parent;
 	GtkTreePath *dest_parent;
-	GdkAtom target;
 	ParrilladaTrackDataCfgPrivate *priv;
 
 	priv = PARRILLADA_TRACK_DATA_CFG_PRIVATE (drag_dest);
@@ -1175,11 +1170,9 @@ parrillada_track_data_cfg_drag_data_received (GtkTreeDragDest *drag_dest,
 	else if (target == gdk_atom_intern ("text/uri-list", TRUE)) {
 		gint i;
 		gchar **uris;
-		gboolean success = FALSE;
 
 		/* NOTE: there can be many URIs at the same time. One
 		 * success is enough to return TRUE. */
-		success = FALSE;
 		uris = gtk_selection_data_get_uris (selection_data);
 		if (!uris) {
 			const guchar *selection_data_raw;
@@ -1192,14 +1185,10 @@ parrillada_track_data_cfg_drag_data_received (GtkTreeDragDest *drag_dest,
 			return TRUE;
 
 		for (i = 0; uris [i]; i ++) {
-			ParrilladaFileNode *node;
-
 			/* Add the URIs to the project */
-			node = parrillada_data_project_add_loading_node (PARRILLADA_DATA_PROJECT (priv->tree),
-								      uris [i],
-								      parent);
-			if (node)
-				success = TRUE;
+			parrillada_data_project_add_loading_node (PARRILLADA_DATA_PROJECT (priv->tree),
+			                                       uris [i],
+			                                       parent);
 		}
 		g_strfreev (uris);
 	}
@@ -2397,10 +2386,6 @@ static ParrilladaBurnResult
 parrillada_track_data_cfg_get_track_type (ParrilladaTrack *track,
 				       ParrilladaTrackType *type)
 {
-	ParrilladaTrackDataCfgPrivate *priv;
-
-	priv = PARRILLADA_TRACK_DATA_CFG_PRIVATE (track);
-
 	parrillada_track_type_set_has_data (type);
 	parrillada_track_type_set_data_fs (type, parrillada_track_data_cfg_get_fs (PARRILLADA_TRACK_DATA (track)));
 
@@ -3412,59 +3397,12 @@ parrillada_track_data_cfg_finalize (GObject *object)
 		 * so we better remove all signals.
 		 * When an image URI is detected it can happen
 		 * that we'll be destroyed. */
-		g_signal_handlers_disconnect_by_func (priv->tree,
-		                                      parrillada_track_data_cfg_node_added,
-		                                      object);
-		g_signal_handlers_disconnect_by_func (priv->tree,
-		                                      parrillada_track_data_cfg_node_changed,
-		                                      object);
-		g_signal_handlers_disconnect_by_func (priv->tree,
-		                                      parrillada_track_data_cfg_node_removed,
-		                                      object);
-		g_signal_handlers_disconnect_by_func (priv->tree,
-		                                      parrillada_track_data_cfg_node_reordered,
-		                                      object);
-		g_signal_handlers_disconnect_by_func (priv->tree,
-		                                      parrillada_track_data_cfg_size_changed_cb,
-		                                      object);
-		g_signal_handlers_disconnect_by_func (priv->tree,
-		                                      parrillada_track_data_cfg_session_available_cb,
-		                                      object);
-		g_signal_handlers_disconnect_by_func (priv->tree,
-		                                      parrillada_track_data_cfg_session_loaded_cb,
-		                                      object);
-		g_signal_handlers_disconnect_by_func (priv->tree,
-		                                      parrillada_track_data_cfg_project_loaded,
-		                                      object);
-		g_signal_handlers_disconnect_by_func (priv->tree,
-		                                      parrillada_track_data_cfg_activity_changed,
-		                                      object);
-		g_signal_handlers_disconnect_by_func (priv->tree,
-		                                      parrillada_track_data_cfg_deep_directory,
-		                                      object);
-		g_signal_handlers_disconnect_by_func (priv->tree,
-		                                      parrillada_track_data_cfg_2G_file,
-		                                      object);
-		g_signal_handlers_disconnect_by_func (priv->tree,
-		                                      parrillada_track_data_cfg_unreadable_uri_cb,
-		                                      object);
-		g_signal_handlers_disconnect_by_func (priv->tree,
-		                                      parrillada_track_data_cfg_unknown_uri_cb,
-		                                      object);
-		g_signal_handlers_disconnect_by_func (priv->tree,
-		                                      parrillada_track_data_cfg_recursive_uri_cb,
-		                                      object);
-		g_signal_handlers_disconnect_by_func (priv->tree,
-		                                      parrillada_track_data_cfg_image_uri_cb,
-		                                      object);
-		g_signal_handlers_disconnect_by_func (priv->tree,
-		                                      parrillada_track_data_cfg_virtual_sibling_cb,
-		                                      object);
-		g_signal_handlers_disconnect_by_func (priv->tree,
-		                                      parrillada_track_data_cfg_name_collision_cb,
-		                                      object);
-		g_signal_handlers_disconnect_by_func (priv->tree,
-		                                      parrillada_track_data_cfg_joliet_rename_cb,
+		g_signal_handlers_disconnect_matched (priv->tree,
+		                                      G_SIGNAL_MATCH_DATA,
+		                                      0,
+		                                      0,
+		                                      NULL,
+		                                      NULL,
 		                                      object);
 
 		g_object_unref (priv->tree);

@@ -19,7 +19,8 @@
 
 #include <stdlib.h>
 
-#include <libtracker-client/tracker-client.h>
+#include <libtracker-sparql/tracker-sparql.h>
+#include <gio/gio.h>
 
 #include "parrillada-search-tracker.h"
 #include "parrillada-search-engine.h"
@@ -27,7 +28,8 @@
 typedef struct _ParrilladaSearchTrackerPrivate ParrilladaSearchTrackerPrivate;
 struct _ParrilladaSearchTrackerPrivate
 {
-	TrackerClient *client;
+	TrackerSparqlConnection *connection;
+	GCancellable *cancellable;
 	GPtrArray *results;
 
 	ParrilladaSearchScope scope;
@@ -54,11 +56,13 @@ parrillada_search_tracker_is_available (ParrilladaSearchEngine *engine)
 	ParrilladaSearchTrackerPrivate *priv;
 
 	priv = PARRILLADA_SEARCH_TRACKER_PRIVATE (engine);
-	if (priv->client)
+	GError *error = NULL;
+	if (priv->connection)
 		return TRUE;
-
-	priv->client = tracker_client_new (1, 30000);
-	return (priv->client != NULL);
+	
+	priv->cancellable = g_cancellable_new ();
+ 	priv->connection = tracker_sparql_connection_get (priv->cancellable, &error);
+	return (priv->connection != NULL);
 }
 
 static gint
@@ -124,30 +128,104 @@ parrillada_search_tracker_score_from_hit (ParrilladaSearchEngine *engine,
 	return 0;
 }
 
+static void parrillada_search_tracker_cursor_callback (GObject      *object,
+						    GAsyncResult *result,
+						    gpointer      user_data);
+
 static void
-parrillada_search_tracker_reply (GPtrArray *results,
-			      GError *error,
+parrillada_search_tracker_cursor_next (ParrilladaSearchEngine *search,
+				    TrackerSparqlCursor    *cursor)
+{
+	ParrilladaSearchTrackerPrivate *priv;
+	priv = PARRILLADA_SEARCH_TRACKER_PRIVATE (search);
+	
+	tracker_sparql_cursor_next_async (cursor,
+					  priv->cancellable,
+					  parrillada_search_tracker_cursor_callback,
+					  search);
+}
+
+static void
+parrillada_search_tracker_cursor_callback (GObject      *object,
+					GAsyncResult *result,
+					gpointer      user_data)
+{
+	ParrilladaSearchEngine *search;
+	GError *error = NULL;
+	TrackerSparqlCursor *cursor;
+	GList *hits;
+	gboolean success;
+
+	cursor = TRACKER_SPARQL_CURSOR (object);
+	success = tracker_sparql_cursor_next_finish (cursor, result, &error);
+
+	if (error) {
+		parrillada_search_engine_query_error (search, error);
+		g_error_free (error);
+
+		if (cursor) {
+			g_object_unref (cursor);
+		}
+
+		return;
+	}
+
+	if (!success) {
+		parrillada_search_engine_query_finished (search);
+
+		if (cursor) {
+			g_object_unref (cursor);
+		}
+
+		return;
+	}
+
+	/* We iterate result by result, not n at a time. */
+	hits = g_list_append (NULL, (gchar*) tracker_sparql_cursor_get_string (cursor, 0, NULL));
+	parrillada_search_engine_hit_added (search, hits);
+	g_list_free (hits);
+
+	/* Get next */
+	parrillada_search_tracker_cursor_next (search, cursor);
+}
+
+static void
+parrillada_search_tracker_reply (GObject      *object,
+			      GAsyncResult *result,
 			      gpointer user_data)
 {
 	ParrilladaSearchEngine *search = PARRILLADA_SEARCH_ENGINE (user_data);
-	ParrilladaSearchTrackerPrivate *priv;
-	int i;
+	GError *error = NULL;
+	
+	TrackerSparqlCursor *cursor;
+	GList *hits;
+	gboolean success;
 
-	priv = PARRILLADA_SEARCH_TRACKER_PRIVATE (search);
+	cursor = TRACKER_SPARQL_CURSOR (object);
+	success = tracker_sparql_cursor_next_finish (cursor, result, &error);
+
+	if (cursor) {
+		g_object_unref (cursor);
+	}
 
 	if (error) {
 		parrillada_search_engine_query_error (search, error);
 		return;
 	}
 
-	if (!results) {
+	if (!success) {
 		parrillada_search_engine_query_finished (search);
+		
+		if (cursor) {
+			g_object_unref (cursor);
+		}
 		return;
+    
 	}
 
-	priv->results = results;
-	for (i = 0; i < results->len; i ++)
-		parrillada_search_engine_hit_added (search, g_ptr_array_index (results, i));
+	hits = g_list_append (NULL, (gchar*) tracker_sparql_cursor_get_string (cursor, 0, NULL));
+	parrillada_search_engine_hit_added (search, result);
+	g_list_free (hits);
 
 	parrillada_search_engine_query_finished (search);
 }
@@ -232,10 +310,16 @@ parrillada_search_tracker_query_start_real (ParrilladaSearchEngine *search,
 			 "OFFSET 0 "
 			 "LIMIT 10000");
 
-	priv->current_call_id = tracker_resources_sparql_query_async (priv->client,
-								      query->str,
-	                                                              parrillada_search_tracker_reply,
-	                                                              search);
+	g_string_append (query, ")");
+
+	g_string_append (query,
+			 "} ORDER BY DESC(nie:url(?urn)) DESC(nfo:fileName(?urn))");
+
+	tracker_sparql_connection_query_async (priv->connection,
+					       query->str,
+					       priv->cancellable,
+					       parrillada_search_tracker_reply,
+					       search);
 	g_string_free (query, TRUE);
 
 	return res;
@@ -310,7 +394,7 @@ parrillada_search_tracker_clean (ParrilladaSearchTracker *search)
 	priv = PARRILLADA_SEARCH_TRACKER_PRIVATE (search);
 
 	if (priv->current_call_id)
-		tracker_cancel_call (priv->client, priv->current_call_id);
+		g_cancellable_cancel (priv->cancellable);
 
 	if (priv->results) {
 		g_ptr_array_foreach (priv->results, (GFunc) g_strfreev, NULL);
@@ -364,9 +448,24 @@ static void
 parrillada_search_tracker_init (ParrilladaSearchTracker *object)
 {
 	ParrilladaSearchTrackerPrivate *priv;
+	GError *error = NULL;
 
 	priv = PARRILLADA_SEARCH_TRACKER_PRIVATE (object);
-	priv->client = tracker_client_new (1, 30000);
+	priv->cancellable = g_cancellable_new ();
+	priv->connection = tracker_sparql_connection_get (priv->cancellable, &error);
+
+	if (error) {
+		g_warning ("Could not establish a connection to Tracker: %s", error->message);
+		g_error_free (error);
+		g_object_unref (priv->cancellable);
+		
+		return;
+	} else if (!priv->connection) {
+		g_warning ("Could not establish a connection to Tracker, no TrackerSparqlConnection was returned");
+		g_object_unref (priv->cancellable);
+		
+		return;
+	}
 }
 
 static void
@@ -378,9 +477,9 @@ parrillada_search_tracker_finalize (GObject *object)
 
 	parrillada_search_tracker_clean (PARRILLADA_SEARCH_TRACKER (object));
 
-	if (priv->client) {
-		g_object_unref (priv->client);
-		priv->client = NULL;
+	if (priv->connection) {
+		g_object_unref (priv->connection);
+		priv->connection = NULL;
 	}
 
 	G_OBJECT_CLASS (parrillada_search_tracker_parent_class)->finalize (object);

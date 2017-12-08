@@ -5,7 +5,7 @@
  *
  *  mar nov 29 09:32:17 2005
  *  Copyright  2005  Rouquier Philippe
- *  brasero-app@wanadoo.fr
+ *  parrillada-app@wanadoo.fr
  ***************************************************************************/
 
 /*
@@ -42,6 +42,8 @@
 #include <gdk/gdkx.h>
 
 #include <gst/gst.h>
+
+#include <libxml/xmlerror.h>
 
 #include "parrillada-units.h"
 
@@ -295,7 +297,7 @@ parrillada_project_get_type ()
 			NULL
 		};
 
-		type = g_type_register_static (GTK_TYPE_VBOX, 
+		type = g_type_register_static (GTK_TYPE_BOX, 
 					       "ParrilladaProject",
 					       &our_info, 0);
 
@@ -588,18 +590,24 @@ parrillada_utils_disc_style_changed_cb (GtkWidget *widget,
 				     GtkStyle *previous,
 				     GtkWidget *event_box)
 {
+	GdkRGBA color;
+
 	/* The widget (a treeview here) needs to be realized to get proper style */
 	gtk_widget_realize (widget);
-	gtk_widget_modify_bg (event_box, GTK_STATE_NORMAL, &gtk_widget_get_style (widget)->base[GTK_STATE_NORMAL]);
+	gdk_rgba_parse (&color, "white");
+	gtk_widget_override_background_color (event_box, GTK_STATE_NORMAL, &color);
 }
 
 static void
 parrillada_utils_disc_realized_cb (GtkWidget *event_box,
 				GtkWidget *textview)
 {
+	GdkRGBA color;
+
 	/* The widget (a treeview here) needs to be realized to get proper style */
 	gtk_widget_realize (textview);
-	gtk_widget_modify_bg (event_box, GTK_STATE_NORMAL, &gtk_widget_get_style (textview)->base[GTK_STATE_NORMAL]);
+	gdk_rgba_parse (&color, "white");
+	gtk_widget_override_background_color (event_box, GTK_STATE_NORMAL, &color);
 
 	g_signal_handlers_disconnect_by_func (textview,
 					      parrillada_utils_disc_style_changed_cb,
@@ -762,7 +770,7 @@ parrillada_project_get_sectors_string (gint64 sectors,
 	}
 	else {
 		size_bytes = sectors * 2048LL;
-		return g_format_size_for_display (size_bytes);
+		return g_format_size (size_bytes);
 	}
 }
 
@@ -889,7 +897,7 @@ parrillada_project_is_valid (ParrilladaSessionCfg *session,
 		||  parrillada_status_get_result (status) == PARRILLADA_BURN_RUNNING) {
 			cursor = gdk_cursor_new (GDK_WATCH);
 			gdk_window_set_cursor (window, cursor);
-			gdk_cursor_unref (cursor);
+			g_object_unref (cursor);
 		}
 		else
 			gdk_window_set_cursor (window, NULL);
@@ -1037,6 +1045,8 @@ parrillada_project_init (ParrilladaProject *obj)
 	GtkWidget *table;
 
 	obj->priv = g_new0 (ParrilladaProjectPrivate, 1);
+
+	gtk_orientable_set_orientation (GTK_ORIENTABLE (obj), GTK_ORIENTATION_VERTICAL);
 
 	g_signal_connect (G_OBJECT (obj),
 			  "set-focus-child",
@@ -1318,7 +1328,7 @@ parrillada_project_install_missing (ParrilladaPluginErrorType type,
 
 	/* Get the xid */
 	parent = gtk_widget_get_toplevel (GTK_WIDGET (project));
-	xid = gdk_x11_drawable_get_xid (GDK_DRAWABLE (gtk_widget_get_window (parent)));
+	xid = gdk_x11_window_get_xid (gtk_widget_get_window (parent));
 
 	package = parrillada_pk_new ();
 	cancel = g_cancellable_new ();
@@ -2135,6 +2145,7 @@ parrillada_project_file_chooser_response_cb (GtkWidget *chooser,
 	g_slist_free (uris);
 }
 
+#ifdef BUILD_PREVIEW
 static void
 parrillada_project_preview_ready (ParrilladaPlayer *player,
 			       GtkFileChooser *chooser)
@@ -2154,6 +2165,7 @@ parrillada_project_update_preview (GtkFileChooser *chooser,
 	parrillada_player_set_uri (player, uri);
 	g_free (uri);
 }
+#endif
 
 static void
 parrillada_project_add_uris_cb (GtkAction *action,
@@ -2328,6 +2340,7 @@ parrillada_project_register_ui (ParrilladaProject *project, GtkUIManager *manage
 {
 	GError *error = NULL;
 	GtkAction *action;
+	GtkWidget *toolbar;
 
 	/* menus */
 	project->priv->project_group = gtk_action_group_new ("ProjectActions1");
@@ -2345,7 +2358,11 @@ parrillada_project_register_ui (ParrilladaProject *project, GtkUIManager *manage
 		g_message ("building menus/toolbar failed: %s", error->message);
 		g_error_free (error);
 	}
-	
+
+	toolbar = gtk_ui_manager_get_widget (manager, "/Toolbar");
+	gtk_style_context_add_class (gtk_widget_get_style_context (toolbar),
+				     GTK_STYLE_CLASS_PRIMARY_TOOLBAR);
+
 	action = gtk_action_group_get_action (project->priv->project_group, "Save");
 	g_object_set (action,
 		      "short-label", _("_Save"), /* for toolbar buttons */
@@ -2730,18 +2747,18 @@ parrillada_project_save_project_ask_for_path (ParrilladaProject *project,
 	 * in plain text a list of the current displayed songs (only in save as
 	 * mode) */
 	if (type && PARRILLADA_IS_AUDIO_DISC (project->priv->current)) {
-		combo = gtk_combo_box_new_text ();
+		combo = gtk_combo_box_text_new ();
 		gtk_widget_show (combo);
 
-		gtk_combo_box_append_text (GTK_COMBO_BOX (combo), _("Save project as a Parrillada audio project"));
-		gtk_combo_box_append_text (GTK_COMBO_BOX (combo), _("Save project as a plain text list"));
+		gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combo), _("Save project as a Parrillada audio project"));
+		gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combo), _("Save project as a plain text list"));
 
 #ifdef BUILD_PLAYLIST
 
-		gtk_combo_box_append_text (GTK_COMBO_BOX (combo), _("Save project as a PLS playlist"));
-		gtk_combo_box_append_text (GTK_COMBO_BOX (combo), _("Save project as an M3U playlist"));
-		gtk_combo_box_append_text (GTK_COMBO_BOX (combo), _("Save project as an XSPF playlist"));
-		gtk_combo_box_append_text (GTK_COMBO_BOX (combo), _("Save project as an iriver playlist"));
+		gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combo), _("Save project as a PLS playlist"));
+		gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combo), _("Save project as an M3U playlist"));
+		gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combo), _("Save project as an XSPF playlist"));
+		gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combo), _("Save project as an iriver playlist"));
 
 #endif
 

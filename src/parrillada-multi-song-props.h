@@ -70,7 +70,7 @@ void
 parrillada_multi_song_props_get_properties (ParrilladaMultiSongProps *props,
 					 gchar **artist,
 					 gchar **composer,
-					 gint *isrc,
+					 gchar **isrc,
 					 gint64 *gap);
 
 G_END_DECLS

@@ -424,7 +424,6 @@ parrillada_cdrecord_write_inf (ParrilladaCDRecord *cdrecord,
 			    GError **error)
 {
 	gint fd;
-	int isrc;
         int errsv;
 	gint size;
 	gchar *path;
@@ -503,9 +502,9 @@ parrillada_cdrecord_write_inf (ParrilladaCDRecord *cdrecord,
 		goto error;
 
 	/* ISRC */
-	isrc = parrillada_track_tag_lookup_int (PARRILLADA_TRACK (track), PARRILLADA_TRACK_STREAM_ISRC_TAG);
-	if (isrc > 0)
-		string = g_strdup_printf ("ISRC=\t%i\n", isrc);
+	info = parrillada_track_tag_lookup_string (PARRILLADA_TRACK (track), PARRILLADA_TRACK_STREAM_ISRC_TAG);
+	if (info)
+		string = g_strdup_printf ("ISRC=\t%s\n", info);
 	else
 		string = g_strdup ("ISRC=\t\n");
 	size = strlen (string);
@@ -718,7 +717,6 @@ parrillada_cdrecord_write_infs (ParrilladaCDRecord *cdrecord,
 			     GPtrArray *argv,
 			     GError **error)
 {
-	ParrilladaCDRecordPrivate *priv;
 	ParrilladaBurnResult result;
 	gchar *tmpdir = NULL;
 	GSList *tracks;
@@ -726,8 +724,6 @@ parrillada_cdrecord_write_infs (ParrilladaCDRecord *cdrecord,
 	GSList *iter;
 	gchar *album;
 	gint index;
-
-	priv = PARRILLADA_CD_RECORD_PRIVATE (cdrecord);
 
 	parrillada_job_get_audio_title (PARRILLADA_JOB (cdrecord), &album);
 	parrillada_job_get_tracks (PARRILLADA_JOB (cdrecord), &tracks);
@@ -1049,7 +1045,6 @@ parrillada_cdrecord_set_argv (ParrilladaProcess *process,
 			   GPtrArray *argv,
 			   GError **error)
 {
-	ParrilladaCDRecordPrivate *priv;
 	ParrilladaCDRecord *cdrecord;
 	ParrilladaBurnResult result;
 	ParrilladaJobAction action;
@@ -1058,7 +1053,6 @@ parrillada_cdrecord_set_argv (ParrilladaProcess *process,
 	gchar *dev_str;
 
 	cdrecord = PARRILLADA_CD_RECORD (process);
-	priv = PARRILLADA_CD_RECORD_PRIVATE (cdrecord);
 
 	parrillada_job_get_action (PARRILLADA_JOB (cdrecord), &action);
 	if (action == PARRILLADA_JOB_ACTION_SIZE)

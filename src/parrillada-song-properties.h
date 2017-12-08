@@ -3,7 +3,7 @@
  *
  *  lun avr 10 18:39:17 2006
  *  Copyright  2006  Rouquier Philippe
- *  brasero-app@wanadoo.fr
+ *  parrillada-app@wanadoo.fr
  ***************************************************************************/
 
 /*
@@ -60,7 +60,7 @@ parrillada_song_props_get_properties (ParrilladaSongProps *self,
 				   gchar **artist,
 				   gchar **title,
 				   gchar **composer,
-				   gint *isrc,
+				   gchar **isrc,
 				   gint64 *start,
 				   gint64 *end,
 				   gint64 *gap);
@@ -70,7 +70,7 @@ parrillada_song_props_set_properties (ParrilladaSongProps *self,
 				   const gchar *artist,
 				   const gchar *title,
 				   const gchar *composer,
-				   gint isrc,
+				   const gchar *isrc,
 				   gint64 length,
 				   gint64 start,
 				   gint64 end,

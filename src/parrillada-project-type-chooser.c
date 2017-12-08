@@ -3,7 +3,7 @@
 *
 *  ven mai 27 17:33:12 2005
 *  Copyright  2005  Philippe Rouquier
-*  <brasero-app@wanadoo.fr>
+*  <parrillada-app@wanadoo.fr>
 ****************************************************************************/
 /*
  *  Parrillada is free software; you can redistribute it and/or modify
@@ -36,13 +36,15 @@
 
 #include <gtk/gtk.h>
 
+#include <cairo/cairo.h>
+
 #include "parrillada-app.h"
 #include "parrillada-utils.h"
 #include "parrillada-session.h"
 
 #include "parrillada-project-type-chooser.h"
 
-G_DEFINE_TYPE (ParrilladaProjectTypeChooser, parrillada_project_type_chooser, GTK_TYPE_EVENT_BOX);
+G_DEFINE_TYPE (ParrilladaProjectTypeChooser, parrillada_project_type_chooser, GTK_TYPE_BOX);
 
 typedef enum {
 	LAST_SAVED_CLICKED_SIGNAL,
@@ -101,7 +103,6 @@ static ItemDescription items [] = {
 #define LABEL_KEY "LABEL_KEY"
 
 struct ParrilladaProjectTypeChooserPrivate {
-	GdkPixbuf *background;
 	GtkWidget *recent_box;
 };
 
@@ -148,18 +149,18 @@ parrillada_project_type_chooser_new_item (ParrilladaProjectTypeChooser *chooser,
 			   DESCRIPTION_KEY,
 			   description);
 
-	vbox = gtk_vbox_new (FALSE, 0);
+	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
 	gtk_container_set_border_width (GTK_CONTAINER (vbox), 4);
 	gtk_container_add (GTK_CONTAINER (eventbox), vbox);
 
-	hbox = gtk_hbox_new (FALSE, 4);
+	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 4);
 	gtk_box_pack_start (GTK_BOX (vbox), hbox, TRUE, FALSE, 0);
 
 	image = gtk_image_new_from_icon_name (description->image, GTK_ICON_SIZE_DIALOG);
 	gtk_misc_set_alignment (GTK_MISC (image), 1.0, 0.5);
 	gtk_box_pack_start (GTK_BOX (hbox), image, FALSE, FALSE, 0);
 
-	vbox = gtk_vbox_new (TRUE, 4);
+	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 4);
 	gtk_box_pack_start (GTK_BOX (hbox), vbox, FALSE, TRUE, 0);
 
 	label = gtk_label_new (NULL);
@@ -441,7 +442,6 @@ parrillada_project_type_chooser_init (ParrilladaProjectTypeChooser *obj)
 	GtkRecentManager *recent;
 	GtkWidget *project_box;
 	GtkWidget *recent_box;
-	GError *error = NULL;
 	GtkWidget *separator;
 	GtkWidget *widget;
 	GtkWidget *table;
@@ -455,22 +455,10 @@ parrillada_project_type_chooser_init (ParrilladaProjectTypeChooser *obj)
 
 	obj->priv = g_new0 (ParrilladaProjectTypeChooserPrivate, 1);
 
-	obj->priv->background = gdk_pixbuf_new_from_file (PARRILLADA_DATADIR "/logo.png", &error);
-	if (error) {
-		g_warning ("ERROR loading background pix : %s\n", error->message);
-		g_error_free (error);
-		error = NULL;
-	}
-
-	vbox = gtk_hbox_new (FALSE, 0);
-	gtk_container_set_border_width (GTK_CONTAINER (vbox), 12);
-	gtk_widget_show (vbox);
-	gtk_container_add (GTK_CONTAINER (obj), vbox);
-
 	/* Project box */
-	project_box = gtk_vbox_new (FALSE, 6);
+	project_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
 	gtk_widget_show (project_box);
-	gtk_box_pack_start (GTK_BOX (vbox), project_box, FALSE, TRUE, 0);
+	gtk_box_pack_start (GTK_BOX (obj), project_box, FALSE, TRUE, 0);
 
 	string = g_strdup_printf ("<span size='x-large'><b>%s</b></span>", _("Create a new project:"));
 	label = gtk_label_new (string);
@@ -479,6 +467,7 @@ parrillada_project_type_chooser_init (ParrilladaProjectTypeChooser *obj)
 	gtk_widget_show (label);
 	gtk_label_set_use_markup (GTK_LABEL (label), TRUE);
 	gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.0);
+	gtk_misc_set_padding (GTK_MISC (label), 6.0, 0.0);
 	gtk_box_pack_start (GTK_BOX (project_box), label, FALSE, TRUE, 0);
 
 	/* get the number of rows */
@@ -509,14 +498,14 @@ parrillada_project_type_chooser_init (ParrilladaProjectTypeChooser *obj)
 	}
 	gtk_widget_show_all (table);
 
-	separator = gtk_vseparator_new ();
+	separator = gtk_separator_new (GTK_ORIENTATION_VERTICAL);
 	gtk_widget_show (separator);
-	gtk_box_pack_start (GTK_BOX (vbox), separator, FALSE, TRUE, 8);
+	gtk_box_pack_start (GTK_BOX (obj), separator, FALSE, TRUE, 2);
 
 	/* The recent files part */
-	recent_box = gtk_vbox_new (FALSE, 0);
+	recent_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
 	gtk_widget_show (recent_box);
-	gtk_box_pack_start (GTK_BOX (vbox), recent_box, TRUE, TRUE, 0);
+	gtk_box_pack_start (GTK_BOX (obj), recent_box, TRUE, TRUE, 0);
 
 	string = g_strdup_printf ("<span size='x-large'><b>%s</b></span>", _("Recent projects:"));
 	label = gtk_label_new (string);
@@ -525,12 +514,13 @@ parrillada_project_type_chooser_init (ParrilladaProjectTypeChooser *obj)
 	gtk_widget_show (label);
 	gtk_label_set_use_markup (GTK_LABEL (label), TRUE);
 	gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.0);
+	gtk_misc_set_padding (GTK_MISC (label), 6.0, 0.0);
 	gtk_box_pack_start (GTK_BOX (recent_box), label, FALSE, TRUE, 0);
 
-	vbox = gtk_vbox_new (TRUE, 0);
+	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
 	gtk_widget_show (vbox);
 	gtk_box_pack_start (GTK_BOX (recent_box), vbox, FALSE, TRUE, 0);
-	gtk_container_set_border_width (GTK_CONTAINER (vbox), 12);
+	gtk_container_set_border_width (GTK_CONTAINER (vbox), 6);
 	obj->priv->recent_box = vbox;
 
 	recent = gtk_recent_manager_get_default ();
@@ -542,52 +532,12 @@ parrillada_project_type_chooser_init (ParrilladaProjectTypeChooser *obj)
 			  obj);
 }
 
-/* Cut and Pasted from Gtk+ gtkeventbox.c but modified to display back image */
-static gboolean
-parrillada_project_type_expose_event (GtkWidget *widget, GdkEventExpose *event)
-{
-	ParrilladaProjectTypeChooser *chooser;
-
-	chooser = PARRILLADA_PROJECT_TYPE_CHOOSER (widget);
-
-	if (gtk_widget_is_drawable (widget))
-	{
-		(* GTK_WIDGET_CLASS (parent_class)->expose_event) (widget, event);
-
-		if (gtk_widget_get_has_window (widget)) {
-			if (!gtk_widget_get_app_paintable (widget)
-			&&  chooser->priv->background) {
-				int width, height, offset = 150;
-				cairo_t *ctx;
-
-				width = gdk_pixbuf_get_width (chooser->priv->background);
-				height = gdk_pixbuf_get_height (chooser->priv->background);
-				ctx = gdk_cairo_create (GDK_DRAWABLE (gtk_widget_get_window (widget)));
-				cairo_rectangle (ctx, 0, 0, width - offset, height);
-				cairo_clip (ctx);
-				gdk_cairo_set_source_pixbuf (ctx,
-					                     chooser->priv->background,
-					                     0, 0);
-				cairo_paint (ctx);
-				cairo_destroy (ctx);
-			}
-		}
-	}
-
-	return FALSE;
-}
-
 static void
 parrillada_project_type_chooser_finalize (GObject *object)
 {
 	ParrilladaProjectTypeChooser *cobj;
 
 	cobj = PARRILLADA_PROJECT_TYPE_CHOOSER (object);
-
-	if (cobj->priv->background) {
-		g_object_unref (G_OBJECT (cobj->priv->background));
-		cobj->priv->background = NULL;
-	}
 
 	g_free (cobj->priv);
 	G_OBJECT_CLASS (parent_class)->finalize (object);
@@ -597,11 +547,9 @@ static void
 parrillada_project_type_chooser_class_init (ParrilladaProjectTypeChooserClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
-	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
 	parent_class = g_type_class_peek_parent (klass);
 	object_class->finalize = parrillada_project_type_chooser_finalize;
-	widget_class->expose_event = parrillada_project_type_expose_event;
 
 	parrillada_project_type_chooser_signals[CHOSEN_SIGNAL] =
 	    g_signal_new ("chosen", G_OBJECT_CLASS_TYPE (object_class),

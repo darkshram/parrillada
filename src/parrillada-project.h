@@ -5,7 +5,7 @@
  *
  *  mar nov 29 09:32:17 2005
  *  Copyright  2005  Rouquier Philippe
- *  brasero-app@wanadoo.fr
+ *  parrillada-app@wanadoo.fr
  ***************************************************************************/
 
 /*
@@ -53,12 +53,12 @@ G_BEGIN_DECLS
 typedef struct ParrilladaProjectPrivate ParrilladaProjectPrivate;
 
 typedef struct {
-	GtkVBox parent;
+	GtkBox parent;
 	ParrilladaProjectPrivate *priv;
 } ParrilladaProject;
 
 typedef struct {
-	GtkVBoxClass parent_class;
+	GtkBoxClass parent_class;
 
 	void	(*add_pressed)	(ParrilladaProject *project);
 } ParrilladaProjectClass;

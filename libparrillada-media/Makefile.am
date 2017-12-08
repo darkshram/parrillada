@@ -22,7 +22,7 @@ libparrillada-marshal.h: libparrillada-marshal.list
 libparrillada-marshal.c: libparrillada-marshal.h
 	( $(GLIB_GENMARSHAL) --prefix=parrillada_marshal $(srcdir)/libparrillada-marshal.list --body --header > libparrillada-marshal.c )
 
-headerdir=$(includedir)/parrillada@PARRILLADA_LIBRARY_SUFFIX@
+headerdir=$(includedir)/parrillada3
 header_HEADERS =	parrillada-drive.h			\
 		parrillada-medium-monitor.h		\
 		parrillada-media.h			\
@@ -33,9 +33,9 @@ header_HEADERS =	parrillada-drive.h			\
 		parrillada-drive-selection.h
 
 lib_LTLIBRARIES = 				\
-	libparrillada-media@PARRILLADA_LIBRARY_SUFFIX@.la
+	libparrillada-media3.la
 
-libparrillada_media@PARRILLADA_LIBRARY_SUFFIX@_la_LIBADD =                                     \
+libparrillada_media3_la_LIBADD =                                     \
 	$(PARRILLADA_GLIB_LIBS)                                     \
 	$(PARRILLADA_GMODULE_EXPORT_LIBS)                                     \
 	$(PARRILLADA_GTHREAD_LIBS)                                     \
@@ -43,13 +43,13 @@ libparrillada_media@PARRILLADA_LIBRARY_SUFFIX@_la_LIBADD =                      
 	$(PARRILLADA_GTK_LIBS)                                     \
 	$(PARRILLADA_SCSI_LIBS)
 
-libparrillada_media@PARRILLADA_LIBRARY_SUFFIX@_la_LDFLAGS =					\
+libparrillada_media3_la_LDFLAGS =					\
 	-version-info $(LIBPARRILLADA_LT_VERSION)			\
 	-no-undefined
 	$(AM_LDFLAGS)
 #	-export-symbols ./libparrillada-media.symbols
 
-libparrillada_media@PARRILLADA_LIBRARY_SUFFIX@_la_SOURCES =		\
+libparrillada_media3_la_SOURCES =		\
 	libparrillada-marshal.c		\
 	libparrillada-marshal.h		\
 	parrillada-drive.h			\
@@ -132,39 +132,39 @@ libparrillada_media@PARRILLADA_LIBRARY_SUFFIX@_la_SOURCES =		\
 
 # FreeBSD's SCSI CAM interface
 if HAVE_CAM_LIB_H
-libparrillada_media@PARRILLADA_LIBRARY_SUFFIX@_la_SOURCES += scsi-cam.c
+libparrillada_media3_la_SOURCES += scsi-cam.c
 endif
 
 # Linux's SCSI CAM interface
 if HAVE_SG_IO_HDR_T
-libparrillada_media@PARRILLADA_LIBRARY_SUFFIX@_la_SOURCES += scsi-sg.c
+libparrillada_media3_la_SOURCES += scsi-sg.c
 endif
 
 # NetBSD's scsi(4)
 if HAVE_SCSIIO_H
-libparrillada_media@PARRILLADA_LIBRARY_SUFFIX@_la_SOURCES += scsi-netbsd.c
+libparrillada_media3_la_SOURCES += scsi-netbsd.c
 endif
 
 # Solaris's USCSI interface
 if HAVE_USCSI_H
-libparrillada_media@PARRILLADA_LIBRARY_SUFFIX@_la_SOURCES += scsi-uscsi.c
+libparrillada_media3_la_SOURCES += scsi-uscsi.c
 endif
 
 if HAVE_INTROSPECTION
 girdir = $(INTROSPECTION_GIRDIR)
-gir_DATA = ParrilladaMedia-@PARRILLADA_VERSION@.gir
+gir_DATA = ParrilladaMedia-@TYPELIB_VERSION@.gir
 
 typelibsdir = $(INTROSPECTION_TYPELIBDIR)
-typelibs_DATA = ParrilladaMedia-@PARRILLADA_VERSION@.typelib
+typelibs_DATA = ParrilladaMedia-@TYPELIB_VERSION@.typelib
 
-ParrilladaMedia-@PARRILLADA_VERSION@.gir: libparrillada-media@PARRILLADA_LIBRARY_SUFFIX@.la $(INTROSPECTION_SCANNER)
+ParrilladaMedia-@TYPELIB_VERSION@.gir: libparrillada-media3.la $(INTROSPECTION_SCANNER)
 	$(INTROSPECTION_SCANNER) -v --namespace=ParrilladaMedia --nsversion=1.0 \
-            --include=Gtk-@GTK_API_VERSION@ \
+            --include=Gtk-3.0 \
 	    -I$(top_srcdir)/libparrillada-media	\
-	    --library=parrillada-media@PARRILLADA_LIBRARY_SUFFIX@ \
+	    --library=parrillada-media3 \
 	    --libtool="$(LIBTOOL)" \
             --output $@ \
-            --pkg=gtk+-@GTK_API_VERSION@  \
+            --pkg=gtk+-3.0  \
 	    --strip-prefix=Parrillada	\
             $(top_srcdir)/libparrillada-media/parrillada-drive.h			\
 	    $(top_srcdir)/libparrillada-media/parrillada-medium-monitor.h		\
@@ -176,8 +176,8 @@ ParrilladaMedia-@PARRILLADA_VERSION@.gir: libparrillada-media@PARRILLADA_LIBRARY
 	    $(top_srcdir)/libparrillada-media/parrillada-drive-selection.h	\
             $(top_srcdir)/libparrillada-media/*.c	    
 
-ParrilladaMedia-@PARRILLADA_VERSION@.typelib: $(gir_DATA) $(INTROSPECTION_COMPILER)
-	$(INTROSPECTION_COMPILER) $(top_builddir)/libparrillada-media/$(gir_DATA) --shared-library=libparrillada-media@PARRILLADA_LIBRARY_SUFFIX@ -o $(typelibs_DATA)
+ParrilladaMedia-@TYPELIB_VERSION@.typelib: $(gir_DATA) $(INTROSPECTION_COMPILER)
+	$(INTROSPECTION_COMPILER) $(top_builddir)/libparrillada-media/$(gir_DATA) --shared-library=libparrillada-media3 -o $(typelibs_DATA)
 endif
 
 EXTRA_DIST =			\

@@ -189,7 +189,6 @@ static GObjectClass* parent_class = NULL;
 gchar *
 parrillada_medium_get_tooltip (ParrilladaMedium *medium)
 {
-	ParrilladaMediumPrivate *priv;
 	ParrilladaDrive *drive;
 	ParrilladaMedia media;
 	const gchar *type;
@@ -198,8 +197,6 @@ parrillada_medium_get_tooltip (ParrilladaMedium *medium)
 
 	g_return_val_if_fail (medium != NULL, NULL);
 	g_return_val_if_fail (PARRILLADA_IS_MEDIUM (medium), NULL);
-
-	priv = PARRILLADA_MEDIUM_PRIVATE (medium);
 
 	media = parrillada_medium_get_status (PARRILLADA_MEDIUM (medium));
 	if (media & PARRILLADA_MEDIUM_FILE) {
@@ -1525,16 +1522,13 @@ parrillada_medium_track_volume_size (ParrilladaMedium *self,
 				  ParrilladaMediumTrack *track,
 				  ParrilladaDeviceHandle *handle)
 {
-	ParrilladaMediumPrivate *priv;
-	gboolean res;
 	GError *error = NULL;
 	ParrilladaVolSrc *vol;
 	gint64 nb_blocks;
+	gboolean res;
 
 	if (!track)
 		return FALSE;
-
-	priv = PARRILLADA_MEDIUM_PRIVATE (self);
 
 	/* This is a special case. For DVD+RW and DVD-RW in restricted
 	 * mode, there is only one session that takes the whole disc size
@@ -2253,7 +2247,7 @@ parrillada_medium_get_contents (ParrilladaMedium *self,
 			     ParrilladaScsiErrCode *code)
 {
 	int size;
-	gboolean res;
+	gboolean res = TRUE;
 	ParrilladaScsiResult result;
 	ParrilladaMediumPrivate *priv;
 	ParrilladaScsiDiscInfoStd *info = NULL;
@@ -2782,7 +2776,6 @@ parrillada_medium_read_CD_TEXT (ParrilladaMedium *self,
 	int num, size, i;
 	char buffer [256]; /* mmc specs advise no more than 160 */
 	gboolean find_block_info;
-	ParrilladaMediumPrivate *priv;
 	ParrilladaScsiCDTextData *cd_text;
 
 	PARRILLADA_MEDIA_LOG ("Getting CD-TEXT");
@@ -2804,8 +2797,6 @@ parrillada_medium_read_CD_TEXT (ParrilladaMedium *self,
 		g_free (cd_text);
 		return;
 	}
-
-	priv = PARRILLADA_MEDIUM_PRIVATE (self);
 
 	off = 0;
 	track_num = 0;
@@ -2930,9 +2921,7 @@ parrillada_medium_init_real (ParrilladaMedium *object,
 	if (priv->probe_cancelled)
 		return;
 
-	result = parrillada_medium_get_contents (object, handle, &code);
-	if (result != TRUE)
-	if (result != TRUE)
+	if (!parrillada_medium_get_contents (object, handle, &code))
 		return;
 
 	if (priv->probe_cancelled)

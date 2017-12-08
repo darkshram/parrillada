@@ -52,7 +52,7 @@ typedef struct _ParrilladaPluginManagerUI ParrilladaPluginManagerUI;
 
 struct _ParrilladaPluginManagerUI 
 {
-	GtkVBox vbox;
+	GtkBox vbox;
 };
 
 /*
@@ -62,7 +62,7 @@ typedef struct _ParrilladaPluginManagerUIClass ParrilladaPluginManagerUIClass;
 
 struct _ParrilladaPluginManagerUIClass 
 {
-	GtkVBoxClass parent_class;
+	GtkBoxClass parent_class;
 };
 
 /*

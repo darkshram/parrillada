@@ -239,12 +239,22 @@ parrillada_dest_selection_medium_added (GtkTreeModel *model,
 }
 
 static void
+parrillada_dest_selection_constructed (GObject *object)
+{
+	G_OBJECT_CLASS (parrillada_dest_selection_parent_class)->constructed (object);
+
+	/* Only show media on which we can write and which are in a burner.
+	 * There is one exception though, when we're copying media and when the
+	 * burning device is the same as the dest device. */
+	parrillada_medium_selection_show_media_type (PARRILLADA_MEDIUM_SELECTION (object),
+						  PARRILLADA_MEDIA_TYPE_WRITABLE|
+						  PARRILLADA_MEDIA_TYPE_FILE);
+}
+
+static void
 parrillada_dest_selection_init (ParrilladaDestSelection *object)
 {
-	ParrilladaDestSelectionPrivate *priv;
 	GtkTreeModel *model;
-
-	priv = PARRILLADA_DEST_SELECTION_PRIVATE (object);
 
 	model = gtk_combo_box_get_model (GTK_COMBO_BOX (object));
 	g_signal_connect (model,
@@ -255,13 +265,6 @@ parrillada_dest_selection_init (ParrilladaDestSelection *object)
 	                  "row-deleted",
 	                  G_CALLBACK (parrillada_dest_selection_medium_removed),
 	                  object);
-
-	/* Only show media on which we can write and which are in a burner.
-	 * There is one exception though, when we're copying media and when the
-	 * burning device is the same as the dest device. */
-	parrillada_medium_selection_show_media_type (PARRILLADA_MEDIUM_SELECTION (object),
-						  PARRILLADA_MEDIA_TYPE_WRITABLE|
-						  PARRILLADA_MEDIA_TYPE_FILE);
 
 	/* This is to know when the user changed it on purpose */
 	g_signal_connect (object,
@@ -493,10 +496,7 @@ parrillada_dest_selection_set_property (GObject *object,
 				     const GValue *value,
 				     GParamSpec *pspec)
 {
-	ParrilladaDestSelectionPrivate *priv;
 	ParrilladaBurnSession *session;
-
-	priv = PARRILLADA_DEST_SELECTION_PRIVATE (object);
 
 	switch (property_id) {
 	case PROP_SESSION: /* Readable and only writable at creation time */
@@ -718,7 +718,7 @@ parrillada_dest_selection_format_medium_string (ParrilladaMediumSelection *selec
 							     TRUE,
 							     TRUE);
 	else
-		size_string = g_format_size_for_display (size_bytes - session_bytes);
+		size_string = g_format_size (size_bytes - session_bytes);
 
 	parrillada_track_type_free (input);
 
@@ -742,6 +742,7 @@ parrillada_dest_selection_class_init (ParrilladaDestSelectionClass *klass)
 	object_class->finalize = parrillada_dest_selection_finalize;
 	object_class->set_property = parrillada_dest_selection_set_property;
 	object_class->get_property = parrillada_dest_selection_get_property;
+	object_class->constructed = parrillada_dest_selection_constructed;
 
 	medium_selection_class->format_medium_string = parrillada_dest_selection_format_medium_string;
 	medium_selection_class->medium_changed = parrillada_dest_selection_medium_changed;

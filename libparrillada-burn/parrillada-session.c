@@ -196,9 +196,6 @@ static void
 parrillada_burn_session_start_track_monitoring (ParrilladaBurnSession *self,
 					     ParrilladaTrack *track)
 {
-	ParrilladaBurnSessionPrivate *priv;
-
-	priv = PARRILLADA_BURN_SESSION_PRIVATE (self);
 	g_signal_connect (track,
 			  "changed",
 			  G_CALLBACK (parrillada_burn_session_track_changed),
@@ -1271,7 +1268,7 @@ parrillada_burn_session_get_tmp_dir (ParrilladaBurnSession *self,
 			    PARRILLADA_BURN_TMP_FILE_NAME,
 			    NULL);
 
-	*path = mkdtemp (tmp);
+	*path = g_mkdtemp (tmp);
 	if (*path == NULL) {
                 int errsv = errno;
 
@@ -1382,9 +1379,6 @@ parrillada_burn_session_get_image_complement (ParrilladaBurnSession *self,
 					   const gchar *path)
 {
 	gchar *retval = NULL;
-	ParrilladaBurnSessionPrivate *priv;
-
-	priv = PARRILLADA_BURN_SESSION_PRIVATE (self);
 
 	if (format == PARRILLADA_IMAGE_FORMAT_CLONE)
 		retval = g_strdup_printf ("%s.toc", path);
@@ -2177,11 +2171,8 @@ parrillada_burn_session_log (ParrilladaBurnSession *self,
 			  ...)
 {
 	va_list args;
-	ParrilladaBurnSessionPrivate *priv;
 
 	g_return_if_fail (PARRILLADA_IS_BURN_SESSION (self));
-
-	priv = PARRILLADA_BURN_SESSION_PRIVATE (self);
 
 	va_start (args, format);
 	parrillada_burn_session_logv (self, format, args);
@@ -2489,11 +2480,7 @@ parrillada_burn_session_set_property (GObject *object,
                                    const GValue *value,
                                    GParamSpec *pspec)
 {
-	ParrilladaBurnSessionPrivate *priv;
-
 	g_return_if_fail (PARRILLADA_IS_BURN_SESSION (object));
-
-	priv = PARRILLADA_BURN_SESSION_PRIVATE (object);
 
 	switch (prop_id)
 	{

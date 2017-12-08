@@ -199,7 +199,7 @@ parrillada_libisofs_write_image_to_fd_thread (ParrilladaLibisofs *self)
 
 	PARRILLADA_JOB_LOG (self, "Writing to pipe");
 	read_bytes = priv->libburn_src->read_xt (priv->libburn_src, buf, sector_size);
-	while (priv->libburn_src->read_xt (priv->libburn_src, buf, sector_size) == sector_size) {
+	while (read_bytes == sector_size) {
 		if (priv->cancel)
 			break;
 
@@ -219,7 +219,7 @@ parrillada_libisofs_write_image_to_fd_thread (ParrilladaLibisofs *self)
 	if (read_bytes == -1 && !priv->error)
 		priv->error = g_error_new (PARRILLADA_BURN_ERROR,
 					   PARRILLADA_BURN_ERROR_GENERAL,
-					   _("Volume could not be created"));
+					   "%s", _("Volume could not be created"));
 }
 
 static void
@@ -567,7 +567,7 @@ parrillada_libisofs_create_volume_thread (gpointer data)
 	parrillada_job_get_data_label (PARRILLADA_JOB (self), &label);
 	if (!iso_image_new (label, &image)) {
 		priv->error = g_error_new (PARRILLADA_BURN_ERROR,
-					   PARRILLADA_BURN_ERROR_GENERAL,
+					   PARRILLADA_BURN_ERROR_GENERAL, "%s",
 					   _("Volume could not be created"));
 		g_free (label);
 		goto end;

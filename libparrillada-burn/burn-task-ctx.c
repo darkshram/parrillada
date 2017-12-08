@@ -331,12 +331,9 @@ ParrilladaBurnResult
 parrillada_task_ctx_next_track (ParrilladaTaskCtx *self)
 
 {
-	ParrilladaTaskCtxPrivate *priv;
 	ParrilladaBurnResult retval;
 
 	g_return_val_if_fail (PARRILLADA_IS_TASK_CTX (self), PARRILLADA_BURN_ERR);
-
-	priv = PARRILLADA_TASK_CTX_PRIVATE (self);
 
 	retval = parrillada_task_ctx_set_next_track (self);
 	if (retval == PARRILLADA_BURN_RETRY) {
@@ -403,9 +400,7 @@ parrillada_task_ctx_error (ParrilladaTaskCtx *self,
 			GError *error)
 {
 	ParrilladaTaskCtxClass *klass;
-	ParrilladaTaskCtxPrivate *priv;
 
-	priv = PARRILLADA_TASK_CTX_PRIVATE (self);
 	klass = PARRILLADA_TASK_CTX_GET_CLASS (self);
 	if (!klass->finished)
 		return PARRILLADA_BURN_NOT_SUPPORTED;

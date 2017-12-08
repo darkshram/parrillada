@@ -476,6 +476,7 @@ parrillada_readom_export_caps (ParrilladaPlugin *plugin)
 
 	input = parrillada_caps_disc_new (PARRILLADA_MEDIUM_CD|
 				       PARRILLADA_MEDIUM_DVD|
+				       PARRILLADA_MEDIUM_BD|
 				       PARRILLADA_MEDIUM_DUAL_L|
 				       PARRILLADA_MEDIUM_PLUS|
 				       PARRILLADA_MEDIUM_SEQUENTIAL|

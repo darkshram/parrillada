@@ -76,7 +76,7 @@ enum {
 	SNAP_NUM_COL
 };
 
-G_DEFINE_TYPE (ParrilladaJacketEdit, parrillada_jacket_edit, GTK_TYPE_VBOX);
+G_DEFINE_TYPE (ParrilladaJacketEdit, parrillada_jacket_edit, GTK_TYPE_BOX);
 
 static void
 parrillada_jacket_edit_print_page (GtkPrintOperation *operation,
@@ -105,7 +105,6 @@ static void
 parrillada_jacket_edit_print_pressed_cb (GtkButton *button,
 				      ParrilladaJacketEdit *self)
 {
-	ParrilladaJacketEditPrivate *priv;
 	GtkPrintOperationResult res;
 	GtkPrintOperation *print;
 	GtkPrintSettings *settings;
@@ -113,7 +112,6 @@ parrillada_jacket_edit_print_pressed_cb (GtkButton *button,
 	GtkWidget *toplevel;
 	gchar *path;
 
-	priv = PARRILLADA_JACKET_EDIT_PRIVATE (self);
 	print = gtk_print_operation_new ();
 	g_signal_connect (print,
 			  "draw-page",
@@ -235,8 +233,9 @@ parrillada_jacket_edit_bold_pressed_cb (GtkToggleToolButton *button,
 }
 
 static void
-parrillada_jacket_edit_center_pressed_cb (GtkToggleToolButton *button,
-				       ParrilladaJacketEdit *self)
+parrillada_jacket_edit_justify (GtkToggleToolButton *button,
+			     ParrilladaJacketEdit *self,
+			     GtkJustification justify)
 {
 	ParrilladaJacketEditPrivate *priv;
 	GtkTextBuffer *buffer;
@@ -254,7 +253,7 @@ parrillada_jacket_edit_center_pressed_cb (GtkToggleToolButton *button,
 
 	buffer = parrillada_jacket_view_get_active_buffer (PARRILLADA_JACKET_VIEW (priv->current_view));
 	tag = gtk_text_buffer_create_tag (buffer, NULL,
-					  "justification", GTK_JUSTIFY_CENTER,
+					  "justification", justify,
 					  NULL);
 
 	if (!gtk_text_buffer_get_has_selection (buffer)) {
@@ -271,83 +270,27 @@ parrillada_jacket_edit_center_pressed_cb (GtkToggleToolButton *button,
 	gtk_text_iter_set_line_index (&start, 0);
 	gtk_text_iter_forward_to_line_end (&end);
 	gtk_text_buffer_apply_tag (buffer, tag, &start, &end);
+}
+
+static void
+parrillada_jacket_edit_center_pressed_cb (GtkToggleToolButton *button,
+				       ParrilladaJacketEdit *self)
+{
+	parrillada_jacket_edit_justify (button, self,  GTK_JUSTIFY_CENTER);
 }
 
 static void
 parrillada_jacket_edit_right_pressed_cb (GtkToggleToolButton *button,
 				      ParrilladaJacketEdit *self)
 {
-	ParrilladaJacketEditPrivate *priv;
-	GtkTextBuffer *buffer;
-	GtkTextIter start;
-	GtkTextIter end;
-	GtkTextTag *tag;
-
-	priv = PARRILLADA_JACKET_EDIT_PRIVATE (self);
-	if (!priv->current_view)
-		return;
-
-	if (!gtk_toggle_tool_button_get_active (button))
-		return;
-
-	buffer = parrillada_jacket_view_get_active_buffer (PARRILLADA_JACKET_VIEW (priv->current_view));
-	tag = gtk_text_buffer_create_tag (buffer, NULL,
-					  "justification", GTK_JUSTIFY_RIGHT,
-					  NULL);
-
-	if (!gtk_text_buffer_get_has_selection (buffer)) {
-		GtkTextMark *mark;
-
-		mark = gtk_text_buffer_get_insert (buffer);
-		gtk_text_buffer_get_iter_at_mark (buffer, &start, mark);
-		gtk_text_buffer_get_iter_at_mark (buffer, &end, mark);
-		parrillada_jacket_buffer_add_default_tag (PARRILLADA_JACKET_BUFFER (buffer), tag);
-	}
-	else
-		gtk_text_buffer_get_selection_bounds (buffer, &start, &end);
-
-
-	gtk_text_iter_set_line_index (&start, 0);
-	gtk_text_iter_forward_to_line_end (&end);
-	gtk_text_buffer_apply_tag (buffer, tag, &start, &end);
+	parrillada_jacket_edit_justify (button, self, GTK_JUSTIFY_RIGHT);
 }
 
 static void
 parrillada_jacket_edit_left_pressed_cb (GtkToggleToolButton *button,
 				     ParrilladaJacketEdit *self)
 {
-	ParrilladaJacketEditPrivate *priv;
-	GtkTextBuffer *buffer;
-	GtkTextIter start;
-	GtkTextIter end;
-	GtkTextTag *tag;
-
-	priv = PARRILLADA_JACKET_EDIT_PRIVATE (self);
-	if (!priv->current_view)
-		return;
-
-	if (!gtk_toggle_tool_button_get_active (button))
-		return;
-
-	buffer = parrillada_jacket_view_get_active_buffer (PARRILLADA_JACKET_VIEW (priv->current_view));
-	tag = gtk_text_buffer_create_tag (buffer, NULL,
-					  "justification", GTK_JUSTIFY_LEFT,
-					  NULL);
-
-	if (!gtk_text_buffer_get_has_selection (buffer)) {
-		GtkTextMark *mark;
-
-		mark = gtk_text_buffer_get_insert (buffer);
-		gtk_text_buffer_get_iter_at_mark (buffer, &start, mark);
-		gtk_text_buffer_get_iter_at_mark (buffer, &end, mark);
-		parrillada_jacket_buffer_add_default_tag (PARRILLADA_JACKET_BUFFER (buffer), tag);
-	}
-	else
-		gtk_text_buffer_get_selection_bounds (buffer, &start, &end);
-
-	gtk_text_iter_set_line_index (&start, 0);
-	gtk_text_iter_forward_to_line_end (&end);
-	gtk_text_buffer_apply_tag (buffer, tag, &start, &end);
+	parrillada_jacket_edit_justify (button, self, GTK_JUSTIFY_LEFT);
 }
 
 static void
@@ -574,12 +517,15 @@ parrillada_jacket_edit_init (ParrilladaJacketEdit *object)
 	GtkWidget *vbox;
 	GtkWidget *item;
 	GtkWidget *view;
-	GtkStyle *style;
 
 	priv = PARRILLADA_JACKET_EDIT_PRIVATE (object);
 
+	gtk_orientable_set_orientation (GTK_ORIENTABLE (object), GTK_ORIENTATION_VERTICAL);
+
 	/* Toolbar */
 	toolbar = gtk_toolbar_new ();
+	gtk_style_context_add_class (gtk_widget_get_style_context (toolbar),
+				     GTK_STYLE_CLASS_PRIMARY_TOOLBAR);
 	gtk_widget_show (toolbar);
 	gtk_box_pack_start (GTK_BOX (object), toolbar, FALSE, TRUE, 0);
 
@@ -598,7 +544,7 @@ parrillada_jacket_edit_init (ParrilladaJacketEdit *object)
 	gtk_toolbar_insert (GTK_TOOLBAR (toolbar), GTK_TOOL_ITEM (item), 0);
 
 	item = GTK_WIDGET (gtk_tool_button_new (NULL, _("Bac_kground Properties")));
-	gtk_tool_button_set_icon_name (GTK_TOOL_BUTTON (item), "background");
+	gtk_tool_button_set_icon_name (GTK_TOOL_BUTTON (item), "preferences-desktop-wallpaper");
 	gtk_tool_button_set_use_underline (GTK_TOOL_BUTTON (item), TRUE);
 	gtk_widget_set_tooltip_text (item, _("Background properties"));
 	gtk_widget_show (item);
@@ -713,7 +659,7 @@ parrillada_jacket_edit_init (ParrilladaJacketEdit *object)
 	gtk_toolbar_insert (GTK_TOOLBAR (toolbar), GTK_TOOL_ITEM (priv->colours), 1);
 
 	/* contents */
-	vbox = gtk_vbox_new (FALSE, 4);
+	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 4);
 	gtk_container_set_border_width (GTK_CONTAINER (vbox), 8);
 	gtk_widget_show (vbox);
 	gtk_box_pack_start (GTK_BOX (object), vbox, TRUE, TRUE, 0);
@@ -725,7 +671,7 @@ parrillada_jacket_edit_init (ParrilladaJacketEdit *object)
 	gtk_widget_show (scroll);
 	gtk_box_pack_start (GTK_BOX (vbox), scroll, TRUE, TRUE, 0);
 
-	main_box = gtk_vbox_new (FALSE, 0);
+	main_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
 	gtk_widget_show (main_box);
 	gtk_scrolled_window_add_with_viewport (GTK_SCROLLED_WINDOW (scroll), main_box);
 
@@ -752,15 +698,7 @@ parrillada_jacket_edit_init (ParrilladaJacketEdit *object)
 
 	gtk_box_pack_start (GTK_BOX (main_box), view, FALSE, FALSE, 0);
 
-	style = gtk_widget_get_style (priv->front);
-	if (pango_font_description_get_set_fields (style->font_desc) & PANGO_FONT_MASK_SIZE) {
-		guint size;
-		gchar string [8] = { 0, };
-
-		size = pango_font_description_get_size (style->font_desc);
-		sprintf (string, "%i", size);
-		parrillada_jacket_font_set_name (PARRILLADA_JACKET_FONT (priv->fonts), "Sans 12");
-	}
+	parrillada_jacket_font_set_name (PARRILLADA_JACKET_FONT (priv->fonts), "Sans 12");
 }
 
 void

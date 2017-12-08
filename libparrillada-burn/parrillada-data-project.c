@@ -752,9 +752,6 @@ parrillada_data_project_reverse_children (ParrilladaDataProject *self,
 {
 	gint *array;
 	ParrilladaDataProjectClass *klass;
-	ParrilladaDataProjectPrivate *priv;
-
-	priv = PARRILLADA_DATA_PROJECT_PRIVATE (self);
 
 	array = parrillada_file_node_reverse_children (parent);
 
@@ -1018,12 +1015,9 @@ static ParrilladaURINode *
 parrillada_data_project_uri_graft_nodes (ParrilladaDataProject *self,
 				      const gchar *uri)
 {
-	ParrilladaDataProjectPrivate *priv;
 	ParrilladaURINode *graft;
 	GSList *nodes;
 	GSList *iter;
-
-	priv = PARRILLADA_DATA_PROJECT_PRIVATE (self);
 
 	/* Find all the nodes that should be grafted.
 	 * NOTE: this must be done before asking for a new graft */
@@ -1685,6 +1679,7 @@ parrillada_data_project_add_node_real (ParrilladaDataProject *self,
 		/* The node is a fake directory; graft it as well as all the 
 		 * nodes already in the tree with the same URI */
 		graft = parrillada_data_project_uri_graft_nodes (self, uri);
+		parrillada_file_node_graft (node, graft);
 	}
 	else {
 		gchar *parent_uri;
@@ -2888,8 +2883,7 @@ parrillada_data_project_get_max_space (ParrilladaDataProject *self)
 		else
 			child_sectors = parrillada_data_project_get_folder_sectors (self, children);
 
-		max_sectors = MAX (max_sectors, PARRILLADA_FILE_NODE_SECTORS (children));
-
+		max_sectors = MAX (max_sectors, child_sectors);
 		children = children->next;
 	}
 
@@ -3319,13 +3313,11 @@ parrillada_data_project_add_path (ParrilladaDataProject *self,
 			       GSList *folders)
 {
 	ParrilladaDataProjectPrivate *priv;
-	ParrilladaDataProjectClass *klass;
 	ParrilladaFileNode *parent;
 	ParrilladaFileNode *node;
 	ParrilladaURINode *graft;
 
 	priv = PARRILLADA_DATA_PROJECT_PRIVATE (self);
-	klass = PARRILLADA_DATA_PROJECT_GET_CLASS (self);
 
 	/* we don't create the last part (after the last separator) of
 	 * the node since we're only interested in the existence of the
@@ -4131,7 +4123,6 @@ parrillada_data_project_file_renamed (ParrilladaFileMonitor *monitor,
 				   const gchar *old_name,
 				   const gchar *new_name)
 {
-	ParrilladaDataProjectPrivate *priv;
 	ParrilladaFileNode *sibling;
 	ParrilladaFileNode *node;
 
@@ -4144,8 +4135,6 @@ parrillada_data_project_file_renamed (ParrilladaFileMonitor *monitor,
 
 	if (!node)
 		return;
-
-	priv = PARRILLADA_DATA_PROJECT_PRIVATE (monitor);
 
 	/* make sure there isn't the same name in the directory: if so, that's 
 	 * simply not possible to rename. So if node is grafted it keeps its
@@ -4362,11 +4351,8 @@ parrillada_data_project_file_modified (ParrilladaFileMonitor *monitor,
 				    const gchar *name)
 {
 	ParrilladaFileNode *node = callback_data;
-	ParrilladaDataProjectPrivate *priv;
 	ParrilladaDataProjectClass *klass;
 	gchar *uri;
-
-	priv = PARRILLADA_DATA_PROJECT_PRIVATE (monitor);
 
 	if (node->is_loading)
 		return;

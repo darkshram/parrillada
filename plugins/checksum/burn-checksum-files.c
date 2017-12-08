@@ -1351,19 +1351,6 @@ parrillada_checksum_files_activate (ParrilladaJob *job,
 }
 
 static ParrilladaBurnResult
-parrillada_checksum_files_clock_tick (ParrilladaJob *job)
-{
-	ParrilladaChecksumFilesPrivate *priv;
-
-	priv = PARRILLADA_CHECKSUM_FILES_PRIVATE (job);
-
-	/* we'll need that function later. For the moment, when generating a
-	 * file we can't know how many files there are. Just when checking it */
-
-	return PARRILLADA_BURN_OK;
-}
-
-static ParrilladaBurnResult
 parrillada_checksum_files_stop (ParrilladaJob *job,
 			     GError **error)
 {
@@ -1462,7 +1449,6 @@ parrillada_checksum_files_class_init (ParrilladaChecksumFilesClass *klass)
 	job_class->activate = parrillada_checksum_files_activate;
 	job_class->start = parrillada_checksum_files_start;
 	job_class->stop = parrillada_checksum_files_stop;
-	job_class->clock_tick = parrillada_checksum_files_clock_tick;
 }
 
 static void

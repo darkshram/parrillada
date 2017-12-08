@@ -86,7 +86,6 @@ parrillada_dvdcss_library_init (ParrilladaPlugin *plugin)
 {
 	gpointer address;
 	GModule *module;
-	gchar *dvdcss_interface_2 = NULL;
 
 	if (css_ready)
 		return TRUE;
@@ -236,6 +235,7 @@ typedef struct _ParrilladaScrambledSectorRange ParrilladaScrambledSectorRange;
 
 static gboolean
 parrillada_dvdcss_create_scrambled_sectors_map (ParrilladaDvdcss *self,
+					     ParrilladaDrive *drive,
                                              GQueue *map,
 					     dvdcss_handle *handle,
 					     ParrilladaVolFile *parent,
@@ -285,14 +285,17 @@ parrillada_dvdcss_create_scrambled_sectors_map (ParrilladaDvdcss *self,
 						g_set_error (error,
 							     PARRILLADA_BURN_ERROR,
 							     PARRILLADA_BURN_ERROR_GENERAL,
-							     _("Error while reading video DVD (%s)"),
-							     dvdcss_error (handle));
+							     /* Translators: %s is the path to a drive. "regionset %s"
+							      * should be left as is just like "DVDCSS_METHOD=title
+							      * parrillada --no-existing-session" */
+							     _("Error while retrieving a key used for encryption. You may solve such a problem with one of the following methods: in a terminal either set the proper DVD region code for your CD/DVD player with the \"regionset %s\" command or run the \"DVDCSS_METHOD=title parrillada --no-existing-session\" command"),
+							     parrillada_drive_get_device (drive));
 						return FALSE;
 					}
 				}
 			}
 		}
-		else if (!parrillada_dvdcss_create_scrambled_sectors_map (self, map, handle, file, error))
+		else if (!parrillada_dvdcss_create_scrambled_sectors_map (self, drive, map, handle, file, error))
 			return FALSE;
 	}
 
@@ -372,7 +375,7 @@ parrillada_dvdcss_write_image_thread (gpointer data)
 	/* look through the files to get the ranges of encrypted sectors
 	 * and cache the CSS keys while at it. */
 	map = g_queue_new ();
-	if (!parrillada_dvdcss_create_scrambled_sectors_map (self, map, handle, files, &priv->error))
+	if (!parrillada_dvdcss_create_scrambled_sectors_map (self, drive, map, handle, files, &priv->error))
 		goto end;
 
 	PARRILLADA_JOB_LOG (self, "DVD map created (keys retrieved)");
