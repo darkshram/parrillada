@@ -17,9 +17,8 @@
     </_p>
   </description>
   <screenshots>
-    <screenshot type="default">https://wiki.gnome.org/Apps/Parrillada?action=AttachFile&amp;do=get&amp;target=copy-disc.png</screenshot>
-    <screenshot>https://wiki.gnome.org/Apps/Parrillada?action=AttachFile&amp;do=get&amp;target=audio-disc.png</screenshot>
-    <screenshot>https://wiki.gnome.org/Apps/Parrillada?action=AttachFile&amp;do=get&amp;target=data-project.png</screenshot>
+    <screenshot type="default"http://www.alcancelibre.org/images/parrillada-1.18.0.png</screenshot>
+    <screenshot>http://www.alcancelibre.org/images/parrillada-caja-1.18.0.png</screenshot>
   </screenshots>
   <url type="homepage">https://github.com/darkshram/parrillada/</url>
   <updatecontact>darshram@gmail.com</updatecontact>
