@@ -64,11 +64,43 @@ As examples, from my experience:
 - cdrdao is best for on the fly CD copying
 - libburn returns a progress when it blanks/formats
 
+Build requirements:
 
-Requirements:
-- gtk+ >= 2.12.0
-- mate 1.6.x
-- gstreamer (>=0.10.0)
+- autoconf
+- automake
+- desktop-file-utils
+- gettext
+- gettext intltool
+- intltool
+- libappstream-glib
+- libtool
+- libxslt
+- mate-common
+- pkgconfig(dbus-glib-1) >= 0.7.2
+- pkgconfig(glib-2.0) >= 2.15.6
+- pkgconfig(gobject-introspection-1.0)
+- pkgconfig(gstreamer-1.0) >= 0.11.92
+- pkgconfig(gstreamer-base-1.0) >= 0.11.92
+- pkgconfig(gstreamer-pbutils-1.0)
+- pkgconfig(gstreamer-tag-1.0)
+- pkgconfig(gstreamer-video-1.0)
+- pkgconfig(gtk+-3.0) >= 2.99.0
+- pkgconfig(gtk-doc)
+- pkgconfig(ice)
+- pkgconfig(libburn-1) = 1.4.8
+- pkgconfig(libcanberra)
+- pkgconfig(libcanberra-gtk3)
+- pkgconfig(libisofs-1) = 1.4.8
+- pkgconfig(libnotify) = 0.7.7
+- pkgconfig(libxml-2.0) = 2.9.4
+- pkgconfig(sm)
+- pkgconfig(totem-plparser) >= 2.22.0
+- pkgconfig(tracker-sparql-1.0)
+
+Runtime requirements:
+- gtk+ >= 3.10.0
+- mate 1.18.x
+- gstreamer (>=0.11.0)
 - DBus (>=1.x)
 - libxml2
 - cdrtools or cdrkit
