@@ -295,7 +295,7 @@ AM_CONDITIONAL(BUILD_CAJA, test x"$build_caja" = "xyes")
 # Installation path for plugins
 #
 
-PARRILLADA_PLUGIN_DIRECTORY=${libdir}/parrillada3/plugins
+PARRILLADA_PLUGIN_DIRECTORY=${PARRILLADA_PLUGIN_DIRECTORY:-'${libdir}/parrillada3/plugins'}
 AC_SUBST(PARRILLADA_PLUGIN_DIRECTORY)
 
 dnl ****************check for libburn (optional)**************
