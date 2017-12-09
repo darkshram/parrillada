@@ -23,7 +23,7 @@ _Name=Burn an Image File
 Exec=parrillada --image
 
 [Desktop Action Disc]
-Name=Copy a Disc
+_Name=Copy a Disc
 Exec=parrillada --copy
 
 [Desktop Action Audio]
