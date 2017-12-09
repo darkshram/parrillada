@@ -71,14 +71,14 @@ Build requirements:
 - desktop-file-utils
 - gettext
 - gettext intltool
-- intltool
+- intltool >= 0.50
 - libappstream-glib
 - libtool
 - libxslt
 - mate-common
 - pkgconfig(dbus-glib-1) >= 0.7.2
-- pkgconfig(glib-2.0) >= 2.15.6
-- pkgconfig(gobject-introspection-1.0)
+- pkgconfig(glib-2.0) >= 2.29.14
+- pkgconfig(gobject-introspection-1.0) >= 1.30.0
 - pkgconfig(gstreamer-1.0) >= 0.11.92
 - pkgconfig(gstreamer-base-1.0) >= 0.11.92
 - pkgconfig(gstreamer-pbutils-1.0)
@@ -87,22 +87,23 @@ Build requirements:
 - pkgconfig(gtk+-3.0) >= 2.99.0
 - pkgconfig(gtk-doc)
 - pkgconfig(ice)
-- pkgconfig(libburn-1) = 1.4.8
-- pkgconfig(libcanberra)
+- pkgconfig(libburn-1) = 0.4.0
+- pkgconfig(libcanberra) >= 0.1
 - pkgconfig(libcanberra-gtk3)
-- pkgconfig(libisofs-1) = 1.4.8
-- pkgconfig(libnotify) = 0.7.7
-- pkgconfig(libxml-2.0) = 2.9.4
+- pkgconfig(libisofs-1) = 0.6.4
+- pkgconfig(libnotify) = 0.6.1
+- pkgconfig(libxml-2.0) = 2.6.0
 - pkgconfig(sm)
-- pkgconfig(totem-plparser) >= 2.22.0
-- pkgconfig(tracker-sparql-1.0)
+- pkgconfig(totem-plparser) >= 2.29.1
+- pkgconfig(tracker-sparql-1.0) or pkgconfig(tracker-sparql-2.0)
 
 Runtime requirements:
-- gtk+ >= 3.10.0
-- mate 1.18.x
-- gstreamer (>=0.11.0)
-- DBus (>=1.x)
-- libxml2
+- gtk+ >= 3.0.0
+- MATE Desktop >= 1.18.0.
+  You may install version 1.6.2 if you use GTK2 MATE Desktop
+- gstreamer >= 0.11.92
+- DBus >= 1.x
+- libxml2 >= 2.6.0
 - cdrtools or cdrkit
 - growisofs
 - a fairly new kernel (>= 2.6.13 because of inotify) (optional)
@@ -113,7 +114,7 @@ Runtime requirements:
 
 Installation:
 
-   autoreconf -fi
+   ./autogen.sh
    
    ./configure
    

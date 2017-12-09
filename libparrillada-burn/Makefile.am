@@ -239,16 +239,16 @@ introspected_source = \
 	parrillada-tool-dialog.h parrillada-tool-dialog.c \
 	parrillada-sum-dialog.h parrillada-sum-dialog.c
 
-BarrilladaBurn-3.@TYPELIB_MIN_VERSION@.gir: Makefile libparrillada-burn3.la
-BarrilladaBurn_3_@TYPELIB_MIN_VERSION@_gir_NAMESPACE = BarrilladaBurn
-BarrilladaBurn_3_@TYPELIB_MIN_VERSION@_gir_VERSION = 3.@TYPELIB_MIN_VERSION@
-BarrilladaBurn_3_@TYPELIB_MIN_VERSION@_gir_INCLUDES = Gtk-3.0
-BarrilladaBurn_3_@TYPELIB_MIN_VERSION@_gir_CFLAGS = $(AM_CPPFLAGS)
-BarrilladaBurn_3_@TYPELIB_MIN_VERSION@_gir_LIBS = libparrillada-burn3.la
-BarrilladaBurn_3_@TYPELIB_MIN_VERSION@_gir_FILES = $(introspected_source)
-BarrilladaBurn_3_@TYPELIB_MIN_VERSION@_gir_SCANNERFLAGS = --identifier-prefix=Barrillada --symbol-prefix=parrillada
+ParrilladaBurn-3.@TYPELIB_MIN_VERSION@.gir: Makefile libparrillada-burn3.la
+ParrilladaBurn_3_@TYPELIB_MIN_VERSION@_gir_NAMESPACE = ParrilladaBurn
+ParrilladaBurn_3_@TYPELIB_MIN_VERSION@_gir_VERSION = 3.@TYPELIB_MIN_VERSION@
+ParrilladaBurn_3_@TYPELIB_MIN_VERSION@_gir_INCLUDES = Gtk-3.0
+ParrilladaBurn_3_@TYPELIB_MIN_VERSION@_gir_CFLAGS = $(AM_CPPFLAGS)
+ParrilladaBurn_3_@TYPELIB_MIN_VERSION@_gir_LIBS = libparrillada-burn3.la
+ParrilladaBurn_3_@TYPELIB_MIN_VERSION@_gir_FILES = $(introspected_source)
+ParrilladaBurn_3_@TYPELIB_MIN_VERSION@_gir_SCANNERFLAGS = --identifier-prefix=Parrillada --symbol-prefix=parrillada
 
-INTROSPECTION_GIRS += BarrilladaBurn-3.@TYPELIB_MIN_VERSION@.gir
+INTROSPECTION_GIRS += ParrilladaBurn-3.@TYPELIB_MIN_VERSION@.gir
 endif # HAVE_INTROSPECTION	    
 
 girdir = $(datadir)/gir-1.0
