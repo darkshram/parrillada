@@ -24,7 +24,8 @@ AM_CPPFLAGS = \
 	$(PARRILLADA_LIBXML_CFLAGS)					\
 	$(PARRILLADA_SEARCH_CFLAGS)					\
 	$(PARRILLADA_PL_PARSER_CFLAGS)					\
-	$(PARRILLADA_SM_CFLAGS)
+	$(PARRILLADA_SM_CFLAGS) 						\
+	-Wno-error=format-y2k
 
 GLIB_GENMARSHAL=`pkg-config --variable=glib_genmarshal glib-2.0`
 RECMARSHALFILES = parrillada-marshal.h parrillada-marshal.c
