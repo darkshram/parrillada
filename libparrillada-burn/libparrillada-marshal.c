@@ -70,9 +70,9 @@ parrillada_marshal_INT__VOID (GClosure     *closure,
 {
   typedef gint (*GMarshalFunc_INT__VOID) (gpointer     data1,
                                           gpointer     data2);
-  register GMarshalFunc_INT__VOID callback;
-  register GCClosure *cc = (GCClosure*) closure;
-  register gpointer data1, data2;
+  GMarshalFunc_INT__VOID callback;
+  GCClosure *cc = (GCClosure*) closure;
+  gpointer data1, data2;
   gint v_return;
 
   g_return_if_fail (return_value != NULL);
@@ -114,9 +114,9 @@ parrillada_marshal_INT__INT (GClosure     *closure,
   typedef gint (*GMarshalFunc_INT__INT) (gpointer     data1,
                                          gint         arg_1,
                                          gpointer     data2);
-  register GMarshalFunc_INT__INT callback;
-  register GCClosure *cc = (GCClosure*) closure;
-  register gpointer data1, data2;
+  GMarshalFunc_INT__INT callback;
+  GCClosure *cc = (GCClosure*) closure;
+  gpointer data1, data2;
   gint v_return;
 
   g_return_if_fail (return_value != NULL);
@@ -159,9 +159,9 @@ parrillada_marshal_INT__STRING (GClosure     *closure,
   typedef gint (*GMarshalFunc_INT__STRING) (gpointer     data1,
                                             gpointer     arg_1,
                                             gpointer     data2);
-  register GMarshalFunc_INT__STRING callback;
-  register GCClosure *cc = (GCClosure*) closure;
-  register gpointer data1, data2;
+  GMarshalFunc_INT__STRING callback;
+  GCClosure *cc = (GCClosure*) closure;
+  gpointer data1, data2;
   gint v_return;
 
   g_return_if_fail (return_value != NULL);
@@ -204,9 +204,9 @@ parrillada_marshal_INT__OBJECT (GClosure     *closure,
   typedef gint (*GMarshalFunc_INT__OBJECT) (gpointer     data1,
                                             gpointer     arg_1,
                                             gpointer     data2);
-  register GMarshalFunc_INT__OBJECT callback;
-  register GCClosure *cc = (GCClosure*) closure;
-  register gpointer data1, data2;
+  GMarshalFunc_INT__OBJECT callback;
+  GCClosure *cc = (GCClosure*) closure;
+  gpointer data1, data2;
   gint v_return;
 
   g_return_if_fail (return_value != NULL);
@@ -250,9 +250,9 @@ parrillada_marshal_INT__INT_STRING (GClosure     *closure,
                                                 gint         arg_1,
                                                 gpointer     arg_2,
                                                 gpointer     data2);
-  register GMarshalFunc_INT__INT_STRING callback;
-  register GCClosure *cc = (GCClosure*) closure;
-  register gpointer data1, data2;
+  GMarshalFunc_INT__INT_STRING callback;
+  GCClosure *cc = (GCClosure*) closure;
+  gpointer data1, data2;
   gint v_return;
 
   g_return_if_fail (return_value != NULL);
@@ -298,9 +298,9 @@ parrillada_marshal_INT__OBJECT_INT_INT (GClosure     *closure,
                                                     gint         arg_2,
                                                     gint         arg_3,
                                                     gpointer     data2);
-  register GMarshalFunc_INT__OBJECT_INT_INT callback;
-  register GCClosure *cc = (GCClosure*) closure;
-  register gpointer data1, data2;
+  GMarshalFunc_INT__OBJECT_INT_INT callback;
+  GCClosure *cc = (GCClosure*) closure;
+  gpointer data1, data2;
   gint v_return;
 
   g_return_if_fail (return_value != NULL);
@@ -346,9 +346,9 @@ parrillada_marshal_INT__POINTER_BOOLEAN (GClosure     *closure,
                                                      gpointer     arg_1,
                                                      gboolean     arg_2,
                                                      gpointer     data2);
-  register GMarshalFunc_INT__POINTER_BOOLEAN callback;
-  register GCClosure *cc = (GCClosure*) closure;
-  register gpointer data1, data2;
+  GMarshalFunc_INT__POINTER_BOOLEAN callback;
+  GCClosure *cc = (GCClosure*) closure;
+  gpointer data1, data2;
   gint v_return;
 
   g_return_if_fail (return_value != NULL);
@@ -391,9 +391,9 @@ parrillada_marshal_BOOLEAN__VOID (GClosure     *closure,
 {
   typedef gboolean (*GMarshalFunc_BOOLEAN__VOID) (gpointer     data1,
                                                   gpointer     data2);
-  register GMarshalFunc_BOOLEAN__VOID callback;
-  register GCClosure *cc = (GCClosure*) closure;
-  register gpointer data1, data2;
+  GMarshalFunc_BOOLEAN__VOID callback;
+  GCClosure *cc = (GCClosure*) closure;
+  gpointer data1, data2;
   gboolean v_return;
 
   g_return_if_fail (return_value != NULL);
@@ -435,9 +435,9 @@ parrillada_marshal_BOOLEAN__STRING (GClosure     *closure,
   typedef gboolean (*GMarshalFunc_BOOLEAN__STRING) (gpointer     data1,
                                                     gpointer     arg_1,
                                                     gpointer     data2);
-  register GMarshalFunc_BOOLEAN__STRING callback;
-  register GCClosure *cc = (GCClosure*) closure;
-  register gpointer data1, data2;
+  GMarshalFunc_BOOLEAN__STRING callback;
+  GCClosure *cc = (GCClosure*) closure;
+  gpointer data1, data2;
   gboolean v_return;
 
   g_return_if_fail (return_value != NULL);
@@ -480,9 +480,9 @@ parrillada_marshal_BOOLEAN__POINTER (GClosure     *closure,
   typedef gboolean (*GMarshalFunc_BOOLEAN__POINTER) (gpointer     data1,
                                                      gpointer     arg_1,
                                                      gpointer     data2);
-  register GMarshalFunc_BOOLEAN__POINTER callback;
-  register GCClosure *cc = (GCClosure*) closure;
-  register gpointer data1, data2;
+  GMarshalFunc_BOOLEAN__POINTER callback;
+  GCClosure *cc = (GCClosure*) closure;
+  gpointer data1, data2;
   gboolean v_return;
 
   g_return_if_fail (return_value != NULL);
@@ -526,9 +526,9 @@ parrillada_marshal_VOID__INT_STRING (GClosure     *closure,
                                                  gint         arg_1,
                                                  gpointer     arg_2,
                                                  gpointer     data2);
-  register GMarshalFunc_VOID__INT_STRING callback;
-  register GCClosure *cc = (GCClosure*) closure;
-  register gpointer data1, data2;
+  GMarshalFunc_VOID__INT_STRING callback;
+  GCClosure *cc = (GCClosure*) closure;
+  gpointer data1, data2;
 
   g_return_if_fail (n_param_values == 3);
 
@@ -569,9 +569,9 @@ parrillada_marshal_VOID__POINTER_STRING (GClosure     *closure,
                                                      gpointer     arg_1,
                                                      gpointer     arg_2,
                                                      gpointer     data2);
-  register GMarshalFunc_VOID__POINTER_STRING callback;
-  register GCClosure *cc = (GCClosure*) closure;
-  register gpointer data1, data2;
+  GMarshalFunc_VOID__POINTER_STRING callback;
+  GCClosure *cc = (GCClosure*) closure;
+  gpointer data1, data2;
 
   g_return_if_fail (n_param_values == 3);
 
@@ -612,9 +612,9 @@ parrillada_marshal_VOID__POINTER_POINTER (GClosure     *closure,
                                                       gpointer     arg_1,
                                                       gpointer     arg_2,
                                                       gpointer     data2);
-  register GMarshalFunc_VOID__POINTER_POINTER callback;
-  register GCClosure *cc = (GCClosure*) closure;
-  register gpointer data1, data2;
+  GMarshalFunc_VOID__POINTER_POINTER callback;
+  GCClosure *cc = (GCClosure*) closure;
+  gpointer data1, data2;
 
   g_return_if_fail (n_param_values == 3);
 
@@ -655,9 +655,9 @@ parrillada_marshal_VOID__OBJECT_BOOLEAN (GClosure     *closure,
                                                      gpointer     arg_1,
                                                      gboolean     arg_2,
                                                      gpointer     data2);
-  register GMarshalFunc_VOID__OBJECT_BOOLEAN callback;
-  register GCClosure *cc = (GCClosure*) closure;
-  register gpointer data1, data2;
+  GMarshalFunc_VOID__OBJECT_BOOLEAN callback;
+  GCClosure *cc = (GCClosure*) closure;
+  gpointer data1, data2;
 
   g_return_if_fail (n_param_values == 3);
 
@@ -698,9 +698,9 @@ parrillada_marshal_VOID__OBJECT_UINT (GClosure     *closure,
                                                   gpointer     arg_1,
                                                   guint        arg_2,
                                                   gpointer     data2);
-  register GMarshalFunc_VOID__OBJECT_UINT callback;
-  register GCClosure *cc = (GCClosure*) closure;
-  register gpointer data1, data2;
+  GMarshalFunc_VOID__OBJECT_UINT callback;
+  GCClosure *cc = (GCClosure*) closure;
+  gpointer data1, data2;
 
   g_return_if_fail (n_param_values == 3);
 
@@ -741,9 +741,9 @@ parrillada_marshal_VOID__BOOLEAN_BOOLEAN (GClosure     *closure,
                                                       gboolean     arg_1,
                                                       gboolean     arg_2,
                                                       gpointer     data2);
-  register GMarshalFunc_VOID__BOOLEAN_BOOLEAN callback;
-  register GCClosure *cc = (GCClosure*) closure;
-  register gpointer data1, data2;
+  GMarshalFunc_VOID__BOOLEAN_BOOLEAN callback;
+  GCClosure *cc = (GCClosure*) closure;
+  gpointer data1, data2;
 
   g_return_if_fail (n_param_values == 3);
 
@@ -785,9 +785,9 @@ parrillada_marshal_VOID__DOUBLE_DOUBLE_LONG (GClosure     *closure,
                                                          gdouble      arg_2,
                                                          glong        arg_3,
                                                          gpointer     data2);
-  register GMarshalFunc_VOID__DOUBLE_DOUBLE_LONG callback;
-  register GCClosure *cc = (GCClosure*) closure;
-  register gpointer data1, data2;
+  GMarshalFunc_VOID__DOUBLE_DOUBLE_LONG callback;
+  GCClosure *cc = (GCClosure*) closure;
+  gpointer data1, data2;
 
   g_return_if_fail (n_param_values == 4);
 
@@ -830,9 +830,9 @@ parrillada_marshal_VOID__POINTER_UINT_POINTER (GClosure     *closure,
                                                            guint        arg_2,
                                                            gpointer     arg_3,
                                                            gpointer     data2);
-  register GMarshalFunc_VOID__POINTER_UINT_POINTER callback;
-  register GCClosure *cc = (GCClosure*) closure;
-  register gpointer data1, data2;
+  GMarshalFunc_VOID__POINTER_UINT_POINTER callback;
+  GCClosure *cc = (GCClosure*) closure;
+  gpointer data1, data2;
 
   g_return_if_fail (n_param_values == 4);
 
