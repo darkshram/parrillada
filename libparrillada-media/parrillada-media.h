@@ -40,15 +40,15 @@ G_BEGIN_DECLS
  */
 
 #define LIBPARRILLADA_MEDIA_VERSION_MAJOR						\
-	3
-#define LIBPARRILLADA_MEDIA_VERSION_MINOR						\
-	12
-#define LIBPARRILLADA_MEDIA_VERSION_MICRO						\
 	1
+#define LIBPARRILLADA_MEDIA_VERSION_MINOR						\
+	18
+#define LIBPARRILLADA_MEDIA_VERSION_MICRO						\
+	0
 #define LIBPARRILLADA_MEDIA_AGE							\
 	362
 #define LIBPARRILLADA_MEDIA_INSTALL							\
-	"/home/jbarrios/mate"
+	"/usr/local"
 
 /**
  * To start and stop the library
