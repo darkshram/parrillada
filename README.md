@@ -93,6 +93,7 @@ Build requirements:
 - pkgconfig(libisofs-1) = 0.6.4
 - pkgconfig(libnotify) = 0.6.1
 - pkgconfig(libxml-2.0) = 2.6.0
+- pkgconfig(mate-desktop-2.0) >= 1.17.0
 - pkgconfig(sm)
 - pkgconfig(totem-plparser) >= 2.29.1
 - pkgconfig(tracker-sparql-1.0) or pkgconfig(tracker-sparql-2.0)
