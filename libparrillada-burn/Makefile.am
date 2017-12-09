@@ -5,6 +5,8 @@ AM_CPPFLAGS = \
 	-I$(top_builddir)/libparrillada-utils/				\
 	-I$(top_srcdir)/libparrillada-media/				\
 	-I$(top_builddir)/libparrillada-media/				\
+	-I$(top_srcdir)/libparrillada-burn/				\
+	-I$(top_builddir)/libparrillada-burn/				\
 	-DPARRILLADA_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" 	\
 	-DPARRILLADA_PREFIX=\"$(prefix)\"           			\
 	-DPARRILLADA_SYSCONFDIR=\"$(sysconfdir)\"   			\
@@ -17,12 +19,18 @@ AM_CPPFLAGS = \
 	$(PARRILLADA_GLIB_CFLAGS)						\
 	$(PARRILLADA_GIO_CFLAGS)						\
 	$(PARRILLADA_GTK_CFLAGS)						\
-	$(PARRILLADA_LIBNOTIFY_CFLAGS) \
+	$(PARRILLADA_LIBNOTIFY_CFLAGS) 					\
 	$(PARRILLADA_GSTREAMER_CFLAGS)					\
-	$(PARRILLADA_CANBERRA_CFLAGS)
+	$(PARRILLADA_CANBERRA_CFLAGS) 					\
+	-Wno-error=format-nonliteral
+
+CLEANFILES =
+EXTRA_DIST =
 
 GLIB_GENMARSHAL=`pkg-config --variable=glib_genmarshal glib-2.0`
 RECMARSHALFILES = libparrillada-marshal.h libparrillada-marshal.c
+
+CLEANFILES += $(RECMARSHALFILES)
 
 libparrillada-marshal.h: libparrillada-marshal.list
 	( $(GLIB_GENMARSHAL) --prefix=parrillada_marshal $(srcdir)/libparrillada-marshal.list --header > libparrillada-marshal.h )
@@ -198,63 +206,58 @@ if BUILD_INOTIFY
 libparrillada_burn3_la_SOURCES += parrillada-file-monitor.c parrillada-file-monitor.h
 endif
 
-EXTRA_DIST =			\
+EXTRA_DIST +=			\
 	libparrillada-marshal.list
 #	libparrillada-burn.symbols
 
+include $(INTROSPECTION_MAKEFILE)
+INTROSPECTION_GIRS =
+INTROSPECTION_SCANNER_ARGS = --warn-all
+
 if HAVE_INTROSPECTION
-girdir = $(INTROSPECTION_GIRDIR)
-gir_DATA = ParrilladaBurn-@TYPELIB_VERSION@.gir
+introspected_source = \
+	parrillada-tags.h \
+	parrillada-enums.h	\
+	parrillada-error.h	\
+	parrillada-status.h parrillada-status.c \
+        parrillada-burn-lib.h \
+	parrillada-track-type.h parrillada-track-type.c \
+	parrillada-track.h	parrillada-track.c \
+	parrillada-track-data.h parrillada-track-data.c \
+	parrillada-track-data-cfg.h parrillada-track-data-cfg.c \
+	parrillada-track-disc.h parrillada-track-disc.c \
+	parrillada-track-stream.h parrillada-track-stream.c \
+	parrillada-track-stream-cfg.h parrillada-track-stream-cfg.c \
+	parrillada-track-image.h parrillada-track-image.c \
+	parrillada-track-image-cfg.h parrillada-track-image-cfg.c \
+	parrillada-session.h parrillada-session.c \
+	parrillada-session-span.h parrillada-session-span.c \
+	parrillada-session-cfg.h parrillada-session-cfg.c \
+	parrillada-burn.h parrillada-burn.c \
+	parrillada-burn-options.h parrillada-burn-options.c \
+	parrillada-burn-dialog.h parrillada-burn-dialog.c \
+	parrillada-tool-dialog.h parrillada-tool-dialog.c \
+	parrillada-sum-dialog.h parrillada-sum-dialog.c
 
-typelibsdir = $(INTROSPECTION_TYPELIBDIR)
-typelibs_DATA = ParrilladaBurn-@TYPELIB_VERSION@.typelib
+BarrilladaBurn-3.@TYPELIB_MIN_VERSION@.gir: Makefile libparrillada-burn3.la
+BarrilladaBurn_3_@TYPELIB_MIN_VERSION@_gir_NAMESPACE = BarrilladaBurn
+BarrilladaBurn_3_@TYPELIB_MIN_VERSION@_gir_VERSION = 3.@TYPELIB_MIN_VERSION@
+BarrilladaBurn_3_@TYPELIB_MIN_VERSION@_gir_INCLUDES = Gtk-3.0
+BarrilladaBurn_3_@TYPELIB_MIN_VERSION@_gir_CFLAGS = $(AM_CPPFLAGS)
+BarrilladaBurn_3_@TYPELIB_MIN_VERSION@_gir_LIBS = libparrillada-burn3.la
+BarrilladaBurn_3_@TYPELIB_MIN_VERSION@_gir_FILES = $(introspected_source)
+BarrilladaBurn_3_@TYPELIB_MIN_VERSION@_gir_SCANNERFLAGS = --identifier-prefix=Barrillada --symbol-prefix=parrillada
 
-ParrilladaBurn-@TYPELIB_VERSION@.gir: libparrillada-burn3.la $(INTROSPECTION_SCANNER)
-	$(INTROSPECTION_SCANNER) -v --namespace=ParrilladaBurn --nsversion=1.0 \
-	    -I$(top_srcdir)/libparrillada-media	\
-	    -I$(top_builddir)/libparrillada-media	\
-	    -I$(top_srcdir)/libparrillada-burn		\
-	    -I$(top_builddir)/libparrillada-burn	\
-            --include=Gtk-3.0 \
-            --add-include-path=$(top_builddir)/libparrillada-media	\
-	    --include=ParrilladaMedia-@TYPELIB_VERSION@ \
-	    --library=parrillada-burn3 \
-	    --libtool="$(LIBTOOL)" \
-            --output $@ \
-            --pkg=gtk+-3.0  \
-	    --strip-prefix=Parrillada	\
-            $(top_srcdir)/libparrillada-burn/parrillada-tags.h						\
-            $(top_srcdir)/libparrillada-burn/parrillada-enums.h						\
-            $(top_srcdir)/libparrillada-burn/parrillada-error.h						\
-            $(top_srcdir)/libparrillada-burn/parrillada-status.h					\
-            $(top_builddir)/libparrillada-burn/parrillada-burn-lib.h					\
-            $(top_srcdir)/libparrillada-burn/parrillada-track-type.h					\
-            $(top_srcdir)/libparrillada-burn/parrillada-track.h						\
-            $(top_srcdir)/libparrillada-burn/parrillada-track-data.h                 			\
-            $(top_srcdir)/libparrillada-burn/parrillada-track-data-cfg.h				\
-            $(top_srcdir)/libparrillada-burn/parrillada-track-disc.h                 			\
-            $(top_srcdir)/libparrillada-burn/parrillada-track-stream.h                 			\
-            $(top_srcdir)/libparrillada-burn/parrillada-track-stream-cfg.h             			\
-            $(top_srcdir)/libparrillada-burn/parrillada-track-image.h					\
-            $(top_srcdir)/libparrillada-burn/parrillada-track-image-cfg.h				\
-            $(top_srcdir)/libparrillada-burn/parrillada-session.h                 			\
-            $(top_srcdir)/libparrillada-burn/parrillada-session-span.h					\
-            $(top_srcdir)/libparrillada-burn/parrillada-session-cfg.h					\
-            $(top_srcdir)/libparrillada-burn/parrillada-burn.h						\
-            $(top_srcdir)/libparrillada-burn/parrillada-burn-options.h        			        \
-            $(top_srcdir)/libparrillada-burn/parrillada-burn-dialog.h					\
-            $(top_srcdir)/libparrillada-burn/parrillada-tool-dialog.h					\
-	    $(top_srcdir)/libparrillada-burn/parrillada-sum-dialog.h					\
-	    $(top_srcdir)/libparrillada-burn/*.c	    
+INTROSPECTION_GIRS += BarrilladaBurn-3.@TYPELIB_MIN_VERSION@.gir
+endif # HAVE_INTROSPECTION	    
 
-ParrilladaBurn-@TYPELIB_VERSION@.typelib: $(gir_DATA) $(INTROSPECTION_COMPILER)
-	$(INTROSPECTION_COMPILER) $(top_builddir)/libparrillada-burn/$(gir_DATA) --shared-library=libparrillada-burn3 -o $(typelibs_DATA) --includedir=$(top_builddir)/libparrillada-media
-endif
+girdir = $(datadir)/gir-1.0
+nodist_gir_DATA = $(INTROSPECTION_GIRS)
 
-CLEANFILES =			\
-	$(RECMARSHALFILES)  \
-	$(gir_DATA)         \
-	$(typelibs_DATA)
+typelibdir = $(libdir)/girepository-1.0
+nodist_typelib_DATA = $(INTROSPECTION_GIRS:.gir=.typelib)
+ 
+CLEANFILES += $(nodist_gir_DATA) $(nodist_typelib_DATA)
 
 
 -include $(top_srcdir)/git.mk
