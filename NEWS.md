@@ -1,3 +1,12 @@
+* Parrillada 1.18.2
+	- Added mate-common macros. This fixes some build issues.
+	- Update parillada-main-window.png.
+	- Change to a pro-positive translation the spanish support.
+	- Remove more unnecesary files in git tree.
+	- Update info in AUTHORS.md.
+	- Add LICENSE.md to makefile.am.
+	- Reset Changelog to reflect only changes made in parrillada.
+
 * Parrillada 1.18.1
 
 	- Sync some code with Brasero 3.12.2.
