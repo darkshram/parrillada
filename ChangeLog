@@ -1,3 +1,15 @@
+commit 8dbf736249ef57630f39b4dbc7d75bb7fd4abdf7
+Author: Joel Barrios <darkshram@gmail.com>
+Date:   Sun Dec 10 01:45:31 2017 -0600
+
+    Add DISABLE_DEPRECATED macro.
+
+commit d4784447a5667a910c074095c297fae97f771dbb
+Author: Joel Barrios <darkshram@gmail.com>
+Date:   Sun Dec 10 01:22:03 2017 -0600
+
+    Update Changelog.
+
 commit 425cc25d28ea3ca1b85d976a9969dd686a9db5b0
 Author: Joel Barrios <darkshram@gmail.com>
 Date:   Sun Dec 10 01:19:19 2017 -0600
