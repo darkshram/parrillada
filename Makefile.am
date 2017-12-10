@@ -11,10 +11,11 @@ ACLOCAL_AMFLAGS = ${ACLOCAL_FLAGS}
 parrilladadocdir = ${prefix}/docs/parrillada
 
 EXTRA_DIST = 			\
-	AUTHORS.md			\
+	AUTHORS.md		\
+	LICENSE.md		\
 	MAINTAINERS.md		\
 	NEWS.md			\
-	README.md			\
+	README.md		\
 	intltool-extract.in	\
 	intltool-merge.in	\
 	intltool-update.in
