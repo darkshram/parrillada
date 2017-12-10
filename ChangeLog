@@ -1,3 +1,15 @@
+commit 425cc25d28ea3ca1b85d976a9969dd686a9db5b0
+Author: Joel Barrios <darkshram@gmail.com>
+Date:   Sun Dec 10 01:19:19 2017 -0600
+
+    Restore email address of original author.
+
+commit ddb16881b1b9d5ee46ec16e5a9c715570c6e71df
+Author: Joel Barrios <darkshram@gmail.com>
+Date:   Sun Dec 10 00:22:06 2017 -0600
+
+    Update Changelog
+
 commit 408154c45a81716d1937cd9d04f75bfac9738e95
 Author: Joel Barrios <darkshram@gmail.com>
 Date:   Sun Dec 10 00:10:07 2017 -0600
