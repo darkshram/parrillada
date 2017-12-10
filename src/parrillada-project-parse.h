@@ -3,7 +3,7 @@
  *
  *  dim nov 27 14:58:13 2005
  *  Copyright  2005  Rouquier Philippe
- *  parrillada-app@wanadoo.fr
+ *  brasero-app@wanadoo.fr
  ***************************************************************************/
 
 /*

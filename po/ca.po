@@ -1,7 +1,7 @@
 # Traducció del parrillada de l'equip de Softcatalà.
 # Copyright © 2005-2009 Free Software Foundation, Inc.
 # This file is distributed under the same license as the parrillada package.
-# Philippe Rouquier <parrillada-app@wanadoo.fr>, 2006.
+# Philippe Rouquier <brasero-app@wanadoo.fr>, 2006.
 # Carles Escrig (simkin) <simkin@ono.com>, 2006.
 # Francesc Vilches <francesc.vilches@gmail.com>, 2007.
 # Joan Duran <jodufi@gmail.com>, 2008-2013.

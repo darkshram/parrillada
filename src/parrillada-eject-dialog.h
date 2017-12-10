@@ -1,7 +1,7 @@
 /***************************************************************************
  *            
  *
- *  Copyright  2008  Philippe Rouquier <parrillada-app@wanadoo.fr>
+ *  Copyright  2008  Philippe Rouquier <brasero-app@wanadoo.fr>
  *  Copyright  2008  Luis Medinas <lmedinas@gmail.com>
  *
  *

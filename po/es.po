@@ -3,7 +3,7 @@
 # Copyright (C) 2006 THE parrillada'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the parrillada package.
 #
-# philippe Rouquier <parrillada-app@wanadoo.fr>, 2005.
+# philippe Rouquier <brasero-app@wanadoo.fr>, 2005.
 # Sergio Rivadero <sergiorivadero@argentina.com>, 2006.
 # Rafael Bermúdez <rafaelbermudez@gmail.com>, 2006.
 # Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2006.

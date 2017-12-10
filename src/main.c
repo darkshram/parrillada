@@ -22,7 +22,7 @@
  *
  *  Sat Jun 11 12:00:29 2005
  *  Copyright  2005  Philippe Rouquier	
- *  <parrillada-app@wanadoo.fr>
+ *  <brasero-app@wanadoo.fr>
  ****************************************************************************/
 
 #ifdef HAVE_CONFIG_H
