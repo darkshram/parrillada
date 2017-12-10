@@ -468,7 +468,7 @@ msgstr "Sólo se puede verificar una pista cada vez"
 
 #: ../libparrillada-burn/parrillada-burn.c:2635
 msgid "No format for the temporary image could be found"
-msgstr "No se pudo encontrar un formato para la imagen temporal"
+msgstr "Imposible encontrar un formato para la imagen temporal"
 
 #. Translators: Error message saying no graft point
 #. * is specified. A graft point is the path (on the
@@ -797,12 +797,12 @@ msgstr "Expulse el disco y recárguelo."
 msgid ""
 "A file could not be created at the location specified for temporary files"
 msgstr ""
-"No se pudo crear un archivo en la ubicación especificada para los archivos "
+"Imposible crear un archivo en la ubicación especificada para los archivos "
 "temporales"
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:729
 msgid "The image could not be created at the specified location"
-msgstr "No se pudo crear la imagen en la ubicación especificada"
+msgstr "Imposible crear la imagen en la ubicación especificada"
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:730
 msgid ""
@@ -927,7 +927,7 @@ msgid ""
 "The disc could not be ejected though it needs to be removed for the current "
 "operation to continue."
 msgstr ""
-"No se pudo expulsar el disco debido a que debe quitarse de la operación "
+"Imposible expulsar el disco debido a que debe quitarse de la operación "
 "actual para poder continuar."
 
 #: ../libparrillada-burn/parrillada-burn-dialog.c:1133
@@ -1762,7 +1762,7 @@ msgstr "Verificar de _nuevo"
 #: ../libparrillada-burn/parrillada-sum-dialog.c:165
 #: ../libparrillada-burn/parrillada-sum-dialog.c:514
 msgid "The file integrity check could not be performed."
-msgstr "No se pudo ejecutar la verificación de integridad de archivos."
+msgstr "Imposible ejecutar la verificación de integridad de archivos."
 
 #: ../libparrillada-burn/parrillada-sum-dialog.c:166 ../src/parrillada-data-disc.c:214
 #: ../src/parrillada-eject-dialog.c:102 ../src/parrillada-playlist.c:393
@@ -1908,7 +1908,7 @@ msgstr "Obteniendo formato y tamaño de la imagen"
 #. Translators: This is a disc image
 #: ../libparrillada-burn/parrillada-track-image-cfg.c:471
 msgid "The format of the disc image could not be identified"
-msgstr "No se pudo identificar el formato del disco imagen"
+msgstr "Impoisible identificar el formato del disco imagen"
 
 #: ../libparrillada-burn/parrillada-track-image-cfg.c:472
 msgid "Please set it manually"
@@ -1995,7 +1995,7 @@ msgstr "Crear un VCD"
 #: ../libparrillada-burn/parrillada-xfer.c:130 ../libparrillada-burn/parrillada-xfer.c:266
 #, c-format
 msgid "Directory could not be created (%s)"
-msgstr "No se pudo crear una carpeta (%s)"
+msgstr "Imposible crear una carpeta (%s)"
 
 #: ../libparrillada-burn/burn-basics.c:77
 msgid "Getting size"
@@ -2142,12 +2142,12 @@ msgstr "Falta la carpeta VIDEO_TS o no es válida"
 #: ../libparrillada-burn/burn-plugin.c:647
 #, c-format
 msgid "\"%s\" could not be found in the path"
-msgstr "No se pudo encontrar «%s» en la ruta"
+msgstr "Imposible encontrar «%s» en la ruta"
 
 #: ../libparrillada-burn/burn-plugin.c:651
 #, c-format
 msgid "\"%s\" GStreamer plugin could not be found"
-msgstr "No se pudo encontrar el complemento de GStreamer «%s»"
+msgstr "Imposible encontrar el complemento de GStreamer «%s»"
 
 #: ../libparrillada-burn/burn-plugin.c:655 ../libparrillada-burn/burn-plugin.c:667
 #, c-format
@@ -2374,7 +2374,7 @@ msgstr "%s:%s min"
 #: ../libparrillada-media/parrillada-volume.c:186
 #, c-format
 msgid "The disc mount point could not be retrieved"
-msgstr "No se pudo obtener el punto de montaje del disco"
+msgstr "Imposible obtener el punto de montaje del disco"
 
 #. NOTE for translators: the first %s is the disc type and Blank is an adjective.
 #: ../libparrillada-media/parrillada-volume.c:409
@@ -2609,7 +2609,7 @@ msgstr "Carátula frontal"
 #. * a picture, not a "Disc Image"
 #: ../libparrillada-utils/parrillada-jacket-view.c:1021
 msgid "The image could not be loaded."
-msgstr "No se pudo cargar la imagen."
+msgstr "Imposible cargar la imagen."
 
 #: ../libparrillada-utils/parrillada-metadata.c:1126 ../src/parrillada-audio-disc.c:643
 #, c-format
@@ -2658,7 +2658,7 @@ msgstr "Gstreamer no pudo manejar «%s»."
 #: ../plugins/transcode/burn-vob.c:1152
 #, c-format
 msgid "%s element could not be created"
-msgstr "No se pudo crear el elemento %s"
+msgstr "Imposible crear el elemento %s"
 
 #: ../libparrillada-utils/parrillada-misc.c:74
 msgid "Display debug statements on stdout for Parrillada utilities library"
@@ -2840,7 +2840,7 @@ msgstr "Falló la importación de la última sesión"
 #: ../plugins/growisofs/burn-growisofs.c:210
 #: ../plugins/growisofs/burn-growisofs.c:217
 msgid "An image could not be created"
-msgstr "No se pudo crear la imagen"
+msgstr "Impsible crear la imagen"
 
 #: ../plugins/cdrkit/burn-genisoimage.c:138
 msgid "This version of genisoimage is not supported"
@@ -2972,7 +2972,7 @@ msgstr "Esta versión de mkisofs no está soportada"
 #: ../plugins/checksum/burn-checksum-files.c:589
 #, c-format
 msgid "File \"%s\" could not be opened (%s)"
-msgstr "No se pudo abrir el archivo «%s» (%s)"
+msgstr "Imposible abrir el archivo «%s» (%s)"
 
 #: ../plugins/checksum/burn-checksum-files.c:617
 msgid "Creating checksum for image files"
@@ -2981,7 +2981,7 @@ msgstr "Creando suma de verificación para los archivos imagen"
 #: ../plugins/checksum/burn-checksum-files.c:859
 #, c-format
 msgid "No checksum file could be found on the disc"
-msgstr "No se pudo encontrar el archivo de la suma de verificación en el disco"
+msgstr "Imposible encontrar el archivo de la suma de verificación en el disco"
 
 #: ../plugins/checksum/burn-checksum-files.c:893
 msgid "Checking file integrity"
@@ -2991,7 +2991,7 @@ msgstr "Comprobando la integridad del archivo"
 #: ../plugins/checksum/burn-checksum-files.c:1012
 #, c-format
 msgid "File \"%s\" could not be opened"
-msgstr "No se pudo abrir el archivo «%s»h"
+msgstr "Imposible abrir el archivo «%s»h"
 
 #: ../plugins/checksum/burn-checksum-files.c:1085
 #: ../plugins/checksum/burn-checksum-files.c:1206
@@ -3039,7 +3039,7 @@ msgstr "SHA256"
 #: ../plugins/libburnia/burn-libburn.c:679
 #, c-format
 msgid "\"%s\" could not be opened (%s)"
-msgstr "No se pudo abrir el «%s» (%s)"
+msgstr "Imposible abrir el «%s» (%s)"
 
 #: ../plugins/checksum/burn-checksum-image.c:359
 #: ../plugins/checksum/burn-checksum-image.c:456
@@ -3090,7 +3090,7 @@ msgstr "Obteniendo claves DVD"
 #: ../plugins/dvdcss/burn-dvdcss.c:374
 #, c-format
 msgid "Video DVD could not be opened"
-msgstr "No se pudo abrir el DVD de vídeo"
+msgstr "Imposible abrir el DVD de vídeo"
 
 #: ../plugins/dvdcss/burn-dvdcss.c:395 ../plugins/dvdcss/burn-dvdcss.c:460
 #: ../plugins/dvdcss/burn-dvdcss.c:483
@@ -3120,23 +3120,23 @@ msgstr "Permitir el uso de DAO"
 
 #: ../plugins/growisofs/burn-growisofs-common.h:38
 msgid "growisofs burning suite"
-msgstr "Suite de grabación growisofs"
+msgstr "Paquete de grabación growisofs"
 
 #: ../plugins/libburnia/burn-libburn.c:242
 #: ../plugins/libburnia/burn-libburn.c:250
 #, c-format
 msgid "libburn track could not be created"
-msgstr "No se pudo crear la pista libburn"
+msgstr "Imposible crear la pista libburn"
 
 #: ../plugins/libburnia/burn-libburn-common.c:158
 #, c-format
 msgid "libburn library could not be initialized"
-msgstr "No se pudo inicializar la biblioteca libburn"
+msgstr "Imposible inicializar la biblioteca libburn"
 
 #: ../plugins/libburnia/burn-libburn-common.c:173
 #, c-format
 msgid "The drive address could not be retrieved"
-msgstr "No se pudo obtener la dirección de la unidad"
+msgstr "Imposible obtener la dirección de la unidad"
 
 #: ../plugins/libburnia/burn-libburn-common.c:418
 #, c-format
@@ -3152,24 +3152,24 @@ msgstr "Suite de grabación libburnia"
 #: ../plugins/libburnia/burn-libisofs.c:571
 #, c-format
 msgid "Volume could not be created"
-msgstr "No se pudo crear el volumen"
+msgstr "Imposible crear el volumen"
 
 #: ../plugins/libburnia/burn-libisofs.c:345
 #: ../plugins/libburnia/burn-libisofs.c:893
 #, c-format
 msgid "libisofs could not be initialized."
-msgstr "No se puede inicializar libisofs."
+msgstr "Imposible inicializar libisofs."
 
 #: ../plugins/libburnia/burn-libisofs.c:485
 #, c-format
 msgid "Read options could not be created"
-msgstr "No se pudieron crear las opciones de lectura."
+msgstr "Imposible crear las opciones de lectura."
 
 #. Translators: %s is the path
 #: ../plugins/libburnia/burn-libisofs.c:684
 #, c-format
 msgid "No parent could be found in the tree for the path \"%s\""
-msgstr "no se puede encontrar un padre en el árbol para la ruta «%s»"
+msgstr "Imposible encontrar un padre en el árbol para la ruta «%s»"
 
 #: ../plugins/libburnia/burn-libisofs.c:744
 #: ../plugins/libburnia/burn-libisofs.c:811
@@ -3441,6 +3441,7 @@ msgstr ""
 "Francisco Javier F. Serrador <serrador@openshine.com>, 2006\n"
 "Sergio Rivadero <sergiorivadero@argentina.com>, 2006\n"
 "Rafael Bermúdez <rafaelbermudez@gmail.com>, 2006"
+"Joel Barrios <darkshram@gmail.com>, 2017"
 
 #: ../src/parrillada-app.c:1449
 #, c-format
@@ -3572,7 +3573,7 @@ msgstr "_Carpeta de búsqueda"
 #: ../src/parrillada-audio-disc.c:812 ../src/parrillada-video-disc.c:395
 #, c-format
 msgid "\"%s\" could not be opened."
-msgstr "No se pudo abrir «%s»."
+msgstr "Imposible abrir «%s»."
 
 #: ../src/parrillada-audio-disc.c:857
 msgid "Do you want to create an audio CD with DTS tracks?"
@@ -3663,7 +3664,7 @@ msgstr "RUTA AL DISPOSITIVO"
 
 #: ../src/parrillada-cli.c:102
 msgid "Cover to use"
-msgstr "Carátula que usar"
+msgstr "Carátula para usar"
 
 #: ../src/parrillada-cli.c:103
 msgid "PATH TO COVER"
@@ -3735,7 +3736,7 @@ msgstr "No se puede escribir «%s»."
 
 #: ../src/parrillada-cli.c:206 ../src/parrillada-cli.c:220
 msgid "Wrong command line option."
-msgstr "Opción de línea de comandos incorrecta."
+msgstr "Opción de mandato incorrecta."
 
 #: ../src/parrillada-cli.c:297
 msgid "Incompatible command line options used."
@@ -3743,7 +3744,7 @@ msgstr "Se usaron opciones de línea de comandos incompatibles."
 
 #: ../src/parrillada-cli.c:298
 msgid "Only one option can be given at a time"
-msgstr "Solamente se puede especificar una opción por vez."
+msgstr "Sólo se puede especificar una opción por vez."
 
 #: ../src/parrillada-data-disc.c:125
 msgid "R_ename…"
@@ -3763,7 +3764,7 @@ msgstr "Crear una carpeta nueva"
 
 #: ../src/parrillada-data-disc.c:213
 msgid "The session could not be imported."
-msgstr "No se pudo importar la sesión."
+msgstr "Imposible importar la sesión."
 
 #: ../src/parrillada-data-disc.c:559
 msgid "The contents of the project changed since it was saved."
@@ -3815,7 +3816,7 @@ msgstr "Es un enlace simbólico recursivo"
 
 #: ../src/parrillada-data-disc.c:712
 msgid "It does not exist at the specified location"
-msgstr "No existe en la ubicación especificada"
+msgstr "Ubicación especificada inexistente"
 
 #. Translators: %s is the name of the file
 #: ../src/parrillada-data-disc.c:771
@@ -4550,7 +4551,7 @@ msgstr[1] "Ningún archivo está soportado (%i archivos seleccionados)"
 
 #: ../src/parrillada-project-manager.c:299 ../src/parrillada-project-manager.c:453
 msgid "No file selected"
-msgstr "No hay ningún archivo seleccionado"
+msgstr "Sin archivo alguno seleccionado"
 
 #: ../src/parrillada-project-manager.c:590
 msgid "Parrillada — New Audio Disc Project"
@@ -4613,7 +4614,7 @@ msgstr "Error al cargar proyecto."
 
 #: ../src/parrillada-project-parse.c:458
 msgid "The project could not be opened"
-msgstr "No se pudo abrir el proyecto"
+msgstr "Imposible abrir el proyecto"
 
 #: ../src/parrillada-project-parse.c:467
 msgid "The file is empty"
@@ -4797,7 +4798,7 @@ msgstr "La pista no se partió,"
 
 #: ../src/parrillada-split-dialog.c:610
 msgid "No silence could be detected"
-msgstr "No se pudo obtener ningún silencio"
+msgstr "Imposible obtener silencio alguno"
 
 #: ../src/parrillada-split-dialog.c:633
 msgid "An error occurred while detecting silences."
@@ -5243,7 +5244,7 @@ msgstr "Escriba «%s --help» para ver todas las opciones disponibles\n"
 #, fuzzy
 #~| msgid "Libdvdcss could not be loaded properly"
 #~ msgid "libdvdcss could not be loaded properly"
-#~ msgstr "No se pudo cargar libdvdcss de forma apropiada"
+#~ msgstr "Imposible cargar libdvdcss de forma apropiada"
 
 #~ msgid "Parrillada - Creating Image"
 #~ msgstr "Parrillada - Creando imagen"
@@ -5324,7 +5325,7 @@ msgstr "Escriba «%s --help» para ver todas las opciones disponibles\n"
 #~ msgstr "No se puede mostrar el registro de sesión."
 
 #~ msgid "The log file could not be found"
-#~ msgstr "No se pudo encontrar el archivo de registro"
+#~ msgstr "Imposible encontrar el archivo de registro"
 
 #~ msgid ""
 #~ "This is a excerpt from the session log (the last 10 MiB):\n"
@@ -5675,7 +5676,7 @@ msgstr "Escriba «%s --help» para ver todas las opciones disponibles\n"
 
 #~ msgid "The disc could not be mounted (max attemps reached)"
 #~ msgstr ""
-#~ "No se pudo montar el disco (se alcanzó el máximo número de intentos)"
+#~ "Imposible montar el disco (se alcanzó el máximo número de intentos)"
 
 #~ msgid "Do you want to continue or discard the old project layout?"
 #~ msgstr "¿Quiere continuar o descartar el proyecto anterior?"
@@ -5712,7 +5713,7 @@ msgstr "Escriba «%s --help» para ver todas las opciones disponibles\n"
 #~ msgstr "no se puede crear un directorio temporal (%s)"
 
 #~ msgid "A temporary directory could not be created (%s)"
-#~ msgstr "No se pudo crear un directorio temporal (%s)"
+#~ msgstr "Imposible crear un directorio temporal (%s)"
 
 #~ msgid "Leave the disc _open to add a data session later"
 #~ msgstr "Dejar el disco _abierto para añadir una sesión de datos después"
@@ -6052,10 +6053,10 @@ msgstr "Escriba «%s --help» para ver todas las opciones disponibles\n"
 #~ msgstr "el archivo cue (%s) parece ser inválido"
 
 #~ msgid "cdrdao could not be found in the path"
-#~ msgstr "no se pudo encontrar cdrdao en la ruta"
+#~ msgstr "Imposible encontrar cdrdao en la ruta"
 
 #~ msgid "toc2cue could not be found in the path"
-#~ msgstr "no se pudo encontrar toc2cue en la ruta"
+#~ msgstr "Imposible encontrar toc2cue en la ruta"
 
 #~ msgid "the old image couldn't be read"
 #~ msgstr "No se puede leer la imagen antigua"
@@ -6134,10 +6135,10 @@ msgstr "Escriba «%s --help» para ver todas las opciones disponibles\n"
 #~ msgstr "La unidad parece estar ocupada (quizá debería recargar el medio)"
 
 #~ msgid "the cd information could not be written"
-#~ msgstr "No se pudo grabar la información del CD"
+#~ msgstr "Imposible grabar la información del CD"
 
 #~ msgid "the disc could not be closed"
-#~ msgstr "No se pudo cerrar el disco"
+#~ msgstr "Imposible cerrar el disco"
 
 #~ msgid "the audio tracks are too short or not a multiple of 2352"
 #~ msgstr ""
@@ -6153,10 +6154,10 @@ msgstr "Escriba «%s --help» para ver todas las opciones disponibles\n"
 #~ msgstr "no se puede obtener el tamaño de la sesión"
 
 #~ msgid "mkisofs could not be found in the path"
-#~ msgstr "no se pudo encontrar mkisofs en la ruta"
+#~ msgstr "Imposible encontrar mkisofs en la ruta"
 
 #~ msgid "readcd could not be found in the path"
-#~ msgstr "no se pudo encontrar readcd en la ruta"
+#~ msgstr "Imposible encontrar readcd en la ruta"
 
 #~ msgid "the data couldn't be written to the pipe (%i: %s)"
 #~ msgstr "los datos no se pueden escribir en la tubería (%i: %s)"
@@ -6168,7 +6169,7 @@ msgstr "Escriba «%s --help» para ver todas las opciones disponibles\n"
 #~ msgstr "Error no manejado, abortando"
 
 #~ msgid "dvd+rw-format could not be found in the path"
-#~ msgstr "no se pudo encontrar dvd+rw-format en la ruta"
+#~ msgstr "Imposible encontrar dvd+rw-format en la ruta"
 
 #~ msgid "The disc is already burnt"
 #~ msgstr "El disco ya está grabado"
@@ -6183,7 +6184,7 @@ msgstr "Escriba «%s --help» para ver todas las opciones disponibles\n"
 #~ msgstr "La imagen no está almacenada localmente"
 
 #~ msgid "growisofs could not be found in the path"
-#~ msgstr "no se pudo encontrar growisofs en la ruta"
+#~ msgstr "Imposible encontrar growisofs en la ruta"
 
 #~ msgid "unable to set the source"
 #~ msgstr "imposible establecer el origen"
@@ -6195,7 +6196,7 @@ msgstr "Escriba «%s --help» para ver todas las opciones disponibles\n"
 #~ msgstr "no hay un perfil disponible para el medio"
 
 #~ msgid "/dev/null can't be opened"
-#~ msgstr "no se pudo abrir /dev/null"
+#~ msgstr "Imposible abrir /dev/null"
 
 #~ msgid "libburn can't burn: %s"
 #~ msgstr "libburn no puede grabar: %s"
@@ -6231,10 +6232,10 @@ msgstr "Escriba «%s --help» para ver todas las opciones disponibles\n"
 #~ msgstr "no se puede crear el sumidero"
 
 #~ msgid "GST plugin \"rgvolume\" could not be found"
-#~ msgstr "No se pudo encontrar el complemento de GST «rgvolume»"
+#~ msgstr "Imposible encontrar el complemento de GST «rgvolume»"
 
 #~ msgid "GST plugin \"rganalysis\" could not be found"
-#~ msgstr "No se pudo encontrar el complemento de GST «rganalysis»"
+#~ msgstr "Imposible encontrar el complemento de GST «rganalysis»"
 
 #~ msgid "filter can't be created"
 #~ msgstr "no se puede crear el filtro"
@@ -6282,7 +6283,7 @@ msgstr "Escriba «%s --help» para ver todas las opciones disponibles\n"
 #~ msgstr "no se puede crear el elemento de cola1"
 
 #~ msgid "ffenc_ac3 can't be created"
-#~ msgstr "no se pudo crear ffenc_mp3"
+#~ msgstr "Imposible crear ffenc_mp3"
 
 #~ msgid "tee element can't be created"
 #~ msgstr "no se puede crear el elemento tee"
@@ -6383,7 +6384,7 @@ msgstr "Escriba «%s --help» para ver todas las opciones disponibles\n"
 
 #~ msgid "the disc could not be reloaded (max attemps reached)"
 #~ msgstr ""
-#~ "no se pudo volver a cargar el disco (se alcanzó el máximo número de "
+#~ "Imposible volver a cargar el disco (se alcanzó el máximo número de "
 #~ "intentos)"
 
 #~ msgid "Open a data project with the contents of caja-cd-burner"
