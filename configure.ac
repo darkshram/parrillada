@@ -51,7 +51,7 @@ AC_CONFIG_HEADERS([config.h])
 AC_DISABLE_STATIC
 LT_INIT
 
-AM_MAINTAINER_MODE([enable])
+AM_MAINTAINER_MODE
 
 dnl **************** Support GSettings *************************
 GLIB_GSETTINGS
@@ -63,8 +63,7 @@ GTK_DOC_CHECK([1.12])
 dnl ***************** MATE MACROS *****************************
 
 dnl This allows to set warnings
-MATE_COMPILE_WARNINGS([maximum])
-MATE_CXX_WARNINGS
+MATE_COMPILE_WARNINGS(yes)
 
 dnl This could be use one day not to compile all debugging message
 dnl MATE_DEBUG_CHECK
@@ -507,6 +506,17 @@ else
   AC_DEFINE_UNQUOTED(PACKAGE_LOCALE_DIR, "${prefix}/${DATADIRNAME}/locale", [Location of package locale files])
 fi
 
+dnl ****** DISABLE_DEPRECATED *************************
+AC_ARG_ENABLE(deprecation_flags,
+              [AC_HELP_STRING([--enable-deprecation-flags],
+                              [use *_DISABLE_DEPRECATED flags @<:@default=no@:>@])],,
+              [enable_deprecation_flags=no])
+
+if test "x$enable_deprecation_flags" = "xyes"; then
+   DISABLE_DEPRECATED_CFLAGS=$DISABLE_DEPRECATED
+   AC_SUBST(DISABLE_DEPRECATED_CFLAGS)
+fi
+
 dnl ****** END ***********************
 
 AC_CONFIG_FILES([
@@ -572,6 +582,7 @@ echo "Version: $PARRILLADA_VERSION
 	Build growisofs plugins : ${build_growisofs}
 	Build libburnia plugins : ${build_libburnia}
 	Build GObject-Introspection : ${found_introspection}
+	Use *_DISABLE_DEPRECATED: ${enable_deprecation_flags}
 "
 echo
 echo
