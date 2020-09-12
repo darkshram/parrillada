@@ -1,5 +1,4 @@
 * Parrillada 1.18.3
-	- gschema: Fix gettext-domain.
 	- Check pointer before strcmp() call.
 	- Update Appdata file.
 	- Screenshots are now in Github.
