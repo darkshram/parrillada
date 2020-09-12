@@ -1,4 +1,6 @@
 <schemalist>
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="parrillada">
   <schema id="org.mate.parrillada" path="/org/mate/parrillada/">
     <key name="caja-extension-debug" type="b">
       <default>false</default>
