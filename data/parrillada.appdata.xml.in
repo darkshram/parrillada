@@ -40,11 +40,11 @@
   </keywords>
   <translation type="gettext">parrillada</translation>
   <screenshots>
-    <screenshot type="default">http://www.alcancelibre.org/images/parrillada-1.18.0-1.png</screenshot>
-    <screenshot>http://www.alcancelibre.org/images/parrillada-1.18.0-2.png</screenshot>
+    <screenshot type="default">https://github.com/darkshram/parrillada/raw/master/data/parrillada-1.png</screenshot>
+    <screenshot>https://github.com/darkshram/parrillada/raw/master/data/parrillada-2.png</screenshot>
   </screenshots>
   <url type="homepage">https://github.com/darkshram/parrillada/</url>
   <url type="bugtracker">https://github.com/darkshram/parrillada/issues</url>
-  <updatecontact>darshram@gmail.com</updatecontact>
+  <updatecontact>darshram_AT_gmail.com</updatecontact>
   <developer_name>Joel Barrios Dueñas</developer_name>
 </application>
