@@ -1,3 +1,9 @@
+* Parrillada 1.18.3
+	- gschema: Fix gettext-domain.
+	- Check pointer before strcmp() call.
+	- Update Appdata file.
+	- Screenshots are now in Github.
+
 * Parrillada 1.18.2
 	- Added mate-common macros. This fixes some build issues.
 	- Update parillada-main-window.png.
