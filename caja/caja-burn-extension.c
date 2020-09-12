@@ -714,6 +714,8 @@ caja_disc_burn_get_background_items (CajaMenuProvider *provider,
         items = NULL;
 
         scheme = caja_file_info_get_uri_scheme (current_folder);
+	if (!scheme)
+                return NULL;
 
         if (strcmp (scheme, "burn") == 0) {
                 CajaMenuItem *item;
